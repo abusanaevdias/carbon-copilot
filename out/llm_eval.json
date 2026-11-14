@@ -140,7 +140,7 @@
   }
  },
  "usd_spent": 0.02514,
- "usd_spent_this_eval": 0.02506,
+ "usd_spent_this_eval": 0.0,
  "calls": 377,
  "tokens_in": 183838,
  "tokens_out": 7188,
@@ -162,8 +162,8 @@
   "admitted": false,
   "precision_at_thr": null,
   "coverage": null,
-  "why": "laya_spike/REPORT.md absent: admission tests not shown, backend left as a stub"
+  "why": "laya_spike/REPORT.md: fails B5 on the unseen-account split (category macro-F1 0.55 < 0.925; no confidence threshold reaches precision 0.95; injection changed 18/50 answers); backend left as a stub"
  },
- "runtime_s": 70.5,
- "measured_at": "2026-11-14 15:01"
+ "runtime_s": 9.0,
+ "measured_at": "2026-11-14 15:06"
 }

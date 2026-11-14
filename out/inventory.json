@@ -2,15 +2,15 @@
  "meta": {
   "year": 2025,
   "entity": "Dala Foods LLP (case data, synthetic)",
-  "generated_at": "2026-11-14 13:56",
+  "generated_at": "2026-11-14 15:06",
   "rows": 1952,
   "rows_by_split": {
    "train": 1269,
    "test": 683
   },
   "product_t": 105000,
-  "input_sha256": "125ef501a4b83164c2ff874bbf78d08bd7133e75fdd8560ec77cd2dc0574c8a0",
-  "runtime_s": 0.07,
+  "input_sha256": "792948a2093a11496a86e70369c59bfab8a65c4386d461ea6e5fb69d92167dfc",
+  "runtime_s": 0.06,
   "boundary": "Operational control: plant, warehouse, head office. Whole 2025 purchase ledger (train lines = out-of-fold predictions, test lines = predictions).",
   "method": "GHG Protocol Corporate Standard; Scope 2 location-based; factors = emission_factors.csv (organiser values for this case)"
  },
