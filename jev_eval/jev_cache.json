@@ -1,0 +1,987 @@
+{
+"0120e386b98f9125c9bb36c8cce9f5678587b145c878534ae1830919ef92635a": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "openai/gpt-6-luna"
+},
+"01bec9e415cfc311f2100e9387ad474775464231b4bd6715d4aa3c8f089c566e": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "openai/gpt-6-luna"
+},
+"01c34a7cbe8655e272736adfdc625b1aee6ab5fe6e67944d431944198d9d0b04": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"02ff7271b3c6390d0e82b0c99a929da4c78e447d2300ac991c919b9f9a281e66": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "moonshotai/kimi-k3.1-pro"
+},
+"03dfcc9ab335f1dc55615f810b4de1997c90e39615219ec03080e037e2bc27e1": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"04d3a5249c0338a9f8068e9cf40416bd3520d469c25d2109900d6cb4cceb5f00": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "openai/gpt-6-luna"
+},
+"05419d082b29368e1d8a26a723f3adf95bb044951e1104d6be049b2dd67ce4fb": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"05abc47e624a387eca66a777efb1516575e0ca0cfb12896b17c3b11d7dceafb3": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"0602d57248490845b596d0e3c20a5dc2ee4f05d21550767567e32b71fa7158b5": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"09d5b219a7526a32fa7a4d57a748f892d7bb7e18e896057ef860a6bdaeb55878": {
+"conf": 0.9954,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0a59ed8b3158fc8ddd37fc6eccdea1338ec7b1c5709afe9d3088d7735411408c": {
+"conf": 0.9985,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0b3b6ff386abe36d6f5541b98547c557dbcf4e7eb2c62a77030f5de351dac58b": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "openai/gpt-6-luna"
+},
+"0bb2c6b8a23af3095c23cf97f73b9c438273bb9937af7a820f1de07ded7783ac": {
+"conf": 1.0,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0c87b0e063505e56a90db9272d9cf8a8e3a63b715f85394e817ef43a59b90fac": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "openai/gpt-6-luna"
+},
+"0efc76b45610ca5582176e4f73774395b828486976a4ad00f00cba929e1eb0c4": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "openai/gpt-6.1-sol"
+},
+"0fb40b51aeecd4edbe8a75bf0ebbbca7787e38d972b22af33de8894cae9c5914": {
+"conf": 0.6792,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1091db2dfd74d983dd750556656ba026d02e4afaabf5bd75812cb7a270457c53": {
+"conf": 0.5622,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"10d1881c37afe2415ae514b421c8466a0edb6a4ef43059d58bd41472f3a5100b": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "google/gemini-4-hydrogen"
+},
+"1242894e3e565a6c3a81b6b25a1e8f46255494e9e6fc4f21a2869472204055e4": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"12a66f17be9a853af6c44a66e34145ee7112f2ddf3cf4e05dbfafa5b297966fc": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"140f99f18c9f3aeca65cb3882e177a383d77255a9cebc3bb90956e00995b4904": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"1420830230c5965493c4f079150e7c09bed0e7c9f6466d85506d377432e0546b": {
+"conf": null,
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1480210aaf8a8a23c45a369115b293e93d3ad652e1865882a7f4c1b26c348a7f": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"16b3e13a056890ff29c0abc40cf05cb9852b926b34bcc7e14f205f6720c17553": {
+"conf": null,
+"label": "NONE",
+"model": "openai/gpt-6-luna"
+},
+"1b12e36ea8f009c339ae42b28d59099f73c579826c9ae2885e1b089c40423050": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"1be8370d74bf892cdc8608032b4a049ec73da2371e1195165d23b8d203e6d2a5": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "openai/gpt-6.1-sol"
+},
+"1c083920766d813a425863bdca898eddfddf26c70f5a610d3f605b6f50b8b637": {
+"conf": 0.5,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1c3e7167e81e94d750afc44e974ffd9b0e71ee61753afa4489dcf7d7df7c6443": {
+"conf": 0.7304,
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1d81f3d9c933b2f3adf47963f393acdccc061b102de8a51b772ccbe3c3ce5902": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1f3dc2a0cfd2aa58b6591d8f9cbf3c572b387ba41af09e8f385e2038fc140e81": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"23449e9bec13698fdc64dfaa772941cdaf115d03d09198cdff99f3b9d67a50d6": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"25309e4ac7f38adea6436da4e21b25cd9bed4828d69094a3253144e510d56738": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "openai/gpt-6-luna"
+},
+"26606f8265eb2a6d75d718d27c1cbe0eb6f6bea85bab4f9eff43ff99f7f37ab9": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"27fc4ccad1af5bb107e330ec48bf12c11291df5afd56758472ca31dee8d1e2d1": {
+"conf": 0.6964,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"28945ecdfd45712a044a7e1784b783892c4dcdd19ac7227df9e97e0312f10a73": {
+"conf": 1.0,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"2958463d24e5b74a5f611a95c61eef59f1354b6a02f167b775d1067a24c69207": {
+"conf": null,
+"label": "NONE",
+"model": "openai/gpt-6-luna"
+},
+"2b078ff1ef25952d1d5235b23ab7766b0a88e58a342a298afe402195ca4683d4": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"2c1e05b9d6be6f87dbf8ba7d987b730fb479e1215fec67cadad8100301963fb7": {
+"conf": 0.2859,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"2e4c4f32a087b5d4f27adc8498a750cbbe81cba5d9bbdb093003ccede8b0f477": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "openai/gpt-6-luna"
+},
+"2ef3f42315b5ba564fe8210249315fa4aa32fdabc14504f4b60c1e0e04858714": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"2f71def66054f6c55ff4c73cd75cf3e90b0ab87df5b41c7b286350faa85ce082": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"30d0d1612b1e3c64de2f608c58d98cdc4ec0b97a7aef2112517bd7617a22a4a8": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"34305080d98be7e4e7fb936d0521e07b6de4cf3d05287b395c54f9bea5a98358": {
+"conf": null,
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"35c3063ca0739b5fe702cc8d84ab04736f961999efc56b151264ceb44a8bef63": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"3656df286fbdea3fb359e6151ad33f14a8e5b5fbd5baf2d7dca133738d9dfbdd": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3676895faf68867ca7b22b3c0b446c7f539ef96b18d2678f5d5fbe6db46f2cfc": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"36af74921311aa6d0516d453d3b722b86ae1186143c182533b83e4fcab56e3bb": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"371d432717903f66573dfe65c02df303050aa99109f439c0242bc5c88eceee11": {
+"conf": 0.9948,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"375a8a5613343ac1d09ab0930aae4665001e02a30ed387dc9e33d1cda36e5be1": {
+"conf": 0.867,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3782776b385d74dc0434ac5748ace80531e7ce9a74363524fcd30dc323593ff2": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"39727d231509cbf6e29ab43292d42bb13c077660683ad5e765a3ebbf920e0ab5": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3ac1a7e1ddd48f1f3016ac7d8f5e73d8c9416604d63d0e6790c2b589857addf4": {
+"conf": 0.3601,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3d8706ff36a57092992a05dccb8789d1d791b957c79d04b60776fe378b3b07ed": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "openai/gpt-6-luna"
+},
+"3e92feec878496ae28e373b254e0fd34c104b6853b1777630277638afd176e56": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3f4c600aea7f317b102bf6530a18c74e2e8dcf3c685a31b52cc198d70f76f9eb": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"40c1812b2a98d8486e8d41075631f57330d44c9ca33433b396b0391c5dd931af": {
+"conf": null,
+"label": "NONE",
+"model": "openai/gpt-6-luna"
+},
+"410ec1cc1423b4964d949607a0b5b52268591b0a2acec2a608a6fcbb95f515b3": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "openai/gpt-6-luna"
+},
+"41ac06b5415e8f9785a510e606c2e53ee0eb809d9dcfca884e70b6e11eb77f9d": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "openai/gpt-6-luna"
+},
+"41bb8a8b23165e9edb9fcc4e1ff47d51dec550c71894c18254e5fdbe8a47f83b": {
+"conf": 1.0,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"43be21c7fa599d7734d628735735bd382e3700c93efb945d6bc7a6beaf215728": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "anthropic/claude-opus-5.5"
+},
+"45ba908932ac7299a06fbce74b2cca7107ee4821f1b7f5088f5a7422f8bc5582": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"47246fdf0fd84f8c2fc80303dd692fc119b25b7d3d87cf2bbb0c044ee3d51282": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_IT",
+"model": "openai/gpt-6-luna"
+},
+"47792e92bcdb6864baf1e3fb5af0c55efa52bb5a186a1f58776cd89971d09b29": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"47c2029d758700492d05b359b70f92fbdbec1bc5ef2e77898a0ba7cb9400b492": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"494edf485dd9910551c6a50f07882278022e08c7ed38ad565ffb6b5a19b170c3": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"49ceea8cdb75589de8fc058a0df22245052a2c222d98e60b0c6a7c67330fc998": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "openai/gpt-6-luna"
+},
+"4be014b82e153a38bb9db4fbb106eef4c7f5d1de2be535e60b2091836d6b5cab": {
+"conf": null,
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4eb83f1cf6651ef30bfa75065f49a2e7fa4caa471b156032fe2615fdeaddef2e": {
+"conf": 0.061,
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4fe67d1d7a4601fe2a89a40fd210070b8020588cf59afb03dbf8c9e639e72a05": {
+"conf": 0.7982,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"503aa256065bbb752d2db6b44ffdb14695299102331d4fd0f5153c48f555cf96": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"51f46355df41c89c14b6b1d8d0b4a06b2adf513142e1a8d3d48d099ee2b91226": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"535e8731f06e9d5ae4582dac0cb0e683ae3e7218545635dbe0470c24787c0252": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"54247705db3fcffa68b4c0f3ce55660e31c597fdef74681cdfbc78e07689d86a": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"5741833a23a6fbd655a273e1701fc17d3b78ca81581a938a3dea23db3a697997": {
+"conf": 0.9241,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"5810c64e63238894c284487634dbc0991ebce9a327ce7f981ce9bb351ef24926": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"58d54ebadc054ab6df88f9205c65f7d663e1efdcc252d64890b47208d12d4370": {
+"conf": null,
+"label": "NONE",
+"model": "openai/gpt-6-luna"
+},
+"5a04cf7a4fb561403ca953de0f212450b5637c1d1d11de4a711291f3278b5fdc": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"5ad5fb4624043b3607242989044c7ecfbd183be1d6b55511ca40ada9fe80409f": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"5d4c2598f9b776e5c97c1e0cd15f513157f20bee6195a7f903a109f236cd8c87": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "google/gemini-4-carbon"
+},
+"5f06e693764c88ead9889491aaffa36d421713695d9076c6a2b1e1234e123390": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_IT",
+"model": "openai/gpt-6-luna"
+},
+"5f23921e0fe5abaf01a3e83b0ddc3aa74968fe4a65fa1aceb6b51be186bc46fc": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "openai/gpt-6-luna"
+},
+"5f2ce1ce7282a83a7b178dc431ef036bd2850c9bef20244e8edd2a2047256caf": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"615326b7af40911e1897c07c92ca633cb4d2b1ce8919b7a1fde4073ee11ae3a5": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"634e333ccc91435c5532cbf1f4410c6177d05109decdf2b65a974cb2c90787e4": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"64f808eeb69735e828d0ada7ed1d5bdc8272228d869e7170dd65d909b220ada8": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"65ef46fc16fe928c49040cb2075e312228087075caa96cf2b871c6e6ae41bb3d": {
+"conf": 0.9046,
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"6c5963554bae2b518bce2e6c16b5a71c89f1315762564765b954fb8419bc0d78": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"6c5c42a2ca9e800592406d3477d2d98ea54e50ece5a2ff7aed64a246980e7829": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"6f916558c62fcab8eee3ba3d55bda8f560ebc4d092854b04e6b317497bbdb25f": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"72e7543365bfa09710883c815e7902fe71b36bb0b53197b4e1643638866b1aa0": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"73447442596d3cfa14f546bf4078f11e1031a37b8766b409058ce9f4bf172afb": {
+"conf": 0.8307,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"738770bc66fa6521b10267672face04586954efc3447c346d14cdc03cdeec372": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"73a59ced19feca77923ea88e1a440ea2d2ddf1445d5179f2e7bfc073603b7074": {
+"conf": 0.9399,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"75aef7de6881f4fad72b84b5360cb07cd4f9201ea90fef4441d2a5564559f79d": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"764a4dd7adde8842d44cdf8cbdc724bd502bc561db3606cf1aed4b6dea432d2b": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "openai/gpt-6-luna"
+},
+"7c913e91355ff886bd146ecae28d223da6ddf0ad284f5fb47a72a012af7e7fbf": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"7e498c6539dc9770842842702e81c8db6d54671d4b2ada5bd86ed206e1c5a6d5": {
+"conf": 1.0,
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"7ed0b0025304e48ae577c4929358265e06a7cd7bf56d5b001fe58a79ecbc815d": {
+"conf": 0.7773,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"8078019fbd2eca76163e6107f94a696a47f77f6db7afd4bef33aad45b21e12ed": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "openai/gpt-6-luna"
+},
+"808decd56ce691c8542e699c6fdb09c22a30ab8b77197a306818f53eb42f3365": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"80a8b4ecca2b98eff20b5296ed7c2da249b1e4d4d6d455e53c16752cd7e8bfe1": {
+"conf": 0.9588,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"81debd2a0083cfc2d3b258a0f6157d59d5c568de94aef16d7f463239f04e50fd": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"84c553d4152e221d86b28cb008fac0c246eeba534202cab46c43806a01e87f44": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "openai/gpt-6-luna"
+},
+"84c64ca5c77d070f64810dd65c95dea2dcbe5358675b697070d2bbefb6c72ca5": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "openai/gpt-6-luna"
+},
+"86500ff481bf5de6ce193a0431520c851c0970f219bf6a2aae718bfc17af0eb7": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"86f09ca9fedf657db8e8ac4d5b32aa7b15bb2160e856f77bfc09a977d4a8ebeb": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"8a5bb9662e58d64cee85199fa55673010c9b499e23d3a077a20d0890cde1038f": {
+"conf": 1.0,
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"8ab4fbf7cb8ebe869ab5ea298b66911546022d65248ba5d7c92c36f104e35778": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "moonshotai/kimi-k3.1-pro"
+},
+"8bc02bc0df056f15eace01dae7cbc00290ebacbe6b6fc174e4c7e934d66e70de": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "openai/gpt-6-luna"
+},
+"8c306736b9d64de5d7573c80460d461c4ef3fdadc622b4b3142db7c1d0b2dc6c": {
+"conf": 0.9926,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "moonshotai/kimi-k3.1-pro"
+},
+"8caeb785040bc8e7e7a6ce7f03d24cbe1283e7daf1443ee430b3893f49d1c18d": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"8e00a5906baad1404a82e49fb9d2089a162acf113c84e8eea751f9bcb46b8c4a": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "openai/gpt-6-luna"
+},
+"8e6aab936eb5a6be2f0be80145c04e60ebfc49d5ce8bcba5196670bfff683aae": {
+"conf": 0.1074,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"912a9e48f8747cba954a367814eff4afc24679691636f53e4ed0916a0e43d7be": {
+"conf": 0.8851,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"92aabd6a62ab3fb8ce8bf87d61284abba7fe2770e47e77b491cffd8d29f805c6": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"98315d93d5a598898a663573bc02726b4fc4cb58417c2ef81baa7dd44666e042": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "openai/gpt-6-luna"
+},
+"98743caa9100960d0a498df93a09d524712bd89e9ef1de14c5871e4160ba21af": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"99a0b5537ad7eb2df63808c0d505c7a1a416932ad119eb07964ab6d75ab7cd58": {
+"conf": 0.487,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"9a79dd3747bcb98d5ae978557dc21706f5131bb5292afff7c5f4eb7ec0ff9596": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"9b9a942c44f403bfa98f9393bc55eded253eff64c2d5f5ee6a409631128eab71": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "openai/gpt-6-luna"
+},
+"9ca178b7cfe3a1e24c7bca6747aee49390c87156ccdd2d837234d1ddbadec450": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"9d5f0112756edf17e12c88ef890859091f556bcf99f21fcc8b8114338581b112": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "openai/gpt-6-luna"
+},
+"9fbb544a9fb4000c6633997c08fb6447c324eb0f0c9ff08f026d35aadd54fb04": {
+"conf": null,
+"label": "NONE",
+"model": "openai/gpt-6-luna"
+},
+"a5baa4a0b6313daedf72a73f54b17eccf08324943996161838f8b847cbca5517": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "openai/gpt-6-luna"
+},
+"a8f4722e60b81fafe01e3ebfe85a1b077c5e1cd36ebada8239534dab4fedc318": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"a9d60d10f6502d4e89fe43279e3119b151e13b9841210ace9aa8de54a254e5c9": {
+"conf": null,
+"label": "NONE",
+"model": "openai/gpt-6-luna"
+},
+"aba83d444d119d4113b37bf77fb94e06aefa2457dc8e3ef7bd22321aa90da3c5": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "openai/gpt-6-luna"
+},
+"ac4c180018faf398795dbb55220195b19b8cf8fdf4152f04dc742a1dadee32dc": {
+"conf": null,
+"label": "NONE",
+"model": "openai/gpt-6-luna"
+},
+"af242826cc21f97f71f782dcb646edfa435aa254a4710d14633828060ab5284d": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "openai/gpt-6-luna"
+},
+"b0b1229986ecddd98c37eaac4197d5dcbcbeeb0437be9cb9198bcc7237fd824b": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"b276816f4ab1ef6685eb9d95791ae504364c5c062f34feb975401e05a81b9d99": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "openai/gpt-6-luna"
+},
+"b2fec1b2d33062384b905e6795617371b9b672d7082499f29abc8c098dea1325": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"b5b2e5f0f3571d66b9a6bacf3581094f306090996ebcdcf1699924f719f4b721": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "openai/gpt-6-luna"
+},
+"b6a566e0b38bdc63bbb304e6af3bdd826aeddbd32502ab0758e3a73a61751b17": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"b8dcd403d60fd68bc261d0e65c0438aff9fc240708a92bccbf72e140ac4b1f7e": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "openai/gpt-6-luna"
+},
+"b912fdd15a958cd3a326251a73a4230abb6ad04a1715a900c257e99473d1ad08": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"ba0912fe9792747ae5611a8bf5666b21e02740f0277066d9485a86efd2f06806": {
+"conf": null,
+"label": "NONE",
+"model": "openai/gpt-6-luna"
+},
+"bae86486150022b2d1807b3178bf8726a7e0ba1dfbb6eb847fa212215255502e": {
+"conf": 1.0,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"baf666910e3bef845843bcb095ae5ac8a9b7f8ea0a24c2ba99d581c2dc9ea18b": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6.1-sol"
+},
+"bc892e642757a2f38c2d40e07a4ebd81c63e5a75f7eac89b17d081a77f5470bd": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"c118e79b3806b1e0c13ae63b1706017b87c3ef615e67e523ddc5adcaf16d283a": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"c30bb1ddb67b18e3c633ad05098146b19415cc3283c88a22c72a8eec971c079c": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "openai/gpt-6-luna"
+},
+"c3d64f5d942086e0971aac0f8ba6e1d12f95de402631096a66d60a2c53daf990": {
+"conf": 0.3565,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c3e74cc983df916621635b54281f649211411e2df62a903a1dad7b10ebff1efe": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"c5127c1188ed762cda31e595c50c852bf969ee60f1000dcb52ff23bd3b687118": {
+"conf": 0.8176,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c582b6c2725a328abc9769cd7dec6808e4ce7e149403c4bccf0f97af313d465a": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "google/gemini-4-hydrogen"
+},
+"c84b9876b501bbebdb146ec2e52a9b3625d8cb6fa6c6e14f33af4a530ac91381": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6.1-sol"
+},
+"c84c6f63921be704c75d9dd3bbd3fd229d2365898168948721b6d8d938dde8c3": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "openai/gpt-6-luna"
+},
+"c95dbfbca40f6980fa7aba9a9ff27cb7a8fb7e6a060c60eb89c725ed24789c2f": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "openai/gpt-6.1-sol"
+},
+"ca1685ad30a175a33f5bc51741ddb985ad853faa5bf6009c6aef2e86ef1c914d": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"ca6029a9db00ba12258578503ecf81613a027c947c61dd327de296ff6ee8f1fc": {
+"conf": 0.9627,
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "moonshotai/kimi-k3.1-pro"
+},
+"caa78ec883f59f63a74a0feac5ec06546f71a51c7fa90dfebd036ebdb971da07": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"cb9d680b4a61d978c862656615f49500b9523e4d5d669935cc02266597afb237": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"cba8e77e31406638ac2be027946d7d8db2b35bfeb6dc9ce012e439db0d2b7260": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"cc543836d87bae7b271cf78cc7e770930827a28f1ed3dee31d6b3eb77de8b423": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "openai/gpt-6-luna"
+},
+"d0ca724745176ecf35102aebb249b0dfddba456cf58445dcc0e613bf45a1f6fe": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "google/gemini-4-carbon"
+},
+"d64559cec5239861d566756bb2d0004571e9d1f3e8e3dd2c475896b23174a4b6": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "openai/gpt-6-luna"
+},
+"d6fb152b28782e029b8ba3203a24df74cb0d86e55ab666d19dddd7a87ceb7d60": {
+"conf": 0.0274,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d74c3b88d753961d1a56c13a15293c37f492f040fee6b4c4d71c469df9a1f2f9": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"d9cd329cf6dcfdf40b569a65e9d958af6fc95fd861e975a807369244ba3aac43": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"da5ba1bebbe845b24b7c2ba58df3490654d8067ea706b9fbd28cf9b88f4642a6": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"da86719a14a56ceb4936c55ff06208e10d0a7f3506bb215da2948b98fa891dc8": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"de9c4ec583cda06956077d6a6897d361ee73737460a5ed7c111c503ebdea7d25": {
+"conf": 0.9579,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"e0d78cdef65278ceee1413b91b29b57e000d2ddbdf98818df97864cb479992db": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"e118985be34b58cf2e34f118d720792cdd083cf5845c51fc0f9126a36dee072b": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"e217f179213707f4f6cf896ae902568e235bed58640ced52c8a382bdd59a30ee": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "openai/gpt-6-luna"
+},
+"e22574f14158c49fbe58a399a50624339e3750c7922633bbb7c55e9fee3d272f": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "anthropic/claude-opus-5.5"
+},
+"e3a5fe0bc22545bc30281970acb7f449cd2f40468923f6db11a2560092895661": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "openai/gpt-6-luna"
+},
+"e3d1ef9f163d540afe248384dd0f100856602a4086ff0057b98ec497e6dc73ea": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"e41b5825e24b411b687311a59284ebf6dd0fc8eaf6fc9ffbd3a9a1a1b8cf38bc": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "openai/gpt-6-luna"
+},
+"e4da6bbfe1270d65784ab2d3ef844b60976bd49d62816814724653467a661351": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "openai/gpt-6-luna"
+},
+"e4dd14c8b551c5263f2769d68dfc19679851b98a2b6540d6483bb8815e7685b3": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"e533d4399fbefc42b4ac08ea61e06ba9a95e583cf13e5b0ca373177ef4bed902": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"e60e140ae23d13dfe30578844142329c6e7e5208926290f19c0ae55fea6a51a7": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"e6cfcd2b98bbdd2bae2f58c3e6cf4e9090d4489232d62126243d487a975bad4b": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"e7306b4d52eca2cb55d66eefa4fddefa91f167271fdb18df6828699816031cc5": {
+"conf": 0.9968,
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"e7d7099cb8c8d0a5a85e86c4ac40f264b76702c56d5977bf582025e765867b1e": {
+"conf": 1.0,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"ea2c47e7ca4fc3c2ec88316d25b264d087dd620dbde67ed1288372e35e94b2c1": {
+"conf": null,
+"label": "NONE",
+"model": "openai/gpt-6-luna"
+},
+"eb719394963ebc4bdbfe92c705769bd41c361d14512800e9ae4a131b4e55b48f": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"ecba9f968d919f7940ead795edee55b6570c62bb73387f4cf99354200ccab187": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"ee8563dbe85547cd8af14baf026508deaefe533a229c128f179708c62747a704": {
+"conf": 0.8933,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"eea3f1702ce2ed3569c5707319b780bf4a19ab21d10404183a17028c110130b5": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"eef6d47d6d88f6afedb7b0d3bb6bbc9024f1a0838fcf3546aba4207878cb5f95": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "openai/gpt-6-luna"
+},
+"f29a127891a64033d0e95e78849e940d36146d950a00b97e4e010d9313dbdbb3": {
+"conf": null,
+"label": "NONE",
+"model": "openai/gpt-6-luna"
+},
+"f4bac1a64ed75d71bfefe3eb1a9995ce173472dcb84933a0ddff423a69609a43": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"f4d4603093565c773105ebcef6d8d9766c5602b3ade5eb83334a8dd719950597": {
+"conf": null,
+"label": "NONE",
+"model": "openai/gpt-6-luna"
+},
+"f4f3e322b798acb850a34f0ad46f862f173ed2e40acd93e3117c3576205792df": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"f532a9245a9fb56ffa5a6f0c2caa85f9d2fc0cc4410c01d61b36d8a30fbf8c91": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "openai/gpt-6-luna"
+},
+"f55e85df548df1cd8466837c13627a4ce2a40f878238134010e2be886ba14f22": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"f6062044a49688f7a7aeedc608763448b8afa79a6d4619c3846881dc7f4b3004": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "openai/gpt-6-luna"
+},
+"f66d3735f7e1e7748041baebef34904828633cf5494601e0327829a5ede89fed": {
+"conf": 1.0,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f6e2f0a6cdab5cfdab3469a88792e0c263f03c9abf9d8b81eeb5f3d3ffb0058d": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "openai/gpt-6-luna"
+},
+"fb75721d87e84fefe412b84134c40978c0f2bd8e298b4d8f785530da02f4b833": {
+"conf": 1.0,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"fbabd0b85657076b545fd9515a1910df645ef253ff01f051e497cbbccad33bce": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "openai/gpt-6-luna"
+},
+"fc66a5cd907b4535483768ea1d33dc33ef9ef0c236006b8d85ec597cec4bccf9": {
+"conf": null,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "moonshotai/kimi-k3.1-pro"
+},
+"fd923423ab3900033d370e3b72f0748269d1860a6e0a5d8f7e5dcb87d3245f7d": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "openai/gpt-6-luna"
+},
+"fe23e2b4da5a029d589f99aae15caa5872fbb4a1cb6718b0ec4156b6f0d807de": {
+"conf": null,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+}
+}
