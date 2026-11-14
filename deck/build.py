@@ -93,26 +93,68 @@ def numbers():
     return N
 
 
-# ---------- cost model (every rate sourced or ASSUMED; detail in README "Cost to run") ----------
-WAGE = 443315          # KZT/month, 2025 national average nominal wage, stat.gov.kz
-LOAD = 2.0             # ASSUMED: specialist premium + employer charges over the national average
-HOURS_M = 168          # ASSUMED: 40 h x 4.2 weeks
-VER_USD = 15000        # ASSUMED point inside the sourced USD 5,000-50,000+ range (glocert)
-FX = 500               # ASSUMED KZT per USD
-CAP = 15_000_000
-LOAN = 5_000_000_000   # [brief]
+# ---------- cost model (WP-1): every input in deck/cost_model.json, tagged sourced | brief | measured | ASSUMED ----------
+CM_PATH = os.path.join(D, "cost_model.json")
+CM = json.load(open(CM_PATH, encoding="utf-8"))["inputs"]
+V_ = lambda k: CM[k]["value"]
+FX, CAP, LOAN = V_("fx"), V_("cap"), V_("loan")
 
 
-def cost(N):
-    rate = WAGE * LOAD / HOURS_M
-    hours = 16 + N["queue"] * .25 + 40 + 80   # yearly run, review queue x 15 min, factor/rules update, maintenance
-    people, ver = hours * rate, VER_USD * FX
-    total = people + ver
-    USED.update(cost_total_kzt={"value": round(total), "source": "deck/build.py cost()"},
-                cost_people_kzt={"value": round(people), "source": "deck/build.py cost()"},
-                cost_check_kzt={"value": ver, "source": "deck/build.py cost() ASSUMED USD 15k x 500"},
-                cost_hours={"value": hours, "source": "deck/build.py cost() ASSUMED hours"})
-    return dict(people=people, ver=ver, compute=0, total=total, hours=hours)
+def _people(hours, queue_lines):
+    h = hours["run"] + queue_lines * hours["queue_min_per_line"] / 60 + hours["factors"] + hours["maintenance"] + hours["verifier_support"]
+    return h, h * V_("wage") * V_("load") / V_("hours_per_month")
+
+
+def cost(N, log=True):
+    """C0 contract (PLAN_V5): all KZT unless named. Reads cost_model.json, inventory (N) and h2h/results.json."""
+    hrs = V_("hours")
+    hours, people = _people(hrs, N["queue"])
+    ver_y1 = V_("verifier_days_y1") * V_("day_rate_usd") * FX
+    ver_y2 = ver_y1 * V_("year2_factor")
+    sp = json.load(open(os.path.join(CASE, "h2h", "results.json"), encoding="utf-8"))["spend"]
+    ai = N["rows"] * (sp["deepseek"]["usd_per_call"] + sp["jev"]["usd_per_call"]) * FX
+    rate = V_("wage") * V_("load") / V_("hours_per_month")
+    own = hours - V_("shared_hours")   # per-company hours outside the shared factor library
+    C = dict(people=people, tool=people, ver_y1=ver_y1, ver_y2=ver_y2, y1_extra=ver_y1 - ver_y2,
+             total_y1=people + ver_y1, total_y2=people + ver_y2, hours=hours, ai_ceiling_kzt=ai,
+             per_t_y2=(people + ver_y2) / N["total"], loan_pct_y2=100 * (people + ver_y2) / LOAN,
+             cap_pct_y1=100 * (people + ver_y1) / CAP, cap_pct_y2=100 * (people + ver_y2) / CAP, cap_pct_tool=100 * people / CAP,
+             per_company={n: (V_("shared_hours") / n + own) * rate for n in (1, 5, 10)})
+    assert C["tool"] + C["ver_y2"] + C["y1_extra"] - C["total_y1"] < 1e-6
+    stress = people + V_("verifier_days_stress") * V_("day_rate_usd") * FX
+    assert stress < CAP, f"stress case {stress:,.0f} >= cap"
+    if log:
+        tag = lambda *ks: " + ".join(sorted({CM[k]["tag"] for k in ks}))
+        src = "deck/build.py cost() <- deck/cost_model.json"
+        for k, ks in dict(people=("wage", "load", "hours_per_month", "hours"), tool=("wage", "load", "hours_per_month", "hours"),
+                          ver_y1=("verifier_days_y1", "day_rate_usd", "fx"), ver_y2=("verifier_days_y1", "day_rate_usd", "fx", "year2_factor"),
+                          y1_extra=("verifier_days_y1", "day_rate_usd", "fx", "year2_factor"),
+                          total_y1=("hours", "verifier_days_y1", "day_rate_usd", "fx"), total_y2=("hours", "verifier_days_y1", "year2_factor", "fx"),
+                          hours=("hours",), ai_ceiling_kzt=("ai_usd_per_call", "fx"), per_t_y2=("hours", "year2_factor"),
+                          loan_pct_y2=("hours", "year2_factor", "loan"), cap_pct_y1=("hours", "verifier_days_y1", "cap"),
+                          cap_pct_y2=("hours", "year2_factor", "cap"), cap_pct_tool=("hours", "cap"),
+                          per_company=("hours", "shared_hours")).items():
+            USED[f"cost_{k}"] = {"value": C[k] if k != "per_company" else {n: round(v) for n, v in C[k].items()},
+                                 "source": src, "tag": tag(*ks)}
+        USED["cost_stress_y1"] = {"value": round(stress), "source": src, "tag": tag("verifier_days_stress", "hours")}
+    return C
+
+
+def cost_check():
+    """--cost-check: v4 inputs reproduce 8,241,497; C0 expected values to +-1 KZT; every sourced input has an http source."""
+    N = numbers()
+    v4 = json.load(open(CM_PATH, encoding="utf-8"))["v4_check"]
+    v4_total = _people(v4["hours"], N["queue"])[1] + v4["ver_usd"] * FX
+    assert abs(v4_total - v4["expected_total"]) <= 1, f"v4 {v4_total:,.0f}"
+    C = cost(N, log=False)
+    exp = dict(people=825938, ver_y1=7500000, ver_y2=5250000, total_y1=8325938, total_y2=6075938, ai_ceiling_kzt=332)
+    bad = [f"{k} {C[k]:,.2f} != {v:,}" for k, v in exp.items() if abs(C[k] - v) > 1]
+    bad += [f"per_company[{n}] {C['per_company'][n]:,.0f}" for n, v in {1: 825938, 5: 319292, 10: 255962}.items() if abs(C["per_company"][n] - v) > 1]
+    bad += [f"per_t_y2 {C['per_t_y2']:.2f}"] * (round(C["per_t_y2"], 2) != 30.43) + [f"loan_pct_y2 {C['loan_pct_y2']:.4f}"] * (round(C["loan_pct_y2"], 4) != .1215)
+    bad += [f"{k}: sourced without http source" for k, v in CM.items() if v["tag"] == "sourced" and not str(v["source"]).startswith("http")]
+    assert C["tool"] == C["people"] and C["y1_extra"] == C["ver_y1"] - C["ver_y2"]
+    print("COST CHECK", "OK" if not bad else "FAIL\n  " + "\n  ".join(bad), {k: round(C[k], 4) for k in exp | {"per_t_y2": 0, "loan_pct_y2": 0}})
+    return not bad
 
 
 # ---------- masked lines used on slides (masked text only: pseudonyms, no names) ----------
@@ -557,6 +599,8 @@ def build():
 
 
 if __name__ == "__main__":
+    if "--cost-check" in sys.argv:
+        sys.exit(0 if cost_check() else 1)
     if "--measure" in sys.argv or not os.path.exists(os.path.join(D, "measured.json")):
         measure()
     ok = build()

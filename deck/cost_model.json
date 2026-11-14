@@ -1,0 +1,45 @@
+{
+ "_about": "Inputs of deck/build.py cost(). Tags: brief = case brief, measured = from out/ or h2h/, sourced = public page opened 2026-11-14 (URL in source), ASSUMED = ours, shown as 'est.' on slides. Detail: README_SUBMISSION.md 'Cost to run'.",
+ "inputs": {
+  "wage": {"value": 443315, "unit": "KZT/month", "tag": "sourced", "source": "https://stat.gov.kz/industries/labor-and-income/stat-wags/publications/509361/", "note": "2025 average monthly nominal wage, all activities (opened 2026-11-14, figure matches)"},
+  "load": {"value": 2.0, "unit": "x", "tag": "ASSUMED", "source": "ours", "note": "specialist premium + employer charges over the national average"},
+  "hours_per_month": {"value": 168, "unit": "h", "tag": "ASSUMED", "source": "ours", "note": "40 h x 4.2 weeks"},
+  "hours": {"value": {"run": 16, "queue_min_per_line": 15, "factors": 40, "maintenance": 80, "verifier_support": 16}, "unit": "h a year (queue: minutes per line)", "tag": "ASSUMED", "source": "ours", "note": "queue line count comes from out/inventory.json (measured); verifier_support added in v5, v4 had 0"},
+  "shared_hours": {"value": 120, "unit": "h a year", "tag": "ASSUMED", "source": "ours", "note": "factors 40 + maintenance 80, shared by all companies on one factor library"},
+  "verifier_days_y1": {"value": 8, "unit": "days", "tag": "ASSUMED", "source": "https://www.glocertinternational.com/resources/guides/ghg-verification-process-and-timeline/", "note": "low end of the sourced 8-15 days (multi-site Scope 1+2+3 limited assurance); the point is ours"},
+  "verifier_days_stress": {"value": 15, "unit": "days", "tag": "sourced", "source": "https://www.glocertinternational.com/resources/guides/ghg-verification-process-and-timeline/", "note": "top of the same range, stress case"},
+  "day_rate_usd": {"value": 1875, "unit": "USD/day", "tag": "ASSUMED", "source": "https://www.glocertinternational.com/resources/guides/ghg-verification-process-and-timeline/", "note": "fee / days from Glocert: USD 15,000/8 d = 1,875 to 30,000/15 d = 2,000; cross-check Lincus USD 216/h x 8 = 1,728"},
+  "fx": {"value": 500, "unit": "KZT/USD", "tag": "ASSUMED", "source": "ours", "note": "round rate"},
+  "year2_factor": {"value": 0.70, "unit": "x of year-1 fee", "tag": "ASSUMED", "source": "https://www.caclimateregistry.org/wp-content/uploads/verification-workshop-2008-slides.pdf", "note": "slide 19: cost 'Highest in Year 1; can decrease 30-60% in years 2 & 3'; Glocert evidence-pack page: fixing top deficiencies 'reduces total verification time by 25-35%'. Not measured for our pack"},
+  "cap": {"value": 15000000, "unit": "KZT/year", "tag": "brief", "source": "case brief", "note": "CFO running-cost cap"},
+  "loan": {"value": 5000000000, "unit": "KZT", "tag": "brief", "source": "case brief", "note": "green loan"},
+  "ai_usd_per_call": {"value": "h2h/results.json spend.deepseek.usd_per_call + spend.jev.usd_per_call", "unit": "USD/line", "tag": "measured", "source": "h2h/results.json", "note": "AI ceiling = all ledger rows x both readers"}
+ },
+ "v4_check": {"hours": {"run": 16, "queue_min_per_line": 15, "factors": 40, "maintenance": 80, "verifier_support": 0}, "ver_usd": 15000, "expected_total": 8241497},
+ "levers": [
+  {"n": "1", "lever": "Reframe: tool cost vs the bank's check", "effect": "tool 0.83 m = 6% of cap; check 7.50 m required either way", "basis": "brief", "in_base": true},
+  {"n": "2", "lever": "Verifier pack", "effect": "fee year 2+: 7.50 -> 5.25 m (-30%)", "basis": "low end of 30-60% (Climate Registry); not measured for our pack", "in_base": "yes, as est.; year 1 stays 7.50"},
+  {"n": "2b", "lever": "Cross-check of lever 2", "effect": "sampling plan + data checks = 52.5% of quoted hours; -30% overall needs -57% there", "basis": "Lincus split; our arithmetic", "in_base": "Q&A only"},
+  {"n": "3", "lever": "Review cadence every second year", "effect": "would halve the average fee", "basis": "LMA GLP guidance: external review 'where appropriate' and pre-origination; annual update of use-of-proceeds info", "in_base": false},
+  {"n": "4", "lever": "People hours", "effect": "140.5 -> 156.5 h (+16 h verifier support), +0.08 m", "basis": "hours ASSUMED, wage sourced", "in_base": true},
+  {"n": "4b", "lever": "Cut maintenance 80 -> 40 h", "effect": "-0.21 m", "basis": "assumption against assumption", "in_base": false},
+  {"n": "5", "lever": "AI only on flagged lines", "effect": "both readers on all lines: about KZT 332 a year", "basis": "measured h2h/results.json", "in_base": "yes, ceiling shown"},
+  {"n": "5b", "lever": "Local fallback (Laya, USD 0)", "effect": "saves KZT 332, worse quality", "basis": "measured", "in_base": false},
+  {"n": "6", "lever": "Shared factor library", "effect": "tool per company 0.83 -> 0.32 (5) -> 0.26 m (10)", "basis": "ASSUMED hours", "in_base": "roadmap, est."}
+ ],
+ "sources_checked_2026_11_14": {
+  "glocert_timeline": {"url": "https://www.glocertinternational.com/resources/guides/ghg-verification-process-and-timeline/", "result": "confirmed: SME single site S1+2 USD 5-10k, 3-5 days; mid-size 3-10 sites S1+2+3 limited USD 15-30k, 8-15 days"},
+  "glocert_evidence_pack": {"url": "https://www.glocertinternational.com/resources/guides/ghg-verification-readiness-checklist-evidence-pack/", "result": "no fees; says resolving top 10 deficiencies 'reduces total verification time by 25-35%' (added)"},
+  "climate_registry": {"url": "https://www.caclimateregistry.org/wp-content/uploads/verification-workshop-2008-slides.pdf", "result": "confirmed from PDF text: drivers data quality, data organisation, size; 'Highest in Year 1; can decrease 30-60% in years 2 & 3'"},
+  "lincus": {"url": "https://mccmeetingspublic.blob.core.usgovcloudapi.net/needlesca-meet-1c0c6ade25bb45a682455ebd5b0e2964/ITEM-Attachment-001-88a045224e22472e8e9227f740fe986b.pdf", "result": "confirmed: RY2025 USD 8,640 = 40 h x 216; split 40/15/12.5/10/10/5/5/2.5%. Also: RY2026 USD 8,214 with a virtual site visit"},
+  "sgs_kz": {"url": "https://www.sgs.com/ru-kz/news/2022/12/uslugi-sgs-po-verifikacii-uglerodnoj-otchetnosti-co2", "result": "confirmed: person-days x assurance level, standard, scope, site visits, complexity; no price"},
+  "clati": {"url": "https://www.clati-sfo.ru/napravleniya_deyatelnosti/validatsiya-i-verifikatsiya-parnikovykh-gazov/primernaya-stoimost-rabot-po-verifikatsii-parnikovykh-gazov/", "result": "confirmed: C = labour x complexity 0.1-10 x hourly rate with VAT x 8; no rate published"},
+  "dqs": {"url": "https://www.dqs-russia.ru/cat/iso-14064/", "result": "confirmed: priced individually (sites, sources, scopes, data volume); no price"},
+  "ec_mrv": {"url": "https://publications.europa.eu/resource/cellar/f6a49ec5-c35c-11e6-a6db-01aa75ed71a1.0001.01/DOC_1", "result": "confirmed: verification EUR 6,789 per installation (2014 cycle); literature EUR 0.04-0.08/t; survey EUR 0.16/t (18-month cycle, all MRV)"},
+  "brightest": {"url": "https://www.brightest.io/ghg-audit-assurance-guide", "result": "confirmed: specialist firms GBP 15-40k for single-entity S1/2 limited assurance"},
+  "carb": {"url": "https://www.climateassured.com/sb-253-assurance-cost-by-firm-type/", "result": "confirmed: USD 55,213 a year, limited assurance S1+2 (CARB, adapted from SEC); 3-year average USD 44,170"},
+  "lma_glp": {"url": "https://www.lma.eu.com/application/files/1717/4298/0842/Guidance_on_Green_Loan_Principles_-_26_March_2025.pdf", "result": "confirmed with a correction: 'Where appropriate, borrowers should appoint an external review provider' refers to PRE-ORIGINATION review of the loan's alignment, not annual GHG assurance; self-certification 'may be sufficient'; use-of-proceeds info 'shall be updated at least annually'; lender and borrower 'may agree' it is externally reviewed"},
+  "hazami_ammar": {"url": null, "result": "not opened (no URL in plan); directional only, not used in any figure"}
+ },
+ "not_found": ["Kazakhstan verification price: SGS KZ, DQS and CLATI publish the formula, not the price; only a quote from an accredited body closes it"]
+}
