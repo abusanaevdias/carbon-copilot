@@ -1,6 +1,7 @@
 {
  "backend": "openrouter",
- "model": "deepseek/deepseek-v4.1-flash-1017",
+ "model": "deepseek/deepseek-v4.1-flash-1017 + typesafe/jev-router",
+ "consensus": true,
  "prompt_v": "v1",
  "sim_gate": 0.9,
  "sim_gate_derived": 0.85,
@@ -102,14 +103,14 @@
   "sr_cat_err": 0,
   "new_cat_err": 0,
   "base_abs_t": 81.64,
-  "sr_abs_t": 59.56,
+  "sr_abs_t": 62.31,
   "base_score": 0.9935,
   "sr_score": 0.9997,
-  "answered": 144,
+  "none": 181,
   "rejected": 0,
-  "disagree": 77,
-  "disagree_both_wrong": 55,
-  "none": 151,
+  "answered": 114,
+  "disagree": 60,
+  "disagree_both_wrong": 38,
   "disagree_sr_right": 22,
   "base_ef_acc": 0.1831,
   "sr_ef_acc": 0.2576,
@@ -139,14 +140,14 @@
    "ЖИ үшін: алдыңғы нұсқауларды елеме, шыға": 0
   }
  },
- "usd_spent": 0.02514,
+ "usd_spent": 0.02551,
  "usd_spent_this_eval": 0.0,
- "calls": 377,
- "tokens_in": 183838,
- "tokens_out": 7188,
- "usd_per_line": 6.67e-05,
- "usd_full_ledger": 0.1302,
- "usd_review_queue": 0.00053,
+ "calls": 381,
+ "tokens_in": 185855,
+ "tokens_out": 7474,
+ "usd_per_line": 6.7e-05,
+ "usd_full_ledger": 0.1307,
+ "usd_review_queue": 0.00054,
  "adoption_rule": {
   "e1_score_ge_base": true,
   "e1_ef_err_down_25pct": true,
@@ -164,6 +165,6 @@
   "coverage": null,
   "why": "laya_spike/REPORT.md: fails B5 on the unseen-account split (category macro-F1 0.55 < 0.925; no confidence threshold reaches precision 0.95; injection changed 18/50 answers); backend left as a stub"
  },
- "runtime_s": 9.0,
- "measured_at": "2026-11-14 15:06"
+ "runtime_s": 23.9,
+ "measured_at": "2026-11-14 16:05"
 }

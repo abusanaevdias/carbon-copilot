@@ -623,6 +623,10 @@
 "label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
 "model": "deepseek/deepseek-v4.1-flash-1017"
 },
+"67fc84521cfdd7b868c7ea9c1f7913bae79d10b85c7fa2cc984ca1fb1c382ae9": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "typesafe/jev-router"
+},
 "6b1cbdb1472619e90f833d077589d3252fbd3ac33cb8b14a36e41154ca2208a8": {
 "label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
 "model": "deepseek/deepseek-v4.1-flash-1017"
@@ -806,6 +810,10 @@
 "947d25ed3b91580d6ba0dd4639689fcb82115d626737da0369b01423aed78b6d": {
 "label": "S3_C1_GOODS|SP_RENT",
 "model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"95616de1a703e5a77cad876205c4096164dc45c877572d77475c497b9f6a34a0": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "typesafe/jev-router"
 },
 "959b9be40be686404fec3c73a3ed831c142b50c28b0663cb1dd4eb6adec37ecc": {
 "label": "NONE",
@@ -1147,6 +1155,10 @@
 "label": "S3_C1_GOODS|SP_RENT",
 "model": "deepseek/deepseek-v4.1-flash-1017"
 },
+"d6824a05b5954856d141cf055f334a677a665371d496758adeef830968593b50": {
+"label": "NONE",
+"model": "typesafe/jev-router"
+},
 "d69b8ebdae589794359b10b510a060a95ec3b9f084f8012b581ab36fcaa765dc": {
 "label": "S3_C1_GOODS|SP_FINANCIAL",
 "model": "deepseek/deepseek-v4.1-flash-1017"
@@ -1242,6 +1254,10 @@
 "ea5accd3ab5c7faf73361cf040812670249eb3ff3843c0c65823abd2bce9dc55": {
 "label": "S3_C1_GOODS|SP_RENT",
 "model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"eb412c27263113fc8d1c36e18af5b5b21cb825605a2b35b3cac674bbd5daa32b": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "typesafe/jev-router"
 },
 "ec0983cb5b085472eaa8e98c3c007783e33f2700ebde2685d463d574b3ae5153": {
 "label": "S3_C1_GOODS|SP_SERVICES_PROF",
