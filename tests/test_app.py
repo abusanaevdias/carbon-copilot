@@ -110,6 +110,10 @@ def main():
     else:
         assert "needs Edge or Chrome" in page
     print("T3 OK outputs:", {k: v[1] for k, v in sizes.items()})
+    assert '<a class="wm" href="/">' in page and '<a class="btn nf" href="/">' in page, "T3b: no way home from results"
+    s, _, home = req("GET", "/")
+    assert s == 200 and '<a class="wm" href="/">' in home.decode() and 'id="file"' in home.decode(), "T3b: / is not the upload screen"
+    print("T3b OK results page links home (wordmark + New file); / is the upload screen")
 
     # T4 numbers
     rows = [r for r in csv.DictReader(open(os.path.join(job_dir(jid), "out", "audit_all.csv"), encoding="utf-8"))
