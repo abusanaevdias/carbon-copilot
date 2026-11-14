@@ -421,11 +421,21 @@ def s5(N, X):
     h = jload(os.path.join(CASE, "h2h", "results.json")) or {}
     forms = sum(h.get("deepseek", {}).get(s, {}).get("forms", 0) for s in ("E3_raw", "E4_raw")) or None
     moved = sum(h[m][s]["prod_t_changed_vs_clean_row"] for m in ("deepseek", "jev") for s in ("E3_raw", "E4_raw", "E4_strip")) if h else None
+    num("attack_t_moved", moved, "h2h/results.json prod_t_changed_vs_clean_row")   # kept for the proofread, no longer drawn
+    rc = jload(os.path.join(CASE, "h2h", "results_consensus.json")) or {}
+    sp = rc.get("E4_strip_production") or {}
+    fix_d = sum(sp.get(m, {}).get("dangerous", 0) for m in ("deepseek", "jev", "consensus")) if sp else None
+    assert not sp or sp["final"]["accepted"] == 0, "round 2: a flagged line took a pick"
     b2 = "".join(f'<div class="x" style="height:32px;display:flex;align-items:center;border-bottom:1px solid var(--rule)">{t}</div>' for t in (
-        f'{num("cp", N["cp"], "out/inventory.json")} suppliers masked',
-        f'{num("persons", N["persons"], "out/inventory.json")} people masked',
-        f'{num("attack_forms", forms, "h2h/results.json E3+E4 forms")} attack forms on AI: '
-        f'{num("attack_t_moved", moved, "h2h/results.json prod_t_changed_vs_clean_row")} t moved'))
+        f'{num("cp", N["cp"], "out/inventory.json")} suppliers, {num("persons", N["persons"], "out/inventory.json")} people masked',
+        f'{num("guards", 4, "mask.py self-check, make_zip.py, .git/hooks/pre-commit, llm_fallback.py check_payload")} guards: run, zip, commit, AI payload',
+        f'{num("attack_forms", forms, "h2h/results.json E3+E4 forms")} attack forms → '
+        f'{num("filter_gaps", 8, "h2h/RESULTS.md: strip_injection recognised 2 of 10 new forms, 8 missed")} gaps → fixed',
+        f'after the fix: {num("fix_dangerous", fix_d, "h2h/results_consensus.json E4_strip_production dangerous (deepseek+jev+consensus)")} '
+        f'dangerous picks of {num("fix_lines", sp.get("sent"), "h2h/results_consensus.json E4_strip_production sent")}'))
+    num("names_sent_runtime", 0, "h2h/RESULTS.md: blocked_by_leak_check 0, 0 of 2,000 payloads held a name")
+    for k, v in (("dev_gaps", 2), ("dev_raw_rows", 4), ("dev_carrier_names", 1)):
+        num(k, v, "README_SUBMISSION.md Data rule log")
     r = [("Organisers' starter", sc.get(("random 5-fold", "starter")), "starter"),
          ("Text classifier only", sc.get(("random 5-fold", "clf_units")), "clf_units"),
          ("Everything by money", sc.get(("random 5-fold", "spend_only")), "spend_only"),
@@ -443,15 +453,16 @@ def s5(N, X):
         f'<div style="{mini}">{rows_}</div>{extra}</div>')
     ex = ('<div style="display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:24px">'
           + col(num("inj_changed", N["inj_changed"], "deck/measured.json"), f"lines changed by hidden text, of {n:,}", b1, first=True)
-          + col("0", "names left the laptop", b2)
+          + col("0", "names sent out when the tool runs", b2)
           + col(f"{r[3][1]:.2f}", "score, same labelled lines", b3,
                 f'<div class="x lbl" style="margin-top:12px"><b>{num("eval_unseen_accounts", ua, "out/eval_hard.csv", "{:.2f}")}</b> on accounts never seen</div>')
           + '</div>')
     lo = min(v for _, v, _ in r[:3])
     title = (f"Hidden instructions change nothing; shortcuts score "
              f"<span style=\"white-space:nowrap\">{lo:.2f}–{r[2][1]:.2f}</span>, ours {r[3][1]:.2f}.")
-    foot = ("Disclosed: in development 4 unmasked rows and 1 carrier name reached our coding assistant. "
-            "Fixed; a self-check now stops the run.")
+    foot = ("Development log: our review found 2 data-rule gaps (4 raw rows, 1 carrier name reached our coding assistant). "
+            "Both closed; a leak fails the run.")
+    assert len(foot.split()) <= 25, "slide 5 footer > 25 tokens"
     return page(5, "Safeguards · Accuracy", "Injection test · masking · organisers' formula", title, exh(112, ex, 360), foot, "trio")
 
 
@@ -531,41 +542,61 @@ def s7(N, C):
                 exh(96, anns + bar + figs + ailine, 380), foot, "bar")
 
 
+MK = json.load(open(os.path.join(D, "market.json"), encoding="utf-8"))["inputs"]
+
+
+def mk(key, fmt="{:,.0f}"):
+    """A market.json figure through num(); its source and tag go to numbers_used.json."""
+    r = MK[key]
+    s = num(f"mkt_{key}", r["value"], f"deck/market.json {key} <- {r['source']}", fmt)
+    USED[f"mkt_{key}"]["tag"] = r["tag"]
+    return s
+
+
 def s8(N, C):
     inv = jload(os.path.join(OUT, "inventory.json"))
     fs = sorted((f["tco2e"] for f in inv["by_factor"]), reverse=True)
     top3 = num("top3_factor_pct", 100 * sum(fs[:3]) / inv["total"], "out/inventory.json by_factor top 3", "{:.0f}")
     gl = float(N["eval"]["group k-fold: GL account"]["score"]) if "group k-fold: GL account" in N["eval"] else None
-    pack = os.path.exists(os.path.join(OUT, "verifier_pack", "sample.csv"))
     pc = C.get("per_company") or {}
     p1 = num("s8_per_company_1_m", pc.get(1) and pc[1] / 1e6, "cost() per_company[1]", "{:.2f}")
     p10 = num("s8_per_company_10_m", pc.get(10) and pc[10] / 1e6, "cost() per_company[10]", "{:.2f}")
+    yr = lambda k, v: num(f"s8_year_{k}", v, "PLAN_V6 B2 horizons", "{}")
+    T = lambda k: ASM(mk(k))
     steps = [
-        ("1 · Inventory 2026", "Independent check (limited assurance)",
-         "Verifier pack: the big factors first." if pack else "Verifier pack: next step.",
-         f"{num('top3_n', 3, 'out/inventory.json by_factor')} factors", f"carry {top3}% of tonnes: checked first", "", True),
-        ("2 · 2026–27", f"Milk factors from Dala's {num('farms', 25, '[brief] about 25 farms')} farms",
-         "Replaces the organisers' illustrative factor.",
-         f"±{num('sens', N['sens'], 'out/inventory.json', '{:.0f}')}%", "of the total on one milk factor", "", False),
-        ("3 · 2027 on", "Next companies by configuration", "Same code; new ledger, new factors.",
-         num("day1", gl, "out/eval_hard.csv GL account", "{:.2f}"), "score on accounts never seen, day 1",
-         f'Per company: {ASM(p1)} → {p10} m at ten, est.', False)]
+        (f"1 · {yr('h1', 2026)} · Dala Foods", "Limited assurance + farm milk data", T("target_h1"),
+         "company · bank's check passed · target",
+         f"Built: verifier pack; {num('top3_n', 3, 'out/inventory.json by_factor')} factors = {top3}%",
+         f"{num('farms', 25, '[brief] about 25 farms')} farms' data moves ±{num('sens', N['sens'], 'out/inventory.json', '{:.0f}')}% of total", True),
+        (f"2 · {yr('h2', '2026–27')} · any 1C ledger", "Connector, shared factors, bank portfolios", T("target_h2"),
+         "companies · one bank's borrowers · target",
+         f"Built: {num('day1', gl, 'out/eval_hard.csv GL account', '{:.2f}')} on accounts never seen",
+         f'Tool per company {ASM(p1)} → {p10} m, est.', False),
+        (f"3 · {yr('h3', 2027)} on · exporters", "CBAM-ready product declarations", T("target_h3"),
+         f"companies by {yr('h3_kpi', 2029)} · target",
+         "Built: every tonne recomputes per line",
+         f"First CBAM declarations: {mk('cbam_first_declaration', '{}')}", False)]
     cols = "".join(
-        f'<div style="position:relative;padding-top:40px">'
+        f'<div class="eb" style="position:relative;padding-top:20px">'
         f'<div style="position:absolute;top:-5px;left:0;width:10px;height:10px;border-radius:50%;background:{"var(--acc)" if first else "var(--ink)"}"></div>'
-        f'{cap(when)}<div class="x" style="font-size:22px;font-weight:700;line-height:1.2;letter-spacing:-.01em;margin-top:8px;min-height:53px">{t}</div>'
-        f'<div class="x lbl" style="font-size:15px;margin-top:8px">{line}</div>'
-        f'<div class="num x {"acc" if first else ""}" style="font-size:56px;margin-top:28px">{k}</div>'
-        f'<div class="x lbl" style="margin-top:8px">{kc}</div>'
-        + (f'<div class="x sub eb" style="margin-top:10px">{small}</div>' if small else "") + '</div>'
-        for when, t, line, k, kc, small, first in steps)
-    ex = (f'<div style="position:absolute;left:0;right:0;top:56px;border-top:1px solid var(--ink)"></div>'
-          f'<div style="position:absolute;left:0;right:0;top:56px;display:grid;grid-template-columns:repeat(3,347px);column-gap:24px;'
-          f'justify-content:space-between">'
-          + cols.replace('<div style="position:relative;padding-top:40px">', '<div style="position:relative;padding-top:24px">') + '</div>')
-    foot = ("Milk factor is illustrative (organisers' file). Sensitivity, not an uncertainty range. "
-            "Cost per company: assumed hours.")
-    return page(8, "Roadmap", "From the 2025 inventory", "Next: the bank's check, 25 farms, then other companies.",
+        f'{cap(when)}<div class="x" style="font-size:22px;font-weight:700;line-height:1.2;letter-spacing:-.01em;margin-top:8px;min-height:53px;text-wrap:balance">{t}</div>'
+        f'<div class="num x {"acc" if first else ""}" style="font-size:64px;margin-top:14px">{k}</div>'
+        f'<div class="x lbl" style="margin-top:6px">{kc}</div>'
+        f'<div class="x sub" style="margin-top:10px;color:var(--ink)">{proof}</div>'
+        f'<div class="x sub" style="margin-top:2px">{small}</div></div>'
+        for when, t, k, kc, proof, small, first in steps)
+    G = "display:grid;grid-template-columns:repeat(3,347px);column-gap:24px;justify-content:space-between"
+    mkt = [(mk("ets_companies"), "companies in the national ETS"), (f"€{mk('cbam_exports_eur_m')} m", "exports to the EU under CBAM")]
+    market = (f'<div style="position:absolute;left:0;right:0;top:282px;border-top:1px solid var(--ink);padding-top:10px">'
+              f'{cap("Market · Kazakhstan")}<div style="{G};margin-top:8px">'
+              + "".join(f'<div><span class="num x" style="font-size:30px">{v}</span> <span class="x sub">{l}</span></div>' for v, l in mkt)
+              + '</div></div>')
+    ex = (f'<div style="position:absolute;left:0;right:0;top:12px;border-top:1px solid var(--ink)"></div>'
+          f'<div style="position:absolute;left:0;right:0;top:12px;{G}">{cols}</div>{market}')
+    foot = ("Targets are ours, not traction: no company beyond the case uses it yet. "
+            "Market: ICAP 2024, CBAM Atlas 2025. Milk factor illustrative; est. = assumed hours.")
+    return page(8, "Roadmap", "Targets, not traction · market figures sourced",
+                "One dairy today. Any 1C ledger next. Then Central Asia's exporters.",
                 exh(100, ex, 378), foot, "timeline")
 
 
@@ -629,7 +660,9 @@ def lint(url, pdf, ws):
                (s["hero_n"] == (1 if i in (1, 4) else 0), f"{s['hero_n']} elements at >= 100 px (want {1 if i in (1, 4) else 0})"),
                (not s["est_missing"] or i not in (7, 8), f"ASSUMED figure without 'est.': {s['est_missing']}"),
                (not re.search(BANNED, s["text_ban"]), f"banned term outside footer: {re.findall(BANNED, s['text_ban'])}"),
-               (not re.search(FORBIDDEN, s["text_all"], re.I), f"forbidden claim: {re.findall(FORBIDDEN, s['text_all'], re.I)}")]
+               (not re.search(FORBIDDEN, s["text_all"], re.I), f"forbidden claim: {re.findall(FORBIDDEN, s['text_all'], re.I)}"),
+               (i != 8 or not re.search(r"customer|client|pilot|partner|\bTAM\b", s["text_all"], re.I), "slide 8: customer/client/pilot/partner/TAM"),
+               (i != 5 or not re.search(r"left the laptop|Disclosed", s["text_all"]), "slide 5: 'left the laptop' or 'Disclosed'")]
         bad += [f"slide {i}: {msg}" for ok, msg in chk if not ok]
         print(f"{i:>2} {s['title_words']:>7} {s['title_lines']:>5} {s['lead_words']:>6} {s['body_words']:>6} "
               f"{s['foot_words']:>6} {s['ann']:>5} {s['min_font']:>5g} {ws[i - 1]:>6.0f}  {s['title']}")

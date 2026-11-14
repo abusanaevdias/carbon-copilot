@@ -1,0 +1,15 @@
+{
+ "_about": "Market figures and targets for slide 8 (PLAN_V6 Part B). Tags: sourced = public page opened 2026-11-14, value read on it (quote); target = our goal, never traction; ASSUMED = ours. Rows with on_slide false are kept for Q&A only.",
+ "inputs": {
+  "ets_companies": {"value": 155, "unit": "companies", "tag": "sourced", "on_slide": true, "source": "https://icapcarbonaction.com/system/files/ets_pdfs/icap-etsmap-factsheet-46.pdf", "opened": "2026-11-14", "quote": "Number of entities 155 companies (229 installations) (2024)"},
+  "ets_installations": {"value": 229, "unit": "installations", "tag": "sourced", "on_slide": false, "source": "https://icapcarbonaction.com/system/files/ets_pdfs/icap-etsmap-factsheet-46.pdf", "opened": "2026-11-14", "quote": "155 companies (229 installations) (2024); facilities emitting more than 20,000 tCO2/year"},
+  "cbam_exports_eur_m": {"value": 552, "unit": "EUR m customs value, 2025", "tag": "sourced", "on_slide": true, "source": "https://cbamatlas.com/countries/kazakhstan", "opened": "2026-11-14", "quote": "560 kt EU imports, 2025 €552 m customs value €116 m CBAM exposure 2026"},
+  "cbam_exports_kt": {"value": 560, "unit": "kt, 2025", "tag": "sourced", "on_slide": false, "source": "https://cbamatlas.com/countries/kazakhstan", "opened": "2026-11-14", "quote": "Kazakhstan shipped 560 kt of CBAM goods to the EU in 2025"},
+  "cbam_first_declaration": {"value": "30 Sep 2027", "unit": "date", "tag": "sourced", "on_slide": true, "source": "https://memleket.kz/en/news/137079-kazakhstans-exporters-discussed-preparation-for-eu-carbon-requirements-in-antalya", "opened": "2026-11-14", "quote": "The first annual CBAM declaration covering 2026 must be submitted by 30 September 2027."},
+  "large_mid_companies": {"value": null, "unit": "companies", "tag": "DROPPED", "on_slide": false, "source": "https://stat.gov.kz/en/industries/business-statistics/stat-org/publications/462444/", "opened": "2026-11-14", "quote": "4,129 not found on the page (PLAN_V6 fallback: dropped from slide 8, no 12% anywhere). The page shows registered legal entities as of 1 Nov 2025: Medium 7 003 (6 902 operating), Large 2 595 (2 562 operating)."},
+  "target_h1": {"value": 1, "unit": "company through the bank's check, 2026", "tag": "target", "on_slide": true, "source": "ours (PLAN_V6 B2)"},
+  "target_h2": {"value": 50, "unit": "companies, one bank's borrowers, 2026-27", "tag": "target", "on_slide": true, "source": "ours (PLAN_V6 B2)"},
+  "target_h3": {"value": 500, "unit": "companies by 2029", "tag": "target", "on_slide": true, "source": "ours (PLAN_V6 B2)"},
+  "test_price_kzt": {"value": 3000000, "unit": "KZT per company a year", "tag": "ASSUMED", "on_slide": false, "source": "ours (PLAN_V5 A5); not tested with any buyer, Q&A only"}
+ }
+}

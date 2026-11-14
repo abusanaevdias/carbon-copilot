@@ -87,7 +87,7 @@ document.fonts.ready.then(() => {
             ex_w: Math.round(((s.querySelector('.ex') || s).getBoundingClientRect()).width),
             hero_n: [...s.querySelectorAll('*')].filter(e => parseFloat(getComputedStyle(e).fontSize) >= 100 && e.textContent.trim()
                       && !(e.parentElement && parseFloat(getComputedStyle(e.parentElement).fontSize) >= 100)).length,
-            est_missing: [...s.querySelectorAll('.a')].filter(e => { const b = e.closest('.eb'); return !b || !/est\./.test(b.textContent.split(e.textContent).slice(1).join(e.textContent)); }).map(e => e.textContent.trim()),
+            est_missing: [...s.querySelectorAll('.a')].filter(e => { const b = e.closest('.eb'); return !b || !/est\.|\btarget/.test(b.textContent.split(e.textContent).slice(1).join(e.textContent)); }).map(e => e.textContent.trim()),
             lead_words: lead ? words(lead.textContent).length : 0, body_words: words(c.textContent).length,
             foot_words: foot ? words(foot.textContent).length : 0,
             ann: s.querySelectorAll('.ann').length, ann_max_words: Math.max(0, ...[...s.querySelectorAll('.ann')].map(e => words(e.textContent).length)), x_max_words: Math.max(0, ...[...s.querySelectorAll('.x')].map(e => words(e.textContent).length)),
