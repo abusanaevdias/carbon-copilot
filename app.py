@@ -233,6 +233,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.45 Onest,syst
  -webkit-font-smoothing:antialiased}
 header{height:56px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;
  padding:0 max(48px,calc((100% - 1184px)/2))}header b{font-size:16px;font-weight:700;letter-spacing:-.01em}
+.wm{color:inherit;text-decoration:none;border-radius:8px}
 .pill{display:flex;align-items:center;gap:12px;height:32px;padding:0 14px;border:1px solid var(--rule);border-radius:999px;
  background:var(--sheet);font-size:13px;color:var(--mute)}.pill i{width:8px;height:8px;border-radius:50%;background:var(--ink)}
 .pill span+span{border-left:1px solid var(--rule);padding-left:12px}
@@ -283,7 +284,7 @@ p{margin:0}.small{font-size:13px;line-height:1.4;color:var(--mute)}.mono{font-fa
  font-size:13px;font-weight:400;color:var(--mute)}}
 @media(forced-colors:active){[data-st=done]>.g,.g.ok{background:CanvasText}.rail .pass{border:1px solid CanvasText}}
 """
-HEADER = ('<header><b>Carbon Copilot</b><p class="pill"><i aria-hidden="true"></i><span>Local</span><span>127.0.0.1</span>'
+HEADER = ('<header><a class="wm" href="/"><b>Carbon Copilot</b></a><p class="pill"><i aria-hidden="true"></i><span>Local</span><span>127.0.0.1</span>'
           '<span>no network</span></p></header>')
 WORD = {"pending": "pending", "running": "running", "done": "done", "error": "stopped"}
 DESC = ["Names replaced before anything else reads the file", "Repeated documents and non-purchase lines set aside",
@@ -446,15 +447,17 @@ html{scroll-padding-top:88px}
 .top{grid-column:1/-1;position:sticky;top:0;z-index:5;display:grid;margin:-8px 0;padding:8px 0;background:var(--paper)}
 .top>*{grid-area:1/1}.top:has(.receipt[open]){position:static}@media(max-width:959px){.top{position:static}}
 .receipt{background:var(--well);border-radius:12px}
-.receipt summary{display:flex;align-items:center;gap:16px;min-height:56px;padding:0 var(--navw,340px) 0 20px;cursor:pointer;list-style:none}
+.receipt summary{display:flex;align-items:center;gap:16px;min-height:56px;padding:0 var(--navw,450px) 0 20px;cursor:pointer;list-style:none}
 .receipt summary::-webkit-details-marker{display:none}
-.zi{position:relative;z-index:1;justify-self:end;align-self:start;display:flex;gap:20px;margin:0 20px 0 0;padding:0;list-style:none;
- font-size:13px;color:var(--mute);pointer-events:none}
+.tr{position:relative;z-index:1;justify-self:end;align-self:start;display:flex;align-items:center;gap:20px;height:56px;margin-right:10px}
+.zi{display:flex;gap:20px;margin:0;padding:0;list-style:none;font-size:13px;color:var(--mute);pointer-events:none}
+.nf{height:36px;padding:0 14px;font-size:14px}
+@media(max-width:1199px){.zi li span{display:none}.receipt summary{--navw:250px}}
 .zi li{position:relative;display:flex;align-items:center;gap:6px;height:56px;transition:color var(--t-base) var(--ease)}
 .zi b{font:400 12px/1 var(--mono)}.zi li::after{content:"";position:absolute;left:0;right:0;bottom:12px;height:2px;border-radius:1px;
  background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform var(--t-base) var(--ease)}
 .zi li.on{color:var(--ink);font-weight:600}.zi li.on::after{transform:none}
-@media(max-width:959px){.zi{display:none}.receipt summary{padding-right:20px}}
+@media(max-width:959px){.zi{display:none}.receipt summary{--navw:150px}}
 .zone.pre{opacity:0;transform:translateY(10px)}.zone{transition:opacity var(--t-slow) var(--ease),transform var(--t-slow) var(--ease)}
 .zone.pre.in{opacity:1;transform:none}.receipt{view-transition-name:run}
 .ticks{display:flex;gap:4px}.ticks .g{width:14px;height:14px}.ticks .g::after{left:4.5px;top:2px;width:3px;height:6px;border-width:0 1.5px 1.5px 0}
@@ -518,8 +521,10 @@ html{scroll-padding-top:88px}
 <span class="ticks" aria-hidden="true">$ticks</span><span class="rs"><span class="mono" dir="auto" translate="no">$name</span>
 <span>$lines lines<span class="sr">, 7 of 7 stages</span></span><span>$elapsed s</span></span>
 <span class="tog"><span class="s">Show stages</span><span class="h">Hide stages</span></span></summary><div class="body">$rail</div></details>
-<ol class="zi" aria-hidden="true"><li data-z="result" class="on"><b>03</b>Result</li><li data-z="review"><b>04</b>Needs a human</li>
-<li data-z="outputs"><b>05</b>Outputs</li></ol></div>
+<div class="tr"><ol class="zi" aria-hidden="true"><li data-z="result" class="on"><b>03</b><span>Result</span></li>
+<li data-z="review"><b>04</b><span>Needs a human</span></li><li data-z="outputs"><b>05</b><span>Outputs</span></li></ol>
+<a class="btn nf" href="/"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"
+ stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 10.5V2.5M4.75 5.75 8 2.5l3.25 3.25M2.5 10v2.5a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V10"/></svg>New file</a></div></div>
 <section class="zone sg z03" id="result" aria-labelledby="h03"><div class="heroc rise d1">
 <h1 id="h03"><span class="zn" aria-hidden="true">03</span>Emissions in the uploaded lines</h1>
 <p class="num"><span class="sr">$total tCO2e</span><span id="cnt" aria-hidden="true" data-v="$intpart"><span>$intpart</span><small class="fr">$frac</small><small class="u">tCO2e</small></span></p>
