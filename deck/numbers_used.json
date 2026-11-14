@@ -19,6 +19,58 @@
   "value": 7,
   "source": "deck/measured.json (6.9 s rounded)"
  },
+ "laya_gl_cat_f1": {
+  "value": 0.5496,
+  "source": "laya_spike/out_results.json GL split category macro-F1"
+ },
+ "laya_inj_changed": {
+  "value": 18,
+  "source": "laya_spike/out_results.json injection.changed"
+ },
+ "laya_usd_1k": {
+  "value": 0,
+  "source": "laya_spike/REPORT.md: local CPU, no API"
+ },
+ "scaledown_cat_acc": {
+  "value": 91.89,
+  "source": "scaledown_eval/results.json E2 (148 lines)"
+ },
+ "scaledown_dangerous": {
+  "value": 1,
+  "source": "scaledown_eval/results.json E3 changed - to NONE"
+ },
+ "scaledown_usd_1k": {
+  "value": 0.0167,
+  "source": "scaledown_eval/RESULTS.md est. per call x 1000"
+ },
+ "jev_cat_acc": {
+  "value": 100.0,
+  "source": "h2h/results.json E2 cat_acc (295 lines)"
+ },
+ "jev_dangerous": {
+  "value": 0,
+  "source": "h2h/results.json E3_raw+E4_raw dangerous"
+ },
+ "jev_usd_1k": {
+  "value": 0.287,
+  "source": "h2h/results.json spend usd_per_call x 1000"
+ },
+ "deepseek_cat_acc": {
+  "value": 100.0,
+  "source": "h2h/results.json E2 cat_acc (295 lines)"
+ },
+ "deepseek_dangerous": {
+  "value": 2,
+  "source": "h2h/results.json E3_raw+E4_raw dangerous"
+ },
+ "deepseek_usd_1k": {
+  "value": 0.053399999999999996,
+  "source": "h2h/results.json spend usd_per_call x 1000"
+ },
+ "consensus_usd_1k": {
+  "value": 0.3404,
+  "source": "h2h/results.json spend: DeepSeek + Jev per call x 1000"
+ },
  "milk_t": {
   "value": 157499.2575,
   "source": "out/inventory.json"
@@ -47,13 +99,13 @@
   "value": 24523.103499999997,
   "source": "out/inventory.json by_factor EF_GRID_KZ_KWH+EF_NG_M3+EF_HEAT_GCAL"
  },
- "loan_bn": {
-  "value": 5.0,
-  "source": "[brief]"
- },
  "milk_pct": {
   "value": 78.89236235036535,
   "source": "out/inventory.json"
+ },
+ "loan_bn": {
+  "value": 5.0,
+  "source": "[brief]"
  },
  "rows": {
   "value": 1952,
@@ -71,17 +123,13 @@
   "value": 1877,
   "source": "out/audit_all.csv"
  },
+ "queue": {
+  "value": 18,
+  "source": "out/inventory.json review_queue"
+ },
  "intensity": {
   "value": 1.901,
-  "source": "out/inventory.json intensity"
- },
- "cap_m": {
-  "value": 15.0,
-  "source": "[brief]"
- },
- "cost_total_m": {
-  "value": 8.241497113095237,
-  "source": "deck/build.py cost()"
+  "source": "out/inventory.json"
  },
  "cp": {
   "value": 67,
@@ -147,6 +195,10 @@
   "value": 99.47,
   "source": "out/inventory.json"
  },
+ "sens": {
+  "value": 15.8,
+  "source": "out/inventory.json"
+ },
  "inj_0": {
   "value": 274,
   "source": "compete/out/baselines.json injection"
@@ -171,13 +223,13 @@
   "value": 2400,
   "source": "deck/measured.json"
  },
- "dup": {
-  "value": 15,
-  "source": "out/inventory.json"
+ "attack_forms": {
+  "value": 22,
+  "source": "h2h/results.json E3+E4 forms"
  },
- "credit_notes": {
-  "value": 10,
-  "source": "out/inventory.json checks.credit_notes"
+ "attack_t_moved": {
+  "value": 0,
+  "source": "h2h/results.json prod_t_changed_vs_clean_row"
  },
  "cmp_starter": {
   "value": 0.5586,
@@ -195,10 +247,6 @@
   "value": 1.0,
   "source": "compete/out/scores.csv random 5-fold"
  },
- "eval_gl_before_rule": {
-  "value": 0.9219,
-  "source": "out/eval_hard_prev.csv"
- },
  "eval_unseen_wording": {
   "value": 0.9999,
   "source": "out/eval_hard.csv"
@@ -207,17 +255,9 @@
   "value": 0.9935,
   "source": "out/eval_hard.csv"
  },
- "laya_gl_ef_acc": {
-  "value": 31.990000000000002,
-  "source": "laya_spike/out_results.json GL split ef acc"
- },
- "scaledown_cat_acc": {
-  "value": 91.89,
-  "source": "scaledown_eval/results.json E2"
- },
- "jev_cost_x": {
-  "value": 3.3,
-  "source": "jev_eval/RESULTS.md per-call cost"
+ "eval_gl_before_rule": {
+  "value": 0.9219,
+  "source": "out/eval_hard_prev.csv"
  },
  "labelled": {
   "value": 1269,
@@ -241,7 +281,7 @@
  },
  "cost_4": {
   "value": 15.0,
-  "source": "deck/build.py cost()"
+  "source": "[brief]"
  },
  "cost_pct": {
   "value": 54.94331408730159,
@@ -258,9 +298,5 @@
  "day1": {
   "value": 0.9935,
   "source": "out/eval_hard.csv GL account"
- },
- "sens": {
-  "value": 15.8,
-  "source": "out/inventory.json"
  }
 }
