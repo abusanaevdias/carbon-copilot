@@ -194,7 +194,7 @@ def read(p, opts):
         check_payload(p)
         lab = _openrouter(p, opts)
     elif m == "laya":
-        lab = None                                            # stub: not admitted (laya_admitted() is False), see REPORT
+        lab = None                                            # stub: Laya failed B5 (laya_spike/REPORT.md)
     else:
         return None
     if lab is not None:
@@ -388,7 +388,7 @@ def evaluate():
                usd_review_queue=round(per_line * queue, 5), adoption_rule=rule, adoption_rule_passes=all(rule.values()),
                adopted=False, adopted_why="needs Dias's approval (B7); predictions.csv untouched",
                laya=dict(admitted=laya_admitted(), precision_at_thr=None, coverage=None,
-                         why="laya_spike/REPORT.md absent: admission tests not shown, backend left as a stub"),
+                         why="laya_spike/REPORT.md: fails B5 on the unseen-account split (category macro-F1 0.55 < 0.925; no confidence threshold reaches precision 0.95; injection changed 18/50 answers); backend left as a stub"),
                runtime_s=round(time.time() - t0, 1), measured_at=time.strftime("%Y-%m-%d %H:%M"))
     with open(os.path.join(P.OUTD, "llm_eval.json"), "w", encoding="utf-8") as f:
         json.dump(res, f, indent=1, ensure_ascii=False)
