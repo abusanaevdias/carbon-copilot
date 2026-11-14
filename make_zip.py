@@ -12,7 +12,9 @@ CODE = ["run.py", "mask.py", "pipeline.py", "report.py", "inventory.py", "eval_h
 RESULTS = ["predictions.csv", "audit.csv", "bank_summary.pdf", "out/inventory.json", "out/bank_summary.html",
            "out/dashboard.html", "out/audit_all.csv"]
 TREES = ["templates", "demo", "tests", "deck"]
-FORBIDDEN = (".mask_salt", "mask_map", "masked/", "__pycache__", "ledger_train", "ledger_test", "ledger_new", "_fresh")
+FORBIDDEN = (".mask_salt", "mask_map", "masked/", "__pycache__", "ledger_train", "ledger_test", "ledger_new", "_fresh",
+             ".env", "_key", ".venv")
+SECRET_MARKERS = ("sk-or-", "OPENROUTER_API_KEY=", "x-api-key:")   # API keys must never ship
 
 
 def members():
@@ -44,6 +46,12 @@ def main(argv):
         if src == "mask.py":                   # its CP_KW list holds public brand keywords (fuel/bank chains) that
             lk = {"person": lk["person"]}      # equal some counterparty names by design; persons still checked
         leaks += sum(lk.values())
+        raw = open(os.path.join(HERE, src), "rb").read().decode("utf-8", "ignore")
+        keyf = os.path.join(HERE, ".scaledown_key")
+        secrets = [open(keyf).read().strip()] if os.path.exists(keyf) else []
+        markers = () if src == "make_zip.py" else SECRET_MARKERS   # this file names the markers itself
+        if any(m in raw for m in markers) or any(s and s in raw for s in secrets):
+            sys.exit(f"FAILED: secret-looking text in {src}; zip not written")
     if leaks:
         sys.exit(f"FAILED: {leaks} raw name hit(s) in files to pack; zip not written")
     path = os.path.join(HERE, root + ".zip")
