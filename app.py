@@ -135,6 +135,7 @@ def run_job(job, text):
             raise RuntimeError("raw name left after masking")
         train, test, new = (P.load(os.path.join(masked, n)) for n in ("ledger_train.csv", "ledger_test.csv", "ledger_new.csv"))
         persons = set(re.findall(r"PERSON_[0-9a-f]{8}", " ".join(r["description"] + " " + r["cost_center"] for r in new)))
+        job["counts"] = dict(cp=len({r["counterparty"] for r in new}), persons=len(persons))   # replaced whole, never mutated
         mark([0], "done", f"{len({r['counterparty'] for r in new})} counterparties · {len(persons)} person spans · leaks 0")
 
         cur = 1
@@ -148,6 +149,7 @@ def run_job(job, text):
         inc = [p for p in preds if p["method"] != "excluded"]
         by_clf = sum(p["reason"].startswith(("classifier", "new wording", "unknown account")) for p in inc)
         fl = lambda p: p["flags"].split("|")
+        job["counts"] = {**job["counts"], "excluded": len(preds) - len(inc), "rule": len(inc) - by_clf, "clf": by_clf}
         mark([1, 2, 3, 4], "done", {
             1: f"duplicates {sum('duplicate' in x for x in rs)} · non-purchase "
                f"{sum('not an emission' in x or 'non-purchase' in x for x in rs)}",
@@ -162,6 +164,7 @@ def run_job(job, text):
         P.MASKED, P.OUTD = masked, out
         report.main(os.path.join(masked, "ledger_new.csv"), os.path.join(out, "audit_new.csv"), pdf=True)
         pdf = os.path.exists(os.path.join(out, "bank_summary.pdf"))
+        job["counts"] = {**job["counts"], "offrange": len(bad)}
         mark([5, 6], "done", {5: f"off-range lines {len(bad)} · sums and formulas recompute",
                               6: "dashboard, bank page, " + ("PDF 1 page" if pdf else "PDF skipped (no Edge/Chrome)")})
 
@@ -205,7 +208,7 @@ def new_job(name, n, text):
     d = tempfile.mkdtemp(prefix="cc_job_")
     for sub in ("masked", "out"):
         os.makedirs(os.path.join(d, sub))
-    JOBS[jid] = dict(id=jid, name=name, n=n, dir=d, t0=time.time(), state="running", error="", elapsed=0.0,
+    JOBS[jid] = dict(id=jid, name=name, n=n, dir=d, t0=time.time(), state="running", error="", elapsed=0.0, counts={},
                      stages=[dict(key=k, label=l, state="pending", detail="") for k, l in STAGES])
     for old in list(JOBS)[:-3]:                           # keep the last 3 job folders
         shutil.rmtree(JOBS.pop(old)["dir"], ignore_errors=True)
@@ -222,7 +225,8 @@ def _cleanup():
 # ---------- pages ----------
 # "Run receipt" (APP_REDESIGN.md): one run, seven stages, the same box from drop to file card. Tokens in section 4.
 CSS = """:root{--paper:#F7F5F0;--sheet:#FFFFFF;--well:#EFECE5;--ink:#15171A;--mute:#4A4D52;--faint:#8A8C90;--rule:#C9C6BE;
- --acc:#A3372B;--acc-wash:#F3E4DF;--t-fast:150ms;--t-base:250ms;--t-slow:400ms;--ease:cubic-bezier(.22,1,.36,1);
+ --acc:#A3372B;--acc-wash:#F3E4DF;--ink-2:#2A2D31;--on-ink:#D9D6CF;--bar2:#727478;--bar3:#BBB8B0;
+--t-fast:150ms;--t-base:250ms;--t-slow:400ms;--ease:cubic-bezier(.22,1,.36,1);
  --lift:0 1px 0 rgba(21,23,26,.04),0 12px 32px -16px rgba(21,23,26,.18);--mono:ui-monospace,"Cascadia Mono",Consolas,monospace}
 *{box-sizing:border-box}html{background:var(--paper)}
 body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.45 Onest,system-ui,sans-serif;font-variant-numeric:tabular-nums;
@@ -272,8 +276,9 @@ p{margin:0}.small{font-size:13px;line-height:1.4;color:var(--mute)}.mono{font-fa
 @keyframes spin{to{transform:rotate(1turn)}}@keyframes pop{from{opacity:.3;transform:scale(.7)}}
 @keyframes up{from{opacity:0;transform:translateY(4px)}}@keyframes up8{from{opacity:0;transform:translateY(8px)}}
 @keyframes grow{from{transform:scaleX(0)}}
+@view-transition{navigation:auto}::view-transition-group(*){animation-duration:400ms;animation-timing-function:cubic-bezier(.22,1,.36,1)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-property:opacity!important;
- transition-duration:150ms!important}[data-st=running]>.g,.g.run{border:1.5px solid currentColor;
+ transition-duration:150ms!important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-st=running]>.g,.g.run{border:1.5px solid currentColor;
  background:linear-gradient(90deg,currentColor 50%,transparent 50%)}.rail [data-st=running] .rw{display:inline;margin-left:8px;
  font-size:13px;font-weight:400;color:var(--mute)}}
 @media(forced-colors:active){[data-st=done]>.g,.g.ok{background:CanvasText}.rail .pass{border:1px solid CanvasText}}
@@ -319,6 +324,7 @@ $css
 .box:focus-within{outline:2px solid var(--acc);outline-offset:2px}.box input{position:absolute;opacity:0;width:1px;height:1px}
 .box.over{background:var(--sheet);border:1px solid var(--ink);transform:translateY(-2px);box-shadow:var(--lift)}
 .box[data-s=run],.box[data-s=stop]{background:var(--sheet);border:1px solid var(--rule);box-shadow:var(--lift)}
+.box[data-s=run]{view-transition-name:run}
 .box[data-s=err]{background:var(--sheet)}
 .box[data-s=run]::before,.box[data-s=stop]::before,.box[data-s=err]::before,.box.over::before{opacity:0}
 .pane{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:32px;
@@ -338,7 +344,11 @@ $css
 .fc{display:flex;align-items:center;gap:12px}.fc .sheet{width:28px;height:34px;margin:0;border-radius:4px;background-size:100% 18px}
 .fc .mono{font-size:15px;color:var(--ink)}.fc .small{margin-left:auto}
 .timer{font-size:40px;line-height:1;font-weight:700;letter-spacing:-.02em}.timer small{font-size:18px;font-weight:600;color:var(--mute);margin-left:6px}
-#cstage{margin-top:12px}.segs{display:flex;gap:4px;margin-top:8px}.segs i{flex:1;height:8px;border-radius:4px;background:var(--well);overflow:hidden;position:relative}
+#cstage{margin-top:12px}.segs{display:flex;gap:4px;margin-top:8px}.segs i{flex:1;height:8px;border-radius:4px;background:var(--bar3);overflow:hidden;position:relative}
+.lg{margin:0;font-size:14px;line-height:20px}.lg div{display:flex;justify-content:space-between;gap:16px;padding:5px 0;
+ border-bottom:1px solid var(--rule)}.lg dt{color:var(--mute)}.lg dd{margin:0;color:var(--faint)}
+.lg dd[data-on]{color:var(--ink);font-weight:600;animation:up var(--t-base) var(--ease) both}
+.lg .sum{border-top:3px double var(--ink);border-bottom:0;margin-top:2px}.lg .sum dt{color:var(--ink);font-weight:600}
 .segs i::after{content:"";position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left;
  transition:transform var(--t-base) var(--ease)}.segs i.on::after{transform:none}
 .p-err .g,.p-stop .g{width:24px;height:24px}.p-err .g::before,.p-err .g::after,.p-stop .g::before,.p-stop .g::after{left:11px;top:2px;height:20px}
@@ -360,7 +370,7 @@ body[data-s=check] .after,body[data-s=run] .after,body[data-s=stop] .after{displ
 <span>CSV, UTF-8 or cp1251, comma or semicolon, up to 5 MB</span></label>
 <div class="pane p-check" aria-hidden="true"><span class="g run"></span><p class="mono" id="kname"></p><p>Checking the file</p></div>
 <div class="pane p-run"><div class="fc"><span class="sheet" aria-hidden="true"></span><span class="mono" id="cname"></span>
-<span class="small" id="clines"></span></div><div><p class="timer"><span id="tn">0.0</span><small>s elapsed</small></p>
+<span class="small" id="clines"></span></div>$runlog<div><p class="timer"><span id="tn">0.0</span><small>s elapsed</small></p>
 <p id="cstage">Starting</p><div class="segs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
 <div class="pane p-err" role="alert"><span class="g x" aria-hidden="true"></span><h2>Not processed</h2><p id="em"></p>
 <p class="row"><label class="btn" for="file">Drop another file</label><a id="ebase" href="/base/dashboard.html" target="_blank" hidden>
@@ -387,7 +397,11 @@ function setRow(li,s){if(li.dataset.st===s.state&&li._det===s.detail)return;li.d
  li.querySelector(".l .sr").textContent=", "+(WORD[s.state]||"");
  if(s.state==="running")li.setAttribute("aria-current","step");else li.removeAttribute("aria-current");
  var d=li.querySelector(".d");if(s.state==="done"&&s.detail)parts(d,s.detail);else if(s.state==="pending")d.textContent=li._d}
-function resetRows(){rows.forEach(function(li,i){setRow(li,{state:"pending",detail:""})});segs.forEach(function(g){g.classList.remove("on")})}
+var lg=[].slice.call(document.querySelectorAll("#lg dd"));
+function setLg(dd,v){var s=v==null?"\\u2014":String(v);if(dd.textContent===s)return;dd.textContent=s;
+ if(v==null)dd.removeAttribute("data-on");else dd.setAttribute("data-on","")}
+function resetRows(){rows.forEach(function(li,i){setRow(li,{state:"pending",detail:""})});segs.forEach(function(g){g.classList.remove("on")});
+ lg.forEach(function(dd){setLg(dd,null)})}
 function tick(){if(!T.on)return;$$("tn").textContent=(T.b+(performance.now()-T.a)/1000).toFixed(1);requestAnimationFrame(tick)}
 function fail(m,base){T.on=false;setS("err");h1.replaceChildren.apply(h1,H1);$$("em").textContent=m||"";var b=$$("ebase");b.hidden=!base;
  if(base)b.href=base;title("Not processed")}
@@ -397,13 +411,14 @@ function stop(m,name){T.on=false;setS("stop");h1.textContent="Processing stopped
 function render(j){var n=0,cur=-1;j.stages.forEach(function(s,i){var was=rows[i].dataset.st;setRow(rows[i],s);
  if(s.state==="done"){n++;if(was!=="done")cur=i}});
  if(cur>=0){var s=j.stages[cur];say("Stage "+(cur+1)+" of 7 done: "+s.label+(s.detail?", "+s.detail.split(" \\u00b7 ").join(", "):""))}
- segs.forEach(function(g,i){g.classList.toggle("on",i<n)});var at=Math.min(n+1,7);
+ segs.forEach(function(g,i){g.classList.toggle("on",i<n)});var at=Math.min(n+1,7),C=j.counts||{};
+ lg.forEach(function(dd){var k=dd.dataset.c;setLg(dd,k==="total"?(j.summary?j.summary.total.toFixed(1):null):C[k])});
  $$("cname").textContent=j.name;$$("clines").textContent=j.lines+" lines";
  $$("cstage").textContent=n===7?"7 of 7 stages done":"Stage "+at+" of 7: "+j.stages[at-1].label;
  T.b=j.elapsed_s;T.a=performance.now();title(n===7?"Done":"Processing "+at+" of 7")}
 function poll(id){fetch("/api/jobs/"+id).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
  if(box.dataset.s!=="run"){setS("run");h1.textContent="Processing the ledger."}render(j);
- if(j.state==="done"){T.on=false;$$("tn").textContent=j.elapsed_s.toFixed(1);setTimeout(function(){location.href="/jobs/"+id},300)}
+ if(j.state==="done"){T.on=false;$$("tn").textContent=j.elapsed_s.toFixed(1);setTimeout(function(){location.href="/jobs/"+id},600)}
  else if(j.state==="error"){$$("tn").textContent=j.elapsed_s.toFixed(1);stop(j.error,j.name)}
  else{if(!T.on){T.on=true;requestAnimationFrame(tick)}setTimeout(function(){poll(id)},300)}})
  .catch(function(){fail("This job is no longer available.");history.replaceState(null,"","/")})}
@@ -431,12 +446,17 @@ html{scroll-padding-top:88px}
 .top{grid-column:1/-1;position:sticky;top:0;z-index:5;display:grid;margin:-8px 0;padding:8px 0;background:var(--paper)}
 .top>*{grid-area:1/1}.top:has(.receipt[open]){position:static}@media(max-width:959px){.top{position:static}}
 .receipt{background:var(--well);border-radius:12px}
-.receipt summary{display:flex;align-items:center;gap:16px;min-height:56px;padding:0 var(--navw,300px) 0 20px;cursor:pointer;list-style:none}
+.receipt summary{display:flex;align-items:center;gap:16px;min-height:56px;padding:0 var(--navw,340px) 0 20px;cursor:pointer;list-style:none}
 .receipt summary::-webkit-details-marker{display:none}
-.jump{position:relative;z-index:1;justify-self:end;align-self:start;display:flex;gap:4px;margin:10px 10px 0 0}
-.jump a{display:flex;align-items:center;height:36px;padding:0 14px;border-radius:8px;color:var(--mute);font-weight:600;
- text-decoration:none;transition:background-color var(--t-fast),color var(--t-fast)}.jump a:hover{background:var(--sheet);color:var(--ink)}
-.jump a.p{background:var(--ink);color:var(--paper)}.jump a.p:hover{background:#2A2D31}
+.zi{position:relative;z-index:1;justify-self:end;align-self:start;display:flex;gap:20px;margin:0 20px 0 0;padding:0;list-style:none;
+ font-size:13px;color:var(--mute);pointer-events:none}
+.zi li{position:relative;display:flex;align-items:center;gap:6px;height:56px;transition:color var(--t-base) var(--ease)}
+.zi b{font:400 12px/1 var(--mono)}.zi li::after{content:"";position:absolute;left:0;right:0;bottom:12px;height:2px;border-radius:1px;
+ background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform var(--t-base) var(--ease)}
+.zi li.on{color:var(--ink);font-weight:600}.zi li.on::after{transform:none}
+@media(max-width:959px){.zi{display:none}.receipt summary{padding-right:20px}}
+.zone.pre{opacity:0;transform:translateY(10px)}.zone{transition:opacity var(--t-slow) var(--ease),transform var(--t-slow) var(--ease)}
+.zone.pre.in{opacity:1;transform:none}.receipt{view-transition-name:run}
 .ticks{display:flex;gap:4px}.ticks .g{width:14px;height:14px}.ticks .g::after{left:4.5px;top:2px;width:3px;height:6px;border-width:0 1.5px 1.5px 0}
 .rs{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.rs>span+span{border-left:1px solid var(--rule);padding-left:16px}
 .rs .mono{font-size:14px;max-width:24ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.receipt .tog{margin-left:auto;font-weight:600;text-decoration:underline;text-underline-offset:3px}
@@ -455,12 +475,12 @@ html{scroll-padding-top:88px}
 .out:hover{background:var(--well)}.out:active{transform:scale(.98)}.out .chip{grid-row:1/3;min-width:44px;text-align:center}
 .out b{font-weight:600}.out .small{grid-column:2}
 .out.p{background:var(--ink);color:var(--paper)}.out.p .chip{background:transparent;color:var(--paper);border-color:rgba(247,245,240,.5)}
-.out.p .small{color:#D9D6CF}.out.p:hover{background:#2A2D31}.nopdf{grid-column:span 3;align-self:center;padding:10px 12px}
+.out.p .small{color:var(--on-ink)}.out.p:hover{background:var(--ink-2)}.nopdf{grid-column:span 3;align-self:center;padding:10px 12px}
 .zh.vh{display:flex;align-items:baseline;justify-content:space-between}.vh .new{font-weight:600}
 .scope{grid-column:1/-1;row-gap:12px}.bar{grid-column:1/-1;display:flex;gap:2px;height:16px;border-radius:8px;overflow:hidden}
 .bar i{display:block;min-width:4px;transform-origin:left;animation:grow var(--t-slow) var(--ease) both}
 .bar i:nth-child(2){animation-delay:60ms}.bar i:nth-child(3){animation-delay:120ms}
-.s1{background:var(--ink)}.s2{background:#7A7C80}.s3{background:var(--rule)}
+.s1{background:var(--ink)}.s2{background:var(--bar2)}.s3{background:var(--bar3)}
 .slab{grid-column:span 4}
 .slab p:first-child{font-size:13px;color:var(--mute);display:flex;align-items:center;gap:8px}
 .slab p:first-child i{width:10px;height:10px;border-radius:3px}
@@ -498,7 +518,8 @@ html{scroll-padding-top:88px}
 <span class="ticks" aria-hidden="true">$ticks</span><span class="rs"><span class="mono" dir="auto" translate="no">$name</span>
 <span>$lines lines<span class="sr">, 7 of 7 stages</span></span><span>$elapsed s</span></span>
 <span class="tog"><span class="s">Show stages</span><span class="h">Hide stages</span></span></summary><div class="body">$rail</div></details>
-<nav class="jump" aria-label="Sections"><a href="#result">Result</a><a href="#review">$revnav</a><a class="p" href="#outputs">Outputs</a></nav></div>
+<ol class="zi" aria-hidden="true"><li data-z="result" class="on"><b>03</b>Result</li><li data-z="review"><b>04</b>Needs a human</li>
+<li data-z="outputs"><b>05</b>Outputs</li></ol></div>
 <section class="zone sg z03" id="result" aria-labelledby="h03"><div class="heroc rise d1">
 <h1 id="h03"><span class="zn" aria-hidden="true">03</span>Emissions in the uploaded lines</h1>
 <p class="num"><span class="sr">$total tCO2e</span><span id="cnt" aria-hidden="true" data-v="$intpart"><span>$intpart</span><small class="fr">$frac</small><small class="u">tCO2e</small></span></p>
@@ -524,7 +545,16 @@ $needs</section>
   f.textContent=(k<1?Math.round(v*e):v).toLocaleString("en-US");if(k<1)requestAnimationFrame(s)})(t0);
  var segs=[].slice.call(document.querySelectorAll(".seg a"));segs.forEach(function(a){a.addEventListener("click",function(){
   segs.forEach(function(b){b.setAttribute("aria-current",b===a?"true":"false")});if(!rm.matches)fr.classList.add("fade")})});
- fr.addEventListener("load",function(){fr.classList.remove("fade")})})();
+ fr.addEventListener("load",function(){fr.classList.remove("fade")});
+ if(!("IntersectionObserver" in window))return;
+ var zs=[].slice.call(document.querySelectorAll(".zone")),zi=[].slice.call(document.querySelectorAll(".zi li"));
+ var at=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)zi.forEach(function(l){
+  l.classList.toggle("on",l.dataset.z===e.target.id)})})},{rootMargin:"-30% 0px -60% 0px"});
+ zs.forEach(function(z){at.observe(z)});
+ if(rm.matches)return;                                  /* zones below the fold rise once on first sight */
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},
+  {rootMargin:"0px 0px -6% 0px"});
+ zs.forEach(function(z){if(z.getBoundingClientRect().top>innerHeight){z.classList.add("pre");io.observe(z)}})})();
 </script></body></html>""")
 
 
@@ -566,11 +596,11 @@ def results_page(job):
              else '<p class="quiet">No lines to review.</p>')
     pdf = (f'<a class="out" href="{b}/bank_summary.pdf"><span class="chip">PDF</span><b>Bank PDF</b><span class="small">1 page</span></a>'
            if S["pdf"] else '<p class="small nopdf">Bank PDF needs Edge or Chrome; open the one-pager and print it.</p>')
-    ticks = '<span class="g ok"></span>' * len(job["stages"])
+    ticks = "".join(f'<span class="g ok" style="animation-delay:{60 + 40 * i}ms"></span>' for i in range(len(job["stages"])))
     return RESULTS.substitute(fonts=FONTS, css=CSS, header=HEADER, base=b, total=f"{tot:,.1f}", intpart=whole, frac="." + frac,
                               title=E(f"{tot:,.1f} tCO2e, Carbon Copilot"), name=E(job["name"]), lines=S["lines"],
                               counted=S["counted"], elapsed=f"{job['elapsed']:.1f}", ticks=ticks, rail=rail(job["stages"]),
-                              bar=bar, ledger=ledger, needs=needs, revnav=f"Review {rv}" if rv else "Review", pdf=pdf)
+                              bar=bar, ledger=ledger, needs=needs, pdf=pdf)
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -624,7 +654,8 @@ class Handler(BaseHTTPRequestHandler):
             if job:
                 el = job["elapsed"] if job["state"] != "running" else time.time() - job["t0"]
                 return self._send(200, dict(state=job["state"], stages=job["stages"], error=job["error"], name=job["name"],
-                                            lines=job["n"], elapsed_s=round(el, 2), summary=job.get("summary")))
+                                            lines=job["n"], elapsed_s=round(el, 2), summary=job.get("summary"),
+                                            counts=job["counts"]))
         self.not_found()
 
     def not_found(self):
@@ -657,7 +688,14 @@ class Handler(BaseHTTPRequestHandler):
         self._send(202, {"id": new_job(name, rows, text)})
 
 
+# Processing card ledger: real counts from job["counts"] (and summary.total at the end), filled in place as stages finish.
+RUNLOG = [("cp", "Counterparties masked"), ("persons", "Person names masked"), ("excluded", "Set aside: duplicate or not a purchase"),
+          ("rule", "Decided by a rule"), ("clf", "Decided by the classifier"), ("offrange", "Off-range lines"),
+          ("total", "Emissions, tCO2e")]
 SHELL_HTML = SHELL.substitute(fonts=FONTS, css=CSS, header=HEADER, cols="".join(f'<span class="chip">{c}</span>' for c in REQ),
+                             runlog='<dl class="lg" id="lg">' + "".join(
+                                 f'<div{" class=sum" if k == "total" else ""}><dt>{l}</dt><dd data-c="{k}">—</dd></div>'
+                                 for k, l in RUNLOG) + "</dl>",
                              rail=rail([dict(key=k, label=l, state="pending", detail="") for k, l in STAGES]))
 
 
