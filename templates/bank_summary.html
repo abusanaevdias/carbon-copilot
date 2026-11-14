@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; font-src data:">
+<title>Dala Foods $year GHG inventory, bank summary</title>
+<style>
+$fonts
+@page{size:A4;margin:11mm 12mm}
+*{box-sizing:border-box}
+html{background:#FAFAF7}
+
+body{margin:0;font:400 8.3pt/1.32 Onest,"Segoe UI",Arial,sans-serif;color:#14181F;background:#FAFAF7;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:186mm;margin:0 auto}
+@media screen{.page{padding:10mm 0}}
+h1{font-size:15pt;font-weight:800;margin:0 0 1mm;letter-spacing:-.01em}
+h2{font-size:8pt;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#5A606B;margin:0 0 1.5mm;padding-bottom:1mm;border-bottom:1px solid #14181F}
+.sub{color:#5A606B;margin:0 0 3mm}
+.mut{color:#7A808A}
+.kpis{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr 1.1fr;border-top:2px solid #14181F;border-bottom:1px solid #C9CCD1;margin-bottom:4mm}
+.kpi{padding:2.2mm 3mm 2.5mm 0}
+.kpi+.kpi{padding-left:3mm;border-left:1px solid #E2E4E7}
+.kpi .l{font-size:7.4pt;color:#5A606B;text-transform:uppercase;letter-spacing:.05em}
+.kpi .v{font-size:15pt;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.15}
+.kpi.big .v{font-size:24pt;font-weight:800}
+.kpi .s{font-size:7.4pt;color:#5A606B}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+section{margin-bottom:3mm}
+table{width:100%;border-collapse:collapse}
+td,th{padding:.75mm 1mm;border-bottom:1px solid #E2E4E7;vertical-align:top;text-align:left}
+th{font-weight:600;font-size:7.4pt;color:#5A606B}
+.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.sc td{font-weight:600;border-top:1px solid #14181F;background:#F1F1EC}
+td.in{padding-left:4mm}
+.bar{width:26%}
+.bar i{display:block;height:2.6mm;background:#8A8F98;margin-top:.6mm}
+.bar i.hot{background:#B4372B}
+.split{display:flex;height:2mm;margin:1mm 0 1mm}
+.split b{background:#14181F}.split span{background:#C9CCD1}
+.hs td:first-child{white-space:nowrap}
+ul{margin:0;padding-left:4mm}li{margin-bottom:.6mm}
+.note{border-left:2px solid #B4372B;padding:1.2mm 0 1.2mm 2.5mm;margin:0 0 2mm}
+footer{margin-top:2mm;padding-top:1.5mm;border-top:1px solid #C9CCD1;font-size:7pt;color:#5A606B;display:flex;justify-content:space-between}
+@media print{html,body{background:#fff}}
+</style></head>
+<body><div class="page">
+<h1>Dala Foods: $year greenhouse gas inventory, $total tCO2e</h1>
+<p class="sub">$entity · Summary for the Bank Alatau green loan application · $method · Boundary: $boundary</p>
+
+<div class="kpis">
+ <div class="kpi big"><div class="l">Total, tCO2e</div><div class="v">$total</div>
+  <div class="s">Sensitivity: milk factor −$sens_pct% to +$sens_pct% gives $sens_low – $sens_high</div></div>
+ <div class="kpi"><div class="l">Scope 1</div><div class="v">$s1</div><div class="s">$p1 of total</div></div>
+ <div class="kpi"><div class="l">Scope 2</div><div class="v">$s2</div><div class="s">$p2 of total, location-based</div></div>
+ <div class="kpi"><div class="l">Scope 3</div><div class="v">$s3</div><div class="s">$p3 of total</div></div>
+ <div class="kpi"><div class="l">Intensity</div><div class="v">$intensity</div><div class="s">tCO2e per t of product ($product_t t)</div></div>
+</div>
+
+<div class="grid">
+ <div>
+  <section><h2>Scopes and categories</h2>
+   <table><tr><th>Category</th><th class="n">Lines</th><th class="n">tCO2e</th><th class="n">Share</th></tr>$cat_rows</table>
+  </section>
+  <section><h2>Exclusions, credit notes, completeness</h2>
+   <ul>
+    <li><b>$excluded lines excluded at 0 t</b>: $exclusions. Advances are excluded because the delivery documents that close them are also in the ledger.</li>
+    <li><b>Credit notes</b>: $credit_n lines counted as negative, $credit_t t.</li>
+    <li><b>Raw milk</b> in the ledger after duplicates: $milk_ledger t, against ~$milk_profile t in the company profile.</li>
+    <li>Refrigerant refills counted as leaks; flights counted on every leg, return trips twice.</li>
+   </ul>
+  </section>
+ </div>
+ <div>
+  <section><h2>Activity- vs spend-based</h2>
+   <div class="split"><b style="width:$act_pct%"></b><span style="width:$spd_pct%"></span></div>
+   <table>
+    <tr><th></th><th class="n">Lines</th><th class="n">tCO2e</th><th class="n">Share of t</th></tr>
+    <tr><td>Activity data (physical quantity × factor)</td><td class="n">$act_lines ($act_lpct%)</td><td class="n">$act_t</td><td class="n">$act_pct%</td></tr>
+    <tr><td>Spend-based (net of VAT × factor)</td><td class="n">$spd_lines ($spd_lpct%)</td><td class="n">$spd_t</td><td class="n">$spd_pct%</td></tr>
+   </table>
+  </section>
+  <section><h2>Data-quality tiers (our definition)</h2>
+   <table><tr><th>Tier</th><th class="n">Lines</th><th class="n">tCO2e</th><th class="n">Share</th></tr>$tiers</table>
+   <p class="mut" style="margin:1mm 0 0">Follows the GHG Protocol Scope 3 data-quality idea. Not a PCAF score; the bank can map the tiers to its own scale.</p>
+  </section>
+  <section><h2>Top 5 hotspots by emission factor</h2>
+   <table class="hs">$hot</table>
+  </section>
+  <section><h2>Material categories not covered by a purchase ledger</h2>
+   <ul>$not_covered</ul>
+  </section>
+ </div>
+</div>
+
+<p class="note"><b>Not verified. Prepared to support limited assurance (ISO 14064-3) from next year.</b>
+Raw milk carries $milk_share% of the total on one factor ($milk_ef kgCO2e/kg, marked illustrative in the factor file); farm-specific factors are the next step. $intensity_note
+Scope 2 is location-based only: the data holds no contracts or certificates for a market-based figure.</p>
+
+<footer><span>Every figure sums from out/audit_all.csv ($rows ledger lines: document, masked counterparty, quantity, factor, method, tier, reason). Names are masked.</span>
+<span>input $sha · $generated</span></footer>
+</div></body></html>
