@@ -321,7 +321,7 @@ def s2(N, V, messy):
              + '<div style="width:420px;height:262px;border:1px solid var(--rule);background:url(assets/bank.png) top left/420px auto no-repeat"></div>')
     ex = (f'<div style="display:grid;grid-template-columns:439px 162px 439px;column-gap:24px;align-items:center;height:100%">'
           f'<div>{left}</div>{mid}<div>{right}</div></div>')
-    who = [("Officer runs it", "once a year, one command"), ("Bank reads it", "one page, all gases"),
+    who = [("Officer runs it", "once a year: local app or command"), ("Bank reads it", "one page, all gases"),
            ("Verifier recomputes", "any line from its invoice"), ("CFO pays", f"within the KZT {CAP / 1e6:.0f} m cap")]
     strip = ('<div style="display:grid;grid-template-columns:repeat(4,1fr);column-gap:24px;border-top:1px solid var(--ink);padding-top:12px">'
              + "".join(f'<div><div class="x" style="font-size:15px;font-weight:600">{a}</div><div class="x sub" style="margin-top:2px">{b}</div></div>'
