@@ -315,7 +315,7 @@ def s2(N, V, messy):
             + '<div style="border-top:1px solid var(--rule)"></div>')
     mid = (f'<div style="text-align:center"><div class="x acc" style="font-size:15px;font-weight:600">1 command</div>'
            f'<svg width="140" height="24" style="display:block;margin:10px auto"><path d="M2 12H134M124 4l10 8-10 8" fill="none" stroke="var(--acc)" stroke-width="1.5"/></svg>'
-           f'<div class="num x acc" style="font-size:56px">{V["rt"]} s</div><div class="x sub" style="margin-top:6px">on a laptop</div></div>')
+           f'<div class="num x acc" style="font-size:56px">{V["rt"]} s</div><div class="x sub" style="margin-top:6px">full run, all checks</div></div>')
     right = (cap("1 page out · for the bank", "margin-bottom:8px")
              + '<div style="width:420px;height:262px;border:1px solid var(--rule);background:url(assets/bank.png) top left/420px auto no-repeat"></div>')
     ex = (f'<div style="display:grid;grid-template-columns:439px 162px 439px;column-gap:24px;align-items:center;height:100%">'
@@ -365,7 +365,7 @@ def s3(N, V, cons_state):
            f'<svg width="28" height="10"><path d="M0 5H26" stroke="var(--g3)" stroke-width="1"/></svg>'
            f'<span class="x" style="font-size:14px;font-weight:600;border:1px solid var(--ink);padding:5px 10px">2 AI readers must agree '
            f'<span class="acc" style="font-weight:400">· {cons_state}</span></span></div>')
-    lead = f"{R:,} lines, four stages, {V['rt']} seconds on a laptop; re-runs are identical."
+    lead = f"{R:,} lines, four stages, {V['rt']} seconds with every self-check; re-runs are identical."
     head = (f'<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px">'
             f'<h1 style="flex:0 0 810px">Code decides every number. AI only advises.</h1>'
             f'<p class="lead" style="flex:0 0 254px;margin:0;font-size:15px;text-align:right">{lead}</p></div>')
@@ -692,7 +692,7 @@ def build():
     N = numbers()
     milk, mled, inj, messy = lines()
     C = cost(N)   # PLAN_V5 C0 dict (WP-1)
-    V = dict(rt=num("runtime_s", round(N["runtime"]) if N["runtime"] else None, "deck/measured.json (6.9 s rounded)"))
+    V = dict(rt=num("runtime_s", round((jload(os.path.join(D, "measured.json")) or {}).get("run_py_s") or N["runtime"] or 0) or None, "deck/measured.json run_py_s: full python run.py incl. self-checks"))
     X = extra()
     RD, cons = readers()
     cons_state = "measured" if cons and cons.get("cat_acc") is not None and cons.get("dangerous") is not None else "in test"

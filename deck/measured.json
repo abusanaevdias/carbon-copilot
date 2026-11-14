@@ -5,5 +5,7 @@
  "injection_exit": 0,
  "injection_forms": 12,
  "injection_lines": 2400,
- "injection_changed": 0
+ "injection_changed": 0,
+ "run_py_s": 49.9,
+ "run_py_measured_at": "2026-11-14 16:45 (python run.py, offline cache, incl. all self-checks, reports, PDF)"
 }

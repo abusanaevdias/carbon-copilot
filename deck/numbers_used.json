@@ -84,8 +84,8 @@
   "tag": "ASSUMED + sourced"
  },
  "runtime_s": {
-  "value": 7,
-  "source": "deck/measured.json (6.9 s rounded)"
+  "value": 50,
+  "source": "deck/measured.json run_py_s: full python run.py incl. self-checks"
  },
  "laya_gl_cat_f1": {
   "value": 0.5496,
