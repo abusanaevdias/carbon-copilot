@@ -1,0 +1,790 @@
+{
+"0105321c88b754eb14633538499f586ea42f05989fd4cca850d69390b4c0a3be": {
+"conf": 0.9715,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"016ddecbd09f10ae0878ae7ecb7bccddbf724156f82caadcaac89532c1dc224c": {
+"conf": 0.9758,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"018c2cda2560791bf8de8507f73e4cf2788c866c0458210e2cdf98b62d2f000f": {
+"conf": 0.9804,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"044af68d4644a2a53a6a476678913436626699591e90b8c253c111060e8ed3f0": {
+"conf": 0.8205,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"0497da3bf49c2c9a80e968f964dabf699142184b8cf8952474fa52b972ae711f": {
+"conf": 0.9058,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"04a548fad63b2658e62f556bdcf96064d1bf62b9996666abd35a8861c1dbd462": {
+"conf": 0.9827,
+"label": "S3_C1_GOODS|SP_TELECOM"
+},
+"06fefda7c38783a5efa015d54d9f4dc09661aec795cd28cbe6a3dfd1615c4f2d": {
+"conf": 0.9607,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"0758f77e0ecb4c1919ab188bbc7ad5166487a3e2908d40b715de255ccbd45fd5": {
+"conf": 0.9769,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"07b79faebb4c90f6102fee11b89f565c75787224499bad53552a2db30330a079": {
+"conf": 0.9845,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"08b5f14f0dba6909c50e7a4b1ea7b3885fd86e114b2fa87a3530a7b2aea2c548": {
+"conf": 0.9672,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"0b756c16a6b2f9385714dfec966915c302b6b129d7d4ced0b78eb7bb625d57cc": {
+"conf": 0.8568,
+"label": "NONE"
+},
+"0c1611a3df65989eb2eb365980d3e9bd2763839c6c120ade8680bc5552ac0a8f": {
+"conf": 0.973,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"0e65317e227ec662654bf8a0525598eafdd158555c4ab7f941ae956a39d18602": {
+"conf": 0.9809,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"0f0fd350c09f68984d561fe96a5386f3f62a1c632d8aea7bdfea60b52ffc2254": {
+"conf": 0.9194,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"1183138c6fb44ec3b943ea12a930203d5e8eed91180faa33d9d6bbed93d438ba": {
+"conf": 0.9844,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"14164080b387029035504b4c7312b99de02df20c0c658f600809afcb2581d6a4": {
+"conf": 0.9179,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"14391bcbeddec7ecd6ca2f42078eaf5ab4a236553d4fe131cdc8356a7e6c831a": {
+"conf": 0.9543,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"1545b95cd9f91170d6c6c876eb3215197930fe20f74d81153d6aa121a9c4333d": {
+"conf": 0.9897,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"158fd859af4dafd63146883643ce641d765f970eb99c21452e4a730074fff150": {
+"conf": 0.9553,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"15f89ec809cdd492eb8f46f135b4ca41af49fcbf7e8642fa468fe549fc4d3ba4": {
+"conf": 0.97,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"15fb5ce6ece704c5e10da45f0d96199493e2586c49b1ab359dd4a6a62bce85bb": {
+"conf": 0.8773,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"17318773ae26b3f32f2b6ca1d5abda3dcf92be08a1dab081e11f93df39ac3a90": {
+"conf": 0.9854,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER"
+},
+"1905501faa19c5b177cb00e2961de2635c13b7bea176f80d29e58dc0952cd547": {
+"conf": 0.977,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"1a678aed0999f684ac7d316d25157b284f26a1976ba42c435c6f181142870c53": {
+"conf": 0.6726,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"1ad9bdc2c44cfd21b44350ca34e5606dac9161abf2f7ef4f82079a4f40683437": {
+"conf": 0.9863,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"1b9089ec5e36ceede804f38eec7a6262549fdad85546a83e85de935debd37da6": {
+"conf": 0.5475,
+"label": "NONE"
+},
+"1c378c154e47d06c56393c1fbac3cebe7a4372b351b636524c43ec4029829003": {
+"conf": 0.9703,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER"
+},
+"1c5d8b4d30b82c1752717e6c056fccedabdb4cdbbc97471b5085e3036f5f08f8": {
+"conf": 0.9748,
+"label": "S3_C1_GOODS|SP_RENT"
+},
+"1d5fa9910f3284e5b1cbbf5155c5f4124a56b409c5af1c9f87326e13e4b34e36": {
+"conf": 0.9367,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"1e1a69ff67323361fdcee9c7ecf1aebd3893f7e2c337326066f5a96868976d69": {
+"conf": 0.98,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"23dc7c90e7ada0f3b12e3ba9d0705651d9e20737f6089733ac4031183b630d72": {
+"conf": 0.9758,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"23f62078fe0fed6ef0d4b9ad68ca61a1a2b03c52c9ee2e0965c8946cbd34aa49": {
+"conf": 0.9755,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"24994aaeb199189e07396728ef1f7675d4075a4a9d4dec11056861aad492e617": {
+"conf": 0.4215,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"24f32567044b0caad0dc8e54faecfefe3fef2e9cc47b625fb850dcb77bdc9e18": {
+"conf": 0.975,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"26a34ea45366fd674aba6f699b4bd2a15e84442196280ae48efeb4917ec99aec": {
+"conf": 0.8179,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER"
+},
+"27d766accff53ae95f17c33e8a46d0ef469d6d6476d89d1b6ce1d65a6ac23f9a": {
+"conf": 0.9654,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"285d0707752df5a6ffdf9a16f80512a8f886f649b2ec1daaa9d7b0fff338ae46": {
+"conf": 0.975,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"29f383c6cff1d440d392bd6a7a76e4a3809e1387359275734f0e7ba4efa4425a": {
+"conf": 0.8478,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"2aabd9220c0cf44195de03f1f432fe4cf2fe7dcf19b92312339473d2f8af9f9a": {
+"conf": 0.542,
+"label": "NONE"
+},
+"2b6f557950f3c57c17dc9728d7bf5feeb17e9e0b8cfb9fb7ace953c63ae3d310": {
+"conf": 0.4835,
+"label": "S3_C2_CAPITAL|SP_MACHINERY"
+},
+"2bd86e546e25d777b647baf009d7e89e0a1ffc49d8f31bb3dd45f275096b405a": {
+"conf": 0.9726,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"2efb497a296f4abdfa54dfd948e8d053b6e4ac07be78ee068b82a48b12deead5": {
+"conf": 0.9824,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"318e26bf4241aa83423aa3e56976ee5429909c3fd0b0f4769aba25afa481debf": {
+"conf": 0.9704,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"34cde898d7ab4d6491401349470993b1e4d8d17c84658c138033d5bd1fdfb168": {
+"conf": 0.99,
+"label": "S3_C1_GOODS|SP_RENT"
+},
+"365c724f5435d11e31b4759da3603da45ae3a374989f114b48ec6846a439ff5e": {
+"conf": 0.9784,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"386c94d993b1c1f2412dab8ac280fe89d1e72f1bb5479dd52d7f722b1e39e8f4": {
+"conf": 0.9183,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"3875d1b74b0fe37588f94683ffe20a72f525ab72a8dc388d092546bdd2aaee0f": {
+"conf": 0.9889,
+"label": "S3_C1_GOODS|SP_RENT"
+},
+"395892c8f4bc0626a3ddd1036f5642189aa93bc449d0da4e8972cfc4c3be7553": {
+"conf": 0.9488,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"3a22be67a43c4ba513d23af02744784951aac4f34bbcacf53623df9d6d61f97c": {
+"conf": 0.9863,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"3a97e32b482fc81f0da51e99fe35c165f0e3dbeacc2b157a1acdd3fe15879138": {
+"conf": 0.5996,
+"label": "NONE"
+},
+"3afb288539ec5f69e51c51bb492089269e0a761c2c5ac1c9d13eef4e90418c71": {
+"conf": 0.984,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"3b7439155095a4918c9cbde8219a7ef293244e760979d900758ca882ef331bc1": {
+"conf": 0.8657,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"3c390bc5cd8611a005a41adbdea5dab9177f8e75efcb97ec4041a0651716513b": {
+"conf": 0.9284,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"3ca671b0c7067b193ef8543976bc60a2c6b44dbaf680ef4232c123442d2d6ec9": {
+"conf": 0.9902,
+"label": "S3_C1_GOODS|SP_RENT"
+},
+"3d4f30792c9a3bd4170d72b1b931034771c08a608a3742f813b7251ed7972cc4": {
+"conf": 0.2438,
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY"
+},
+"3e8e38a8af3d741363ae57fcb82c745b11d295a96566a1021971c5b889f56675": {
+"conf": 0.9215,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"42dee04e861e2361e75641208dd60bad588531c47873596d925d32466fefa1ee": {
+"conf": 0.955,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"45b65a133452441a246c4d0f3d905d52584461844ef59dfae0b60f384d3f4c2a": {
+"conf": 0.8575,
+"label": "NONE"
+},
+"46c29217b4489d6d68d81069e6da169f0400c5980ab711e86ff57f2781344b93": {
+"conf": 0.9417,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"48c72113e557ed5dee0b096485b2e101f1d262a98a42d7637470a249960bafd4": {
+"conf": 0.911,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"4a9bee452fd7a6bfc84df4b2b817b0b7472ef99bd1e7698a7ee38ff7c4f3d64d": {
+"conf": 0.985,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"4c0fa0da642cae06fc8fd62a401a78f59c77e554dfeb2bda86d7d3163f481ef9": {
+"conf": 0.9806,
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY"
+},
+"4c576055c360a0bc2625359673637ee19266f8e4f4173d4bad712a35b0fbe8fb": {
+"conf": 0.9035,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"4c6506afed7c59879620046d8bc729b100292e62eba0616717ee0215d3aace1d": {
+"conf": 0.9241,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"4eb7a76db3f55b60008b7dfdff311ca1d303e193c8e3cfa83210a9c36c902a22": {
+"conf": 0.9604,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"502327520e762390ab0b03572b10e2e1ce7ee421d460116be7c1fdf0d4d49b6a": {
+"conf": 0.3864,
+"label": "S3_C1_GOODS|SP_IT"
+},
+"507568bf2b8a8c3d0dfd8057d415f77a30dd6664c6a989613657b68696ad2940": {
+"conf": 0.6398,
+"label": "NONE"
+},
+"5140408ed9e6b256bfc794c0822685d2848683bed5f8eb7f9dcebbf6d27cc0bb": {
+"conf": 0.9343,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"51bd5b936e47d9de4e2be6223e18a1727fe375e512e06ae3c1624a5376660534": {
+"conf": 0.9753,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"533207aca40435a655aba94aad65d4fb2d2bebdbb33e0104fcc51137a2317b2e": {
+"conf": 0.9618,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"5352639b996f6bf2ba6c60c76b2e34783d0c15b3876af24ff57bb38b35f15b21": {
+"conf": 0.3746,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"54586efbf181b4409b8e6f02bfa4018ae206e7bbb274e7b9544b2d98383d7cdc": {
+"conf": 0.3957,
+"label": "NONE"
+},
+"54b5a54f278e3b45168068dc7fcbf3503955b0112175d1c8de9d2a64050a02a9": {
+"conf": 0.7799,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"55b81393d0551be1b34c6932112c00ed10ed73cc0e87c71881ff7d7190497114": {
+"conf": 0.7312,
+"label": "NONE"
+},
+"56f6666d32e54845bc424a78d9da0c5809de76e753e7f5934ea9893951ab00ea": {
+"conf": 0.9682,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER"
+},
+"5a82875b93adf66ca74d9559d0ad6acda75bc9cc8d9f92dffdf91a41725b8eeb": {
+"conf": 0.9798,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"5a977687224d6c38b3172bbdfbac7acf5c502b3ccec0438b7888228978d68d72": {
+"conf": 0.9816,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"5b0b8b24e923b187a40cfee22c25d93aec1e27589f4d06481819b8defbaf67e3": {
+"conf": 0.9875,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"5b780462c396e04ca001bcae41c0bc1197e7124b0b04669497f534b661bcfbb2": {
+"conf": 0.957,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"5ca9d926bb553d4788b2a1b5c81ea52954f2e24014770f3fb2a4f8fa577f5a02": {
+"conf": 0.9613,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"5dc3736881e89278b041653bcba372d705ae588fac080523f93a9be4a82a6f58": {
+"conf": 0.9788,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"5fa43ba147fbfc1744cae3e92ef136e6307d38e23d103c154c6eae290842678a": {
+"conf": 0.9791,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"60e1e113885a18f5411d34c2f7e944f25e6f264704bebb7ea0328652b97161a1": {
+"conf": 0.9896,
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY"
+},
+"617c1bca7da6b7d9d24d1e4e876d4f9422674990f20ac587d9a4c23eeaf125d3": {
+"conf": 0.9851,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"62fc8ae4868b173ee82b78edfe091d9c7d6701ff917a5339784b50ca96c2e323": {
+"conf": 0.7481,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"655daad748726024d87c2b988c66494baac5cc14e4257623969137b52b19e5f7": {
+"conf": 0.4244,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"6599c37ce1da29a6fab18b7f930c6ec41838a2fbb72d3a52b7c31915d4d31f57": {
+"conf": 0.9845,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"6602311f9fa6376873283a8cef254813973bade2ff3de1249e7dfebed06deb3f": {
+"conf": 0.9688,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER"
+},
+"66bbea3808062468188741ba23f6e713641c2449b9826d3bf3749b8ead0b1714": {
+"conf": 0.9741,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER"
+},
+"671abb70ce407e8f1d9166403e28de92e99d3ba86fe5f999bf1e0544f75a9913": {
+"conf": 0.9803,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"68641b151a582cbdddee6e818593765215c232f8afe643421d4c2a0608065f4a": {
+"conf": 0.4998,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"68df796ebafc7dac5d1939b0ae6ebac72452956d7628020cfa14ebcfd6382a8f": {
+"conf": 0.9837,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"69f8a7d529c03ec9523b01cb4774a9244269847e06cba9299c71729287c3f666": {
+"conf": 0.7736,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"754c9ba545766a4e6b77fddc273c3cc2a5d1a2ddc3c3960ce6f54ef30347894d": {
+"conf": 0.9756,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"75e5ce7efdf0ffc25a3911c039685bf8d90eeebb262c67e7f4f1a7be166c1939": {
+"conf": 0.3845,
+"label": "NONE"
+},
+"76a9b9260887748f0958aff1270206c889021d403f6422e1bba0e5c56c268246": {
+"conf": 0.9909,
+"label": "S3_C1_GOODS|SP_RENT"
+},
+"7811d367fd0652bc523174b9ae9f6c595dd385d3c8b7318a44f847286032b2e8": {
+"conf": 0.9784,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"78bca74fc15b672ef1a7f70b556deec28a309addf4662c78d58b226227aac597": {
+"conf": 0.9809,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"7b68a3f81e5a93b9ab3b8ffd7bd7aff6b400faef452c53280d059e4242f34e62": {
+"conf": 0.9845,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER"
+},
+"7c8340d7894fda01d232afd8dae4a6fbb7adcf911475527d42df8d04a9cadf4a": {
+"conf": 0.9747,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"7d90f83d3b7a57c08f8c226480e12afc9f9bae992dfeaddd098e5bf0145779ae": {
+"conf": 0.9694,
+"label": "S3_C1_GOODS|SP_TELECOM"
+},
+"7d9ce983ce994c91f3f1bb3ca6860a71bb0aa023f57c72f8a9d16646cca17589": {
+"conf": 0.9509,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"7fd71f98c2bcf75a8b2b5e8259b4fe5720b97a2a2541e2d5fe8e7627364cb522": {
+"conf": 0.9939,
+"label": "S3_C1_GOODS|SP_RENT"
+},
+"7ff2528df6601f29fcaac468e49f6d2fb216f83545f74fa499fe2ad44e74b025": {
+"conf": 0.9459,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"80122da3b6b2a4b69b273fbfc2fb1f394a69ca7e530a65ffdc8cc2f85bc44033": {
+"conf": 0.9625,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"808f71be1ddf5d9cd428dd0510de99b03e0e4ed654deb6b0a4571711a1af2f53": {
+"conf": 0.9827,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER"
+},
+"850a18fd509b69df3fe8199f16c732dac01ee658bf2e3dbb76f170ea8d3d1530": {
+"conf": 0.9726,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"884f98e3e8943131f64f70bc4324bdcc2e14e6f4b978cb95ada8115af5e27c1b": {
+"conf": 0.571,
+"label": "NONE"
+},
+"89dae72ad3ca723b97dfaf9a18737ed1c397e97328073f457dd02220a5213538": {
+"conf": 0.8946,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"8cd0d3b115aa232d4c2877b440c73be9d2e0722c0b88236117dc35ebc1aed5ba": {
+"conf": 0.967,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"8e110af85a0e31f0df97636b7ea4d0e9b874e7cac5727abfd618998b0f6c296b": {
+"conf": 0.985,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"91e4bf446dbca153c40ac58a72b78f255f4e69bcb2fd94de7f244b9b5d6f6753": {
+"conf": 0.9609,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"920cda93cabc8960f7ee45e52a22977a928c154217943fff83f405cbb0dc1b08": {
+"conf": 0.9416,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"981dc9bb497a980d9ca70375ad0ae0427b1c9edb8878ffc701cdbda27a9f96e1": {
+"conf": 0.9933,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"99952f8b83be44cfecb03e798a22d59dc8e5534b31b79bee1a91b5d37029db82": {
+"conf": 0.9535,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER"
+},
+"99b597fa964bf4a278e59f02a638d947deac30b956544e7aea626a33e76e7683": {
+"conf": 0.9846,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER"
+},
+"9b0e07af13522cc8b646e0009f539e61a4ca0998a8ced2b0f1efb6165ca20662": {
+"conf": 0.9925,
+"label": "S3_C1_GOODS|SP_RENT"
+},
+"9c2b907aea9eb7fce2ec34bb19fda4c24e73c94066c2a6f8dd25cba517402cb0": {
+"conf": 0.9198,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"9cacfe5596d45b84dd75daca035d89295a2c13420a77793c888884fafb4f5e6a": {
+"conf": 0.5852,
+"label": "NONE"
+},
+"9d12690b7e8c1505ae91678cd9f90fdbda6dd7fd20cdd1be56fe1892907194ad": {
+"conf": 0.9722,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"9d3dbe33ce8506f4843d2cbc2f50525b502645a8e707fcb50c51f421cf57ef40": {
+"conf": 0.9657,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"9d5813847be3e5a1f064740b481b10edad2409a8f8dc31dd039dca984799e893": {
+"conf": 0.9325,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"9d91cf9f17e35f0a305177f2b1a8640117ea2beffe36dcf1d3ef9664f521be54": {
+"conf": 0.9577,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"9ff0cf6f30cc6a5536feec831c9382a4ebef8a33232a6b79b83ad6a303774328": {
+"conf": 0.7928,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"9ff9f2fe475a8a249a761fdcfc18456d6b2c183a2d5dc1bf5c915db5f5dbe95c": {
+"conf": 0.6817,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"a02f4128a65f8007fc782bf07a8a6e2516c7e24e300e38a164413827bfae7c2c": {
+"conf": 0.9911,
+"label": "S3_C1_GOODS|SP_RENT"
+},
+"a0ae85f410f4cc2d0c48720bf64e42de098aa79f8081fb7f6b7e2ad029125592": {
+"conf": 0.9737,
+"label": "S3_C1_GOODS|SP_RENT"
+},
+"a2cd0b758236e4e418dd5d5c2e139c9cc525e3b453f5e5fcd4de1c3499fee24d": {
+"conf": 0.9686,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"a326b1a5617215d6f0452a5f50d3addceb5fe312df35ec375ac6286e64a2708a": {
+"conf": 0.9789,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"a38511e988b98ee1833c710aae1d7aa8c5f6cc502fa6478089d2cbf509ee181e": {
+"conf": 0.9355,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"a547b70550c954556426481ec1159e9aad20ccaa0f4330b8888bfe80416ff9ab": {
+"conf": 0.3523,
+"label": "NONE"
+},
+"a64d7697e87d91bac36999b5dc41d197e11585eb54ea3e9473b04ec59d8c233b": {
+"conf": 0.2365,
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY"
+},
+"a77204ae2d02e374bce3c6af9deb69a184d23c05c3fa46eb81e75fa2db5fe215": {
+"conf": 0.9776,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"a7b898431e4da66b1e4e17fbb0676601264545aa667a3ae7c61bf39a449d2746": {
+"conf": 0.9837,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER"
+},
+"aab29e88670c6a3ba0d7ae8171c3f7a9c9d19a5bb6ada00ac9f8a882d4a22f91": {
+"conf": 0.9702,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"aba15710d85e012f2c6aa7b0bde39b1d4af443c6b480a287fc75f64e1565ff19": {
+"conf": 0.9831,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"ac1d3078a510fe29205dfec379d83a84d368684552bc5cf49f2714807f73173e": {
+"conf": 0.9785,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"ae9f97b55710e901bd4d960e2ebcb4cd11b3a053bb912c9c386f00b4971b80e1": {
+"conf": 0.9904,
+"label": "S3_C1_GOODS|SP_RENT"
+},
+"af3301f9afb2b234861fd1fa013c1754847a22440a4c93e5a9b2a9782c0c91ed": {
+"conf": 0.9693,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"b61a163cac8e33eb2aad8aca70088831f8f61ce3322d519d65c386deeb054a61": {
+"conf": 0.5067,
+"label": "NONE"
+},
+"b6725b5c0c54455db3cefc91b41dec5b7b5bf5d8f6d6597d98dc83a01dcbd053": {
+"conf": 0.3952,
+"label": "S3_C1_GOODS|SP_IT"
+},
+"b7529e45e2f7ce3293945df3c2b1ee800d20eb4a259b3688979c10df0df3fd6c": {
+"conf": 0.5426,
+"label": "NONE"
+},
+"b8916805ba8977a82cde203338e27b7169748f33f0cfceaa6d8610776e46f85b": {
+"conf": 0.9717,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"b8db2fe430667ae2ca89a343dbd411dd5b553b9c7e7e6064c60f4ac5e98085b7": {
+"conf": 0.9756,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"b90654823e805a1149aa591b42625bcb0d17dc69ad3b3eacfc7df0d120685934": {
+"conf": 0.4124,
+"label": "S3_C1_GOODS|SP_IT"
+},
+"ba1675a2679f3fa435cc579b3ee3e902aa871f9702be133e2b8bd9810b5b79c2": {
+"conf": 0.9156,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"ba5a1099edacfe6733672a4fc56e7ec940df7fd109122dd6cb97850c848763bc": {
+"conf": 0.6497,
+"label": "NONE"
+},
+"bb7bba318138fcfa76d02f449021108aec96b4dd56209b433ba68ead54a96e50": {
+"conf": 0.9797,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"bc7508192158198acb4ed2de39ca4b403528ccf4c595d58d0c951050776ae955": {
+"conf": 0.9893,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"bcbf53091634a7e4559592856df1f1d8568a6f4bbae85d623f3cb1afae4caa51": {
+"conf": 0.9453,
+"label": "NONE"
+},
+"bdb2bacf29d018601bd6d9f4a38bcc10845972a63f7b267c6a832c39fdb55447": {
+"conf": 0.977,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"be90f9ac365cf42f991785a2cf567a5a4944c2e046a5c72d514cd3177fbbc22f": {
+"conf": 0.9806,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"bf0642967d13421f8fe1b03a940b8d181a1c9b42c27a777bccce854666a84be5": {
+"conf": 0.4292,
+"label": "S3_C2_CAPITAL|SP_MACHINERY"
+},
+"c28665a65df7e07044ab9d277837113a85fc38a4095c6bb627d43120d345406f": {
+"conf": 0.8473,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"c32c4851db6003adc72dea61858b32fb43a681f4c400d99855214abc8beb24b4": {
+"conf": 0.9131,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"c4ed1915a65db1117284e9f8d5e7c9166978c19255753a98fdf3c5721cd1b5cb": {
+"conf": 0.9162,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"c6a4f92a5232cba3c760549d73e665cf55a5daff45239c6a4e6511f841fc2f90": {
+"conf": 0.9689,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"c709e2c08e5d2ae2e75bd1ebd60554df0259c8393b678d19bff22c0dfaea6ce9": {
+"conf": 0.9903,
+"label": "S3_C1_GOODS|SP_RENT"
+},
+"c7b505cc6a669e821f13d25adf58aab2e4a0a7ea4a0ad185ed0a7d8f9ae99259": {
+"conf": 0.9441,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"c879ef249c48b71d33312fde9523b6bf91e021e9b7e785c9ae1069fbf6d18875": {
+"conf": 0.8335,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"c8b8ffdcebdd3341a984dcbbf26133164fb6587250be9af9edacee4c1974eee3": {
+"conf": 0.9619,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"c9479f45d6d64f9106c020f69f84b9f3f91f7ce44a696491a6972bb55dec52fa": {
+"conf": 0.963,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER"
+},
+"cac47051ed8aa9865f2e613e5c31216faec5dea50e7d7e220eaf1dec4ea874a8": {
+"conf": 0.9714,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"cc8b498302c222bc49ea6d1d2d9acc52b2ce2ef64ac5b8e4e1af0718d88ce43e": {
+"conf": 0.949,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"ce2b1fa7254987289e20c7c71a0549ec4aa459615e3bd8b9d0e017e73464ca4f": {
+"conf": 0.9188,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER"
+},
+"d05e39ec909a3918edba4cb5b8b836c50d79400fcae4c9463e17017783b109d6": {
+"conf": 0.9695,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"d1ea444573fa50e88a01b1630097eafb3fa1c6a5ac0ad8b22cab47bde6453c4f": {
+"conf": 0.7372,
+"label": "NONE"
+},
+"d3461c5761a99d3b4770cd828bee351b9bf4284957800cc119cd6cb09ade187e": {
+"conf": 0.8152,
+"label": "NONE"
+},
+"d63316d04fc7423ce19bab0c7e8eda101ee63f03307a68d52b4c24acfe2a0817": {
+"conf": 0.9963,
+"label": "S3_C1_GOODS|SP_RENT"
+},
+"d80492ec1e4c78c7a02f17dd331c83252eeb8970dec322c69c535bf6b9421c18": {
+"conf": 0.9573,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"d9ffc5ffeebb189a79e0f86e9aa31d2fee05f30daeaf90eff80def2cedba374f": {
+"conf": 0.985,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"dc46895934569718ce013df60e9b1ef07acbe8207bc03a6c7a407c76e4e36d5a": {
+"conf": 0.9611,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"df136567645494d65fbc5f96b63150d2c4610c4ca42b58412f3e49db8fbeb04d": {
+"conf": 0.9897,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"e30229ff79db5f304c13731bb921ea43dc14ad316abf5714595dc1eabb3ab2fe": {
+"conf": 0.7162,
+"label": "NONE"
+},
+"e3d3cbfdfbafc972cba496f8696b1f72909ae2e584cfcf15cd1f352cf7a081c7": {
+"conf": 0.9399,
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD"
+},
+"e4c2321b14955ed2e5b01f977a2f7d43b95a06263962f3fb688189f4725fb7c3": {
+"conf": 0.9609,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"e57b54d49976c6cd50e5d5f87e9bfa940121ac4d5c23585254b9991efc6f7409": {
+"conf": 0.988,
+"label": "S3_C1_GOODS|SP_RENT"
+},
+"e5d552abfaaad1e0dfa220a5dca23bb7697f9c7993000091c43f7015baf72057": {
+"conf": 0.9886,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"e87ee29091e154b0034fe9f0975a041230af78e49b8dd4b12b68533bba6a7d2f": {
+"conf": 0.9123,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"e90d4db6709d540f2e98ba6fc77beeb98c536ecf5a7695f27422be3cd307a847": {
+"conf": 0.9463,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"eaa154b5f9c5b9445feaea5eb8ad6d9930f7c6d6ac2dcb66729a5938b9cfac7e": {
+"conf": 0.7816,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"eb3a2fb2e33a9f6fccafc38783f2083ce94b66304caee3a6ce1e7faf5efc6215": {
+"conf": 0.9053,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"eb7de3802a594375c1a33df688dd5da705b8f6d63de9e113a483a92147de21c5": {
+"conf": 0.8156,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"ebfb61c9e845d16158757bf4cf4d077a9c403e84cce14630e86d2efde15c94aa": {
+"conf": 0.9839,
+"label": "S3_C1_GOODS|SP_IT"
+},
+"ec4878dd729a7e3dbd0b30a152f24f97e4882ae60872083301285363e8d95032": {
+"conf": 0.8866,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"ec9736e50971454bb7a22c19a76541af6d14600a39864db4db4ee1a86f7f41b4": {
+"conf": 0.9754,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"ecfe0407028d28c3dc2724909c87deef7fecd661b976944cae38d8d985b798dc": {
+"conf": 0.9472,
+"label": "S3_C1_GOODS|SP_SERVICES_PROF"
+},
+"ef67fdab2b04a29961816ca73b0ba15fb44da2e819116bff7c2c267ac9a9b42c": {
+"conf": 0.9737,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"f112b811b7d9b4fe200dc7dfdcf69f4fab42d00d4e3b7e4481eeefdb58ac1200": {
+"conf": 0.9774,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"f14e893a0515e99cec657119946a9f1dc9b6aa98433a15e38e93273b6af89831": {
+"conf": 0.6203,
+"label": "NONE"
+},
+"f204b3ceed5d5c53ed8732e0318639185547cdad50257a13818833f579cdadb0": {
+"conf": 0.9852,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"f25036eaf333a07e17a68dcf44f09e035c7dfb65c931c5346821d7c44b9a253c": {
+"conf": 0.9657,
+"label": "S3_C1_GOODS|SP_SPARE_PARTS"
+},
+"f6669c101db219deb7d7ff8c4f6d5d9523a534c39525172b98433361927aaa0a": {
+"conf": 0.8743,
+"label": "S3_C1_GOODS|SP_MAINTENANCE"
+},
+"f90eee4d039a206d924bd02aaf58c977eb7b892f12ffa585a911d667201e6310": {
+"conf": 0.9814,
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER"
+},
+"f9238494e09e2fbfb586a28492a064db83c864bf8483cc4eaf38084b6d1a521f": {
+"conf": 0.9551,
+"label": "S3_C1_GOODS|SP_OFFICE"
+},
+"fc9865731699f2209cc5f1fb5e18360617c1da9904546d782267439a339244ea": {
+"conf": 0.9759,
+"label": "S3_C1_GOODS|SP_FINANCIAL"
+},
+"fe94941bd2b69eef0065a099b96e82dc7065b8ef35f74e2117ce31430a80ee9a": {
+"conf": 0.9702,
+"label": "S3_C1_GOODS|SP_RENT"
+}
+}
