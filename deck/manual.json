@@ -1,0 +1,5 @@
+{
+ "leaderboard_score": null,
+ "team": null,
+ "_note": "fill leaderboard_score (number) and team (e.g. \"07\"), then python deck/build.py"
+}

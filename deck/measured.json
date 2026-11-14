@@ -1,0 +1,9 @@
+{
+ "measured_at": "2026-11-14 13:57",
+ "pipeline_runtime_s": 6.9,
+ "pipeline_exit": 0,
+ "injection_exit": 0,
+ "injection_forms": 12,
+ "injection_lines": 2400,
+ "injection_changed": 0
+}
