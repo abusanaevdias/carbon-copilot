@@ -183,10 +183,6 @@
   "value": 5.0,
   "source": "[brief]"
  },
- "leaderboard": {
-  "value": null,
-  "source": "deck/manual.json"
- },
  "farms": {
   "value": 25,
   "source": "[brief] about 25 farms"
@@ -292,11 +288,11 @@
   "source": "deck/measured.json"
  },
  "inj_lines": {
-  "value": 2400,
+  "value": 4400,
   "source": "deck/measured.json"
  },
  "inj_forms": {
-  "value": 12,
+  "value": 22,
   "source": "deck/measured.json injection_forms"
  },
  "attack_t_moved": {

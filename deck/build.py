@@ -5,7 +5,7 @@ Run:  python deck/build.py             generate slides into deck.html, print dec
       python deck/build.py --lint      same, exit 1 on any lint breach (word caps, exhibit size, fonts, banned terms)
       python deck/build.py --measure   first re-time `python pipeline.py` (temp copy, out/ untouched) and re-run
                                        tests/test_injection.py; cached in deck/measured.json
-Manual values (leaderboard score, team) live in deck/manual.json; anything unknown prints as ЗАПОЛНИТЬ.
+Team lives in deck/manual.json (shown only if set); the leaderboard score is never shown. Lint fails on ЗАПОЛНИТЬ.
 out/llm_eval.json (WP-B) is optional: absent -> the second-reader annotations are simply not drawn.
 Every injected value and its source is written to deck/numbers_used.json for the proofread.
 Charts are inline SVG generated here; the only bitmap is the bank one-pager thumbnail.
@@ -41,7 +41,8 @@ def measure():
     try:
         c = os.path.join(tmp, "case-bv2"); os.makedirs(c)
         shutil.copytree(os.path.join(CASE, "..", "cases"), os.path.join(tmp, "cases"))
-        shutil.copy(os.path.join(CASE, "pipeline.py"), c)
+        for f in ("pipeline.py", "llm_fallback.py", "llm_cache.json"):   # pipeline imports the second reader (cache, offline)
+            shutil.copy(os.path.join(CASE, f), c)
         shutil.copytree(os.path.join(CASE, "masked"), os.path.join(c, "masked"))
         shutil.copytree(os.path.join(CASE, "tests"), os.path.join(c, "tests"))
         t = time.time()
@@ -56,6 +57,7 @@ def measure():
                  injection_lines=sum(int(b) for _, b in changed), injection_changed=sum(int(a) for a, _ in changed))
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
+    m = {**(jload(os.path.join(D, "measured.json")) or {}), **m}   # keep run_py_s (timed separately)
     json.dump(m, open(os.path.join(D, "measured.json"), "w"), indent=1)
     print("measured:", m)
 
@@ -296,12 +298,11 @@ def s1(N, V):
     loan = num("loan_scope_pct", 100 * (N["grid"] + N["gas"] + N["heat"]) / tot, "out/inventory.json by_factor grid+gas+heat", "{:.0f}")
     USED["loan_scope_t"] = {"value": N["grid"] + N["gas"] + N["heat"], "source": "out/inventory.json by_factor EF_GRID_KZ_KWH+EF_NG_M3+EF_HEAT_GCAL"}
     lead = f"The KZT {num('loan_bn', LOAN / 1e9, '[brief]')} bn green loan's solar and heat pumps touch only {loan}% of emissions."
-    team = esc(N["team"]) if N["team"] else FILL
-    lb = num("leaderboard", N["leaderboard"], "deck/manual.json", "{:.4f}")
+    team = f' · Team {esc(N["team"])}' if N["team"] else ""   # leaderboard score is never shown; no placeholder
     title = f"Four-fifths of the footprint sits on {num('farms', 25, '[brief] about 25 farms')} farms."
     body = (exh(100, hero, 346, "text-align:center")
             + at(464, f'<p class="lead" style="margin:0;text-align:center">{lead}</p>'))
-    return page(1, "Carbon Copilot", f"Dala Foods · 2025 · Team {team} · Leaderboard {lb}", title, body,
+    return page(1, "Carbon Copilot", f"Dala Foods · 2025{team}", title, body,
                 "Case data, synthetic. Supplier and staff names masked. Detail: bank one-pager, README.", "hero")
 
 
@@ -417,7 +418,7 @@ def s5(N, X):
     b1 = "".join(row(l, num(f"inj_{k}", v, "compete/out/baselines.json injection" if k < 3 else "deck/measured.json"),
                      (v or 0) / mx, "bg-acc" if c else "", c) for k, (l, v, c) in enumerate(ir))
     num("inj_lines", N["inj_lines"], "deck/measured.json")
-    num("inj_forms", 12, "deck/measured.json injection_forms")
+    num("inj_forms", (jload(os.path.join(D, "measured.json")) or {}).get("injection_forms"), "deck/measured.json injection_forms")
     h = jload(os.path.join(CASE, "h2h", "results.json")) or {}
     forms = sum(h.get("deepseek", {}).get(s, {}).get("forms", 0) for s in ("E3_raw", "E4_raw")) or None
     moved = sum(h[m][s]["prod_t_changed_vs_clean_row"] for m in ("deepseek", "jev") for s in ("E3_raw", "E4_raw", "E4_strip")) if h else None
@@ -452,7 +453,7 @@ def s5(N, X):
         f'<div class="num x acc" style="font-size:72px">{v}</div><div class="x" style="font-size:15px;margin-top:10px">{lbl}</div>'
         f'<div style="{mini}">{rows_}</div>{extra}</div>')
     ex = ('<div style="display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:24px">'
-          + col(num("inj_changed", N["inj_changed"], "deck/measured.json"), f"lines changed by hidden text, of {n:,}", b1, first=True)
+          + col(num("inj_changed", N["inj_changed"], "deck/measured.json"), f"changed, of {n:,} lines (rivals: of 2,400)", b1, first=True)
           + col("0", "names sent out when the tool runs", b2)
           + col(f"{r[3][1]:.2f}", "score, same labelled lines", b3,
                 f'<div class="x lbl" style="margin-top:12px"><b>{num("eval_unseen_accounts", ua, "out/eval_hard.csv", "{:.2f}")}</b> on accounts never seen</div>')
@@ -682,6 +683,7 @@ def lint(url, pdf, ws):
     if not_emb: bad.append(f"fonts not embedded: {not_emb}")
     if not any(f[1] == "Type3" for f in fl): bad.append("Onest (Type3 outlines) missing from the pdf")
     if mb >= 10: bad.append(f"pdf {mb:.1f} MB >= 10")
+    if any("ЗАПОЛНИТЬ" in p.get_text() for p in doc): bad.append("placeholder ЗАПОЛНИТЬ in the pdf")
     print(f"pdf: {doc.page_count} pages, {mb:.2f} MB, fonts: {sorted(fonts)}")
     print("LINT OK" if not bad else "LINT FAIL\n  " + "\n  ".join(bad))
     return not bad
