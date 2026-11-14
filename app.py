@@ -326,6 +326,9 @@ def rail(stages):
     return '<ol class="rail" id="rail">' + "".join(out) + "</ol>"
 
 
+# CSV document glyph shared by the drop zone and the run file card: page + folded corner + 3x2 table hint, 48 units.
+DOC = ('<path class="bg" d="M10 4h20l8 8v32H10z"/><path d="M30 4v8h8"/>'
+       '<rect x="16" y="16" width="16" height="18" rx="1.5"/><path d="M16 22h16M16 28h16M22 16v18"/>')
 SHELL = Template("""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Carbon Copilot</title>
 <meta name="viewport" content="width=device-width,initial-scale=1"><style>$fonts
 $css
@@ -353,16 +356,13 @@ $css
 .p-empty{cursor:pointer}.p-empty b{font-size:22px;line-height:1.25;font-weight:700;letter-spacing:-.01em;max-width:420px}
 .p-empty b u{text-decoration-thickness:1px;text-underline-offset:4px}.p-empty .rel,.over .p-empty .idle{display:none}
 .over .p-empty .rel{display:block}.p-empty span{font-size:13px;color:var(--mute)}
-.sheet{width:44px;height:54px;border:1.5px solid var(--ink);border-radius:6px;background:var(--sheet);margin-bottom:8px;
- background-image:repeating-linear-gradient(180deg,transparent 0 9px,var(--rule) 9px 10px);background-position:0 8px;
- background-size:100% calc(100% - 16px);background-repeat:no-repeat;transition:transform var(--t-fast) var(--ease)}
 .di{display:block;width:56px;height:56px;margin-bottom:4px;color:var(--ink);overflow:visible}
 .di .bg{fill:var(--well);transition:fill var(--t-slow) var(--ease)}.over .di .bg{fill:var(--sheet)}
 .di .bd{fill:currentColor;stroke:var(--well);stroke-width:3;paint-order:stroke;transition:stroke var(--t-slow) var(--ease)}.over .di .bd{stroke:var(--sheet)}
 .di .ar{stroke:var(--paper)}.di .up{transition:transform 200ms var(--ease)}.over .di .up{transform:translateY(-3px)}
 .p-check .g{width:28px;height:28px}.p-check p{font-size:18px}
 .p-run{align-items:stretch;justify-content:space-between;text-align:left;padding:28px 32px}
-.fc{display:flex;align-items:center;gap:12px}.fc .sheet{width:28px;height:34px;margin:0;border-radius:4px;background-size:100% 18px}
+.fc{display:flex;align-items:center;gap:10px}.fd{flex:none;width:32px;height:32px;margin:-2px 0 0 -6px;color:var(--ink)}
 .fc .mono{font-size:15px;color:var(--ink)}.fc .small{margin-left:auto}
 .timer{font-size:40px;line-height:1;font-weight:700;letter-spacing:-.02em}.timer small{font-size:18px;font-weight:600;color:var(--mute);margin-left:6px}
 #cstage{margin-top:12px}.segs{display:flex;gap:4px;margin-top:8px}.segs i{flex:1;height:8px;border-radius:4px;background:var(--bar3);overflow:hidden;position:relative}
@@ -392,13 +392,13 @@ body[data-s=check] .after,body[data-s=run] .after,body[data-s=stop] .after{displ
 <section class="intro"><h1><span class="zn" aria-hidden="true">01</span><span id="h1">Drop a ledger.<br>Get the carbon inventory.</span></h1>
 <div class="box" id="box" data-s="empty" aria-busy="false"><input type="file" id="file" accept=".csv,text/csv">
 <label class="pane p-empty" for="file"><svg class="di" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"
- stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="bg" d="M10 4h20l8 8v32H10z"/><path d="M30 4v8h8"/>
-<rect x="16" y="16" width="16" height="18" rx="1.5"/><path d="M16 22h16M16 28h16M22 16v18"/>
+ stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">$doc
 <g class="up"><circle class="bd" cx="38" cy="40" r="7"/><path class="ar" d="M38 43.5v-7m-3 3 3-3 3 3"/></g></svg>
 <b class="idle">Drop a ledger CSV here or <u>choose a file</u></b><b class="rel">Release to start</b>
 <span>CSV, UTF-8 or cp1251, comma or semicolon, up to 5 MB</span></label>
 <div class="pane p-check" aria-hidden="true"><span class="g run"></span><p class="mono" id="kname"></p><p>Checking the file</p></div>
-<div class="pane p-run"><div class="fc"><span class="sheet" aria-hidden="true"></span><span class="mono" id="cname"></span>
+<div class="pane p-run"><div class="fc"><svg class="fd" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"
+ stroke-linejoin="round" aria-hidden="true">$doc</svg><span class="mono" id="cname"></span>
 <span class="small" id="clines"></span></div>$runlog<div><p class="timer"><span id="tn">0.0</span><small>s elapsed</small></p>
 <p id="cstage">Starting</p><div class="segs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
 <div class="pane p-err" role="alert"><span class="g x" aria-hidden="true"></span><h2>Not processed</h2><p id="em"></p>
@@ -742,7 +742,7 @@ class Handler(BaseHTTPRequestHandler):
 RUNLOG = [("cp", "Counterparties masked"), ("persons", "Person names masked"), ("excluded", "Set aside: duplicate or not a purchase"),
           ("rule", "Decided by a rule"), ("clf", "Decided by the classifier"), ("offrange", "Off-range lines"),
           ("total", "Emissions, tCO2e")]
-SHELL_HTML = SHELL.substitute(fonts=FONTS, css=CSS, header=HEADER, cols="".join(f'<li>{c}</li>' for c in REQ), ncols=len(REQ),
+SHELL_HTML = SHELL.substitute(doc=DOC, fonts=FONTS, css=CSS, header=HEADER, cols="".join(f'<li>{c}</li>' for c in REQ), ncols=len(REQ),
                              runlog='<dl class="lg" id="lg">' + "".join(
                                  f'<div{" class=sum" if k == "total" else ""}><dt>{l}</dt><dd data-c="{k}">—</dd></div>'
                                  for k, l in RUNLOG) + "</dl>",
