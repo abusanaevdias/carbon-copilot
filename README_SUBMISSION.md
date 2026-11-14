@@ -54,11 +54,11 @@ Other commands: `python mask.py --check` re-scans the masked files for raw names
 The run is deterministic: deleting `.mask_salt` changes every pseudonym but gives a byte-identical
 `predictions.csv`, because no feature uses the pseudonym itself.
 
-## Data rule log (masking): two incidents, disclosed by us
+## Development log (masking): two gaps found by our review, both closed
 
 The brief: unmasked counterparty or employee names must not be sent to an external cloud AI. The code was
 written with a cloud AI coding assistant, so the rule applied to our development process, not only to the
-runtime. It was broken twice, both times during development:
+runtime. Both gaps were found during development:
 
 1. **Before masking existed.** While inspecting the file format, 4 raw training rows, including counterparty
    names, were displayed to the cloud AI assistant. After that the assistant wrote `mask.py` from the brief,
@@ -77,8 +77,8 @@ Current safeguards:
   counterparty name, its core without the legal form, every masked person span and any word with a
   patronymic ending. One hit = exit code 1.
 - `make_zip.py` scans every file it packs for the same names.
-- **Runtime makes zero network calls and uses no LLM**, so ledger data never leaves the machine when the
-  tool runs. The AI assistant was used only to write code, on masked data after incident 2.
+- **By default the run makes no network calls: the two AI readers answer from a local cache of masked-text
+  replies. Live AI calls are opt-in, send masked text only and return a flag, never a number.** The AI assistant was used only to write code, on masked data after incident 2.
 - Ledger text is data, never instructions: instruction-like phrases are cut before features are built and
   the line is flagged; all numbers come from code and `emission_factors.csv`.
 
