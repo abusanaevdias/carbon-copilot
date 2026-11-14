@@ -1,0 +1,20 @@
+{
+ "starter_says": "Train macro-F1 0.264 | WAPE 0.245 | estimated score 0.559",
+ "scores": [
+  {
+   "scenario": "random 5-fold",
+   "approach": "starter",
+   "score": 0.5586,
+   "macro_f1": 0.2635,
+   "wape": 0.2448,
+   "category_errors": 322,
+   "nan_outputs": 0
+  },
+  {
+   "scenario": "random 5-fold",
+   "approach": "clf_starter",
+   "score": 0.6733,
+   "macro_f1": 0.8913,
+   "wape": 0.4719,
+   "category_errors": 14,
+   "nan_outputs": 
