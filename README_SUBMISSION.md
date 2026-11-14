@@ -49,10 +49,42 @@ Outputs:
 
 Other commands: `python mask.py --check` re-scans the masked files for raw names (exit 1 on a leak);
 `python eval_hard.py` runs the hard hold-out scenarios; `python tests/<test>.py` runs the tests;
-`python make_zip.py <N>` builds this zip and refuses if any packed file contains a raw name.
+`python make_zip.py <N>` builds this zip and refuses if any packed file contains a raw name;
+`python app.py` starts the local web app (next section).
 
 The run is deterministic: deleting `.mask_salt` changes every pseudonym but gives a byte-identical
 `predictions.csv`, because no feature uses the pseudonym itself.
+
+## Run the local web app
+
+The same code path as `python run.py --new file.csv`, in a browser. Standard library only (`http.server`).
+
+```
+python run.py          # once: the app reads the finished run in out/
+python app.py          # http://127.0.0.1:8765  (--port N to change it, --no-open to skip the browser)
+```
+
+Drop a ledger CSV (or click "try the demo file", `demo/new_lines.csv`, 12 lines). Seven stages run with live
+counts: mask names, duplicates and non-purchase lines, rules, classifier, emission factors, self-checks, report.
+The results page has three zones: **03 Result** (tCO2e, counted and excluded lines, Scope 1/2/3), **04 Needs a
+human** (red: lines with review flags, which never change a result; amber: lines whose instruction-like text was
+ignored, with how each was counted) and **05 Outputs** (dashboard of the uploaded lines with a whole-year switch,
+bank one-pager and PDF for the whole company with the uploaded lines added, audit CSV). On the demo file:
+91.3 tCO2e, 10 of 12 lines counted, 10 to review, 3 with instruction-like text, about 4 s.
+
+Accepted input: CSV in UTF-8 or cp1251, comma or semicolon, up to 5 MB / 20,000 lines, the 11 columns of
+`ledger_test.csv` (extra columns are dropped). Line ids already in the base ledger are refused as already counted.
+Every refusal says what is wrong; nothing is kept.
+
+Privacy: the server binds 127.0.0.1 only and refuses a foreign Host or Origin. The second reader is pinned to
+`cache` or `off`, so the app has no network path. The raw upload and its name map are deleted right after the
+masking self-check; later stages read masked lines in a temporary folder (last 3 runs kept, all removed on exit).
+The submission files (`predictions.csv`, `audit.csv`, `out/submission.csv`) are never written. The console prints
+counts and error types only.
+
+Tests: `python tests/test_app.py` (T1-T10: LAN address refused, the demo through all 7 stages, totals, submission
+files unchanged, markup escaped, raw upload deleted, error statuses, network blocked, security headers).
+Last run 2026-11-14: `test_app OK`.
 
 ## Development log (masking): two gaps found by our review, both closed
 
@@ -134,11 +166,11 @@ least annually"), which lender and borrower "may agree" to review externally. No
 
 ## Real vs not built
 
-Real and runnable: one command from raw CSVs, masking with a failing self-check, rule + naive Bayes
+Real and runnable: one command from raw CSVs, the local web app (`app.py`), masking with a failing self-check, rule + naive Bayes
 classification, unit conversion, VAT-net spend fallback, duplicate and non-purchase exclusion, credit notes,
 injection robustness, per-line audit, `--new` for extra lines, the zip builder.
 
-Not built: browser upload, logins, database, multi-company configuration, LLM explanations, market-based
+Not built: a hosted version, logins, database, multi-company configuration, LLM explanations, market-based
 Scope 2, product-level (ISO 14067) footprint, a statistical uncertainty range. Scope 3 categories a purchase
 ledger cannot show (Cat 3, 7, 9, 12) are not assessed. Nothing here is verified or assured.
 
