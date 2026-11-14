@@ -114,7 +114,7 @@ def run():
                 unflagged[i] += 1
             if i >= len(INSTRUCTIONS):                     # what a second reader would see
                 d, u, _ = P.scrub(ar)
-                seen = P._views(d + " " + u)[0]
+                seen = P._views(d + " " + u)[0][0]
                 leaked[i] += bool(P.CODES.search(seen)) or name in seen.lower()
                 nohint[i] += (i - len(INSTRUCTIONS)) in CARRIES_LABEL and not flagged(b, "label_hint")
     for i, (name, _) in enumerate(forms):
@@ -123,7 +123,7 @@ def run():
     for e in examples:
         print("  CHANGED", e)
     assert len(forms) == 22
-    assert not changed and not unflagged and not leaked and not nohint, "injection test failed"
+    assert not any(sum(c.values()) for c in (changed, unflagged, leaked, nohint)), "injection test failed"
 
 
 if __name__ == "__main__":
