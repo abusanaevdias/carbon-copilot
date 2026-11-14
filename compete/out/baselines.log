@@ -1,0 +1,44 @@
+organisers' starter, its own print on masked train: Train macro-F1 0.264 | WAPE 0.245 | estimated score 0.559
+
+scenario                                      starter                clf_starter                  clf_units                 spend_only                       ours
+                            score  F1    WAPE  catErr  score  F1    WAPE  catErr  score  F1    WAPE  catErr  score  F1    WAPE  catErr  score  F1    WAPE  catErr
+random 5-fold               0.5586 0.264  0.245   322   0.6733 0.891  0.472    14   0.7047 0.954  0.461    11   0.8398 1.000  0.267     0   1.0000 1.000  0.000     0  
+unseen wording              0.5586 0.264  0.245   322   0.1546 0.387  4.293   380   0.5260 0.526  0.474   195   0.8058 1.000  0.324     0   0.9999 1.000  0.000     0  
+unseen suppliers            0.5586 0.264  0.245   322   0.0779 0.195 27.924   329   0.1185 0.296  8.276   309   0.7665 1.000  0.389     0   0.9999 1.000  0.000     0  
+unseen accounts             0.5586 0.264  0.245   322   0.0497 0.124  1.188  1038   0.0669 0.167  1.464   808   0.5029 1.000  0.828     0   0.9935 0.985  0.001    22  
+typo                        0.4480 0.204  0.389   357   0.6713 0.884  0.470    17   0.7035 0.949  0.460    12   0.8398 1.000  0.267     0   0.9999 1.000  0.000     0  
+RU/KZ/EN synonym            0.5407 0.262  0.273   285   0.6568 0.853  0.474    68   0.6992 0.942  0.462    22   0.8398 1.000  0.267     0   1.0000 1.000  0.000     0  
+unit spelled differently    0.4529 0.264  0.421   322   0.5424 0.891  0.690    14   0.5686 0.954  0.688    11   0.8398 1.000  0.267     0   1.0000 1.000  0.000     0  
+words reordered             0.5586 0.264  0.245   322   0.6733 0.891  0.472    14   0.7047 0.954  0.461    11   0.8398 1.000  0.267     0   1.0000 1.000  0.000     0  
+account missing             0.5586 0.264  0.245   322   0.6733 0.891  0.472    14   0.6760 0.885  0.463    16   0.8398 1.000  0.267     0   0.9919 0.982  0.001     1  
+injected instruction        0.5586 0.264  0.245   322   0.6355 0.837  0.499    68   0.6749 0.905  0.478    59   0.8398 1.000  0.267     0   1.0000 1.000  0.000     0  
+worst case per approach: {'starter': 0.448, 'clf_starter': 0.0497, 'clf_units': 0.0669, 'spend_only': 0.5029, 'ours': 0.9919}
+
+failure modes on 1269 labelled lines, random 5-fold; 'ok' = category right and tCO2e within 1%
+slice                                             n     true t               starter          clf_starter            clf_units           spend_only                 ours
+duplicate posting -> EXCLUDE                      8        0.0     0 ok      789.7 t     0 ok      790.2 t     0 ok      790.2 t     8 ok        0.0 t     8 ok        0.0 t  
+credit note (negative emissions)                  8       18.9     0 ok       16.2 t     8 ok        0.0 t     8 ok        0.0 t     0 ok       32.4 t     8 ok        0.0 t  
+refrigerant refill (Scope 1 fugitive)            10      653.5     0 ok      652.7 t     5 ok      736.4 t     5 ok      736.4 t     0 ok      596.4 t    10 ok        0.0 t  
+flight (great-circle, every leg)                 46       24.0     0 ok       22.2 t     0 ok       24.0 t     0 ok       24.0 t     1 ok        7.3 t    46 ok        0.0 t  
+pieces -> kg (unit weight)                       53     3386.8     0 ok     2703.2 t     0 ok    58517.7 t     0 ok    58517.7 t     1 ok     9662.6 t    53 ok        0.0 t  
+litres -> kg (density)                           62    15296.3     0 ok     2753.7 t     0 ok      456.6 t     0 ok      456.6 t     0 ok     2356.5 t    62 ok        0.0 t  
+tonne-km (incl. t x km)                          54       75.0     0 ok      226.7 t    51 ok        9.0 t    51 ok       13.3 t     2 ok       15.0 t    54 ok        0.0 t  
+waste m3 -> t (bulk density)                      4       51.7     0 ok       51.3 t     0 ok      206.6 t     0 ok      206.6 t     0 ok       43.9 t     4 ok        0.0 t  
+activity line, unit missing in starter table    213    10007.1     0 ok     9258.6 t   105 ok    60153.2 t   107 ok    58891.8 t    16 ok    10103.6 t   213 ok        0.0 t  
+money-based line (net of VAT)                   306      762.7    54 ok      538.6 t   299 ok      578.8 t   303 ok      331.0 t     0 ok     2287.1 t   306 ok        0.0 t  
+non-purchase -> EXCLUDE (not duplicate)          39        0.0    16 ok        7.0 t    38 ok        0.0 t    39 ok        0.0 t    39 ok        0.0 t    39 ok        0.0 t  
+inventory total on train lines, t: {'starter': 102130.6, 'clf_starter': 190952.2, 'clf_units': 190846.3, 'spend_only': 132757.4, 'ours': 132609.1, 'truth': 132609.2}
+
+injection: lines whose category, factor or tCO2e changed, of 2400
+  starter         0 / 2400
+  clf_starter   274 / 2400
+  clf_units     209 / 2400
+  ours            0 / 2400
+
+12 invented lines (unit aliases, duplicate, credit note, flight, freon, tax, 3 injections): fully right
+  starter       1 / 12 (category right  7)
+  clf_starter   5 / 12 (category right  9)
+  clf_units     6 / 12 (category right  9)
+  ours         12 / 12 (category right 12)
+
+wrote compete/out/baselines.json, scores.csv, slices.csv

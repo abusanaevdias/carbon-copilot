@@ -1,0 +1,10 @@
+{
+ "usd": 0.023271435397999987,
+ "calls": 72,
+ "tokens_in": 141846,
+ "tokens_out": 27766,
+ "cap_usd": 0.15,
+ "model": "deepseek/deepseek-v4.1-flash-1017",
+ "script": "compete/naive_llm.py",
+ "updated": "2026-11-14 15:06"
+}

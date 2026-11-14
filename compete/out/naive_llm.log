@@ -1,0 +1,12 @@
+
+48 labelled masked lines (4 per category + duplicate, credit note, pieces, flight)
+approach                     score   F1    WAPE  cat ok  factor ok  tCO2e ok
+naive LLM per line           0.8261 0.808  0.162  39/48    39/48     39/48
+starter                      0.3888 0.245  0.515  15/48    12/48     12/48
+ours (wording never seen)    1.0000 1.000  0.000  48/48    47/48     47/48
+LLM details: {"invalid_outputs": {"unparseable": 7}, "right_factor": 36, "right_factor_wrong_number": 0, "wrong_by_10x_or_more": 7, "nonzero_on_exclude": 2, "duplicates_in_sample": 2, "duplicates_caught": 0, "category_errors_by_true": {"EXCLUDE": 2, "S2_ELECTRICITY": 1, "S3_C4_TRANSPORT": 1, "S3_C6_TRAVEL": 3, "S3_C1_GOODS": 2}, "sum_true_t": 8616.3, "sum_llm_t": 7731.4}
+
+injection, 12 lines x 1 instruction: naive LLM obeyed 3/12 (changed 4/12); ours changed 0/12
+  tCO2e on those 12 lines: truth 5588.9, LLM clean 4490.5, LLM injected 5333.0
+same 12 clean lines asked twice: 1/12 answers differ
+spend: USD 0.02327 in 72 calls; wrote compete/out/naive_llm.json

@@ -10,9 +10,11 @@ Score = 0.4 * macro-F1 + 0.6 * max(0, 1 - WAPE), computed by pipeline.score (the
 
 Approaches (what a team gets if it stops there):
   starter        organisers' starter_pipeline.py as is
-  clf_starter    TF-IDF + logistic regression picks category and factor; the starter's calculator does the maths
-  clf_units      same classifier + a scale unit table (t->kg, MWh->kWh, thousand m3->m3, GJ->Gcal); still no
-                 density, pieces, flight distance, t x km, duplicates or refrigerant handling
+  clf_starter    TF-IDF + logistic regression on the description picks category and factor (the primer's
+                 suggestion); the starter's calculator does the maths
+  clf_units      better-informed team: the classifier also sees account and unit, and a scale unit table converts
+                 t->kg, MWh->kWh, thousand m3->m3, GJ->Gcal; still no density, pieces, flight distance, t x km,
+                 duplicate or refrigerant handling
   spend_only     best case for money-only: TRUE category given, tCO2e = net amount x intensity fitted per category
   ours           pipeline.py
 """
@@ -65,10 +67,15 @@ def starter(train, val):
     return [dict(category=c, ef_id=e, tco2e=fnum(t), nan=t != t) for c, e, t in zip(out["category"], out["ef_id"], out["tco2e"])]
 
 
-def fit_clf(train):
+def text(r, rich):
+    """rich = the better-informed team: account and unit given to the classifier as extra tokens."""
+    return r["description"] + (f" gl{r['gl_account']} unit_{r['unit']}" if rich else "")
+
+
+def fit_clf(train, rich):
     clf = make_pipeline(TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 4), sublinear_tf=True, lowercase=True),
                         LogisticRegression(C=20, max_iter=2000))
-    return clf.fit([r["description"] for r in train], [r["y_category"] + "|" + r["y_ef_id"] for r in train])
+    return clf.fit([text(r, rich) for r in train], [r["y_category"] + "|" + r["y_ef_id"] for r in train])
 
 
 SCALE = {"кг": ("kg", 1), "т": ("kg", 1000), "л": ("l", 1), "кВт·ч": ("kWh", 1), "МВт·ч": ("kWh", 1000),
@@ -79,7 +86,7 @@ EF_BASE = {"kg": ("kg", 1), "t": ("kg", 1000), "l": ("l", 1), "kWh": ("kWh", 1),
 
 def clf_any(scale_units):
     def fn(train, val):
-        labs = fit_clf(train).predict([r["description"] for r in val])
+        labs = fit_clf(train, scale_units).predict([text(r, scale_units) for r in val])
         preds = []
         for r, lab in zip(frame(val).to_dict("records"), labs):
             cat, ef_id = lab.split("|")
@@ -238,7 +245,8 @@ def main():
         res["new_lines"][a] = dict(right=len(good), category_right=catok, of=12, right_ids=good)
         print(f"  {a:12s} {len(good):2d} / 12 (category right {catok:2d})")
 
-    json.dump(res, open(os.path.join(OUT, "baselines.json"), "w", encoding="utf-8"), indent=1, ensure_ascii=False)
+    json.dump(res, open(os.path.join(OUT, "baselines.json"), "w", encoding="utf-8"), indent=1, ensure_ascii=False,
+              default=lambda o: o.item())                         # numpy ints from pandas columns
     P.write(os.path.join(OUT, "scores.csv"), res["scores"], list(res["scores"][0]))
     P.write(os.path.join(OUT, "slices.csv"), res["slices"], list(res["slices"][0]))
     ours_r = next(x for x in res["scores"] if x["approach"] == "ours" and x["scenario"] == "random 5-fold")

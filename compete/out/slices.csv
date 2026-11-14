@@ -1,0 +1,56 @@
+slice,n,true_abs_t,approach,lines_ok,abs_err_t,wape_points
+duplicate posting -> EXCLUDE,8,0.0,starter,0,789.7,0.006
+duplicate posting -> EXCLUDE,8,0.0,clf_starter,0,790.2,0.006
+duplicate posting -> EXCLUDE,8,0.0,clf_units,0,790.2,0.006
+duplicate posting -> EXCLUDE,8,0.0,spend_only,8,0.0,0.0
+duplicate posting -> EXCLUDE,8,0.0,ours,8,0.0,0.0
+credit note (negative emissions),8,18.9,starter,0,16.2,0.0001
+credit note (negative emissions),8,18.9,clf_starter,8,0.0,0.0
+credit note (negative emissions),8,18.9,clf_units,8,0.0,0.0
+credit note (negative emissions),8,18.9,spend_only,0,32.4,0.0002
+credit note (negative emissions),8,18.9,ours,8,0.0,0.0
+refrigerant refill (Scope 1 fugitive),10,653.5,starter,0,652.7,0.0049
+refrigerant refill (Scope 1 fugitive),10,653.5,clf_starter,5,736.4,0.0056
+refrigerant refill (Scope 1 fugitive),10,653.5,clf_units,5,736.4,0.0056
+refrigerant refill (Scope 1 fugitive),10,653.5,spend_only,0,596.4,0.0045
+refrigerant refill (Scope 1 fugitive),10,653.5,ours,10,0.0,0.0
+"flight (great-circle, every leg)",46,24.0,starter,0,22.2,0.0002
+"flight (great-circle, every leg)",46,24.0,clf_starter,0,24.0,0.0002
+"flight (great-circle, every leg)",46,24.0,clf_units,0,24.0,0.0002
+"flight (great-circle, every leg)",46,24.0,spend_only,1,7.3,0.0001
+"flight (great-circle, every leg)",46,24.0,ours,46,0.0,0.0
+pieces -> kg (unit weight),53,3386.8,starter,0,2703.2,0.0204
+pieces -> kg (unit weight),53,3386.8,clf_starter,0,58517.7,0.4412
+pieces -> kg (unit weight),53,3386.8,clf_units,0,58517.7,0.4412
+pieces -> kg (unit weight),53,3386.8,spend_only,1,9662.6,0.0728
+pieces -> kg (unit weight),53,3386.8,ours,53,0.0,0.0
+litres -> kg (density),62,15296.3,starter,0,2753.7,0.0208
+litres -> kg (density),62,15296.3,clf_starter,0,456.6,0.0034
+litres -> kg (density),62,15296.3,clf_units,0,456.6,0.0034
+litres -> kg (density),62,15296.3,spend_only,0,2356.5,0.0178
+litres -> kg (density),62,15296.3,ours,62,0.0,0.0
+tonne-km (incl. t x km),54,75.0,starter,0,226.7,0.0017
+tonne-km (incl. t x km),54,75.0,clf_starter,51,9.0,0.0001
+tonne-km (incl. t x km),54,75.0,clf_units,51,13.3,0.0001
+tonne-km (incl. t x km),54,75.0,spend_only,2,15.0,0.0001
+tonne-km (incl. t x km),54,75.0,ours,54,0.0,0.0
+waste m3 -> t (bulk density),4,51.7,starter,0,51.3,0.0004
+waste m3 -> t (bulk density),4,51.7,clf_starter,0,206.6,0.0016
+waste m3 -> t (bulk density),4,51.7,clf_units,0,206.6,0.0016
+waste m3 -> t (bulk density),4,51.7,spend_only,0,43.9,0.0003
+waste m3 -> t (bulk density),4,51.7,ours,4,0.0,0.0
+"activity line, unit missing in starter table",213,10007.1,starter,0,9258.6,0.0698
+"activity line, unit missing in starter table",213,10007.1,clf_starter,105,60153.2,0.4535
+"activity line, unit missing in starter table",213,10007.1,clf_units,107,58891.8,0.444
+"activity line, unit missing in starter table",213,10007.1,spend_only,16,10103.6,0.0762
+"activity line, unit missing in starter table",213,10007.1,ours,213,0.0,0.0
+money-based line (net of VAT),306,762.7,starter,54,538.6,0.0041
+money-based line (net of VAT),306,762.7,clf_starter,299,578.8,0.0044
+money-based line (net of VAT),306,762.7,clf_units,303,331.0,0.0025
+money-based line (net of VAT),306,762.7,spend_only,0,2287.1,0.0172
+money-based line (net of VAT),306,762.7,ours,306,0.0,0.0
+non-purchase -> EXCLUDE (not duplicate),39,0.0,starter,16,7.0,0.0001
+non-purchase -> EXCLUDE (not duplicate),39,0.0,clf_starter,38,0.0,0.0
+non-purchase -> EXCLUDE (not duplicate),39,0.0,clf_units,39,0.0,0.0
+non-purchase -> EXCLUDE (not duplicate),39,0.0,spend_only,39,0.0,0.0
+non-purchase -> EXCLUDE (not duplicate),39,0.0,ours,39,0.0,0.0
