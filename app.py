@@ -233,8 +233,11 @@ header{height:56px;border-bottom:1px solid var(--rule);display:flex;align-items:
  background:var(--sheet);font-size:13px;color:var(--mute)}.pill i{width:8px;height:8px;border-radius:50%;background:var(--ink)}
 .pill span+span{border-left:1px solid var(--rule);padding-left:12px}
 main{max-width:1280px;margin:0 auto;padding:40px 48px 96px}
-.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
-@media(max-width:959px){.grid{grid-template-columns:minmax(0,1fr)}.grid>*{grid-column:1/-1!important}}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:32px}
+.sg{display:grid;grid-template-columns:subgrid}.z{margin-top:32px}
+@media(max-width:959px){.grid{grid-template-columns:minmax(0,1fr)}.grid>*,.sg>*{grid-column:1/-1!important}}
+.zn{display:inline-block;width:28px;margin-left:-28px;font:400 12px/1 var(--mono);letter-spacing:0;color:var(--mute);vertical-align:baseline}
+.zn.in{width:auto;margin:0 12px 0 0}
 a{color:var(--ink);text-underline-offset:3px}:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 h1{font-size:56px;line-height:1;font-weight:800;letter-spacing:-.025em;margin:0 0 32px;text-wrap:balance}
 h2{font-size:24px;line-height:1.2;font-weight:700;letter-spacing:-.01em;margin:0 0 16px}
@@ -246,14 +249,16 @@ p{margin:0}.small{font-size:13px;line-height:1.4;color:var(--mute)}.mono{font-fa
 .chip{display:inline-block;font-family:var(--mono);font-size:12px;line-height:1.5;padding:2px 8px;border:1px solid var(--rule);
  border-radius:8px;background:var(--sheet);color:var(--mute)}
 .rail{list-style:none;margin:0;padding:0}
-.rail li{position:relative;display:grid;grid-template-columns:18px minmax(0,1fr);column-gap:14px;min-height:48px;padding:4px 24px 10px 0}
+.rail li{position:relative;display:grid;grid-template-columns:18px minmax(0,1fr);column-gap:14px;min-height:48px;padding:4px 0 10px}
 .rail li:not(:last-child)::before{content:"";position:absolute;left:8.5px;top:27px;bottom:-3px;width:1px;background:var(--rule)}
 .rail .g{margin-top:2px}.rail .l{font-size:15px;line-height:1.45}.rail .rw{display:none}
-.rail .d{grid-column:2;display:flex;flex-wrap:wrap;column-gap:16px;font-size:13px;line-height:1.4;color:var(--mute)}
+.rail .d{grid-column:2;max-width:44ch;display:flex;flex-wrap:wrap;column-gap:16px;font-size:13px;line-height:1.4;color:var(--mute)}
 .rail [data-st=pending] .l{color:var(--mute)}.rail [data-st=running] .l{font-weight:600}
 .rail [data-st=done] .d,.rail [data-st=error] .d{animation:up var(--t-base) var(--ease) both}
-.rail .pass::after{content:"";position:absolute;right:0;top:0;bottom:0;width:8px;border-right:1px solid var(--ink)}
-.rail .pa::after{top:12px;border-top:1px solid var(--ink)}.rail .pz::after{bottom:12px;border-bottom:1px solid var(--ink)}
+.rail .pass{margin:0 -12px;padding-left:12px;padding-right:12px;background:rgba(255,255,255,.55)}
+.rail li.pass::before{left:20.5px}.rail .pa{padding-top:12px;border-radius:12px 12px 0 0}.rail li.pa::before{top:35px}
+.rail .pz{padding-bottom:14px;border-radius:0 0 12px 12px}.rail li:has(+.pa)::before{bottom:-11px}
+.rail .pn{grid-column:2;margin-top:8px;max-width:44ch;font-size:13px;line-height:1.4;color:var(--mute)}
 .g{position:relative;display:inline-block;width:18px;height:18px;border-radius:50%;flex:none;color:var(--ink)}
 [data-st=pending]>.g{border:1.5px solid var(--faint)}
 [data-st=running]>.g,.g.run{border:2px solid var(--rule);border-top-color:currentColor;border-right-color:currentColor;
@@ -271,7 +276,7 @@ p{margin:0}.small{font-size:13px;line-height:1.4;color:var(--mute)}.mono{font-fa
  transition-duration:150ms!important}[data-st=running]>.g,.g.run{border:1.5px solid currentColor;
  background:linear-gradient(90deg,currentColor 50%,transparent 50%)}.rail [data-st=running] .rw{display:inline;margin-left:8px;
  font-size:13px;font-weight:400;color:var(--mute)}}
-@media(forced-colors:active){[data-st=done]>.g,.g.ok{background:CanvasText}.rail .pass::after{border-color:CanvasText}}
+@media(forced-colors:active){[data-st=done]>.g,.g.ok{background:CanvasText}.rail .pass{border:1px solid CanvasText}}
 """
 HEADER = ('<header><b>Carbon Copilot</b><p class="pill"><i aria-hidden="true"></i><span>Local</span><span>127.0.0.1</span>'
           '<span>no network</span></p></header>')
@@ -286,20 +291,23 @@ def rail(stages):
     out = []
     for i, s in enumerate(stages):
         cls = ("pass pa" if i == 1 else "pass pz" if i == 4 else "pass" if 1 < i < 4 else "")
+        pn = '<span class="pn">Stages 2 to 5 are one pass over the lines: one pass, four counts.</span>' if i == 4 else ""
         det = s["detail"] if s["state"] == "done" and s["detail"] else DESC[i]
         d = "".join(f"<span>{E(p)}</span>" for p in det.split(" · ") if p)
         cur = ' aria-current="step"' if s["state"] == "running" else ""
         out.append(f'<li class="{cls}" data-k="{E(s["key"])}" data-st="{E(s["state"])}"{cur}><span class="g" aria-hidden="true">'
                    f'</span><span class="l">{E(s["label"])}<span class="sr">, {WORD.get(s["state"], "")}</span>'
-                   f'<span class="rw" aria-hidden="true">running</span></span><span class="d">{d}</span></li>')
+                   f'<span class="rw" aria-hidden="true">running</span></span><span class="d">{d}</span>{pn}</li>')
     return '<ol class="rail" id="rail">' + "".join(out) + "</ol>"
 
 
 SHELL = Template("""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Carbon Copilot</title>
 <meta name="viewport" content="width=device-width,initial-scale=1"><style>$fonts
 $css
-.intro{grid-column:1/8}.side{grid-column:8/13;padding-top:6px}.side h2{margin-bottom:20px}
-.box{position:relative;height:340px;border:1px dashed var(--faint);border-radius:20px;background:var(--well);
+.intro{grid-column:1/8;display:flex;flex-direction:column}.intro h1{font-size:clamp(40px,4.2vw,56px);min-height:2em}
+.side{grid-column:8/13;display:flex;flex-direction:column;padding:24px;border-radius:20px;background:var(--well)}
+.side h2{margin-bottom:20px}main:has(.box[data-s=empty]) .rail [data-st=pending] .l{color:var(--ink)}
+.box{position:relative;flex:1;min-height:320px;border:1px dashed var(--faint);border-radius:20px;background:var(--well);
  transition:background-color var(--t-slow) var(--ease),border-color var(--t-fast),transform var(--t-fast) var(--ease),
  box-shadow var(--t-fast) var(--ease)}
 .box::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;transition:opacity var(--t-slow);
@@ -330,30 +338,30 @@ $css
 .fc{display:flex;align-items:center;gap:12px}.fc .sheet{width:28px;height:34px;margin:0;border-radius:4px;background-size:100% 18px}
 .fc .mono{font-size:15px;color:var(--ink)}.fc .small{margin-left:auto}
 .timer{font-size:40px;line-height:1;font-weight:700;letter-spacing:-.02em}.timer small{font-size:18px;font-weight:600;color:var(--mute);margin-left:6px}
-.segs{display:flex;gap:4px;margin-top:14px}.segs i{flex:1;height:8px;border-radius:4px;background:var(--well);overflow:hidden;position:relative}
+#cstage{margin-top:12px}.segs{display:flex;gap:4px;margin-top:8px}.segs i{flex:1;height:8px;border-radius:4px;background:var(--well);overflow:hidden;position:relative}
 .segs i::after{content:"";position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left;
  transition:transform var(--t-base) var(--ease)}.segs i.on::after{transform:none}
 .p-err .g,.p-stop .g{width:24px;height:24px}.p-err .g::before,.p-err .g::after,.p-stop .g::before,.p-stop .g::after{left:11px;top:2px;height:20px}
 .p-err h2,.p-stop h2{margin:0}.p-err p,.p-stop p{max-width:520px;overflow-wrap:anywhere}
 .p-err .row,.p-stop .row{display:flex;gap:16px;align-items:center;margin-top:8px}
-pre.cmd{margin:0;padding:10px 14px;border:1px solid var(--rule);border-radius:8px;background:var(--well);font:13px/1.4 var(--mono);
+pre.cmd{margin:0;padding:10px 14px;border-radius:8px;background:var(--well);font:13px/1.4 var(--mono);
  user-select:all;white-space:pre-wrap}
-.after{margin-top:16px;display:flex;flex-direction:column;align-items:flex-start;gap:16px;transition:opacity var(--t-fast)}
-.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.chips .small{margin-right:4px}
-body[data-s=check] .after,body[data-s=run] .after,body[data-s=stop] .after{opacity:0;visibility:hidden}
-.passnote{margin:4px 0 0 32px}.foot{margin-top:24px;padding-top:16px;border-top:1px solid var(--rule)}
+.after{margin-top:16px;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.chips .small{margin-right:2px}
+body[data-s=check] .after,body[data-s=run] .after,body[data-s=stop] .after{display:none}
+.foot{margin-top:auto;padding-top:24px}
 #frame{position:fixed;inset:12px;border:2px solid var(--ink);border-radius:20px;pointer-events:none;opacity:0;z-index:9;
  transition:opacity 100ms}body.drag #frame{opacity:1;transition-duration:var(--t-fast)}
 </style></head><body data-s="empty">$header<main class="grid">
-<section class="intro"><h1 id="h1">Drop a ledger.<br>Get the carbon inventory.</h1>
+<section class="intro"><h1><span class="zn" aria-hidden="true">01</span><span id="h1">Drop a ledger.<br>Get the carbon inventory.</span></h1>
 <div class="box" id="box" data-s="empty" aria-busy="false"><input type="file" id="file" accept=".csv,text/csv">
 <label class="pane p-empty" for="file"><span class="sheet" aria-hidden="true"></span>
 <b class="idle">Drop a ledger CSV here or <u>choose a file</u></b><b class="rel">Release to start</b>
 <span>CSV, UTF-8 or cp1251, comma or semicolon, up to 5 MB</span></label>
 <div class="pane p-check" aria-hidden="true"><span class="g run"></span><p class="mono" id="kname"></p><p>Checking the file</p></div>
 <div class="pane p-run"><div class="fc"><span class="sheet" aria-hidden="true"></span><span class="mono" id="cname"></span>
-<span class="small" id="clines"></span></div><div><p class="timer"><span id="tn">0.0</span><small>s elapsed</small></p></div>
-<div><p id="cstage">Starting</p><div class="segs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+<span class="small" id="clines"></span></div><div><p class="timer"><span id="tn">0.0</span><small>s elapsed</small></p>
+<p id="cstage">Starting</p><div class="segs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
 <div class="pane p-err" role="alert"><span class="g x" aria-hidden="true"></span><h2>Not processed</h2><p id="em"></p>
 <p class="row"><label class="btn" for="file">Drop another file</label><a id="ebase" href="/base/dashboard.html" target="_blank" hidden>
 Open the base dashboard</a></p></div>
@@ -361,8 +369,7 @@ Open the base dashboard</a></p></div>
 <pre class="cmd" id="scmd"></pre><p class="row"><label class="btn" for="file">Drop another file</label></p></div></div>
 <div class="after"><button class="btn" id="demo" type="button">Use the demo file (12 lines)</button>
 <p class="chips"><span class="small">Expected columns</span>$cols</p></div></section>
-<aside class="side"><h2>What happens to the file</h2>$rail
-<p class="small passnote">Stages 2 to 5 are one pass over the lines: one pass, four counts.</p>
+<aside class="side"><h2><span class="zn in" aria-hidden="true">02</span>What happens to the file</h2>$rail
 <p class="small foot">Runs on this laptop. No upload to any server. The raw file is deleted after masking.</p></aside>
 </main><div id="frame" aria-hidden="true"></div><p class="sr" id="live" aria-live="polite"></p><script>
 var $$=function(i){return document.getElementById(i)},box=$$("box"),inp=$$("file"),h1=$$("h1"),H1=[].slice.call(h1.childNodes),
@@ -420,80 +427,96 @@ RESULTS = Template("""<!doctype html><html lang="en"><head><meta charset="utf-8"
 <meta name="viewport" content="width=device-width,initial-scale=1"><style>$fonts
 $css
 .rise{animation:up8 var(--t-slow) var(--ease) both}.d1{animation-delay:60ms}.d2{animation-delay:120ms}.d3{animation-delay:180ms}
-.receipt{grid-column:1/-1}.receipt summary{display:flex;align-items:center;gap:16px;min-height:56px;padding:0 20px;
- background:var(--sheet);border:1px solid var(--rule);border-radius:14px;cursor:pointer;list-style:none}
-.receipt summary::-webkit-details-marker{display:none}.receipt[open] summary{border-radius:14px 14px 0 0}
+html{scroll-padding-top:88px}
+.top{grid-column:1/-1;position:sticky;top:0;z-index:5;display:grid;margin:-8px 0;padding:8px 0;background:var(--paper)}
+.top>*{grid-area:1/1}.top:has(.receipt[open]){position:static}@media(max-width:959px){.top{position:static}}
+.receipt{background:var(--well);border-radius:12px}
+.receipt summary{display:flex;align-items:center;gap:16px;min-height:56px;padding:0 var(--navw,300px) 0 20px;cursor:pointer;list-style:none}
+.receipt summary::-webkit-details-marker{display:none}
+.jump{position:relative;z-index:1;justify-self:end;align-self:start;display:flex;gap:4px;margin:10px 10px 0 0}
+.jump a{display:flex;align-items:center;height:36px;padding:0 14px;border-radius:8px;color:var(--mute);font-weight:600;
+ text-decoration:none;transition:background-color var(--t-fast),color var(--t-fast)}.jump a:hover{background:var(--sheet);color:var(--ink)}
+.jump a.p{background:var(--ink);color:var(--paper)}.jump a.p:hover{background:#2A2D31}
 .ticks{display:flex;gap:4px}.ticks .g{width:14px;height:14px}.ticks .g::after{left:4.5px;top:2px;width:3px;height:6px;border-width:0 1.5px 1.5px 0}
 .rs{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.rs>span+span{border-left:1px solid var(--rule);padding-left:16px}
-.rs .mono{font-size:14px}.receipt .tog{margin-left:auto;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.rs .mono{font-size:14px;max-width:24ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.receipt .tog{margin-left:auto;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .receipt .tog .h,.receipt[open] .tog .s{display:none}.receipt[open] .tog .h{display:inline}
-.receipt .body{border:1px solid var(--rule);border-top:0;border-radius:0 0 14px 14px;background:var(--sheet);padding:20px 20px 8px}
+.receipt .body{padding:8px 32px 16px}
 .receipt .rail{max-width:720px}
-.heroc{grid-column:1/9;margin-top:40px}.heroc h1{font-size:18px;line-height:1.45;font-weight:400;letter-spacing:0;color:var(--mute);margin:0 0 12px}
-.num{font-size:128px;line-height:.9;font-weight:800;letter-spacing:-.04em;white-space:nowrap;font-variant-numeric:proportional-nums}
+.zone{grid-column:1/-1;row-gap:32px}.zh{grid-column:1/-1;margin:0 0 -16px}.z03{margin-top:16px}
+.heroc{grid-column:1/9}.heroc h1{font-size:18px;line-height:1.45;font-weight:400;letter-spacing:0;color:var(--mute);margin:0 0 12px}
+.num{font-size:clamp(88px,10vw,128px);line-height:.9;font-weight:800;letter-spacing:-.04em;white-space:nowrap;font-variant-numeric:proportional-nums}
 .num small{font-size:.4em;font-weight:700;letter-spacing:-.01em;color:var(--mute)}.num .u{margin-left:.35em}.num .fr{margin-left:.06em}
 .heroc .sub{margin-top:20px;color:var(--mute)}
-.outs{grid-column:9/13;margin-top:40px;align-self:start;background:var(--sheet);border:1px solid var(--rule);border-radius:14px;padding:8px}
-.outs h2{font-size:15px;line-height:1.4;font-weight:600;letter-spacing:0;margin:8px 12px 8px}
-.out{display:flex;align-items:center;gap:12px;min-height:48px;padding:6px 12px;border-radius:8px;text-decoration:none;
- transition:background-color var(--t-fast),transform 100ms}.out:hover{background:var(--well)}.out:active{transform:scale(.98)}
-.out .chip{min-width:44px;text-align:center}.out b{font-weight:600}.out .small{margin-left:auto}
+.led{grid-column:9/13}.led h2{font-size:15px;line-height:1.4;font-weight:600;letter-spacing:0;margin:0 0 4px}
+.strip{grid-column:1/-1;padding:8px;border:1px solid var(--rule);border-radius:20px;background:var(--sheet)}
+.out{grid-column:span 3;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:12px;row-gap:2px;align-items:center;
+ min-height:56px;padding:10px 12px;border-radius:12px;text-decoration:none;transition:background-color var(--t-fast),transform 100ms}
+.out:hover{background:var(--well)}.out:active{transform:scale(.98)}.out .chip{grid-row:1/3;min-width:44px;text-align:center}
+.out b{font-weight:600}.out .small{grid-column:2}
 .out.p{background:var(--ink);color:var(--paper)}.out.p .chip{background:transparent;color:var(--paper);border-color:rgba(247,245,240,.5)}
-.out.p .small{color:#D9D6CF}.out.p:hover{background:#2A2D31}.nopdf{padding:8px 12px}.outs .new{display:block;padding:12px 12px 8px}
-.scope{grid-column:1/-1;margin-top:40px}.bar{display:flex;gap:2px;height:16px;border-radius:8px;overflow:hidden}
+.out.p .small{color:#D9D6CF}.out.p:hover{background:#2A2D31}.nopdf{grid-column:span 3;align-self:center;padding:10px 12px}
+.zh.vh{display:flex;align-items:baseline;justify-content:space-between}.vh .new{font-weight:600}
+.scope{grid-column:1/-1;row-gap:12px}.bar{grid-column:1/-1;display:flex;gap:2px;height:16px;border-radius:8px;overflow:hidden}
 .bar i{display:block;min-width:4px;transform-origin:left;animation:grow var(--t-slow) var(--ease) both}
 .bar i:nth-child(2){animation-delay:60ms}.bar i:nth-child(3){animation-delay:120ms}
 .s1{background:var(--ink)}.s2{background:#7A7C80}.s3{background:var(--rule)}
-.slab{display:flex;gap:2px;margin-top:12px}.slab div{min-width:170px;padding-right:16px}
+.slab{grid-column:span 4}
 .slab p:first-child{font-size:13px;color:var(--mute);display:flex;align-items:center;gap:8px}
 .slab p:first-child i{width:10px;height:10px;border-radius:3px}
-.slab .t{font-size:24px;font-weight:700;letter-spacing:-.01em;line-height:1.3}
-.sec{margin-top:64px}.left{grid-column:1/6}.right{grid-column:6/13}.full{grid-column:1/-1}
+.slab .t{font-size:24px;font-weight:700;letter-spacing:-.01em;line-height:1.3}.slab .small{margin-left:8px}
 .ledger{width:100%;border-collapse:collapse}.ledger td{padding:12px 0;border-bottom:1px solid var(--rule)}
 .ledger td.n{text-align:right;font-weight:600}.ledger tr.sub td{padding:8px 0 8px 24px;color:var(--mute);font-size:13px}
 .ledger tr.sub td.n{font-weight:400}.ledger tr.sum td{border-top:3px double var(--ink);border-bottom:0;font-weight:700}
 .ledger .ex td{border-bottom:0}.ledger tr.sub:not(.last) td{border-bottom:0}
-.ban{display:flex;align-items:center;gap:14px;background:var(--acc-wash);border-radius:14px;padding:14px 18px}
+.hp{grid-column:1/-1;row-gap:16px;padding:8px;border:1px solid var(--rule);border-radius:20px;background:var(--sheet)}
+.ban{grid-column:1/-1;align-items:center;background:var(--acc-wash);border-radius:12px;padding:14px 16px}
+.ban>div{grid-column:1/9;display:flex;align-items:center;gap:12px}.ban>div+div{grid-column:9/13}.ban>.wide{grid-column:1/-1}
+.qcol{grid-column:1/9;padding:0 8px 8px}.qcol.wide{grid-column:1/-1}.q .t{max-width:68ch}
+.tiles{grid-column:9/13;display:flex;flex-direction:column;gap:8px}
+.tiles.wide{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:959px){.tiles.wide{grid-template-columns:minmax(0,1fr)}}
+.tile{background:var(--well);border-radius:12px;padding:16px}
+.tile blockquote{margin:6px 0 8px;max-width:40ch;overflow-wrap:anywhere}.tile blockquote::before{content:"\\201C"}
+.tile blockquote::after{content:"\\201D"}.tile .o{font-size:13px;color:var(--mute)}.tile .o b{color:var(--ink);font-weight:600}
 .ban .c{font-size:24px;line-height:1;font-weight:700;color:var(--acc)}.ban .g.w{background:var(--acc);color:var(--paper);
  font:700 13px/18px Onest,system-ui,sans-serif;text-align:center}
 .q{list-style:none;margin:8px 0 0;padding:0}.q li{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:16px;
  padding:12px 0;border-bottom:1px solid var(--rule);align-items:baseline}
-.q .t,.cards .t{overflow-wrap:anywhere}.q .fl{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}.q .n{text-align:right;font-weight:600;white-space:nowrap}
-.more{display:inline-block;margin-top:14px;font-weight:600}.quiet{color:var(--mute);padding:14px 0;border-top:1px solid var(--rule)}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:16px}
-@media(max-width:959px){.cards{grid-template-columns:minmax(0,1fr)}}
-.card{background:var(--sheet);border:1px solid var(--rule);border-left:3px solid var(--acc);border-radius:14px;padding:16px 20px}
-.card blockquote{margin:10px 0 12px;font-size:15px}.card blockquote::before{content:"\\201C"}.card blockquote::after{content:"\\201D"}
-.card .o{font-size:13px;color:var(--mute);padding-top:10px;border-top:1px solid var(--rule)}.card .o b{color:var(--ink);font-weight:600}
-.vh{display:flex;align-items:center;gap:24px;flex-wrap:wrap}.vh h2{margin:0}
-.seg{display:inline-flex;gap:4px;padding:4px;background:var(--well);border-radius:12px}
+.q .t{overflow-wrap:anywhere}.q .fl{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}.q .n{text-align:right;font-weight:600;white-space:nowrap}
+.more{display:inline-block;margin-top:14px;font-weight:600}.quiet{grid-column:1/-1;color:var(--mute)}
+.vh h2{margin:0}.dh{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:0 0 12px}
+.seg{display:inline-flex;gap:4px;padding:4px;background:var(--paper);border-radius:12px}
 .seg a{display:flex;align-items:center;height:36px;padding:0 16px;border-radius:8px;color:var(--mute);font-weight:600;text-decoration:none;
  transition:background-color var(--t-fast),color var(--t-fast),transform 100ms}.seg a:active{transform:scale(.98)}
-.seg a[aria-current=true]{background:var(--sheet);color:var(--ink);box-shadow:0 1px 2px rgba(21,23,26,.12)}
-.desk{margin-top:16px;padding:12px;background:var(--well);border-radius:20px;box-shadow:var(--lift)}
+.seg a{border:1px solid transparent}.seg a[aria-current=true]{background:var(--sheet);color:var(--ink);border-color:var(--rule)}
+.desk{grid-column:1/-1;margin-top:-16px;padding:12px;background:var(--well);border-radius:20px}
 .desk iframe{display:block;width:100%;height:760px;border:0;border-radius:12px;background:var(--sheet);transition:opacity var(--t-slow) var(--ease)}
 .desk iframe.fade{opacity:0;transition-duration:100ms}
 </style></head><body>$header<main class="grid">
-<details class="receipt rise"><summary><span class="ticks" aria-hidden="true">$ticks</span><span class="rs">
-<span class="mono" dir="auto" translate="no">$name</span><span>$lines lines</span><span>7 of 7 stages</span><span>$elapsed s</span></span>
+<div class="top"><details class="receipt rise"><summary><span class="zn in" aria-hidden="true">02</span>
+<span class="ticks" aria-hidden="true">$ticks</span><span class="rs"><span class="mono" dir="auto" translate="no">$name</span>
+<span>$lines lines<span class="sr">, 7 of 7 stages</span></span><span>$elapsed s</span></span>
 <span class="tog"><span class="s">Show stages</span><span class="h">Hide stages</span></span></summary><div class="body">$rail</div></details>
-<section class="heroc rise d1"><h1>Emissions in the uploaded lines</h1>
+<nav class="jump" aria-label="Sections"><a href="#result">Result</a><a href="#review">$revnav</a><a class="p" href="#outputs">Outputs</a></nav></div>
+<section class="zone sg z03" id="result" aria-labelledby="h03"><div class="heroc rise d1">
+<h1 id="h03"><span class="zn" aria-hidden="true">03</span>Emissions in the uploaded lines</h1>
 <p class="num"><span class="sr">$total tCO2e</span><span id="cnt" aria-hidden="true" data-v="$intpart"><span>$intpart</span><small class="fr">$frac</small><small class="u">tCO2e</small></span></p>
-<p class="sub">Scope 1, 2 and 3 for $counted counted lines of $lines.</p></section>
-<section class="outs rise d2" aria-labelledby="oh"><h2 id="oh">Outputs</h2>
+<p class="sub">Scope 1, 2 and 3 for $counted counted lines of $lines.</p></div>
+<div class="led rise d2"><h2>The lines</h2><table class="ledger">$ledger</table></div>
+<div class="scope sg rise d3" role="group" aria-label="Emissions by scope">$bar</div></section>
+<section class="zone sg z" id="review" aria-labelledby="h04"><h2 class="zh" id="h04"><span class="zn" aria-hidden="true">04</span>Needs a human</h2>
+$needs</section>
+<section class="zone sg z" id="outputs" aria-labelledby="h05"><div class="zh vh"><h2 id="h05"><span class="zn" aria-hidden="true">05</span>Outputs</h2>
+<a class="new" href="/">New file</a></div><div class="strip sg">
 <a class="out p" href="$base/dashboard.html#split=new" target="_blank"><span class="chip">HTML</span><b>Dashboard</b><span class="small">new lines</span></a>
-<a class="out" href="$base/bank_summary.html" target="_blank"><span class="chip">HTML</span><b>Bank one-pager</b></a>$pdf
-<a class="out" href="$base/audit.csv"><span class="chip">CSV</span><b>Audit CSV</b><span class="small">$lines rows</span></a>
-<a class="new" href="/">New file</a></section>
-<section class="scope rise d3" aria-label="Emissions by scope">$bar</section>
-<section class="sec left"><h2>The lines</h2><table class="ledger">$ledger</table></section>
-<section class="sec right"><h2>Review queue</h2>$review</section>
-$inj
-<section class="sec full"><div class="vh"><h2>Outputs, opened here</h2><nav class="seg" aria-label="Viewer">
+<a class="out" href="$base/bank_summary.html" target="_blank"><span class="chip">HTML</span><b>Bank one-pager</b><span class="small">whole company</span></a>$pdf
+<a class="out" href="$base/audit.csv"><span class="chip">CSV</span><b>Audit CSV</b><span class="small">$lines rows</span></a></div>
+<div class="desk"><div class="dh"><nav class="seg" aria-label="Viewer">
 <a href="$base/dashboard.html#split=new" target="viewer" aria-current="true">Dashboard</a>
 <a href="$base/bank_summary.html" target="viewer" aria-current="false">Bank one-pager</a></nav>
 <p class="small">Bank pages: whole company inventory with your lines added.</p></div>
-<div class="desk"><iframe id="viewer" name="viewer" src="$base/dashboard.html#split=new" title="Outputs viewer"></iframe></div></section>
+<iframe id="viewer" name="viewer" src="$base/dashboard.html#split=new" title="Outputs viewer"></iframe></div></section>
 </main><script>
 (function(){var rm=matchMedia("(prefers-reduced-motion: reduce)"),c=document.getElementById("cnt"),fr=document.getElementById("viewer");
  var v=+c.dataset.v.replace(/,/g,""),f=c.firstChild,t0=performance.now();
@@ -513,43 +536,41 @@ def results_page(job):
     pos = {s: max(0.0, S["by_scope"][s]) for s in "123"}
     span = sum(pos.values()) or 1.0
     bar = ('<div class="bar" aria-hidden="true">' + "".join(f'<i class="s{s}" style="flex:{pos[s] / span:.4f} 1 0"></i>' for s in "123")
-           + '</div><div class="slab">' + "".join(
-               f'<div style="flex:{pos[s] / span:.4f} 1 0"><p><i class="s{s}" aria-hidden="true"></i>Scope {s}</p>'
-               f'<p class="t">{S["by_scope"][s]:,.1f} t</p><p class="small">{pct(S["by_scope"][s])} of the total</p></div>'
-               for s in "123") + "</div>")
+           + '</div>' + "".join(
+               f'<div class="slab"><p><i class="s{s}" aria-hidden="true"></i>Scope {s}</p>'
+               f'<p><span class="t">{S["by_scope"][s]:,.1f} t</span><span class="small">{pct(S["by_scope"][s])}</span>'
+               f'<span class="sr"> of the total</span></p></div>' for s in "123"))
     exc = S["duplicates"] + S["nonpurchase"]
     ledger = (f'<tr><td>Counted</td><td class="n">{S["counted"]}</td></tr>'
               f'<tr class="ex"><td>Excluded</td><td class="n">{exc}</td></tr>'
               f'<tr class="sub"><td>Duplicate document</td><td class="n">{S["duplicates"]}</td></tr>'
               f'<tr class="sub last"><td>Not a purchase</td><td class="n">{S["nonpurchase"]}</td></tr>'
               f'<tr class="sum"><td>Lines in the file</td><td class="n">{S["lines"]}</td></tr>')
-    top = S.get("review_top", [])
-    if S["review"]:
-        review = (f'<div class="ban" role="note"><span class="g w" aria-hidden="true">!</span><span class="c">{S["review"]}</span>'
-                  f'<p>lines to review. Flags never change a result; a person confirms each line.</p></div><ul class="q">' + "".join(
-                      f'<li><span class="mono" translate="no">{E(r["line_id"])}</span><div><p class="t" dir="auto" translate="no">'
-                      f'{E(r["description"])}</p><p class="fl">' + "".join(f'<span class="chip">{E(f)}</span>' for f in r["flags"])
-                      + f'</p></div><span class="n">{r["tco2e"]:,.2f} t</span></li>' for r in top)
-                  + f'</ul><a class="more" href="{b}/dashboard.html#split=new&amp;tab=queue" target="_blank">'
-                    f'Open all {S["review"]} in the dashboard</a>')
-    else:
-        review = '<p class="quiet">No lines to review.</p>'
-    inj = ""
-    if S["injection"]:
-        n = len(S["injection"])
-        inj = (f'<section class="sec full"><h2>Instruction-like text</h2><div class="ban" role="note"><span class="g w" aria-hidden="true">!'
-               f'</span><span class="c">{n}</span><p>{"line" if n == 1 else "lines"} carried instruction-like text. It was ignored.</p>'
-               '</div><div class="cards">' + "".join(
-                   f'<article class="card"><p class="mono" translate="no">{E(r["line_id"])}</p><blockquote class="t" dir="auto" '
-                   f'translate="no">{E(r["description"])}</blockquote><p class="o">Ignored. Counted as <b class="mono">'
-                   f'{E(r["category"])}</b>, {r["tco2e"]:.4f} t</p></article>' for r in S["injection"]) + "</div></section>")
+    top, inj, rv = S.get("review_top", []), S["injection"], S["review"]
+    both = ' class="wide"' if not (rv and inj) else ""
+    counts = (f'<div{both}><span class="g w" aria-hidden="true">!</span><span class="c">{rv}</span>'
+              f'<p>lines to review. Flags never change a result; a person confirms each line.</p></div>' if rv else "") + (
+              f'<div{both}><span class="g w" aria-hidden="true">!</span><span class="c">{len(inj)}</span>'
+              f'<p>{"line" if len(inj) == 1 else "lines"} carried instruction-like text. It was ignored.</p></div>' if inj else "")
+    queue = (f'<div class="qcol{" wide" if not inj else ""}"><ul class="q">' + "".join(
+                 f'<li><span class="mono" translate="no">{E(r["line_id"])}</span><div><p class="t" dir="auto" translate="no">'
+                 f'{E(r["description"])}</p><p class="fl">' + "".join(f'<span class="chip">{E(f)}</span>' for f in r["flags"])
+                 + f'</p></div><span class="n">{r["tco2e"]:,.2f} t</span></li>' for r in top)
+             + f'</ul><a class="more" href="{b}/dashboard.html#split=new&amp;tab=queue" target="_blank">'
+               f'Open all {rv} in the dashboard</a></div>') if rv else ""
+    tiles = (f'<div class="tiles{" wide" if not rv else ""}">' + "".join(
+                 f'<article class="tile"><p class="mono" translate="no">{E(r["line_id"])}</p><blockquote class="t" dir="auto" '
+                 f'translate="no">{E(r["description"])}</blockquote><p class="o">Ignored. Counted as <b class="mono">'
+                 f'{E(r["category"])}</b>, {r["tco2e"]:,.2f} t</p></article>' for r in inj) + "</div>") if inj else ""
+    needs = (f'<div class="hp sg"><div class="ban sg" role="note">{counts}</div>{queue}{tiles}</div>' if rv or inj
+             else '<p class="quiet">No lines to review.</p>')
     pdf = (f'<a class="out" href="{b}/bank_summary.pdf"><span class="chip">PDF</span><b>Bank PDF</b><span class="small">1 page</span></a>'
            if S["pdf"] else '<p class="small nopdf">Bank PDF needs Edge or Chrome; open the one-pager and print it.</p>')
     ticks = '<span class="g ok"></span>' * len(job["stages"])
     return RESULTS.substitute(fonts=FONTS, css=CSS, header=HEADER, base=b, total=f"{tot:,.1f}", intpart=whole, frac="." + frac,
                               title=E(f"{tot:,.1f} tCO2e, Carbon Copilot"), name=E(job["name"]), lines=S["lines"],
                               counted=S["counted"], elapsed=f"{job['elapsed']:.1f}", ticks=ticks, rail=rail(job["stages"]),
-                              bar=bar, ledger=ledger, review=review, inj=inj, pdf=pdf)
+                              bar=bar, ledger=ledger, needs=needs, revnav=f"Review {rv}" if rv else "Review", pdf=pdf)
 
 
 class Handler(BaseHTTPRequestHandler):
