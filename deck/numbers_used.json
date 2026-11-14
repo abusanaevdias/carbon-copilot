@@ -431,10 +431,6 @@
   "value": 0.25596163690476187,
   "source": "cost() per_company[10]"
  },
- "s8_year_h1": {
-  "value": 2026,
-  "source": "PLAN_V6 B2 horizons"
- },
  "mkt_target_h1": {
   "value": 1,
   "source": "deck/market.json target_h1 <- ours (PLAN_V6 B2)",
@@ -443,10 +439,6 @@
  "top3_n": {
   "value": 3,
   "source": "out/inventory.json by_factor"
- },
- "s8_year_h2": {
-  "value": "2026–27",
-  "source": "PLAN_V6 B2 horizons"
  },
  "mkt_target_h2": {
   "value": 50,
@@ -457,18 +449,10 @@
   "value": 0.9935,
   "source": "out/eval_hard.csv GL account"
  },
- "s8_year_h3": {
-  "value": 2027,
-  "source": "PLAN_V6 B2 horizons"
- },
  "mkt_target_h3": {
   "value": 500,
   "source": "deck/market.json target_h3 <- ours (PLAN_V6 B2)",
   "tag": "target"
- },
- "s8_year_h3_kpi": {
-  "value": 2029,
-  "source": "PLAN_V6 B2 horizons"
  },
  "mkt_cbam_first_declaration": {
   "value": "30 Sep 2027",

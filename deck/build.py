@@ -561,19 +561,18 @@ def s8(N, C):
     pc = C.get("per_company") or {}
     p1 = num("s8_per_company_1_m", pc.get(1) and pc[1] / 1e6, "cost() per_company[1]", "{:.2f}")
     p10 = num("s8_per_company_10_m", pc.get(10) and pc[10] / 1e6, "cost() per_company[10]", "{:.2f}")
-    yr = lambda k, v: num(f"s8_year_{k}", v, "PLAN_V6 B2 horizons", "{}")
     T = lambda k: ASM(mk(k))
     steps = [
-        (f"1 · {yr('h1', 2026)} · Dala Foods", "Limited assurance + farm milk data", T("target_h1"),
+        ("1 · NOW · Dala Foods", "Limited assurance + farm milk data", T("target_h1"),
          "company · bank's check passed · target",
          f"Built: verifier pack; {num('top3_n', 3, 'out/inventory.json by_factor')} factors = {top3}%",
          f"{num('farms', 25, '[brief] about 25 farms')} farms' data moves ±{num('sens', N['sens'], 'out/inventory.json', '{:.0f}')}% of total", True),
-        (f"2 · {yr('h2', '2026–27')} · any 1C ledger", "Connector, shared factors, bank portfolios", T("target_h2"),
+        ("2 · NEXT · any 1C ledger", "Connector, shared factors, bank portfolios", T("target_h2"),
          "companies · one bank's borrowers · target",
          f"Built: {num('day1', gl, 'out/eval_hard.csv GL account', '{:.2f}')} on accounts never seen",
          f'Tool per company {ASM(p1)} → {p10} m, est.', False),
-        (f"3 · {yr('h3', 2027)} on · exporters", "CBAM-ready product declarations", T("target_h3"),
-         f"companies by {yr('h3_kpi', 2029)} · target",
+        ("3 · SCALE · exporters", "CBAM-ready product declarations", T("target_h3"),
+         "companies · target",
          "Built: every tonne recomputes per line",
          f"First CBAM declarations: {mk('cbam_first_declaration', '{}')}", False)]
     cols = "".join(
