@@ -1,4 +1,4 @@
-"""Build the 8-slide submission deck v2 (PLAN_V2 Part A): numbers from out/*.json|csv -> deck.pdf + pages/pN.png.
+"""Build the 8-slide submission deck v3 (editorial report layout): numbers from out/*.json|csv -> deck.pdf + pages/pN.png.
 
 Run:  python deck/build.py             generate slides into deck.html, print deck.pdf (headless Edge/Chrome),
                                        rasterise pages/*.png, print the lint table
@@ -17,8 +17,6 @@ CASE = os.path.dirname(D)
 OUT = os.path.join(CASE, "out")
 FILL = '<span class="fill">ЗАПОЛНИТЬ</span>'
 USED = {}
-W = 1136  # exhibit width = slide content width
-NAV = ["Result", "Product", "Architecture", "Audit trail", "Safeguards", "Accuracy", "Cost", "Roadmap"]
 BANNED = r"WAPE|macro-F1|naive Bayes|\bGL\b|lexicon|stdlib|k-fold|\bISO ?\d+"
 FORBIDDEN = r"no AI model|zero network calls|\bverified\b|\bassured\b"
 
@@ -90,6 +88,8 @@ def numbers():
     rd = lambda p: {r["scenario"]: r for r in csv.DictReader(open(p, encoding="utf-8"))} if os.path.exists(p) else {}
     N["eval"], N["eval_prev"] = rd(os.path.join(OUT, "eval_hard.csv")), rd(os.path.join(OUT, "eval_hard_prev.csv"))
     N["llm"] = jload(os.path.join(OUT, "llm_eval.json"))
+    N["intensity"] = inv["intensity"]["t_per_t_product"]
+    N["credit"] = ck["credit_notes"]["lines"]
     return N
 
 
@@ -130,373 +130,257 @@ def lines():
     return milk, led[milk["line_id"]], inj, messy
 
 
-# ---------- drawing helpers ----------
-ICONS = {  # 24 px grid, 1.5 px stroke; at most these 6 in the deck
-    "farm": '<path d="M3 21V10l9-6 9 6v11M2 21h20M9 21v-6h6v6M9 11h6"/>',
-    "truck": '<path d="M2 6h11v10H2zM13 9h4l4 4v3h-8"/><circle cx="6" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>',
-    "factory": '<path d="M3 21V11l5 3v-3l5 3V4h3v4h3v13zM2 21h20"/>',
-    "pylon": '<path d="M12 2 6 22M12 2l6 20M7 8h10M5 13h14M8.5 13 15 22M15.5 13 9 22"/>',
-    "bank": '<path d="M3 9l9-5 9 5M4 9h16M5 9v9M9.5 9v9M14.5 9v9M19 9v9M3 20h18"/>',
-    "person": '<circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>',
-}
+# ---------- extra sources: rebuilt typical approaches and the AI readers we tried ----------
+def extra():
+    sc = {(r["scenario"], r["approach"]): float(r["score"])
+          for r in csv.DictReader(open(os.path.join(CASE, "compete", "out", "scores.csv"), encoding="utf-8"))}
+    bl = jload(os.path.join(CASE, "compete", "out", "baselines.json")) or {}
+    laya = jload(os.path.join(CASE, "laya_spike", "out_results.json"))
+    sd = jload(os.path.join(CASE, "scaledown_eval", "results.json"))
+    return dict(sc=sc, inj=bl.get("injection", {}),
+                laya_gl=laya["splits"]["GL account"]["laya"][0] if laya else None,
+                sd_cat=sd["E2"]["scaledown_cat_acc"] if sd else None, sd_new=None if not sd else
+                round((sd["E2"]["deepseek_cat_acc"] - sd["E2"]["scaledown_cat_acc"]) * sd["E2"]["sample"]),
+                jev_x=round(0.000220 / 0.0000667, 1))  # per-call cost, jev_eval/RESULTS.md table
 
 
-def icon(name, x, y, s=36, c="var(--ink)"):
-    return (f'<g transform="translate({x},{y}) scale({s / 24})" fill="none" stroke="{c}" stroke-width="1.5" '
-            f'stroke-linecap="round" stroke-linejoin="round">{ICONS[name]}</g>')
+# ---------- drawing helpers (v3: editorial report, HTML only, no boxes) ----------
+def slide(i, kicker, ctx, title, lead, facts, ex, foot, cls="", tail=""):
+    f = "".join(f'<div class="ann">{a}</div>' for a in facts)
+    return (f'<section class="{cls}"><div class="top"><span class="k">{kicker}</span><span class="c">{ctx}</span></div>'
+            f'<div class="grid"><div class="lc"><h1>{title}</h1><p class="lead">{lead}</p>'
+            f'<div class="facts">{f}{tail}</div></div><div class="ex">{ex}</div></div>'
+            f'<div class="bot"><span class="foot">{foot}</span><span class="pg">{i} / 8</span></div></section>')
 
 
-def T(x, y, s, size=20, w=400, c="var(--ink)", a="start", cls="x"):
-    """SVG text. cls='x' = exhibit label/number (not counted as body words)."""
-    return (f'<text class="{cls}" x="{x}" y="{y}" font-size="{size}" font-weight="{w}" fill="{c}" '
-            f'text-anchor="{a}">{s}</text>')
+def pct(v):
+    return f"{max(v * 100, .4):.2f}%"
 
 
-def svg(h, body):
-    return f'<svg width="{W}" height="{h}" viewBox="0 0 {W} {h}">{body}</svg>'
+def brow(label, val, frac, cls="", lab_cls=""):
+    """B1 bar: label and value on one line, thin bar below."""
+    return (f'<div class="br"><div class="l x"><span class="{lab_cls}">{label}</span><span class="{lab_cls}">{val}</span></div>'
+            f'<div class="b {cls}" style="width:{pct(frac)}"></div></div>')
 
 
-def ann(x, y, w, text, size=None):
-    st = f"font-size:{size}px;" if size else ""
-    return f'<div class="ann" style="position:absolute;left:{x}px;top:{y}px;width:{w}px;{st}">{text}</div>'
+def row(label, val, frac, cls="", lab_cls=""):
+    """B2 bar: label | thin bar | value on one line."""
+    return (f'<div class="row x"><span class="{lab_cls}">{label}</span><div><div class="t {cls}" style="width:{pct(frac)}"></div></div>'
+            f'<span class="v {lab_cls}">{val}</span></div>')
 
 
-def box(h, inner):
-    return f'<div style="position:relative;width:{W}px;height:{h}px">{inner}</div>'
-
-
-def slide(i, kicker, title, ex, foot, top_right=""):
-    nav = "" if i == 1 else '<span class="nav">' + " · ".join(
-        f"<b>{n}</b>" if k == i else n for k, n in enumerate(NAV, 1)) + f'<span class="pg">{i} / 8</span></span>'
-    if i == 1:
-        nav = '<span class="pg">1 / 8</span>'
-    return (f'<section><div class="top"><div class="k">{kicker}</div>{top_right}</div><h1>{title}</h1>'
-            f'<div class="ex">{ex}</div><div class="bot"><span class="foot">{foot}</span>{nav}</div></section>')
+def cap(text, style=""):
+    return f'<div class="cap x" style="{style}">{text}</div>'
 
 
 # ---------- the eight slides ----------
 def s1(N, V):
     tot = N["total"]
-    parts = [("Farms · raw milk", N["milk"], "Scope 3", "farm"), ("Other suppliers", N["s3"] - N["milk"], "Scope 3", "truck"),
-             ("Bought power|and heat", N["s2"], "Scope 2", "pylon"), ("Burned on site", N["s1"], "Scope 1", "factory")]
-    assert abs(sum(p[1] for p in parts) - tot) < 1, "slide 1 blocks do not sum to the total"
-    xs, x = [], 0
-    for _, t, _, _ in parts:
-        w = W * t / tot; xs.append((x, w)); x += w
-    by, bh = 180, 112
-    g = [T(-4, 106, num("total", tot, "out/inventory.json"), 124, 700),
-         T(590, 58, "tonnes of CO2e in 2025", 30, 600),
-         T(590, 92, "CO2e = all greenhouse gases counted as CO2", 20, 400, "var(--mid)", cls="g")]
-    # Scope 3 bracket above milk + other suppliers
-    s3w = xs[1][0] + xs[1][1]
-    g += [f'<path d="M1 {by-8}V{by-20}H{s3w-1:.1f}V{by-8}" fill="none" stroke="var(--mid)" stroke-width="1.5"/>',
-          T(0, by - 30, f"Scope 3 — emissions in suppliers' operations: {num('s3_pct', 100 * N['s3'] / tot, 'out/inventory.json', '{:.0f}')}%", 20, 600, "var(--mid)")]
-    for k, ((lab, t, sc, ic), (x0, w)) in enumerate(zip(parts, xs)):
-        g.append(f'<rect x="{x0:.1f}" y="{by}" width="{w - (0 if k == 3 else 2):.1f}" height="{bh}" '
-                 f'fill="{["var(--acc)", "#5B616B", "#8A9099", "#B9BEC5"][k]}"/>')
-    g += [icon("farm", 28, by + 18, 40, "#fff"), T(84, by + 48, "Farms · raw milk", 26, 600, "#fff"),
-          T(28, by + 96, f"{num('milk_t', N['milk'], 'out/inventory.json')} t · {num('milk_pct', 100 * N['milk'] / tot, 'out/inventory.json', '{:.0f}')}%", 44, 700, "#fff")]
-    # labels for the three small blocks, below the bar, with elbow leaders
-    cols = [560, 752, 944]
-    for k in (1, 2, 3):
-        lab, t, sc, ic = parts[k]; x0, w = xs[k]; cx = x0 + w / 2; lx = cols[k - 1] + 14
-        yl = by + bh + 10 + 7 * k
-        g.append(f'<path d="M{cx:.1f} {by + bh}V{yl}H{lx + 18}V{by + bh + 40}" fill="none" stroke="var(--soft)" stroke-width="1.2"/>')
-        g += [icon(ic, lx, by + bh + 44, 36),
-              T(lx, by + bh + 108, lab.split("|")[0], 20, 600), T(lx, by + bh + 130, "|".join(lab.split("|")[1:]), 20, 600),
-              T(lx, by + bh + 168, f"{num('blk_' + str(k), t, 'out/inventory.json')} t", 32, 700),
-              T(lx, by + bh + 194, f"{100 * t / tot:.0f}% · {sc}", 19, 400, "var(--mid)")]
-    lo = by + bh + 40
-    a = (ann(0, lo, 500, f"Carbon Copilot turns the accounting export into this inventory in {V['rt']} seconds.") +
-         ann(0, lo + 82, 500, f"The loan's solar and heat pumps touch the {num('loan_scope_pct', 100 * (N['grid'] + N['gas'] + N['heat']) / tot, 'out/inventory.json by_factor grid+gas+heat', '{:.0f}')}% from power, gas and heat."))
-    USED["loan_scope_t"] = {"value": N["grid"] + N["gas"] + N["heat"], "source": "out/inventory.json by_factor EF_GRID_KZ_KWH+EF_NG_M3+EF_HEAT_GCAL"}
-    ex = box(by + bh + 204, svg(by + bh + 204, "".join(g)) + a)
+    parts = [("Raw milk from farms", N["milk"], "bg-acc", "milk_t"), ("Bought power and heat", N["s2"], "", "s2_t"),
+             ("Fuel burned on site", N["s1"], "", "s1_t"), ("Other suppliers", N["s3"] - N["milk"], "", "s3_other_t")]
+    assert abs(sum(p[1] for p in parts) - tot) < 1, "slide 1 bars do not sum to the total"
+    share = N["milk"] / tot
+    assert .75 < share < .85, "'four-fifths' no longer true"
+    bars = "".join(brow(l, f"{num(k, t, 'out/inventory.json')} t · {100 * t / tot:.0f}%", t / parts[0][1], c,
+                        "acc" if c else "") for l, t, c, k in parts)
     team = esc(N["team"]) if N["team"] else FILL
     lb = num("leaderboard", N["leaderboard"], "deck/manual.json", "{:.4f}")
-    top = (f'<div class="brand"><b>Carbon Copilot</b> · BV Case 2 · Dala Foods · Team {team} · '
-           f'Leaderboard score {lb}</div>')
-    title = (f"Dala Foods emitted {num('total', tot, 'out/inventory.json')} tonnes of CO2e in 2025, "
-             f"and {num('milk_pct', 100 * N['milk'] / tot, 'out/inventory.json', '{:.0f}')}% is milk from farms.")
-    return slide(1, "Result", title, ex, "Case data, synthetic; supplier and staff names masked. Detail: bank one-pager, README.", top)
+    chips = (f'<div class="cap x" style="display:flex;gap:40px;border-top:1px solid var(--rule);padding-top:12px">'
+             f'<span>Team {team}</span><span>Leaderboard {lb}</span></div>')
+    loan = num("loan_scope_pct", 100 * (N["grid"] + N["gas"] + N["heat"]) / tot, "out/inventory.json by_factor grid+gas+heat", "{:.0f}")
+    USED["loan_scope_t"] = {"value": N["grid"] + N["gas"] + N["heat"], "source": "out/inventory.json by_factor EF_GRID_KZ_KWH+EF_NG_M3+EF_HEAT_GCAL"}
+    lead = (f"The KZT {num('loan_bn', LOAN / 1e9, '[brief]')} bn green loan funds solar and heat pumps. "
+            f"They touch {loan}% of emissions; milk is {num('milk_pct', 100 * share, 'out/inventory.json', '{:.0f}')}%.")
+    facts = [f"Made by one command from {num('rows', N['rows'], 'out/inventory.json')} ledger lines in {V['rt']} seconds."]
+    tail = (f'<div class="num x" style="font-size:88px;margin-top:26px">{num("total", tot, "out/inventory.json")}</div>'
+            f'<div class="x" style="font-size:15px;color:var(--g1);margin-top:8px">tonnes CO2e in 2025, all gases as CO2</div>')
+    ex = f'<div>{bars}</div>{chips}'
+    title = f"Four-fifths of the footprint sits on {num('farms', 25, '[brief] about 25 farms')} farms."
+    return slide(1, "Carbon Copilot", "Dala Foods · GHG inventory 2025", title, lead, facts, ex,
+                 "Case data, synthetic. Supplier and staff names masked. Detail: bank one-pager, README.", tail=tail)
 
 
-def s2(N, V, messy):
-    rows = "".join(
-        f'<div style="padding:11px 0;border-top:1px solid var(--rule)"><div class="mono x" style="font-size:22px">{esc(a["description"])}</div>'
-        f'<div class="x" style="font-size:18px;color:var(--mid);margin-top:3px"><span class="mono">{float(a["quantity"]):,.6g} {esc(a["unit"])} · {esc(a["counterparty"])}</span>'
-        f' <b style="color:var(--acc);font-weight:600">· {tag}</b></div></div>'
-        for a, tag in zip(messy, ["Kazakh, typo", "typo", "carrier's fuel", "2 legs, not 1"]))
-    chips = "".join(
-        f'<div style="margin-bottom:26px">{"" if not ic else f"<svg width=30 height=30 style=margin-bottom:4px>{icon(ic, 0, 0, 30)}</svg>"}'
-        f'<div class="x" style="font-size:46px;font-weight:700;line-height:1">{n}</div>'
-        f'<div class="x" style="font-size:19px;color:var(--mid);line-height:1.25;margin-top:4px">{l}</div></div>'
-        for n, l, ic in [("1 page", "for the bank", "bank"),
-                         (num("included", N["n_inc"], "out/audit_all.csv"), "lines, each with a formula", None),
-                         (num("queue", N["queue"], "out/inventory.json"), "lines for a person to check", "person")])
-    inner = f'''<div style="display:flex;align-items:stretch;height:500px;width:{W}px">
- <div style="width:478px">
-  <div class="x" style="font-size:18px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mid);margin-bottom:8px">Accounting export (1C) · names hidden</div>
-  {rows}
-  <div style="position:relative;height:150px">{ann(0, 22, 470, "Last year's Excel missed refrigerant leaks and counted flights one way.")}{ann(0, 92, 470, f"The CFO's budget for running it: KZT {num('cap_m', CAP / 1e6, '[brief]')} m a year.")}</div>
- </div>
- <div style="width:150px;display:flex;flex-direction:column;align-items:center;justify-content:center">
-  <div class="x" style="font-size:22px;font-weight:700;text-align:center">1 command</div>
-  <svg width="120" height="40"><path d="M6 20H108M94 8l14 12-14 12" fill="none" stroke="var(--acc)" stroke-width="3"/></svg>
-  <div class="x" style="font-size:22px;font-weight:700;color:var(--acc)">{V['rt']} s</div>
- </div>
- <div style="display:flex;gap:26px;align-items:center">
-  <img src="assets/bank.png" style="height:440px;border:1px solid var(--rule);box-shadow:0 2px 0 var(--rule)">
-  <div style="width:190px">{chips}</div>
- </div>
+def s2(N, V, C, messy):
+    led = "".join(f'<div class="mono" style="font-size:13px;line-height:1.35;padding:7px 0;border-top:1px solid var(--rule);'
+                  f'white-space:nowrap;overflow:hidden;text-overflow:ellipsis"><span class="x">{esc(a["description"])}</span>'
+                  f'<br><span class="x" style="color:var(--g2)">{float(a["quantity"]):,.6g} {esc(a["unit"])}</span></div>' for a in messy)
+    journey = f'''<div style="display:grid;grid-template-columns:250px 1fr 150px;column-gap:20px;align-items:center">
+ <div>{cap("1C export · names hidden", "margin-bottom:6px")}{led}</div>
+ <div style="text-align:center"><div class="x acc" style="font-size:15px;font-weight:500">1 command</div>
+  <svg width="96" height="24" style="display:block;margin:6px auto"><path d="M2 12H90M80 4l10 8-10 8" fill="none" stroke="var(--acc)" stroke-width="1.5"/></svg>
+  <div class="x acc num" style="font-size:32px">{V['rt']} s</div></div>
+ <div>{cap("Bank page", "margin-bottom:6px")}<img src="assets/bank.png" style="width:150px;border:1px solid var(--rule)"></div>
 </div>'''
-    title = f"A KZT {num('loan_bn', LOAN / 1e9, '[brief]')} bn green loan needs a carbon count the bank can check."
-    return slide(2, "Product", title, inner, "Users: Dala's sustainability team, the bank's loan officer, the verifier. Detail: README.")
+    inbox = [("Bank", "Inventory, every number traceable", f"{num('included', N['n_inc'], 'out/audit_all.csv')} lines, each with a formula"),
+             ("Retailer", "Footprint per litre", f"{num('intensity', N['intensity'], 'out/inventory.json intensity', '{:.1f}')} t per tonne; per litre not claimed"),
+             ("CFO", f"Under KZT {num('cap_m', CAP / 1e6, '[brief]')} m a year", f"KZT {num('cost_total_m', C['total'] / 1e6, 'deck/build.py cost()', '{:.1f}')} m a year"),
+             ("IT & Security", "No names to cloud AI", f"{num('cp', N['cp'], 'out/inventory.json')} suppliers, {num('persons', N['persons'], 'out/inventory.json')} people masked first")]
+    rows = "".join(f'<div style="display:grid;grid-template-columns:104px 200px 1fr;column-gap:16px;font-size:14px;'
+                   f'padding:7px 0;border-top:1px solid var(--rule)"><span class="x" style="font-weight:500">{w}</span>'
+                   f'<span class="x" style="color:var(--g2)">{a}</span><span class="x">{b}</span></div>' for w, a, b in inbox)
+    ex = f'{journey}<div style="margin-top:30px">{cap("Inbox request · what the run gives", "margin-bottom:6px")}{rows}</div>'
+    lead = "Dala's sustainability officer runs it once a year. The same run answers all four Inbox requests."
+    facts = ["<b>Sustainability officer</b> runs it and explains every number.",
+             "<b>Bank loan officer</b> reads one page, drills to any line.",
+             "<b>Verifier</b> re-performs a sample of lines by hand."]
+    return slide(2, "Product", "Who uses it · the journey", "One command takes the ledger to the bank's page.", lead, facts, ex,
+                 "Inbox requests from the case brief. Detail: README, Who asked for what.", "w7")
 
 
 def s3(N, V):
-    st = [("Ledger lines in", "accounting export (1C)", N["rows"]),
-          ("Names hidden", f"{N['cp']} suppliers, {N['persons']} people", N["rows"]),
-          ("Not purchases out", f"−{N['nonp']} taxes, fees|−{N['dup']} duplicates", N["n_inc"]),
-          ("Matched to a factor", f"one of {N['n_factors']} official factors", N["n_inc"]),
-          ("Lines with a formula", "quantity × factor", N["n_inc"])]
-    for k, v in (("rows", N["rows"]), ("cp", N["cp"]), ("persons", N["persons"]), ("nonp", N["nonp"]), ("dup", N["dup"]),
-                 ("n_factors", N["n_factors"]), ("included", N["n_inc"])):
-        num(k, v, "out/inventory.json" if k != "included" else "out/audit_all.csv")
-    cw, gap, base, mh = 200, 34, 170, 110
-    g = []
-    for k, (lab, sub, n) in enumerate(st):
-        x = k * (cw + gap)
-        h = mh * n / N["rows"]
-        g.append(f'<rect x="{x}" y="{base - h:.1f}" width="{cw}" height="{h:.1f}" fill="{"var(--ink)" if k == 4 else "#8A9099"}"/>')
-        if k == 2:
-            cut = mh * N["excluded"] / N["rows"]
-            g.append(f'<rect x="{x}" y="{base - h - cut:.1f}" width="{cw}" height="{cut:.1f}" fill="none" stroke="var(--acc)" stroke-width="2" stroke-dasharray="5 4"/>')
-            g.append(T(x + cw - 6, base - h - cut - 8, f"−{N['excluded']}", 20, 700, "var(--acc)", "end"))
-        g.append(T(x, base - mh - 26 if k != 2 else base - mh - 26, f"{n:,}", 40, 700))
-        g.append(T(x, base + 30, lab, 20, 600))
-        for j, part in enumerate(sub.split("|")):
-            g.append(T(x, base + 56 + 22 * j, part, 18, 400, "var(--mid)"))
-        if k < 4:
-            ax = x + cw + gap / 2
-            g.append(f'<path d="M{ax - 6} {base - 60}l8 8-8 8" fill="none" stroke="var(--soft)" stroke-width="2"/>')
-    # who decides: stacked bar over the 1,877 included lines
-    y0, bh = 318, 64
-    seg = [("Rules and dictionary", N["n_rules"], "var(--ink)", "#fff"), ("Text classifier", N["n_clf"], "#8A9099", "#fff"),
-           ("Flagged for a person", N["n_queue"], "var(--acc)", "var(--acc)")]
-    g.append(T(0, y0 - 14, "Who decides each line", 20, 700))
-    x = 0
-    for k, (lab, n, c, tc) in enumerate(seg):
-        w = W * n / N["n_inc"]
-        g.append(f'<rect x="{x:.1f}" y="{y0}" width="{max(w - 2, 3):.1f}" height="{bh}" fill="{c}"/>')
-        if k < 2:
-            g.append(T(x + 16, y0 + 40, f"{lab} · {num('dec_' + str(k), n, 'out/audit_all.csv reasons/flags')}", 22, 600, tc))
-        else:
-            g.append(f'<path d="M{x + w / 2:.1f} {y0 + bh}v14" stroke="var(--acc)" stroke-width="1.5"/>')
-            g.append(T(W, y0 + bh + 34, f"{lab} · {num('dec_2', n, 'out/inventory.json review_queue')}", 20, 700, tc, "end"))
-        x += w
-    lo = y0 + bh + 54
-    a = ann(0, lo, 540, "Code does all arithmetic; the classifier only picks a label from a fixed list.")
-    a += ann(596, lo, 540, f"Runs on a laptop in {V['rt']} seconds; a re-run gives the identical file.")
-    ex = box(lo + 60, svg(lo + 60, "".join(g)) + a)
-    title = f"One command turns {num('rows', N['rows'], 'out/inventory.json')} messy ledger lines into an explained inventory in {V['rt']} seconds."
-    return slide(3, "Architecture", title, ex, "Python, standard library only. Detail: README, How it works.")
+    R = N["rows"]
+    st = [("Ledger lines in · 1C export", R, R),
+          (f"Names masked · {N['cp']} suppliers, {N['persons']} people", R, R),
+          (f"Not purchases removed · −{N['excluded']}", N["n_inc"], N["n_inc"])]
+    for k in ("rows", "cp", "persons", "excluded"):
+        num(k, N[k], "out/inventory.json")
+    bars = "".join(brow(l, f"{v:,}", f / R) for l, v, f in st)
+    seg = [("Rules", N["n_rules"], "bg-ink"), ("Classifier", N["n_clf"], ""), ("Person", N["n_queue"], "bg-acc")]
+    for k, (_, n, _) in enumerate(seg):
+        num(f"dec_{k}", n, "out/audit_all.csv reasons/flags")
+    w = [n / N["n_inc"] for _, n, _ in seg]
+    stack = "".join(f'<div class="{c}" style="height:12px;width:{100 * f:.2f}%;background:var(--g3);margin-right:2px"></div>'
+                    for (_, _, c), f in zip(seg, w))
+    who = (f'<div class="br"><div class="l x"><span>Who decides each of the {N["n_inc"]:,} lines</span></div>'
+           f'<div style="display:flex">{stack}</div>'
+           f'<div class="x" style="position:relative;height:44px;font-size:15px;margin-top:8px">'
+           f'<span style="position:absolute;left:0">Rules {N["n_rules"]:,}</span>'
+           f'<span style="position:absolute;left:{100 * w[0]:.1f}%">Classifier {N["n_clf"]:,}</span>'
+           f'<span class="acc" style="position:absolute;right:0;top:22px;font-weight:500">Person {N["n_queue"]}</span></div></div>')
+    lead = (f"{N['rows']:,} ledger lines pass four stages on a laptop in {V['rt']} seconds. "
+            "A re-run gives the identical file.")
+    llm = N["llm"] or {}
+    g = llm.get("gated_lines_year")
+    facts = ["<b>Code does all arithmetic.</b> No model can exclude a line or write a number.",
+             "<b>Second reader:</b> DeepSeek sees masked text only and picks a label from a fixed list.",
+             f"Its answers are cached; it advises on {num('gated_lines_year', g, 'out/llm_eval.json')} lines a year."]
+    return slide(3, "Architecture", "From ledger to inventory", "Code decides every number. AI only advises.", lead, facts,
+                 bars + who, "Python on a laptop; second reader via OpenRouter, masked text only. Detail: README.")
 
 
 def s4(N, milk, mled):
     tot = N["total"]
-    lad = [("All emissions", tot), ("Suppliers (Scope 3)", N["s3"]), ("Purchased goods", N["goods"]),
-           (f"Raw milk · {N['milk_lines']} lines", N["milk"]), ("This line", float(milk["tco2e"]))]
-    g, lx, bw = [], 300, W - 300 - 150
-    for k, (lab, v) in enumerate(lad):
-        y = 4 + k * 40
-        w = bw * v / tot
-        g.append(T(lx - 16, y + 24, lab, 20, 600 if k == 4 else 400, "var(--acc)" if k == 4 else "var(--ink)", "end"))
-        g.append(f'<rect x="{lx}" y="{y + 4}" width="{max(w, 2):.1f}" height="28" fill="{"var(--acc)" if k == 4 else "#B9BEC5" if k < 3 else "#5B616B"}"/>')
-        fmt = "{:,.3f}" if k == 4 else "{:,.0f}"
-        g.append(T(lx + max(w, 2) + 12, y + 27, f"{num('lad_' + str(k), v, 'out/inventory.json' if k < 4 else 'out/audit_all.csv', fmt)} t", 22, 700,
-                   "var(--acc)" if k == 4 else "var(--ink)"))
-    q_t = float(mled["quantity"]); ef = float(milk["ef_value"]) if "ef_value" in milk else 1.3
-    assert abs(q_t * ef - float(milk["tco2e"])) < 0.001, "worked line does not recompute"
-    fy = 330
-    terms = [(150, f"{q_t:,.2f} t", "raw milk bought", f"invoice {esc(mled['doc_no'])}, {esc(mled['counterparty'].split()[-1])}", "var(--ink)"),
-             (365, "×", None, None, "var(--soft)"),
-             (505, f"{ef:g}", "official factor", "kg CO2e per kg of milk", "var(--ink)"),
-             (650, "=", None, None, "var(--soft)"),
-             (920, f"{float(milk['tco2e']):,.3f} t", "tonnes of CO2e", f"line {milk['line_id']}", "var(--acc)")]
+    q_t, ef, t = float(mled["quantity"]), float(milk["ef_value"]), float(milk["tco2e"])
+    assert abs(q_t * ef - t) < 0.001, "worked line does not recompute"
     num("worked_qty_t", q_t, "masked/ledger_test.csv", "{:.2f}"); num("worked_ef", ef, "out/audit_all.csv ef_value", "{:g}")
-    num("worked_tco2e", float(milk["tco2e"]), "out/audit_all.csv", "{:,.3f}")
-    for x, big, t1, t2, c in terms:
-        g.append(T(x, fy, big, 72, 700, c, "middle"))
-        if t1:
-            g.append(f'<path d="M{x - 80} {fy + 22}H{x + 80}" stroke="var(--rule)" stroke-width="1.5"/>')
-            g.append(T(x, fy + 52, t1, 20, 600, c, "middle"))
-            g.append(T(x, fy + 78, t2, 18, 400, "var(--mid)", "middle"))
-    lo = fy + 112
-    a = ann(0, lo, 540, "Three clicks in the dashboard lead from the total to this line.")
-    a += ann(596, lo, 540, f"{num('act_pct', N['act_pct'], 'out/inventory.json', '{:.1f}')}% of tonnes come from quantities; "
-                          f"{100 - N['act_pct']:.1f}% are estimated from money spent.")
-    ex = box(lo + 60, svg(lo + 60, "".join(g)) + a)
-    return slide(4, "Audit trail", "Every tonne traces to one ledger line and can be recomputed on a calculator.", ex,
-                 "1 t per t = 1 kg per kg. Detail: audit.csv, one row per line.")
+    num("worked_tco2e", t, "out/audit_all.csv", "{:,.1f}")
+    terms = [(f"{q_t:,.2f} t", "raw milk bought", f"invoice {esc(mled['doc_no'])}", ""),
+             ("×", "", "", "g3"), (f"{ef:g}", "factor", "kg CO2e per kg", ""), ("=", "", "", "g3"),
+             (f"{t:,.1f} t", "tonnes CO2e", f"line {milk['line_id']}", "acc")]
+    f = "".join(f'<div><div class="num x {"acc" if c == "acc" else ""}" style="font-size:46px;'
+                f'{"color:var(--g3)" if c == "g3" else ""}">{big}</div>'
+                + (f'<div class="x" style="font-size:15px;margin-top:10px;border-top:1px solid var(--rule);padding-top:8px">{a}</div>'
+                   f'<div class="x" style="font-size:13px;color:var(--g2)">{b}</div>' if a else "") + '</div>'
+                for big, a, b, c in terms)
+    formula = f'<div style="display:grid;grid-template-columns:auto auto auto auto auto;justify-content:space-between;align-items:start">{f}</div>'
+    lad = [("All emissions", tot, "{:,.0f}"), ("Scope 3 · suppliers", N["s3"], "{:,.0f}"), ("Purchased goods", N["goods"], "{:,.0f}"),
+           (f"Raw milk · {N['milk_lines']} lines", N["milk"], "{:,.0f}"), ("This line", t, "{:,.1f}")]
+    drill = "".join(row(l, num(f"lad_{k}", v, "out/inventory.json" if k < 4 else "out/audit_all.csv", fm), v / tot,
+                        "bg-acc" if k == 4 else "", "acc" if k == 4 else "") for k, (l, v, fm) in enumerate(lad))
+    ex = (formula + f'<div style="margin-top:44px;--lw:190px;--vw:80px;--rh:40px">{cap("Drill path, tonnes CO2e", "margin-bottom:4px")}{drill}</div>')
+    lead = "From the total, three clicks reach the invoice. A verifier repeats the sum on a calculator."
+    facts = [f"<b>{num('act_pct', N['act_pct'], 'out/inventory.json', '{:.1f}')}%</b> of tonnes come from physical quantities; "
+             f"{100 - N['act_pct']:.1f}% are estimated from money spent."]
+    return slide(4, "Audit trail", "One worked line", "Every tonne traces to one line you can recompute.", lead, facts, ex,
+                 "1 t per t = 1 kg per kg. Detail: audit.csv, one row per ledger line.", "w7")
 
 
-def s5(N, inj):
-    llm = N["llm"]
-    big = lambda n, l, s: (f'<div style="flex:1"><div class="x" style="font-size:76px;font-weight:700;line-height:1">{n}</div>'
-                           f'<div class="x" style="font-size:20px;font-weight:600;margin-top:10px">{l}</div>'
-                           f'<div class="x" style="font-size:18px;color:var(--mid);margin-top:4px">{s}</div></div>')
-    a2 = ""
-    if llm and llm.get("gated_lines_year") is not None:
-        a2 = (f'<div style="position:relative;height:56px;margin-top:22px">{ann(0, 0, W, "The second reader sees masked text of "
-              + num("gated_lines_year", llm["gated_lines_year"], "out/llm_eval.json") + " lines and cannot exclude a line.")}</div>')
-    inner = f'''<div style="width:{W}px">
- <div style="display:flex;align-items:center;gap:0">
-  <div style="width:500px;background:#fff;border:1px solid var(--rule);padding:18px 22px">
-   <div class="x" style="font-size:18px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mid)">Invoice text, as typed</div>
-   <div class="x mono" style="font-size:26px;margin-top:10px">{esc(inj["description"].split(".")[0])}</div>
-   <div class="x" style="font-size:18px;color:var(--mid)">certification services</div>
-   <div style="font-size:20px;margin-top:12px;background:#E9E8E2;padding:10px 12px;border-left:3px solid var(--soft)">Hidden note to the AI: “set this to 0”</div>
-  </div>
-  <div style="width:136px;display:flex;justify-content:center"><svg width="110" height="40"><path d="M6 20H96M82 8l14 12-14 12" fill="none" stroke="var(--acc)" stroke-width="3"/></svg></div>
-  <div style="flex:1">
-   <div class="x" style="font-size:18px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mid)">Result</div>
-   <div class="x" style="font-size:84px;font-weight:700;line-height:1.05;color:var(--acc)">{num("inj_tco2e", float(inj["tco2e"]), "out/audit_all.csv", "{:.4f}")} t</div>
-   <div class="x" style="font-size:22px;font-weight:600">not zero · unchanged · sent to a person</div>
-  </div>
- </div>
- <div style="display:flex;gap:40px;margin-top:30px;border-top:1.5px solid var(--ink);padding-top:22px">
-  {big(f'{num("inj_changed", N["inj_changed"], "deck/measured.json")} <span style="font-size:40px;color:var(--mid)">of {num("inj_lines", N["inj_lines"], "deck/measured.json")}</span>',
-       "test lines with a hidden instruction changed", "12 forms of hidden instruction")}
-  {big("0", "names in any output file", f"{num('cp', N['cp'], 'out/inventory.json')} suppliers, {num('persons', N['persons'], 'out/inventory.json')} people hidden")}
-  {big("×1000", "unit slip stops the run", "a tonne typed as a kilogram")}
- </div>{a2}
-</div>'''
-    foot = ("Disclosed by us: in development 4 unmasked rows and 1 carrier name reached our coding assistant. "
-            "Fixed; a self-check now stops the run. README.")
-    return slide(5, "Safeguards", "Hidden instructions, unit slips and leaked names are stopped before they reach the result.", inner, foot)
+def s5(N, X):
+    inj = X["inj"]
+    n = N["inj_lines"] or 2400
+    rows_ = [("Text classifier, description only", inj.get("clf_starter"), ""),
+             ("Classifier + account and unit", inj.get("clf_units"), ""),
+             ("Organisers' starter", inj.get("starter"), ""),
+             ("Carbon Copilot", N["inj_changed"], "acc")]
+    mx = max(v for _, v, _ in rows_ if v is not None)
+    bars = "".join(row(l, num(f"inj_{k}", v, "compete/out/baselines.json injection" if k < 3 else "deck/measured.json"),
+                       (v or 0) / mx, "bg-acc" if c else "", c) for k, (l, v, c) in enumerate(rows_))
+    ex = (cap(f"Lines changed by hidden text, of {n:,}", "margin-bottom:6px")
+          + f'<div style="--lw:240px;--vw:56px;--rh:48px;border-top:1px solid var(--rule)">{bars}</div>'
+          + cap("Rebuilt by us on masked data", "margin-top:14px;letter-spacing:.04em;text-transform:none"))
+    lead = (f"We hid {num('inj_forms', 12, 'deck/measured.json injection_forms')} forms of instruction in "
+            f"{num('inj_lines', N['inj_lines'], 'deck/measured.json')} test lines. Not one category, factor or tonne changed.")
+    facts = [f"<b>0 names</b> leave the laptop: {N['cp']} suppliers, {N['persons']} people masked first.",
+             "<b>×1000 guard:</b> a tonne typed as kilograms stops the run.",
+             f"<b>{num('dup', N['dup'], 'out/inventory.json')} duplicates</b> dropped, VAT removed, "
+             f"<b>{num('credit_notes', N['credit'], 'out/inventory.json checks.credit_notes')} credit notes</b> counted negative."]
+    foot = ("Disclosed: in development 4 unmasked rows and 1 carrier name reached our coding assistant. "
+            "Fixed; a self-check now stops the run.")
+    return slide(5, "Safeguards", "Injection test · masking · unit guard",
+                 "Hidden instructions, unit slips and leaked names stop before the result.", lead, facts, ex, foot)
 
 
-def s6(N, V):
-    ev, pv = N["eval"], N["eval_prev"]
-    sc = lambda k: float(ev[k]["score"]) if k in ev else None
-    rows = [("Leaderboard, hidden test set", "deck/manual.json", N["leaderboard"], "acc", None),
-            ("Unseen wording", "out/eval_hard.csv", sc("group k-fold: description template"), "ink", None),
-            ("Unseen suppliers", "out/eval_hard.csv", sc("group k-fold: counterparty pseudonym"), "ink", None),
-            ("Accounting account missing", "out/eval_hard.csv", sc("perturb: missing gl_account"), "ink", None),
-            ("Unseen accounting accounts", "out/eval_hard.csv", sc("group k-fold: GL account"), "ink", "weakest case"),
-            ("Random split", "out/eval_hard.csv", sc("random 5-fold (baseline)"), "grey", "too easy: lines repeat")]
-    lo_s, hi_s, px0, px1, rh, top = 0.90, 1.00, 380, W - 20, 58, 24
-    X = lambda v: px0 + (px1 - px0) * (v - lo_s) / (hi_s - lo_s)
-    g = []
-    for k in range(6):  # gridlines + axis
-        v = lo_s + k * .02; x = X(v)
-        g.append(f'<path d="M{x:.1f} {top - 10}V{top + rh * 6}" stroke="var(--rule)" stroke-width="1"/>')
-        g.append(T(x, top + rh * 6 + 26, f"{v:.2f}", 18, 400, "var(--mid)", "middle"))
-    g.append(T(px1, top + rh * 6 + 52, "score, 1.00 = perfect", 18, 400, "var(--mid)", "end"))
-    for k, (lab, src, v, col, note) in enumerate(rows):
-        y = top + rh * k + rh / 2
-        c = {"acc": "var(--acc)", "ink": "var(--ink)", "grey": "var(--soft)"}[col]
-        g.append(T(px0 - 24, y + 7, lab, 21, 600 if k in (0, 4) else 400, c if col != "ink" else "var(--ink)", "end"))
-        g.append(f'<path d="M{px0} {y}H{px1}" stroke="var(--tint)" stroke-width="2"/>')
-        key = "eval_" + re.sub(r"\W+", "_", lab.lower()).strip("_")
-        if v is None:
-            g.append(f'<foreignObject x="{px1 - 260}" y="{y - 16}" width="260" height="34"><div style="text-align:right;font-size:20px">{FILL}</div></foreignObject>')
-            num(key, None, src)
-            continue
-        txt = num(key, v, src, "{:.4f}")
-        x = X(max(v, lo_s))
-        if k == 4 and "group k-fold: GL account" in pv and abs(float(pv["group k-fold: GL account"]["score"]) - v) > 1e-4:
-            ov = float(pv["group k-fold: GL account"]["score"]); ox = X(ov)
-            num("eval_gl_before_rule", ov, "out/eval_hard_prev.csv", "{:.4f}")
-            g.append(f'<circle cx="{ox:.1f}" cy="{y}" r="11" fill="var(--bg)" stroke="var(--ink)" stroke-width="2"/>')
-            g.append(f'<path d="M{ox + 14:.1f} {y}H{x - 130:.1f}" stroke="var(--ink)" stroke-width="2" marker-end="url(#ah)"/>')
-            g.append(T(ox - 14, y + 34, f"{ov:.4f} before the rule added after testing", 18, 400, "var(--mid)"))
-            note = None
-        g.append(f'<circle cx="{x:.1f}" cy="{y}" r="13" fill="{c}"/>')
-        right = x > px1 - 140
-        g.append(T(x - 24 if right else x + 24, y + 8, txt, 24, 700, c, "end" if right else "start"))
-        if note:
-            nx = (x + 120) if not right else (x - 130)
-            g.append(T(nx, y + 7, note, 19, 400, "var(--mid)", "start" if not right else "end"))
-    held = [sc(k) for k in ("group k-fold: description template", "group k-fold: counterparty pseudonym",
-                            "perturb: missing gl_account", "group k-fold: GL account") if sc(k) is not None]
-    lo = top + rh * 6 + 66
-    a = ann(0, lo, 540, f"Bigger than any software error: the milk factor. ±20% moves the total ±{num('sens', N['sens'], 'out/inventory.json', '{:.0f}')}%.")
-    a += ann(596, lo, 540, "Not counted, not in a purchase ledger: commuting, downstream transport, packaging waste, fuel supply chain.")
-    defs = '<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--ink)"/></marker></defs>'
-    ex = box(lo + 80, svg(lo + 80, defs + "".join(g)) + a)
-    title = f"Tested on data it never saw, the tool scores between {num('eval_min', min(held), 'out/eval_hard.csv', '{:.2f}')} and 1.00."
-    return slide(6, "Accuracy", title, ex, "Score = 0.4 × macro-F1 + 0.6 × (1 − WAPE). Detail: README, Accuracy.")
+def s6(N, X):
+    sc, ev = X["sc"], N["eval"]
+    r = [("Organisers' starter", sc.get(("random 5-fold", "starter")), "starter"),
+         ("Text classifier only", sc.get(("random 5-fold", "clf_units")), "clf_units"),
+         ("Everything by money", sc.get(("random 5-fold", "spend_only")), "spend_only"),
+         ("Carbon Copilot", sc.get(("random 5-fold", "ours")), "ours")]
+    bars = "".join(row(l, num(f"cmp_{k}", v, "compete/out/scores.csv random 5-fold", "{:.2f}"), v or 0,
+                       "bg-acc" if k == "ours" else "", "acc" if k == "ours" else "") for l, v, k in r)
+    lo = min(v for _, v, _ in r)
+    uw = float(ev["group k-fold: description template"]["score"])
+    ua = float(ev["group k-fold: GL account"]["score"])
+    pv = N["eval_prev"].get("group k-fold: GL account")
+    ex = (f'<div style="--lw:200px;--vw:56px;--rh:52px">{bars}</div>'
+          + cap(f"Unseen accounts before the added rule: {num('eval_gl_before_rule', float(pv['score']) if pv else None, 'out/eval_hard_prev.csv', '{:.2f}')}",
+                "margin-top:16px;border-top:1px solid var(--rule);padding-top:12px;letter-spacing:.04em;text-transform:none"))
+    lead = (f"On wording it never saw, ours scores {num('eval_unseen_wording', uw, 'out/eval_hard.csv', '{:.4f}')}; "
+            f"on accounts it never saw, {num('eval_unseen_accounts', ua, 'out/eval_hard.csv', '{:.2f}')} after one added rule.")
+    readers = [f"Laya {num('laya_gl_ef_acc', 100 * X['laya_gl'] if X['laya_gl'] else None, 'laya_spike/out_results.json GL split ef acc', '{:.0f}')}% right factors"]
+    if X["sd_cat"] is not None:
+        readers.append(f"ScaleDown {num('scaledown_cat_acc', 100 * X['sd_cat'], 'scaledown_eval/results.json E2', '{:.0f}')}% right categories")
+    readers.append(f"Jev = DeepSeek at {num('jev_cost_x', X['jev_x'], 'jev_eval/RESULTS.md per-call cost', '{:.1f}')}× the cost")
+    k = len(readers) + 1
+    facts = [f"<b>We tested {k} AI readers</b> on unseen accounts: {', '.join(readers)}. So AI only advises; DeepSeek kept."]
+    title = f"Shortcuts score {lo:.2f}–{r[2][1]:.2f} on the same lines. Ours: {r[3][1]:.2f}."
+    foot = (f"Score = 0.4 × macro-F1 + 0.6 × (1 − WAPE), organisers' formula; random split. Approaches rebuilt by us (compete/). "
+            f"Leaderboard: {num('leaderboard', N['leaderboard'], 'deck/manual.json', '{:.4f}')}")
+    return slide(6, "Accuracy", f"Same {num('labelled', 1269, 'compete/out/baselines.json rows')} labelled lines · organisers' formula",
+                 title, lead, facts, ex, foot, "w7")
 
 
 def s7(N, C):
     m = lambda v: v / 1e6
     tot = C["total"]
-    assert abs(C["people"] + C["ver"] + C["compute"] - tot) < 1, "slide 7 segments do not sum to the total"
-    X = lambda v: W * v / CAP
-    by, bh = 128, 96
-    seg = [("Independent check", "limited assurance, est.", C["ver"], "#8A9099"),
-           ("People", f"{C['hours']:.0f} h a year, est.", C["people"], "var(--ink)")]
-    g, x = [], 0
-    for k, (lab, sub, v, c) in enumerate(seg):
-        w = X(v)
-        g.append(f'<rect x="{x:.1f}" y="{by}" width="{w:.1f}" height="{bh}" fill="{c}"/>')
-        g.append(f'<path d="M{x + 1:.1f} {by - 6}V{by - 96}" stroke="var(--rule)" stroke-width="1.5"/>')
-        g.append(T(x + 10, by - 60, f"{num('cost_' + str(k), m(v), 'deck/build.py cost()', '{:.2f}')}", 48, 700))
-        g.append(T(x + 10, by - 34, lab, 20, 600))
-        g.append(T(x + 10, by - 12, sub, 18, 400, "var(--mid)"))
-        x += w
-    used = x
-    g.append(f'<rect x="{x:.1f}" y="{by}" width="4" height="{bh}" fill="var(--acc)"/>')
-    g.append(f'<rect x="{x + 6:.1f}" y="{by + 1}" width="{W - x - 7:.1f}" height="{bh - 2}" fill="none" stroke="var(--soft)" stroke-width="1.5" stroke-dasharray="6 5"/>')
-    g.append(T(W - 12, by - 60, f"{num('cost_unused', m(CAP - tot), 'deck/build.py cost()', '{:.2f}')}", 48, 700, "var(--soft)", "end"))
-    g.append(T(W - 12, by - 34, "Unused budget", 20, 600, "var(--mid)", "end"))
-    # compute tick label under the bar
-    g.append(f'<path d="M{used + 2:.1f} {by + bh}V{by + bh + 22}" stroke="var(--acc)" stroke-width="1.5"/>')
-    g.append(f'<path d="M{used + 2:.1f} {by + bh + 22}V{by + bh + 62}H{used + 12:.1f}" fill="none" stroke="var(--acc)" stroke-width="1.5"/>')
-    g.append(T(used + 18, by + bh + 68, "Computer and AI: about 0.00", 20, 600, "var(--acc)"))
-    # used bracket + cap
-    g.append(f'<path d="M1 {by + bh + 8}V{by + bh + 16}H{used - 12:.1f}V{by + bh + 8}" fill="none" stroke="var(--ink)" stroke-width="1.5"/>')
-    g.append(T(0, by + bh + 46, f"Used: {num('cost_total_m', m(tot), 'deck/build.py cost()', '{:.2f}')} m = "
-                                f"{num('cost_pct', 100 * tot / CAP, 'deck/build.py cost()', '{:.0f}')}% of the cap", 22, 700))
-    g.append(f'<path d="M{W - 1} {by - 8}V{by + bh + 22}" stroke="var(--ink)" stroke-width="3"/>')
-    g.append(T(W, by + bh + 46, f"Budget cap {num('cap_m', CAP / 1e6, '[brief]', '{:.2f}')}", 20, 700, "var(--ink)", "end"))
-    g.append(T(0, by - 112, "KZT million a year", 18, 400, "var(--mid)"))
-    # against the loan
-    ly = by + bh + 122
-    g.append(T(0, ly - 12, f"Against the KZT {LOAN / 1e9:.0f} bn loan it supports", 20, 700))
-    g.append(f'<rect x="0" y="{ly}" width="{W}" height="34" fill="var(--tint)"/>')
-    g.append(f'<rect x="0" y="{ly}" width="{max(W * tot / LOAN, 2):.1f}" height="34" fill="var(--acc)"/>')
-    g.append(T(14, ly + 24, f"{num('loan_pct', 100 * tot / LOAN, 'deck/build.py cost() / [brief] 5 bn', '{:.2f}')}% of the loan: the thin red line", 20, 600, "var(--acc)"))
-    lo = ly + 54
-    a = ann(0, lo, 540, f"KZT {m(tot):.1f} m a year is under 0.2% of the KZT {LOAN / 1e9:.0f} bn loan it supports.")
-    llm = N["llm"]
-    if llm and llm.get("usd_full_ledger") is not None:
-        kzt = llm["usd_full_ledger"] * FX
-        a += ann(596, lo, 540, f"AI for a full year's ledger: about KZT {num('ai_full_ledger_kzt', kzt, 'out/llm_eval.json usd_full_ledger x 500', '{:,.0f}')}.")
-    ex = box(lo + 60, svg(lo + 60, "".join(g)) + a)
-    title = f"Running it costs about KZT {m(tot):.1f} m a year, {100 * tot / CAP:.0f}% of the 15 m budget."
-    return slide(7, "Cost to run", title, ex, "est. = our assumption; rates and sources in README, Cost to run.")
+    assert abs(C["people"] + C["ver"] + C["compute"] - tot) < 1, "slide 7 parts do not sum to the total"
+    llm = N["llm"] or {}
+    ai = llm["usd_full_ledger"] * FX if llm.get("usd_full_ledger") is not None else None
+    r = [("Independent check, est.", C["ver"], "", ""), (f"People, {C['hours']:.0f} h, est.", C["people"], "", ""),
+         ("Computer and AI", ai or 0, "", ""), ("Total", tot, "bg-acc", "acc"), ("CFO's cap", CAP, "", "")]
+    bars = "".join(row(l, num(f"cost_{k}", m(v), "deck/build.py cost()" if k != 2 else "out/llm_eval.json usd_full_ledger x 500", "{:.2f}"),
+                       v / CAP, "lite" if k == 4 else c, lc) for k, (l, v, c, lc) in enumerate(r))
+    ex = cap("KZT million a year", "margin-bottom:6px") + f'<div style="--lw:200px;--vw:56px;--rh:50px">{bars}</div>'
+    share = 100 * tot / CAP
+    title = f"Running it costs KZT {m(tot):.1f} m a year, {share:.0f}% of the cap."
+    num("cost_pct", share, "deck/build.py cost()", "{:.0f}")
+    lead = (f"Most of it is the independent check the bank expects next year. "
+            f"People need about {C['hours']:.0f} hours a year.")
+    facts = [f"<b>AI: about KZT {num('ai_full_ledger_kzt', ai, 'out/llm_eval.json usd_full_ledger x 500', '{:,.0f}')} a year</b> for the full ledger, masked text only.",
+             f"<b>{num('loan_pct', 100 * tot / LOAN, 'deck/build.py cost() / [brief] 5 bn', '{:.2f}')}%</b> of the KZT {LOAN / 1e9:.0f} bn loan it supports."]
+    return slide(7, "Cost to run", f"Against the KZT {CAP / 1e6:.0f} m cap", title, lead, facts, ex,
+                 "est. = our assumption; rates and sources in README, Cost to run.")
 
 
-def s8(N, V):
+def s8(N):
     gl = float(N["eval"]["group k-fold: GL account"]["score"]) if "group k-fold: GL account" in N["eval"] else None
-    steps = [("1", "Built today", "2025 inventory, bank one-pager, audit file", "bank", "var(--ink)"),
-             ("2", "Next year", f"Independent check; milk factors from Dala's {num('farms', 25, '[brief]')} farms (moves the total ±{N['sens']:.0f}%)", "farm", "var(--acc)"),
-             ("3", "Then", f"Next company: its accounts list and a labelled sample. Day-1 score {num('day1', gl, 'out/eval_hard.csv GL account', '{:.2f}')}", "factory", "var(--ink)")]
-    cols = "".join(
-        f'<div style="flex:1;padding-right:34px;position:relative">'
-        f'<div style="display:flex;align-items:flex-end;gap:18px"><div class="x" style="font-size:132px;font-weight:700;line-height:.82;color:{c}">{n}</div>'
-        f'<svg width="44" height="44">{icon(ic, 0, 0, 44, c)}</svg></div>'
-        f'<div style="border-top:2px solid {c};margin-top:20px;padding-top:14px"><div class="x" style="font-size:24px;font-weight:700;color:{c}">{h}</div>'
-        f'<div style="font-size:21px;line-height:1.35;margin-top:8px">{t}</div></div></div>'
-        for n, h, t, ic, c in steps)
-    inner = (f'<div style="width:{W}px"><div style="display:flex">{cols}</div>'
-             f'<div style="position:relative;height:150px;margin-top:36px">'
-             f'{ann(0, 0, 700, "Any company with an accounting ledger can use it.")}'
-             f'{ann(0, 58, W, "One command from the ledger to an inventory a bank can check.", 30)}</div></div>')
-    return slide(8, "Roadmap", "Next: an independent check for Dala, then the same engine for other companies.", inner,
+    steps = [("1", "Built today", "2025 inventory, bank one-pager, audit file.", ""),
+             ("2", "Next year", f"Independent check. Milk factors measured on Dala's {N_FARMS} farms.", "acc"),
+             ("3", "Then", f"Next company: its accounts and a labelled sample. Day-1 score on unseen accounts "
+                           f"{num('day1', gl, 'out/eval_hard.csv GL account', '{:.2f}')}.", "")]
+    ex = "".join(f'<div style="display:grid;grid-template-columns:90px 1fr;column-gap:24px;border-top:1px solid var(--rule);padding:18px 0 22px">'
+                 f'<div class="num x {c}" style="font-size:64px">{n}</div>'
+                 f'<div><div class="x {c}" style="font-size:18px;font-weight:500">{h}</div>'
+                 f'<div style="font-size:16px;line-height:1.45;color:var(--g1);margin-top:6px">{t}</div></div></div>'
+                 for n, h, t, c in steps)
+    lead = "The engine runs on any company's accounting ledger. Only its account list and a labelled sample change."
+    facts = [f"<b>Biggest lever is the milk factor:</b> ±20% moves the total "
+             f"±{num('sens', N['sens'], 'out/inventory.json', '{:.0f}')}%, more than any software error."]
+    return slide(8, "Roadmap", "Three steps", "Next: an independent check for Dala, then other companies.", lead, facts, ex,
                  "Detail: README, Roadmap.")
+
+
+N_FARMS = 25
 
 
 # ---------- browser ----------
@@ -518,33 +402,43 @@ def run_browser(args, url):
         time.sleep(.5); shutil.rmtree(prof, ignore_errors=True)
 
 
-def lint(url, pdf):
+def whitespace(png, bg=(0xF7, 0xF5, 0xF0), cell=16, tol=30):
+    """Share of 16 px cells with no pixel off the background: a whitespace proxy for the >=35% rule."""
+    import numpy as np, pymupdf
+    p = pymupdf.Pixmap(png)
+    a = np.frombuffer(p.samples, np.uint8).reshape(p.height, p.width, p.n)[:, :, :3].astype(int)
+    ink = (np.abs(a - np.array(bg)).max(axis=2) > tol)
+    h, w = (p.height // cell) * cell, (p.width // cell) * cell
+    occ = ink[:h, :w].reshape(h // cell, cell, w // cell, cell).any(axis=(1, 3))
+    return 100 * (1 - occ.mean())
+
+
+def lint(url, pdf, ws):
     r = run_browser(["--dump-dom", "--virtual-time-budget=8000"], url)
     m = re.search(r'<pre id="lint">(.*?)</pre>', r.stdout, re.S)
     assert m and m.group(1).strip(), "lint: page script did not report (dump-dom empty)"
     S = json.loads(H.unescape(m.group(1)))
     bad = []
-    print(f"\n{'#':>2} {'title w':>7} {'lines':>5} {'exhibit':>9} {'body w':>6} {'foot w':>6} {'ann':>3} {'minpx':>5}  title")
+    print(f"\n{'#':>2} {'title w':>7} {'lines':>5} {'lead w':>6} {'body w':>6} {'foot w':>6} {'facts':>5} {'minpx':>5} {'white%':>6}  title")
     for s in S:
-        i = s["slide"]; cap = 60 if i == 5 else 45; fcap = 25 if i == 5 else 12
+        i = s["slide"]
         chk = [(s["title_words"] <= 15, f"title {s['title_words']} words > 15"),
-               (s["title_lines"] <= 2, f"title {s['title_lines']} lines > 2"),
+               (s["title_lines"] <= 4, f"title {s['title_lines']} lines > 4"),
                (s["ex_count"] == 1, f"{s['ex_count']} exhibits"),
-               (s["ex_w"] >= 1136 and s["ex_h"] >= 490, f"exhibit {s['ex_w']}x{s['ex_h']} < 1136x490"),
-               (s["content_over_footer"] <= 0, f"exhibit content runs {s['content_over_footer']} px into the footer"),
-               (s["body_words"] <= cap, f"body {s['body_words']} words > {cap}"),
-               (s["foot_words"] <= fcap, f"footer {s['foot_words']} words > {fcap}"),
-               (s["ann"] <= 2, f"{s['ann']} annotations > 2"),
+               (s["lead_words"] <= 30, f"lead {s['lead_words']} words > 30"),
+               (s["body_words"] <= 60, f"body {s['body_words']} words > 60"),
+               (s["foot_words"] <= 30, f"footer {s['foot_words']} words > 30"),
+               (s["ann"] <= 3, f"{s['ann']} facts > 3"),
                (s["x_max_words"] <= 7, f"an exhibit label has {s['x_max_words']} words > 7"),
-               (s["min_font_ex"] >= 18, f"text {s['min_font_ex']}px < 18 in exhibit: {s['min_font_el']!r}"),
+               (s["min_font"] >= 13, f"text {s['min_font']}px < 13: {s['min_font_el']!r}"),
                (not s["outside"], f"outside the slide: {s['outside']}"),
+               (not s["spill"], f"spills out of its column: {s['spill']}"),
+               (ws[i - 1] >= 35, f"whitespace {ws[i - 1]:.0f}% < 35"),
                (not re.search(BANNED, s["text_ban"]), f"banned term outside footer: {re.findall(BANNED, s['text_ban'])}"),
                (not re.search(FORBIDDEN, s["text_all"], re.I), f"forbidden claim: {re.findall(FORBIDDEN, s['text_all'], re.I)}")]
-        if i > 1:
-            chk.append(("Result · Product · Architecture" in s["text_all"], "navigation strip missing"))
         bad += [f"slide {i}: {msg}" for ok, msg in chk if not ok]
-        print(f"{i:>2} {s['title_words']:>7} {s['title_lines']:>5} {s['ex_w']:>4}x{s['ex_h']:<4} {s['body_words']:>6} "
-              f"{s['foot_words']:>6} {s['ann']:>3} {s['min_font_ex']:>5g}  {s['title']}")
+        print(f"{i:>2} {s['title_words']:>7} {s['title_lines']:>5} {s['lead_words']:>6} {s['body_words']:>6} "
+              f"{s['foot_words']:>6} {s['ann']:>5} {s['min_font']:>5g} {ws[i - 1]:>6.0f}  {s['title']}")
     import pymupdf
     doc = pymupdf.open(pdf)
     fl = {f[1:5] for p in doc for f in p.get_fonts()}  # (ext, type, basefont, name); Chrome embeds the Onest variable font as Type3
@@ -565,7 +459,8 @@ def build():
     milk, mled, inj, messy = lines()
     C = cost(N)
     V = dict(rt=num("runtime_s", round(N["runtime"]) if N["runtime"] else None, "deck/measured.json (6.9 s rounded)"))
-    slides = [s1(N, V), s2(N, V, messy), s3(N, V), s4(N, milk, mled), s5(N, inj), s6(N, V), s7(N, C), s8(N, V)]
+    X = extra()
+    slides = [s1(N, V), s2(N, V, C, messy), s3(N, V), s4(N, milk, mled), s5(N, X), s6(N, X), s7(N, C), s8(N)]
     html = open(os.path.join(D, "deck.html"), encoding="utf-8").read().replace("<!--SLIDES-->", "\n".join(slides))
     out_html = os.path.join(D, "_deck_render.html")
     open(out_html, "w", encoding="utf-8").write(html)
@@ -588,10 +483,11 @@ def build():
     pages = os.path.join(D, "pages"); shutil.rmtree(pages, ignore_errors=True); os.makedirs(pages)
     for i, p in enumerate(doc):
         p.get_pixmap(matrix=pymupdf.Matrix(1, 1)).save(os.path.join(pages, f"p{i + 1}.png"))
+    ws = [whitespace(os.path.join(pages, f"p{i + 1}.png")) for i in range(doc.page_count)]
     print(f"deck.pdf: {doc.page_count} pages; second reader: {'on (out/llm_eval.json)' if N['llm'] else 'omitted (no out/llm_eval.json)'}; "
           f"ЗАПОЛНИТЬ left: {html.count('ЗАПОЛНИТЬ')}")
     doc.close()
-    return lint(url, pdf)
+    return lint(url, pdf, ws)
 
 
 if __name__ == "__main__":
