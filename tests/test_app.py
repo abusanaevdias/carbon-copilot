@@ -121,6 +121,11 @@ def main():
     for s, v in (("1", 39.316), ("2", 34.0), ("3", 17.9895)):
         assert abs(S["by_scope"][s] - v) < 0.001, (s, S["by_scope"][s])
     assert "91.3" in page
+    top = S["review_top"]                                 # APP_REDESIGN 6.6(b): top 5 review lines by |tCO2e|
+    assert S["review"] == 10 and len(top) == 5 and [abs(r["tco2e"]) for r in top] == sorted((abs(r["tco2e"]) for r in top), reverse=True)
+    assert all(r["flags"] and set(r["flags"]) <= app.report.REVIEW for r in top), "review_top flags"
+    assert "·" not in page and "·" not in app.SHELL_HTML, "APP_REDESIGN 10.3: no dot-joined strings"
+    assert all(f'data-k="{k}"' in app.SHELL_HTML and f'data-k="{k}"' in page for k, _ in app.STAGES), "keyed rail rows"
     print(f"T4 OK total {tot:.4f} t (S1 {S['by_scope']['1']:.4f} S2 {S['by_scope']['2']:.4f} S3 {S['by_scope']['3']:.4f}),"
           f" 12 lines, 2 excluded, 3 injection-flagged")
 
