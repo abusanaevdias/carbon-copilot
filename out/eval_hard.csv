@@ -1,0 +1,11 @@
+scenario,macro_f1,wape,score,category_errors,ef_id_errors,rows,note
+random 5-fold (baseline),1.0,0.0,1.0,0,0,1269,1269 rows
+group k-fold: description template,1.0,0.0002,0.9999,0,130,1269,153 groups
+group k-fold: counterparty pseudonym,1.0,0.0001,0.9999,0,10,1269,67 groups
+group k-fold: GL account,0.9846,0.0006,0.9935,22,241,1269,22 groups
+perturb: typo,1.0,0.0001,0.9999,0,2,1269,"random 5-fold, val rows perturbed"
+perturb: RU/KZ/EN synonym,1.0,0.0,1.0,0,56,1269,"random 5-fold, val rows perturbed"
+perturb: unit variant,1.0,0.0,1.0,0,0,1269,"random 5-fold, val rows perturbed"
+perturb: reordered words,1.0,0.0,1.0,0,24,1269,"random 5-fold, val rows perturbed"
+perturb: missing gl_account,0.9817,0.0013,0.9919,1,4,1269,"random 5-fold, val rows perturbed"
+perturb: injected instruction,1.0,0.0,1.0,0,0,1269,"random 5-fold, val rows perturbed"

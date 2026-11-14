@@ -1,0 +1,1346 @@
+{
+"01127cbbf41fe8dd0d96126c76fabc53707107faaebdf7af202f40fd05561d87": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"02ccafaf6d06c1764958a1acf3fd8e6ca7a080b9b081c3eb7469158c29b86502": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"02dd4946dab93d9edf98eee6f447b414f5d351487bc2d7c2b75a780bfd20f7ff": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"03147bb00c7b1e296c553f6979990ce444cd5260696cf0b64b74913fa33cff42": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"037bbdac23285b3d9c74868113894d46b7e92bd7d4f1fa95a0b547569d74ead0": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"03da7744061b64d6ba72c0d92121a7b5f4e2db7e877e227ec2c7c47abd42e5ef": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0422054c9701a19ed97171b74c9d83dc1340f74a87020e4563897036cf1e6055": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"04f90a356e771c21163ea34389ea525a48ed01d8156dd7961b4730aa5e3b8afc": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0504aad22fb9368530d8719957b563463358395f52355491356817756a06ba3c": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"05b349a1e5a5876505e2f675d31b65d314b03c58564ff5fb9ee37777e2007188": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"05e77794cc6f94daac920869153ee537e8dbef67c988751cda5fafc1aa4520e0": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0605bd24b53b4f59093123958ae92dcf25b5eef2a8d7dd35af69a43d3d101bb7": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0608a3a5c72bf2da96ee661a52f6724f535afddb7fa95f773cba3657dcde642d": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"066d4e23314b7b45fe364311c2eeec071750a172963895896505c57d37ffe23c": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"083aa33c20c372b31d608a42f328544f282786fa4401d4dfdd52d642c05945e6": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"093e1113e2e8d2afb70ae62895350b1c60307e48801803b04a77328a080d4004": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"09f9e3e5a3cb9793f15f7e636504ca4ec029ffd95c82eae40f5e95ee0044f45e": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0aa62fe31d964df9895990c0bc71c13cccfebbaf1a5d3eae3bc4d5dc636456b9": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0adb8ce189adb0eb8ada50c2c0f61c089bf9c3359646b0d187f2995c7eb7ea4b": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0be8efe91be8f043f3aa564a99e4b88e32e5075a6fb7ec7040b5ad57df534667": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0d3783cf55c56f71eee17c1cdbc118ebd4d5d87743e6ae659b0f6afe9d2ffcb4": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0d9e88a0853f5e4ffe2a186c3245e8e62b1ff2d90811bd56a9bc2ef5a5336362": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0db5fcd387859bb2a9d9e3600546ea72f73d0cdfcd445cc1572dd7de93fe596b": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0f6e697964c680ded542ba8c7da39b165a3e5aa3aa645cb3d72601529235d94d": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0fc4c63c131aa7fee71cec49973351e51b16ddc6f42639a63f37e3eaac1334d3": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"0ff9fcba338447140db668f737d73a91a5354ae0a5e96a8cbaa05499681cf651": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"10a191db0551ecb83efd26f6efa5e7a2a3fd8ae5e72e7810011d870b779da346": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"10c3b335ca371be15fdf74d8f51e026a7a3a70ca4037444209a85a9c1bf1182b": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"11fe0fa9418a3806bb37cfffd9f410f7ee7110877366d19d38f7ba93095ec1e5": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"12407f3128ceaa306d4490416e4e74d5944de8eb53f1cb661094578b9a2caea7": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"124ba62f363546aded3160daeb67e905929195d4cf71a574049a0f9dc3d029b7": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1267b524a73a70d9ce44bf41f332c7facf44a59210937acde83123d5e5c97e25": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"127328b97c66e5b48ffffa9dea2ae41d4d877b5728745f68dece7a4d186f0dc6": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1331459658bfd59ec1bed8a873a92d9c2d9c7db048f2264eaa2f67b8f6ce9b6b": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1377bed357a4aec384b13bedc743ab5094a6312b6bf040f7b04de66ef0c72dc0": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"13b451158b89086265539d6dabb49c693a4e5e4ef129d8f81731e6799d153038": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"152f9cd82868e5117f956cc65a433db063ab0f520ffc686eddb82943d988612a": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"15ac0b901b578caf83643cb66bd950128b7893d8fd0897ab61df97ddaa3aee4a": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"15c84657565ae60eb824968e85de9653025de61bb25aeb0e04b255ae7c193fe5": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"16e267994940e68742bc7ff5c303c20324c574cda3a26c9b4a890525593f79bd": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"17987940ded8870960949877f781874c870a718a18bf3cdc474f392d553baf5d": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"18d1b4b77b74d2822b4f02c77abf570c213d92fbaa503770a38d438a8d844f9e": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"19b5e15f67d3d2f36db6ec31262ca10df80f0744b2370cd3fa7028b3112db97d": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1afcd741d43176fef469e41cb8f3d2532e6c18adf84d2d4c62afc8a16c4074cb": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1b0ce7bbb8ca02cb92714a778b5e830b75ae0e1a4798944eac9299c26fd18ccc": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1b4144bf7c5dfe93e432faf4534cc682d6716e3a912275df4d0209ac3aed4913": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1b7c8bcf4dce701c74323423818ac1a557222795f0b8ffdb1a8106d9f581d011": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1c37e6db45245ad9e055ed6a466c34b2ae10141397dffdf9a66ec2f3c72aea9c": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1c5b2a2aae84faf2a38f45bdc4af4e33f47352ac6f040c0c96c06e61207509a0": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1c9da647a68d80699077677b1ac23d3c4275b902cf6728b70bd5e96e6f7d7eb7": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1e983926cd4eeeab10e344e686e3d3ecd6480a59a5173e94bafaedbe708ae453": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"1edb143d3b36d8925624b9bc1516310e11d38b54e9f161a14c67096a955036dd": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"20ec7a2ba08f5ee9dad01ff0a3fe25d33e3ad58aa4687f69c10b4476bfebc739": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"212c54fe41640c4f44563532af716130eaed5e17861fb398052b99b338a3df8a": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"21efee2eb26cc9cd066003c79237b568a5c25340734010b7c1fcfdb39735c9e7": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"220d46b0b7896d79f7708a2798d7cdeb18ce08d10ef089d836256026436de7e8": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"22146165f21d9429230ba1c469872dbf90fbbc97ec293811a3f956a3c09005e6": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"2465d46da08fc9b919cd6da69b2a44699c275e8635300652b30eef6fa68f97ad": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"24767ab9e3daf419fcf652289fa3e04385800dcdd81b00ef16fc3c7e6257e3e5": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"249734b2dc1d43c52cca49fab3fbde19b6c001dea216940909f8a706bbfbb6b3": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"25defce763d52d88d10da579c4170fde6ad24084e26ac1d761308e9c2e59188c": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"2616b43c19a1a25635e57dd038f099394fbfb2326abf836c61d53f5fed380d15": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"2693e1028e1e64bf8376a8abbce1d294b62a795ce975e324229a0c56ac9d4705": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"27503ff391dcba1815c96be68d0f5ed8b3e475583e5d67ba370d2c1d33ff7d14": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"27dfacdc4aaf49acef54693202c6da2543e801943e95f4a469cdc7a444ad5191": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"2811249b3342ae1fe800c565890e9780feca776f17150b9256b87a6640ced5be": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"286634e394baaabe0d80bedac5ac9a280b5345693167349a9d5e3f77b9a3e823": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"28efcd3dd13b7497642f46dd8f47ae11cf34e17ea785e994eed7ddd18e1e4b9d": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"29273bd241bd592a7b8a09f2bf89652f7dab00ae905618a76c169e9423306795": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"2a96515e4e52a01e871e5e83dc7f6341e7f934f58f4b0622efa3ba6d54dd0c69": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"2aec4b826abc49751fe635d16955b293dde3d860f124f99acdb4f471317c1688": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"2b2d4d2859b6e1b09aebbeeb73ad9e649672fac263d80498ced67f21d9edcb0a": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"2edd11f4137bd8e3151a88d4cd8c492f1a936b9bf2f0689c76606032c139e00a": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"2f082bf88c494b3ce5adc9085a4da9e889ae93ab80bb78a4c832b7eed3ebfdd5": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"2fcbf187ffd7312d51a2ae241f40568afb2a725db199e136ef9b989cffd4db52": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3071f8d846408419546edd6a4edfc4463ea36cf0a24df51c978b61ecbf12d8dd": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"307369da0606d5af801670897319c03ecd74e1a6661cb7ca1f124b6e021368dc": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"307e2024297bc732908540ee63614ad4e679a0c083da0c0a1ebd646816f6c818": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"30fe0fab9c1115f99fa854155cf76015362f747853efdd7e8c5b20dd830efcfc": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"325d556d62912017b0bd1d14d313bd981d79d259df16afba78b840351c0ea5f0": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3271eb90115ce2e4e2a3e398a7821d317c67cfcef9609e4b063063964c4f3e9e": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"327ea243d449af61cf87ea519d3851120577ee5b8fa358b698c01a535b367660": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"34c2bc566e2203272bc5c35fe9d133d85f9dd11559472ed293a863380bf29569": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"35e2f3cf5e9002324910ae3be6c71726492fddf27819d8d0399914ff3608eaff": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"382f70fb37e7cff521c4948cea6e9ce058778e50b65c4a4aa4ec9e623bdfcbe3": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"388432da5e241456243dbb0830c54326a1409e62fa51648e90642356d937d240": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3889c2a86495ba63439322af130454dd478b3e7e8373c8d4f733442c3a176c4b": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"38a026db5770b65d140ba93b3aaf103eb729a17236faf6dc0f1c9aa85825c3d4": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"38fc7752d048099ab127424490999762831cc7251a158ea59f6716cd16cd20d9": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3997bc4cc0a3beb1edd81a6945a2466d394ee46529baa05885cf68e3327db054": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3a3fefa3df50ffae602e41852f3bea5aff01fe9e8446e0ac14251a4c5f7a6347": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3ab716b76a320696e3414092821739e0c36177bf03aa51fa5b5039174be24902": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3b0c2a1920ab4e1fbcfae32aa2085743d4a94f2755a8ed47907a5aa15a513800": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3d12392da1c14a7bf1c1418688beaa34ff5bddc9b80d78f30fe43b89f320cdd3": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3d149af8156011610aa7fe3daf3d9df641281f3f804fb74cfcc801dad74f9ba2": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3f5c3226a36fb0e98ce47b5bb08938256fafc20eb48ca689ce354d432bbb06cb": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3f7e66f09adbbeb493172b1ece8b8effc65dc9e88f3426e7b7e9d4373fd577b9": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3fa28d8cea743573e7c71ff3a661fcd37930cb291d8b27c269cf673e83e639d3": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"3ff38ea1c4dba46278bb283dacca2813644afcf04e9e02844fd749256f3249a4": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"409a4720391c2225e3b56499c1d1f45a386e1e24eedb2027ca232bf63001f388": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"41d9ba692c22bf9994aabed55e2701142f131d060606c01e5bbefc68dc076128": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"428184dfefb4829fbf304bd339bff6ecd682e2d05c796476ef57d65caaace505": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"42aef59617b53cacd9dbfc791900e5160acf2308c4dd9c0ba7ceb6e454fec8b0": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4306a1d3dca66f980496b068334d2122e6ab6110609270358dafde9df4ef377c": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"438a902b222c3dc553b292c8e1f9eccb8063e98f0722a73baffc3883e03a9f5e": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"43bb904b7d9ba6f92bbb5ca95673a5bb63fc89a0ec9d3c8f09ca3b974b9e07df": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"445c72acba2b420d4be3242bf22c2f5b52d80cdaf81032d576527af805d369a9": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4473f55581df7a5e1084cfbb015ac97cb540281916e258f9c9883cbf1a51374e": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"468303930a6962abdfa7d28abb89200f45bad110fa6f5629e014538eb7a10a1b": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"46960945e1f1270663f86937ee6365d949c5b8a193bdb31c28c5fda1cf1f9c74": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4770e9a08402be7eef12d62b4928e8f61f4351848fa1c90caccb26f46733a84f": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"484fd5a256483a0cc7591c9a21328db2083e9ea429610fe6cca718f21ca628a4": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"491eb1e7b8a36b31d3bcc9e5031ccc96db316928bee8384207d795837561abc5": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"494e378f27217690b082f56f22bc536f7de22ecd5fe652bf2e5f3aeef8502273": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"496a7ddef7d8bda0280f1c4857b5a1347a827b8fdf504732a1013959b31f82da": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4a9303e5dae622595924f3d86a0661b864911a21de5fc0c36364031ad0e812c1": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4ae623c39f1473ef85d1a8f7449da81a627242cee25b5b1e15b95bafc3122610": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4aee815643de31406ec09f0e677d21c854fff97817ff8a03fc3b6835913b73ff": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4b2f636f2b935a7f4096d60e8ecfb7d7933b7352cb54efddff5dee7a16dfbb92": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4bbfa5fc0b91d0fbd873eaf3edc2a04f15b7a7b04c158241bb85e23983d6b0de": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4bd7bad74bfde63074347f83a24b64f4b834e11b6ad14ad452fdca49530d77bf": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4bda5db153f3c37d49708213a461b88465866fa33185a29e9e9085a44025044e": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4c2578610e9505eada31ecfb13b4f0e51bf2d4ea32c95bbe6e08b2f9f2c59021": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4c83a6726e287125943fde53adc031a1167ebfd9de2a6f1c6688aed7ff379353": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4ca808058da4d93e27df594b9905883f5089a0522c35dfdfd0862323677e2e50": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4d0e80caf9771e725e76b21e303415441cb441480c4fc9930076e1156df6f02e": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4db5e39f4a9c0f103647ecb68ce2fea2ac01f353319b6f7382c6ee14022c4858": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"4fc83846599ee2a9c8aaef576c8c096e2be5302d4aa5ea84a48035c541d25e83": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"50d0a531e66857facf97e94b0b3cc04ff0dbfa215d4e63bccdf5f73012fcaad8": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"50eb5f2e64aed3648d608ab0d37d0693520e81a33781aa99064535b67d347099": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"5123d64d062bd12a963d69170242093bf8bd707293984ebd19385de166a6a58e": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"51efaaa7fe621359c43e2bdc7b5cabb0d9476023a84fa56ccc53e030308029ae": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"52c9b8e26d0a746abb4e7610a2b9da53e6ba661539f76fdcea6283e0880acfb0": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"54a8386a89c1b0cee0f69d62f379c9d8b89742fe728ecd84fa1c45c830578adb": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"54eef1fc271ef5f0913a1c08725ed6438299034a70c145da959d7e011bbd8b34": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"55b9b0d76b7f1434e30cb7f7c348f509d9090d3ad6d4574e9c5fc0d3ad9d92aa": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"55d0037fd84692633ba948f6b38e7a1cc71a939d8e694e38e2d235fdc6deb5b0": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"5673dd1914249b7137fcdf2e95300a6843575d38886ad99804741f138c3ec7b2": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"574ae5078943491b5ce1953261412a38b97fe1cbfc0ce1da73f8f66326c8352e": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"596eb9b2ae3c26be2ca1d035d0e89ee8f87e97ff7c9da09259bfa133be9cfae9": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"5999f2c92cb5efaf1b4d48d32cccf3c6cf2a4e01cd82a2006a39809c9dab1f98": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"5a812410144f622eb7d027bc990753bb656fba61e8716b974daf8c66358a49e8": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"5aebeff85fcffeb00bede7b65a36190b97f4517ab855797c8a73068d40957e32": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"5c4d58ee92c71544a3c454ad31aaf897e2d53f0355f6b7ed4a9ea4d89aeda1fe": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"5c6e58c0b7adf414ba01c2ab0171b78320309df0939a2e8f60fa948f8c97b475": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"5cd7db88ec6cbadcdfc4335f946f26b2d75f70bfc7a95669fc33dae8ece56fd1": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"5d4e3d233a367f3cd5c21bafe5805b4a17e0bdf9185c60ff19afb53344fdf1c7": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"5d7289d77d67817f1222fe51b9baf9ebcf4546db11a10c7e82f69650f1df657d": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"5e2faa62c2460b52f39811fbbed366ce5da39bb6e011d7ab4f7b2655aca0458b": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"5f0db761f81c983bf4ca016bb4d7b8b2d42f3cf56e1fd87c07f173cda26733c4": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"6185ccc45ece69a2ea226b4cd6b95a271dbb3691109a4a56354db87e0f28b878": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"61b5ff42bb523bd35d8b3ece50522216764fcd1e04535f284853f11b7815a0e9": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"64659169b3e34bfaef2ec3d93430bf14f153f65960f3d2ad18bcfd7af351f146": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"65ad780e73b0f8e9fd6b07118fa869f5249b6d9aaf7368a0231b3caeb2bd435d": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"660ad09d17d7b3a93b4f09c1e86d985079968177212dd461a89c31e4d7a47d78": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"67b2ce33d028c2cc9e102f741897a74d751d49f856ceecb86b189459e931e40c": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"6b1cbdb1472619e90f833d077589d3252fbd3ac33cb8b14a36e41154ca2208a8": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"6bca1ca73f09e105080321198fab979cac382cf4ea6cb0c99e93aa0669ea81e2": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"6c2aa565fd5b48d35fcbca18f10c528f43be5da0fd0f07d12b0684a1c1ac3f2e": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"6c9d81ff04bbe8b8cf6857ca5215b7e47ec1052483feb18d94cec2b659fc09ac": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"6cabf637229d68e114edb58bc5fcc66d6c2549c95f5169a897a4e919d23bd79a": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"6cb23a5591a1a7a7498f12b12c18cb656f3946ebebd135cab2ed0792940f30cf": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"6cbd56de57e874cef3cb967fed6f4196393a1be70c773b33b346875742e6b5e3": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"6d61192cb0c9979a415fe6a75508b641592db462d93be8a293633647ed6d844a": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"6f0c80c11e0d0c301d05d04fbd797487d87b0d55354484b1b4824ebbef69774b": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"6f1e350f64687ef8d71b172ad7469b4cc5e70dcb69e93e79e58f4d60855e1beb": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"6f8ef30b454d67ff6594670773c5290ce960f27529d90540996106b85a107a7a": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"709bb224f8c8581b7e5003b4fa472819fc1988c3d244fddf314cbd02f14b574e": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"72660d665334e45330afb381708f492d4ffdc85ccefb83b4313eacd2d9c953a8": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"7368fa0dca3e709c1dc9061f398c82b046d767146c2cdead1bf3e4a73d40788c": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"74b7b6246be49f93f38c435e1540ebaee6d5d4751d18106929cc7b858ebcc4fc": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"76285fc917d316a01b2456eb9e711abf6fa10d8e06cbd8646968755202d1e7a5": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"7833b3c2d192357209f698e733eac7409086db8438f5a4a4fe335af8e52e660f": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"78e7f725770fabe3cf353b4272c38ffd9fe0b92c0c3f3843d5985314ffe245e8": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"794f5d08c98ac502a6e3efd07551a8e77c478e84569a8422eb8eb6dbff903c93": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"7b80f25b3bbdf5fb73d4fba0ac3723848252e5c60f05dd3dc5bbbd788235cc9c": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"7e0fcae4df37df2e12f306170240482d08cb91d0e95b0311c0c53cf7b04ba087": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"7e97f95695478b8c4e2edbd0d648b75c43d157b7d796728daebb044713f97113": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"80fe60bad09054815561c942485dbdefea4e8cd411071adefcb1f3c612836e66": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"822910ac2df0aa213124577df4cc6589476108b0dd3ad5439d6556f8e1da42f4": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"82d68c59ec354fa0d38134dd3568c0e9c1591073c9bdeb0096366154006d496f": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"83aec5018d7260d292e83bf7eb367dc5d9685bc77f8dbedc52c39c1aa4832042": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"83c680e246c6ff44c3a6a0a3d4a133b715b7f1a2c97569a583efe2f654ba7cd4": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"84374ed8a3fe3fd11dccd38d1f7ff51b150bf65362e21efb1dc7bb9fb674ded9": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"859b546f2e50487f65c298931f1dcce21c1b15e206bc8f2a130e4d27f90f1643": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"8688762aeabe6c04046084326766bfb5e278fb71b291e455893ed910bd2c688a": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"87613e18574d8df5d036132b5a5289d9c4f139384ad19efbbe128312a570c91a": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"88feeffd7d08b53a0bcc9f9a9900c23388f47f127b0152abf60c9612b98bb7db": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"8a00bef1c603a77f5e00c30506625cd510573b14b871c3cf3287ba0aad09932d": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"8a54143bb46a4fa64da99914a0f55ca65b73d9f6d45b9daacd3dc8dcf4ea5bd6": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"8ab1efb7393dd09009165ab39b70c37de164f05d6536c80bfffdffcab205a93c": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"8b34a5bd1b39d8a5d9f398ce1d3940e1bc65663dc929e05d68d46de59818ebbb": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"8d25b52538af37a242c0e03cb3533c9eaec09308bf6317be40afa8b7286188df": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"8db8eecb867b9ebd27fde032f380f4306532ce85bda7dd086703cdc0e159713c": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"8e2fe336ea6036ec8a1c60d67b7660a012d5970f24848344a8ef9c153ff0691b": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"905146b34e760f74ae402434611e091d506a27351db54ac90e59fdc4542c8a57": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"915bd65d0983040be0a4299b99f67cb2c59c6734b4a33600385eec30877bc548": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"918b975dc1e560acc17c0e16a24be6d5107c15166a8edb2efe989e74a6467a25": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"92393a18c05e691c87c224bf460a23d1edcfafd36c101628b28c78da55d1b04c": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"92d0f92d54d80bc439265bfdbf9f7133cac74a01b2e7ad09d8988f47114cc185": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"93c01b557e3528103c365b7300764ed5e943748913dbb4b4c69baec5a45e1506": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"947d25ed3b91580d6ba0dd4639689fcb82115d626737da0369b01423aed78b6d": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"959b9be40be686404fec3c73a3ed831c142b50c28b0663cb1dd4eb6adec37ecc": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"96adb5f374e421868567483246dfd7d3f496ba60e8e472d7f7142f91f856527a": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"97e92fd7e260bc0b78e776f2da29cc1cd71604159cbc54933f160c7cc8c0e289": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"98547f3e99bbbdffb58eb8a70004c87bc4b4e75b9e3ed1463576db68be23d8f1": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"98d157c951424bf61230cad8ffb5b4bad2e4f6b4b27312442dff7c4addadc59e": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"98dcd3527af7335607dfc5b1989b01836a347eb96d5879b7cdc1f7ddc514440c": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"9a58a81fc1803e5164672ce3b846ff400740080f4f2e2416315725e36fba6d06": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"9a60bbba8f854990073c0ea7f4dfed2da84f5ccdc37c64d77ad5fe7c5b7f1687": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"9ae5b9c01e91756a9fc562512cd557b8f0e6a34f487e50616487dff3dcf90914": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"9af7188789cd5e92aed8a62aa766f0fa73c6be02736a8bf2875f053c9d364aba": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"9bca0d37848e04d5b313e4b6dac4e5e1dc11d256adad1ae896b395bdcb942b7c": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"9c904b9af03c89ed68ee8846a7a515c0bb80723561fafada5a8561aa7831335d": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"9e6c3a34ba12584bf2291fc1df93c1b46a9d3a0862302d283f80c10a298c6c6d": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"9ebcd388b2f8cde7e31818848a1ae896192694ff17e9d5fec246d8d7dd09e58f": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"9f3ec313bf2de504f576f9e5fc93e1fb74a515d5129486ab0c20f638f232ffad": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"a2cc8f00aba28c797f8f653cede227d5b57c0f50d5b7e23d15f73a2cb66efc76": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"a2d1706feec65720d031d7df8874a492c0802ccfe4d00b8609fe77f5b479fc93": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"a3113fd6402c6fbdd35cdd919fc7650623b5cbaf0389cbb6b3841b23470a4b27": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"a350cd518d0851700468e1088810b1e01140a19c1cb526a8a3721e746319d581": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"a4c2fecc53876aa32331fd8f6d00009e5141ce90ebe4e302f740454cde97f95a": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"a5e6fd7afac3aba603555b3a02121365abe902b8dd3ae68ad9848fc204e240ad": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"a60810964f131107284d426f621df9398511b37081396b371fe40a3b3a6a5cbc": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"a9e50d7d5e811d4a310b9aa4f8ff01010af90069d6c1f1fe6858c90b0ae43235": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"ab2ca0cf82c0d6fd0f8edc0655314027cc62c7a373dd05d304dcc4d5fe66ba02": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"abc18c8e72ae0e36bfc2b96968b5654f89347faeec23e4873463c434f4f894e4": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"acee6ef7e9b056a7861533be27514a8f059a2428cfecc6462990dd778632aeb9": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"ad0da92904fc654b1caf3beec517ca29b8c3abccd7b99c3202e78da2bbab342e": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"adea73c93325380378948001100e885114be52ae972430a9435f048baca108ef": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"ae8f9f8a200a1dafa02c0b21df4ac4fc1c621c7b3d6495bb877df934be94c2da": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"af6660b2ff96d957e1b7e2ae5797ca6d17303b44175f227728299a736496de1a": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"b063e9e789975b95f08c39f43beafdc1ca1e44e74143911fb60430ab6f366e27": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"b0a92f05c7cdce8fe5723cd144338cc16e32debabcdde650a07bf3c92d987f43": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"b11a542255bf6406548a9291b77156ad7ff205d3d2b1b51d04f599ae0b1af41d": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"b1838c3d5df6312cd7dc791a67ff3bae23bc9417be07e1f365dcfbfc93a84818": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"b1d10a7e05d06170305baeb01b88896aa02770f639a539017eeef79140ad1ee9": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"b3ec760adab055b9edd2d8877008e9224186a9a487f24b93cd217eb42dd9069b": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"b5b6ecdb8bece24903c131f3528a3855da1d9e16de953e05fa181482a010728b": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"b5feab32c69f55c24cdfca6aa7005339ce3c5f2746441f5d2fc85f8a2008adee": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"b628d36d3e5931cdbd030bb49643e1c218231f7ae9f1efa83476a65784dfbb7d": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"b6be3cdcc2e060b500f2e13a64282fd7313527bebe6de7539dafb66734348dbf": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"b704999e9ac661069e3cd8fe9dfd39d06808d1d535ab585ba26c0cd3fcafb5cf": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"b74bfac43482e7065af76e3caa7835831e4cb5359c05effd67a58bc66a14cb46": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"b895e14744911a4965cf9031ba8c7a4152b3c625679682a219046412c76b3a42": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"babb60869ea1a68770d038e8d623b3fe1157caa18f402e90d70f07dc981aae87": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"baf431ba7303f03471093174a16de7cd2aaf423ee23949e373582ee29595fe6d": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"bca2f253f22a5bd28cec1dc1fce893447e249216ffdc356b417f97f74f218365": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"bca6e83288948d76c131f11234cebd2266e40439c6b19249ec77ff87602748c3": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"bd191971612427a0428f6f074ed67817a053b989a9e4a9d0a66eaa4b95627a7b": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"bd4ec9ccc04e17bd9ba26b3be9d85d8f2c5b91aaf2a727e36cc873ac2be0934a": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"bd5844dc924c3ec3715b190928888832569b073db9f5d7aac6cac7d5586e8a1b": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"bee4ada50ba8f5557a2807376113e34523380d5bef25148a8649ce1a04d32c20": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"bf858808e4a534d56e7c6ddcddf1272386b0ed64538f30f0c4ee9876cef781de": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"bf9bff4768f8b7d1e2b79daba9840f34d78674dcb1d9baa86945c8372bdabf5a": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c06d82f8bb8b373e409f9dbfe37b07803dfb36649ec88ce08c6eafd8d47c82bf": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c0d3ac012fbd147c80688697f5029b07b50e1db5bf895222c7993d4f997d45bc": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c252aaa5c15d4ced69d48c0f91f7e92296fcecff474f457ff47650e12ce7d49c": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c2afb3ed313283d3afbe1ab6691b0caab04a78c861c930ca95d24bb7620323c6": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c388fdcf514b88258e6a1ee70635133a032830500ee48f72635441fa6f75970b": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c39bde0898353d39ccecf92bd71ce9538c25a593cd3a6cebf25349574b9b874f": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c39da0ed59af34e03ea51d016855ddd17231b9bd82e9fca868ae87fc13a0b27d": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c50156063c05cf0a20c064c536484e05b479be3cd0c9a975823afc9bbbe16bc1": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c5d514255214b0a83966e5de95946651a4dbc2a12c6c0e6d7b8ea0d1f8447d15": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c684ab338d31c5af1717729992d0dfde5f81a2263954e74c25ea61c1742d30f2": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c749f7bc3feb48c916c1c4ab3967ce6fccec8b579e6e1433192cd72c792e3638": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c7a7e4a6f6569d0644e516f1e7c1f12e8f52c26f2c570c94ed72b93983720450": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"c7d4c74a4ef3448ec30f99eb290616e51baa7c0884cbfe39432fb545b07257e0": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"caafb025034a4ebfa4f10c0e60b85f057af90cd4ed49e0d6e2ef59cac6776f2f": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"cc0f4a66ca68e2a792edf992f55d17c52ffe03cfef89002c186fa5248b46754d": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"cc41a0345c237b79370709d2bf26a2c2c9f92acf561940b61fba05ecd05cc43e": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"cc437d21cf1b0498faaa817c72b0a4cb29890683638c72cf7989c32ea5e7afe0": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"cce65d8e14bea4929424c5ab2a3bf3d0148d5a8b3f2f861d530ba8e5955922c9": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"cd6454c3f94056227d17018bcfeb8b78e9905ef7cb070822be96fb361842a7b2": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"cdd8736c613009b2b16ae4bf29f27c78c8def649423d8b76c3d5056761c2515d": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"cf321c2ca81ff53df5894ea6ac0c9863003ea1ee924ba07341b1c84dc0933432": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"cf42c1a17e7487a7de6af2da0a02529852e037589cc2c00173404f083777586d": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"cf490b81860b18978cde2c4d433db2a0650e5a477168d11d7f95fea650a173d6": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d1084abd6bf5bbb534c9a11c9970bee4a4b5856e90141b400b668f45c25f2b5b": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d1a69900226773c842aa0571cb471f15a319229e4ff2942c123f0dbbc9af28dd": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d23e1c81425c642ea421405a621fd9a8aae10bd4af14e81c597527ecd755dd21": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d37e748ddd35e6d41ffd62600ea0fbd504d6b3b2c8218e589784995aaa4ac30c": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d38afc383a0bc3d17c1ae5f49a2e9e0307acc04539dd5674d8f308481353602e": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d3ea0968b067724fa7cd2adad3f1efe531069a22b4cb62adedb552a8af22e614": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d440e8e30cbb010fea5638347b9b76adb1f1a33d86832b9f20c6fb96372ed6d0": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d4f05fa002c82a1a10ba198bb3019e83e265f0667d6acd81ac795df042fc99df": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d5d2cf1b223715cc2e81a0ca867b45488c5ff74e1a6155753919d0b40bab7701": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d69b8ebdae589794359b10b510a060a95ec3b9f084f8012b581ab36fcaa765dc": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d6b4f9371fe85349b465f8530ecadcc12e17950dbe4d1bb4d31678a99b70caac": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d6d695e01852720d1fd5e625bb3c49286f97d9a12e3a5f8d98fb8ad37e8cc001": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d7798b1377cdb8d99edf98320289f9cc500f976f8a7a402ccf9d2d2fac62762f": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d8567242ae8e8fe2b933b5b48c2f1faba3415100f928d7c9bdba7debe756cc29": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d877bdd75d589b965328b3e19761b15a767dcb8c723d347ac0aaacbe9d8a35c3": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"d896bc0aa70c7bf24e6a6d9345ea56e9ee5db578d319817d36296dd9b1549ec8": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"dae20072f686f3d74bce09839c0a0a9d27ed3489dd0d0dfed813d2719bb54f1f": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"dd913e29ae687de5fa3c9479b507316a79cae756474cc3e62dce769a777c1d67": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"dd9d7f0e7b8b03049f2849092ebe5297436d53d29c629974ef4f5b3eafeb8134": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"de429e1a0d71ff5b4797e6660e848b72f03e46629accc237927d981d6729ac3a": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"dec79cc2bbabe8fd0ab84c2201a6461a2dadd06a317d064a86b1a51d392b38ab": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"df6f096fbd2892d56f848d157d8ce33ae38f60ea0905535ec4e933c2e340195c": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"e362cf6ef879327ce3c4fccecb019be691c4676c13c1cb98cf8c69ded7119109": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"e395a787130ddf402dba1ded9f66280ebcc825768853647508f6735b7e55c385": {
+"label": "S3_C1_GOODS|SP_MAINTENANCE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"e3bfa941b93b50ac1e9d40324f0f6ef65620b9277c8464dcec56a5aadab4fdab": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"e404766fc1e4aa79722f70ec9ad875969825f3d3c896917122d3100441554f4f": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"e57e1974cf3050fc489490e035f3e70302ff1efd5cea2ac1a64898cc91669788": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"e71f4a077b3e46e8957bea01884dbae8769ba42204644b44fa2c14b7b8303dee": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"e77d2d3c3f987a1a78f36412490e27e8621b73217b58f23e81b303486abbb011": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"e7c0398d84f5c00b4d3fe7f049968f3cd7d890a2b9934f75a965835f8c270446": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"e9b95c7ba6beddcfaf3cec8aed7c821f31fa5fb67ef8dffd60fe704f15d921c7": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"ea2074f55639465135db41cf2e6e68e5dadd52a7c7cdd9ff256474d0b314fffe": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"ea5accd3ab5c7faf73361cf040812670249eb3ff3843c0c65823abd2bce9dc55": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"ec0983cb5b085472eaa8e98c3c007783e33f2700ebde2685d463d574b3ae5153": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"ecbf16609a5f46f702b4712e39be46d1e9296c4b449314d027818a8dce299ad0": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"eccb15af1034e1572459a79d24d924e8493475b20e9ef254cf01019194f49045": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"ece855c6939c1f4022052a94d15ad523124b23232f5fa2db69107768e05129a6": {
+"label": "S3_C4_TRANSPORT|SP_FREIGHT_ROAD",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"ecf186517fad9445c68c20d39577d89819b6f129f98976856f8f3302ee4a1d10": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"efde6919098aa794c10431f16f8eee6d57b43ece4c72096a2c6244cd559710b7": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f013520dd22bb818432a01c7caf73b1a5adc3029d6a1bd1df75ce04943d5f455": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f05501e737568d881839648404373a897446058b82dee18456c7a69a90b62ecd": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f06b70cf18505dfe9876bfb6136a5313a173780b8183d129cecfc9e4f315373f": {
+"label": "S3_C1_GOODS|SP_FINANCIAL",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f1ab3786978a3372b5da82aefc160f7af5308e27317e06e54863e1d2215697ee": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f2b69827f6db9964bbe636eca2ae054f5759d41eb90c11b5f67fd50a8112bc10": {
+"label": "S3_C1_GOODS|SP_OFFICE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f3279811bdfab02859dc7700bbed4f9cd20928ff5338e4cf67786f1f9fac6bdb": {
+"label": "S3_C1_GOODS|SP_INGREDIENTS_OTHER",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f425396672ed0f52ef341fe8934334a7c8f4a1f9009c31479eae7dbf02e65561": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f5da4d8badb9455ab72a008b2d2110d25b8e441278b879e83f7737b63b614756": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f5e9ae300ac29f6da7c95352c542a8f53f8b631015aa0cdeadce68135065d477": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f6d8f324d13aed82a794736c6dfd5199cfcfbb9f78402e93f50025f6b49a18e7": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f73de085116655c2599a48238d034e8768c1f9ce23793d3f659a46f6d3457165": {
+"label": "S3_C1_GOODS|SP_SPARE_PARTS",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f7c48bfaa5be4402ea0fa2ffee097e493eec39f52bc0fe9a40b47d3bf413b6f0": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f9899146b8a917e2cc7e1e2e603a2e3f30b69f3dd1486d86a245bdf804570c5e": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"f9f7dc7b2ba71279b2244b7ced82316ffb1a6c93fe0697f7a41857892a71666f": {
+"label": "S3_C1_GOODS|SP_SERVICES_PROF",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"fb9b2401efe616c38f3a38786b241165d42d93dc89aca3703f47f661ca746a09": {
+"label": "S3_C1_GOODS|SP_CLEANING_SECURITY",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"fe374cf6c92dacddf8b595840bba30bd55178bd512f70d758e2d9e94c7ae7c5a": {
+"label": "S3_C1_GOODS|SP_RENT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"fe73577382eb53071b7d233dccb1cbb92164b552cbe53586a8e0a6045a8b8499": {
+"label": "NONE",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"feb8785676be3731129d0a7b36da5f26f6ae912b029b0c8f8de30ccf188e5ae1": {
+"label": "S3_C1_GOODS|SP_TELECOM",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+},
+"febe7ed4ccf0436886a88888c2b2afa104784e20d607301ba61eabbe659d5158": {
+"label": "S3_C1_GOODS|SP_IT",
+"model": "deepseek/deepseek-v4.1-flash-1017"
+}
+}

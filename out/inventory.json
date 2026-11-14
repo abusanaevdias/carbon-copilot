@@ -1,0 +1,919 @@
+{
+ "meta": {
+  "year": 2025,
+  "entity": "Dala Foods LLP (case data, synthetic)",
+  "generated_at": "2026-11-14 13:56",
+  "rows": 1952,
+  "rows_by_split": {
+   "train": 1269,
+   "test": 683
+  },
+  "product_t": 105000,
+  "input_sha256": "125ef501a4b83164c2ff874bbf78d08bd7133e75fdd8560ec77cd2dc0574c8a0",
+  "runtime_s": 0.07,
+  "boundary": "Operational control: plant, warehouse, head office. Whole 2025 purchase ledger (train lines = out-of-fold predictions, test lines = predictions).",
+  "method": "GHG Protocol Corporate Standard; Scope 2 location-based; factors = emission_factors.csv (organiser values for this case)"
+ },
+ "total": 199638.1561,
+ "by_scope": {
+  "1": 14088.0505,
+  "2": 15992.7741,
+  "3": 169557.3315
+ },
+ "by_category": [
+  {
+   "category": "S1_STATIONARY",
+   "name": "Stationary combustion",
+   "scope": "1",
+   "lines": 12,
+   "tco2e": 8530.3294,
+   "activity_tco2e": 8530.3294,
+   "spend_tco2e": 0,
+   "tiers": {
+    "A": {
+     "lines": 12,
+     "tco2e": 8530.3294
+    },
+    "B": {
+     "lines": 0,
+     "tco2e": 0
+    },
+    "C": {
+     "lines": 0,
+     "tco2e": 0
+    }
+   }
+  },
+  {
+   "category": "S1_MOBILE",
+   "name": "Mobile combustion (own fleet)",
+   "scope": "1",
+   "lines": 226,
+   "tco2e": 4155.432,
+   "activity_tco2e": 4155.432,
+   "spend_tco2e": 0,
+   "tiers": {
+    "A": {
+     "lines": 216,
+     "tco2e": 4121.3555
+    },
+    "B": {
+     "lines": 10,
+     "tco2e": 34.0765
+    },
+    "C": {
+     "lines": 0,
+     "tco2e": 0
+    }
+   }
+  },
+  {
+   "category": "S1_FUGITIVE",
+   "name": "Refrigerant leaks",
+   "scope": "1",
+   "lines": 13,
+   "tco2e": 1402.2891,
+   "activity_tco2e": 1402.2891,
+   "spend_tco2e": 0,
+   "tiers": {
+    "A": {
+     "lines": 9,
+     "tco2e": 1158.2174
+    },
+    "B": {
+     "lines": 4,
+     "tco2e": 244.0717
+    },
+    "C": {
+     "lines": 0,
+     "tco2e": 0
+    }
+   }
+  },
+  {
+   "category": "S2_ELECTRICITY",
+   "name": "Purchased electricity",
+   "scope": "2",
+   "lines": 24,
+   "tco2e": 14495.7464,
+   "activity_tco2e": 14495.7464,
+   "spend_tco2e": 0,
+   "tiers": {
+    "A": {
+     "lines": 24,
+     "tco2e": 14495.7464
+    },
+    "B": {
+     "lines": 0,
+     "tco2e": 0
+    },
+    "C": {
+     "lines": 0,
+     "tco2e": 0
+    }
+   }
+  },
+  {
+   "category": "S2_HEAT",
+   "name": "Purchased heat",
+   "scope": "2",
+   "lines": 7,
+   "tco2e": 1497.0277,
+   "activity_tco2e": 1497.0277,
+   "spend_tco2e": 0,
+   "tiers": {
+    "A": {
+     "lines": 7,
+     "tco2e": 1497.0277
+    },
+    "B": {
+     "lines": 0,
+     "tco2e": 0
+    },
+    "C": {
+     "lines": 0,
+     "tco2e": 0
+    }
+   }
+  },
+  {
+   "category": "S3_C1_GOODS",
+   "name": "Cat 1 Purchased goods & services",
+   "scope": "3",
+   "lines": 1307,
+   "tco2e": 168213.5075,
+   "activity_tco2e": 167957.4167,
+   "spend_tco2e": 256.0908,
+   "tiers": {
+    "A": {
+     "lines": 704,
+     "tco2e": 138778.2439
+    },
+    "B": {
+     "lines": 178,
+     "tco2e": 29179.1728
+    },
+    "C": {
+     "lines": 425,
+     "tco2e": 256.0908
+    }
+   }
+  },
+  {
+   "category": "S3_C2_CAPITAL",
+   "name": "Cat 2 Capital goods",
+   "scope": "3",
+   "lines": 8,
+   "tco2e": 776.9,
+   "activity_tco2e": 0,
+   "spend_tco2e": 776.9,
+   "tiers": {
+    "A": {
+     "lines": 0,
+     "tco2e": 0
+    },
+    "B": {
+     "lines": 0,
+     "tco2e": 0
+    },
+    "C": {
+     "lines": 8,
+     "tco2e": 776.9
+    }
+   }
+  },
+  {
+   "category": "S3_C4_TRANSPORT",
+   "name": "Cat 4 Upstream transport",
+   "scope": "3",
+   "lines": 121,
+   "tco2e": 173.5885,
+   "activity_tco2e": 143.2163,
+   "spend_tco2e": 30.3722,
+   "tiers": {
+    "A": {
+     "lines": 85,
+     "tco2e": 116.144
+    },
+    "B": {
+     "lines": 6,
+     "tco2e": 27.0723
+    },
+    "C": {
+     "lines": 30,
+     "tco2e": 30.3722
+    }
+   }
+  },
+  {
+   "category": "S3_C5_WASTE",
+   "name": "Cat 5 Waste & wastewater",
+   "scope": "3",
+   "lines": 24,
+   "tco2e": 345.0313,
+   "activity_tco2e": 345.0313,
+   "spend_tco2e": 0,
+   "tiers": {
+    "A": {
+     "lines": 12,
+     "tco2e": 187.8513
+    },
+    "B": {
+     "lines": 12,
+     "tco2e": 157.18
+    },
+    "C": {
+     "lines": 0,
+     "tco2e": 0
+    }
+   }
+  },
+  {
+   "category": "S3_C6_TRAVEL",
+   "name": "Cat 6 Business travel",
+   "scope": "3",
+   "lines": 135,
+   "tco2e": 48.3042,
+   "activity_tco2e": 47.5945,
+   "spend_tco2e": 0.7097,
+   "tiers": {
+    "A": {
+     "lines": 40,
+     "tco2e": 2.725
+    },
+    "B": {
+     "lines": 80,
+     "tco2e": 44.8695
+    },
+    "C": {
+     "lines": 15,
+     "tco2e": 0.7097
+    }
+   }
+  }
+ ],
+ "by_factor": [
+  {
+   "ef_id": "EF_MILK_KG",
+   "name": "Raw cow milk, farm gate",
+   "unit": "kg",
+   "value": 1.3,
+   "lines": 600,
+   "tco2e": 157499.2575,
+   "share_pct": 78.89,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_GRID_KZ_KWH",
+   "name": "Grid electricity, Kazakhstan (location-based)",
+   "unit": "kWh",
+   "value": 0.8,
+   "lines": 24,
+   "tco2e": 14495.7464,
+   "share_pct": 7.26,
+   "categories": [
+    "S2_ELECTRICITY"
+   ]
+  },
+  {
+   "ef_id": "EF_NG_M3",
+   "name": "Natural gas, combustion",
+   "unit": "m3",
+   "value": 1.91,
+   "lines": 12,
+   "tco2e": 8530.3294,
+   "share_pct": 4.27,
+   "categories": [
+    "S1_STATIONARY"
+   ]
+  },
+  {
+   "ef_id": "EF_DIESEL_L",
+   "name": "Diesel fuel, combustion",
+   "unit": "l",
+   "value": 2.68,
+   "lines": 165,
+   "tco2e": 3748.4946,
+   "share_pct": 1.88,
+   "categories": [
+    "S1_MOBILE",
+    "S3_C4_TRANSPORT"
+   ]
+  },
+  {
+   "ef_id": "EF_PAPERBOARD_KG",
+   "name": "Corrugated board / paperboard",
+   "unit": "kg",
+   "value": 0.95,
+   "lines": 30,
+   "tco2e": 3374.4253,
+   "share_pct": 1.69,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_ALU_FOIL_KG",
+   "name": "Aluminium foil lids",
+   "unit": "kg",
+   "value": 9.0,
+   "lines": 15,
+   "tco2e": 2992.977,
+   "share_pct": 1.5,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_PET_KG",
+   "name": "PET (preforms, bottles)",
+   "unit": "kg",
+   "value": 2.6,
+   "lines": 40,
+   "tco2e": 1761.019,
+   "share_pct": 0.88,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_HEAT_GCAL",
+   "name": "Purchased heat, Almaty district heating",
+   "unit": "Gcal",
+   "value": 300.0,
+   "lines": 7,
+   "tco2e": 1497.0277,
+   "share_pct": 0.75,
+   "categories": [
+    "S2_HEAT"
+   ]
+  },
+  {
+   "ef_id": "EF_R404A_KG",
+   "name": "Refrigerant R-404A released",
+   "unit": "kg",
+   "value": 3943.0,
+   "lines": 7,
+   "tco2e": 1300.0071,
+   "share_pct": 0.65,
+   "categories": [
+    "S1_FUGITIVE"
+   ]
+  },
+  {
+   "ef_id": "EF_CARTON_KG",
+   "name": "Aseptic composite carton",
+   "unit": "kg",
+   "value": 1.2,
+   "lines": 34,
+   "tco2e": 772.662,
+   "share_pct": 0.39,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_HDPE_KG",
+   "name": "HDPE / LDPE (caps, film)",
+   "unit": "kg",
+   "value": 1.9,
+   "lines": 41,
+   "tco2e": 639.2245,
+   "share_pct": 0.32,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_FRUIT_KG",
+   "name": "Fruit fillings / purees",
+   "unit": "kg",
+   "value": 1.0,
+   "lines": 44,
+   "tco2e": 472.354,
+   "share_pct": 0.24,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "SP_CONSTRUCTION",
+   "name": "Construction works (capital)",
+   "unit": "1000 KZT net",
+   "value": 1.5,
+   "lines": 2,
+   "tco2e": 372.0,
+   "share_pct": 0.19,
+   "categories": [
+    "S3_C2_CAPITAL"
+   ]
+  },
+  {
+   "ef_id": "SP_MACHINERY",
+   "name": "Machinery and equipment (capital)",
+   "unit": "1000 KZT net",
+   "value": 1.0,
+   "lines": 4,
+   "tco2e": 307.0,
+   "share_pct": 0.15,
+   "categories": [
+    "S3_C2_CAPITAL"
+   ]
+  },
+  {
+   "ef_id": "EF_DIESEL_T",
+   "name": "Diesel fuel, combustion",
+   "unit": "t",
+   "value": 3190.0,
+   "lines": 2,
+   "tco2e": 260.9101,
+   "share_pct": 0.13,
+   "categories": [
+    "S1_MOBILE"
+   ]
+  },
+  {
+   "ef_id": "EF_WASTEWATER_M3",
+   "name": "Industrial wastewater treatment (utility)",
+   "unit": "m3",
+   "value": 0.7,
+   "lines": 12,
+   "tco2e": 187.8513,
+   "share_pct": 0.09,
+   "categories": [
+    "S3_C5_WASTE"
+   ]
+  },
+  {
+   "ef_id": "EF_SUGAR_KG",
+   "name": "Sugar",
+   "unit": "kg",
+   "value": 0.6,
+   "lines": 26,
+   "tco2e": 178.68,
+   "share_pct": 0.09,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_WASTE_LANDFILL_T",
+   "name": "Mixed waste to landfill",
+   "unit": "t",
+   "value": 580.0,
+   "lines": 12,
+   "tco2e": 157.18,
+   "share_pct": 0.08,
+   "categories": [
+    "S3_C5_WASTE"
+   ]
+  },
+  {
+   "ef_id": "EF_WATER_M3",
+   "name": "Mains water supply",
+   "unit": "m3",
+   "value": 0.35,
+   "lines": 12,
+   "tco2e": 104.3622,
+   "share_pct": 0.05,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_NAOH_KG",
+   "name": "Caustic soda (NaOH)",
+   "unit": "kg",
+   "value": 1.3,
+   "lines": 27,
+   "tco2e": 104.1157,
+   "share_pct": 0.05,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "SP_VEHICLES",
+   "name": "Vehicles (capital)",
+   "unit": "1000 KZT net",
+   "value": 1.1,
+   "lines": 2,
+   "tco2e": 97.9,
+   "share_pct": 0.05,
+   "categories": [
+    "S3_C2_CAPITAL"
+   ]
+  },
+  {
+   "ef_id": "EF_PETROL_L",
+   "name": "Petrol (AI-92/95), combustion",
+   "unit": "l",
+   "value": 2.29,
+   "lines": 50,
+   "tco2e": 93.5326,
+   "share_pct": 0.05,
+   "categories": [
+    "S1_MOBILE"
+   ]
+  },
+  {
+   "ef_id": "EF_LPG_KG",
+   "name": "LPG, combustion",
+   "unit": "kg",
+   "value": 2.98,
+   "lines": 24,
+   "tco2e": 81.7416,
+   "share_pct": 0.04,
+   "categories": [
+    "S1_MOBILE"
+   ]
+  },
+  {
+   "ef_id": "SP_SERVICES_PROF",
+   "name": "Professional services: consulting, audit, legal, marketing",
+   "unit": "1000 KZT net",
+   "value": 0.25,
+   "lines": 86,
+   "tco2e": 79.5038,
+   "share_pct": 0.04,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_R410A_KG",
+   "name": "Refrigerant R-410A released",
+   "unit": "kg",
+   "value": 1924.0,
+   "lines": 3,
+   "tco2e": 68.302,
+   "share_pct": 0.03,
+   "categories": [
+    "S1_FUGITIVE"
+   ]
+  },
+  {
+   "ef_id": "EF_ACID_KG",
+   "name": "Acid cleaner (nitric-based)",
+   "unit": "kg",
+   "value": 1.5,
+   "lines": 13,
+   "tco2e": 58.3395,
+   "share_pct": 0.03,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_REEFER_TKM",
+   "name": "Road freight, refrigerated truck",
+   "unit": "tkm",
+   "value": 0.14,
+   "lines": 36,
+   "tco2e": 47.2696,
+   "share_pct": 0.02,
+   "categories": [
+    "S3_C4_TRANSPORT"
+   ]
+  },
+  {
+   "ef_id": "SP_SPARE_PARTS",
+   "name": "Spare parts and consumables for machinery",
+   "unit": "1000 KZT net",
+   "value": 1.2,
+   "lines": 41,
+   "tco2e": 44.909,
+   "share_pct": 0.02,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_ROAD_TKM",
+   "name": "Road freight, articulated truck",
+   "unit": "tkm",
+   "value": 0.11,
+   "lines": 34,
+   "tco2e": 39.6275,
+   "share_pct": 0.02,
+   "categories": [
+    "S3_C4_TRANSPORT"
+   ]
+  },
+  {
+   "ef_id": "EF_R134A_KG",
+   "name": "Refrigerant R-134a released",
+   "unit": "kg",
+   "value": 1300.0,
+   "lines": 2,
+   "tco2e": 33.93,
+   "share_pct": 0.02,
+   "categories": [
+    "S1_FUGITIVE"
+   ]
+  },
+  {
+   "ef_id": "SP_INGREDIENTS_OTHER",
+   "name": "Other food ingredients (cultures, stabilisers)",
+   "unit": "1000 KZT net",
+   "value": 1.1,
+   "lines": 20,
+   "tco2e": 31.9861,
+   "share_pct": 0.02,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "SP_FREIGHT_ROAD",
+   "name": "Road freight services (spend)",
+   "unit": "1000 KZT net",
+   "value": 1.4,
+   "lines": 30,
+   "tco2e": 30.3722,
+   "share_pct": 0.02,
+   "categories": [
+    "S3_C4_TRANSPORT"
+   ]
+  },
+  {
+   "ef_id": "SP_RENT",
+   "name": "Rent of premises",
+   "unit": "1000 KZT net",
+   "value": 0.3,
+   "lines": 32,
+   "tco2e": 30.1562,
+   "share_pct": 0.02,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_RAIL_TKM",
+   "name": "Rail freight",
+   "unit": "tkm",
+   "value": 0.03,
+   "lines": 6,
+   "tco2e": 27.0723,
+   "share_pct": 0.01,
+   "categories": [
+    "S3_C4_TRANSPORT"
+   ]
+  },
+  {
+   "ef_id": "SP_MAINTENANCE",
+   "name": "Repair and maintenance services",
+   "unit": "1000 KZT net",
+   "value": 0.6,
+   "lines": 38,
+   "tco2e": 21.6302,
+   "share_pct": 0.01,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "SP_CATERING",
+   "name": "Catering and food services",
+   "unit": "1000 KZT net",
+   "value": 1.0,
+   "lines": 8,
+   "tco2e": 18.0452,
+   "share_pct": 0.01,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_FLIGHT_DOM_PKM",
+   "name": "Flight, domestic (within Kazakhstan)",
+   "unit": "pkm",
+   "value": 0.25,
+   "lines": 41,
+   "tco2e": 17.5559,
+   "share_pct": 0.01,
+   "categories": [
+    "S3_C6_TRAVEL"
+   ]
+  },
+  {
+   "ef_id": "EF_FLIGHT_LONG_PKM",
+   "name": "Flight, international >= 3,700 km",
+   "unit": "pkm",
+   "value": 0.15,
+   "lines": 15,
+   "tco2e": 17.4618,
+   "share_pct": 0.01,
+   "categories": [
+    "S3_C6_TRAVEL"
+   ]
+  },
+  {
+   "ef_id": "SP_CLEANING_SECURITY",
+   "name": "Cleaning and security services",
+   "unit": "1000 KZT net",
+   "value": 0.3,
+   "lines": 55,
+   "tco2e": 15.7149,
+   "share_pct": 0.01,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_FLIGHT_SHORT_PKM",
+   "name": "Flight, international < 3,700 km",
+   "unit": "pkm",
+   "value": 0.16,
+   "lines": 24,
+   "tco2e": 9.8518,
+   "share_pct": 0.0,
+   "categories": [
+    "S3_C6_TRAVEL"
+   ]
+  },
+  {
+   "ef_id": "SP_FINANCIAL",
+   "name": "Banking and insurance services",
+   "unit": "1000 KZT net",
+   "value": 0.1,
+   "lines": 37,
+   "tco2e": 5.5205,
+   "share_pct": 0.0,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "SP_OFFICE",
+   "name": "Office supplies",
+   "unit": "1000 KZT net",
+   "value": 0.9,
+   "lines": 33,
+   "tco2e": 4.1509,
+   "share_pct": 0.0,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "EF_HOTEL_NIGHT",
+   "name": "Hotel stay",
+   "unit": "room-night",
+   "value": 25.0,
+   "lines": 40,
+   "tco2e": 2.725,
+   "share_pct": 0.0,
+   "categories": [
+    "S3_C6_TRAVEL"
+   ]
+  },
+  {
+   "ef_id": "SP_IT",
+   "name": "IT services and software",
+   "unit": "1000 KZT net",
+   "value": 0.15,
+   "lines": 40,
+   "tco2e": 2.5469,
+   "share_pct": 0.0,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "SP_TELECOM",
+   "name": "Telecom services",
+   "unit": "1000 KZT net",
+   "value": 0.2,
+   "lines": 35,
+   "tco2e": 1.9271,
+   "share_pct": 0.0,
+   "categories": [
+    "S3_C1_GOODS"
+   ]
+  },
+  {
+   "ef_id": "SP_TAXI",
+   "name": "Taxi services (spend)",
+   "unit": "1000 KZT net",
+   "value": 0.5,
+   "lines": 15,
+   "tco2e": 0.7097,
+   "share_pct": 0.0,
+   "categories": [
+    "S3_C6_TRAVEL"
+   ]
+  },
+  {
+   "ef_id": "EF_R744_KG",
+   "name": "Refrigerant R-744 (CO2) released",
+   "unit": "kg",
+   "value": 1.0,
+   "lines": 1,
+   "tco2e": 0.05,
+   "share_pct": 0.0,
+   "categories": [
+    "S1_FUGITIVE"
+   ]
+  }
+ ],
+ "method_share": {
+  "activity_lines": 1399,
+  "spend_lines": 478,
+  "excluded_lines": 75,
+  "activity_tco2e": 198574.0834,
+  "spend_tco2e": 1064.0727,
+  "activity_pct_lines": 74.53,
+  "activity_pct_tco2e": 99.47
+ },
+ "quality": {
+  "A": {
+   "lines": 1109,
+   "tco2e": 168887.6406,
+   "pct_tco2e": 84.6
+  },
+  "B": {
+   "lines": 290,
+   "tco2e": 29686.4428,
+   "pct_tco2e": 14.87
+  },
+  "C": {
+   "lines": 478,
+   "tco2e": 1064.0727,
+   "pct_tco2e": 0.53
+  },
+  "definition": {
+   "A": "physical quantity in the factor's unit or a pure unit scale",
+   "B": "physical quantity through an assumption (density, piece weight, bulk density, great-circle distance, quantity read from the description)",
+   "C": "spend-based, net of VAT"
+  }
+ },
+ "intensity": {
+  "t_per_t_product": 1.901,
+  "product_t": 105000,
+  "note": "Corporate-inventory intensity, not an ISO 14067 product footprint (no allocation between milk, kefir, yoghurt and cream)."
+ },
+ "checks": {
+  "duplicates": 15,
+  "non_purchase": 60,
+  "exclusions": {
+   "per diem": 20,
+   "tax": 17,
+   "duplicate": 15,
+   "social contributions": 10,
+   "fine": 7,
+   "advance payment": 6
+  },
+  "credit_notes": {
+   "lines": 10,
+   "tco2e": -21.4173
+  },
+  "injection_flagged": 5,
+  "masked_cp": 67,
+  "masked_persons": 8,
+  "review_queue": {
+   "lines": 18,
+   "tco2e": 1312.9841,
+   "by_flag": {
+    "new_wording": 18,
+    "outlier": 6,
+    "injection": 5
+   }
+  },
+  "milk_t_ledger": 121153,
+  "milk_t_profile": 120000,
+  "train_label_delta_t": -0.0398
+ },
+ "sensitivity": {
+  "factor": "EF_MILK_KG",
+  "factor_value": 1.3,
+  "factor_note": "Illustrative; density 1.03 kg/l",
+  "change_pct": 20.0,
+  "milk_tco2e": 157499.2575,
+  "milk_share_pct": 78.89,
+  "low": 168138.3,
+  "high": 231138.0,
+  "total_change_pct": 15.8,
+  "note": "Sensitivity to one factor, not an uncertainty range."
+ },
+ "not_covered": [
+  {
+   "category": "Cat 3 Fuel- and energy-related",
+   "data_needed": "well-to-tank and grid-loss factors; not in the factor file"
+  },
+  {
+   "category": "Cat 7 Employee commuting",
+   "data_needed": "~850 staff; needs a commuting survey, no purchase in the ledger"
+  },
+  {
+   "category": "Cat 9 Downstream transport",
+   "data_needed": "transport paid by customers; not in a purchase ledger"
+  },
+  {
+   "category": "Cat 12 End-of-life of sold packaging",
+   "data_needed": "packaging tonnage sold and disposal routes"
+  }
+ ]
+}

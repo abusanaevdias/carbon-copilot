@@ -1,0 +1,684 @@
+line_id,category,ef_id,activity_qty,activity_unit,method,tco2e,reason
+L00004,S3_C1_GOODS,EF_MILK_KG,253420.0,kg,activity,329.446,rule: keyword 'молок' + unit 'т'; t x 1000
+L00007,S3_C1_GOODS,SP_RENT,2970.839,1000 KZT net,spend,0.8913,NB on text+GL 7213; net of VAT 2970.839 thousand KZT
+L00011,S3_C6_TRAVEL,EF_FLIGHT_SHORT_PKM,5628.4352,pkm,activity,0.9005,"flight ALA-DXB-ALA, intl haul; great-circle ALA-DXB-ALA 5628.4 km x 1 pax"
+L00015,S1_MOBILE,EF_DIESEL_L,6945.0,l,activity,18.6126,rule: keyword 'дт' + unit 'л'; litres
+L00024,S3_C1_GOODS,EF_MILK_KG,239290.0,kg,activity,311.077,rule: keyword 'молок' + unit 'кг'; kg
+L00025,S3_C4_TRANSPORT,EF_ROAD_TKM,18786.0,tkm,activity,2.0665,road freight (no reefer mention); tkm as booked
+L00026,S3_C1_GOODS,EF_MILK_KG,181830.0,kg,activity,236.379,rule: keyword 'молок' + unit 'т'; t x 1000
+L00030,S1_MOBILE,EF_DIESEL_L,9176.0,l,activity,24.5917,rule: keyword 'diesel' + unit 'л'; litres
+L00036,S1_MOBILE,EF_LPG_KG,1326.78,kg,activity,3.9538,rule: keyword 'сжиж' + unit 'л'; l x density 0.54
+L00038,S3_C1_GOODS,EF_MILK_KG,226209.0,kg,activity,294.0717,rule: keyword 'молок' + unit 'кг'; kg
+L00039,S3_C1_GOODS,EF_CARTON_KG,23846.0,kg,activity,28.6152,rule: keyword 'асепт' + unit 'кг'; kg
+L00046,S3_C6_TRAVEL,EF_HOTEL_NIGHT,3.0,room-night,activity,0.075,rule: keyword 'проживан' + unit 'сут'; room-nights
+L00047,S3_C1_GOODS,EF_MILK_KG,256878.0,kg,activity,333.9414,rule: keyword 'milk' + unit 'кг'; kg
+L00048,S3_C1_GOODS,EF_MILK_KG,191760.0,kg,activity,249.288,rule: keyword 'сүт' + unit 'т'; t x 1000
+L00049,S3_C1_GOODS,EF_NAOH_KG,3559.0,kg,activity,4.6267,rule: keyword 'кауст' + unit 'кг'; kg
+L00054,S3_C1_GOODS,EF_FRUIT_KG,12510.0,kg,activity,12.51,rule: keyword 'пюре' + unit 'т'; t x 1000
+L00056,S3_C1_GOODS,EF_MILK_KG,258133.0,kg,activity,335.5729,rule: keyword 'молок' + unit 'кг'; kg
+L00058,S3_C1_GOODS,EF_MILK_KG,257022.0,kg,activity,334.1286,rule: fuzzy milk word 'молако' + unit 'кг'; kg
+L00060,EXCLUDE,,0.0,,excluded,0.0,"GL 7216 = per diem, not an emission"
+L00061,S1_MOBILE,EF_LPG_KG,1334.34,kg,activity,3.9763,rule: keyword 'сжиж' + unit 'л'; l x density 0.54
+L00064,S3_C1_GOODS,SP_TELECOM,273.08,1000 KZT net,spend,0.0546,NB on text+GL 7211; net of VAT 273.080 thousand KZT
+L00067,S3_C1_GOODS,EF_MILK_KG,151883.0,kg,activity,197.4479,rule: keyword 'сүт' + unit 'кг'; kg
+L00068,S3_C1_GOODS,SP_TELECOM,215.6,1000 KZT net,spend,0.0431,NB on text+GL 7211; net of VAT 215.600 thousand KZT
+L00072,S3_C1_GOODS,SP_SERVICES_PROF,1120.328,1000 KZT net,spend,0.2801,NB on text+GL 7211; net of VAT 1120.328 thousand KZT
+L00073,S3_C1_GOODS,EF_MILK_KG,245719.0,kg,activity,319.4347,rule: keyword 'сүт' + unit 'кг'; kg
+L00074,S3_C1_GOODS,EF_MILK_KG,187495.02,kg,activity,243.7435,rule: fuzzy milk word 'imlk' + unit 'л'; l x density 1.03
+L00075,S3_C4_TRANSPORT,EF_RAIL_TKM,186930.0,tkm,activity,5.6079,"rail freight, t x km; 60.3 t x 3100 km"
+L00079,S3_C1_GOODS,SP_CLEANING_SECURITY,1138.917,1000 KZT net,spend,0.3417,NB on text+GL 7211; net of VAT 1138.917 thousand KZT
+L00082,S3_C1_GOODS,SP_SERVICES_PROF,1684.341,1000 KZT net,spend,0.4211,NB on text+GL 7211; net of VAT 1684.341 thousand KZT
+L00084,S3_C1_GOODS,EF_MILK_KG,162603.0,kg,activity,211.3839,rule: keyword 'milk' + unit 'кг'; kg
+L00091,S3_C1_GOODS,EF_MILK_KG,150754.0,kg,activity,195.9802,rule: fuzzy milk word 'молако' + unit 'кг'; kg
+L00094,S3_C1_GOODS,SP_MAINTENANCE,192.423,1000 KZT net,spend,0.1155,NB on text+GL 8111; net of VAT 192.423 thousand KZT
+L00100,S3_C1_GOODS,EF_MILK_KG,228739.31,kg,activity,297.3611,rule: keyword 'сүт' + unit 'л'; l x density 1.03
+L00101,S3_C1_GOODS,EF_MILK_KG,149881.0,kg,activity,194.8453,rule: keyword 'молок' + unit 'кг'; kg
+L00103,S3_C1_GOODS,EF_MILK_KG,250390.0,kg,activity,325.507,rule: keyword 'молок' + unit 'т'; t x 1000
+L00112,S3_C1_GOODS,SP_RENT,2626.532,1000 KZT net,spend,0.788,NB on text+GL 7213; net of VAT 2626.532 thousand KZT
+L00123,S1_MOBILE,EF_DIESEL_L,6340.0,l,activity,16.9912,rule: keyword 'дт' + unit 'л'; litres
+L00131,S1_FUGITIVE,EF_R404A_KG,22.5,kg,activity,88.7175,refrigerant R-404A refill = leak; refill kg from description = leak
+L00133,S3_C1_GOODS,EF_MILK_KG,208616.0,kg,activity,271.2008,rule: fuzzy milk word 'шикі' + unit 'кг'; kg
+L00138,S3_C1_GOODS,SP_RENT,3870.256,1000 KZT net,spend,1.1611,NB on text+GL 7213; net of VAT 3870.256 thousand KZT
+L00144,S1_MOBILE,EF_DIESEL_L,13731.0,l,activity,36.7991,rule: keyword 'дизел' + unit 'л'; litres
+L00145,S3_C1_GOODS,SP_SERVICES_PROF,574.228,1000 KZT net,spend,0.1436,NB on text+GL 7211; net of VAT 574.228 thousand KZT
+L00147,S3_C1_GOODS,EF_WATER_M3,23689.0,m3,activity,8.2912,rule: keyword 'водоснаб' + unit 'м3'; m3
+L00152,S3_C1_GOODS,EF_CARTON_KG,10720.0,kg,activity,12.864,rule: keyword 'асепт' + unit 'кг'; kg
+L00157,S3_C1_GOODS,SP_SERVICES_PROF,1474.313,1000 KZT net,spend,0.3686,NB on text+GL 7211; net of VAT 1474.313 thousand KZT
+L00159,S3_C1_GOODS,EF_MILK_KG,205906.27,kg,activity,267.6782,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L00161,S3_C1_GOODS,EF_PET_KG,15064.0,kg,activity,39.1664,rule: keyword 'преформ' + unit 'шт'; pcs x 28 g (packaging_specs exact)
+L00162,S3_C1_GOODS,EF_MILK_KG,238861.0,kg,activity,310.5193,rule: keyword 'молок' + unit 'кг'; kg
+L00163,S3_C6_TRAVEL,EF_FLIGHT_SHORT_PKM,420.2894,pkm,activity,0.0672,"flight ALA-FRU-ALA, intl haul; great-circle ALA-FRU-ALA 420.3 km x 1 pax"
+L00164,S3_C1_GOODS,SP_SERVICES_PROF,518.04,1000 KZT net,spend,0.1295,NB on text+GL 7211; net of VAT 518.040 thousand KZT
+L00165,S3_C1_GOODS,EF_FRUIT_KG,3234.0,kg,activity,3.234,rule: keyword 'наполнит' + unit 'кг'; kg
+L00170,S3_C1_GOODS,EF_ACID_KG,1321.0,kg,activity,1.9815,rule: keyword 'кислот' + unit 'кг'; kg
+L00171,S3_C1_GOODS,EF_MILK_KG,243978.0,kg,activity,317.1714,rule: keyword 'молок' + unit 'кг'; kg
+L00173,S1_MOBILE,EF_LPG_KG,1135.62,kg,activity,3.3841,rule: keyword 'сжиж' + unit 'л'; l x density 0.54
+L00185,S3_C1_GOODS,EF_MILK_KG,228759.0,kg,activity,297.3867,rule: keyword 'молок' + unit 'кг'; kg
+L00187,S3_C1_GOODS,SP_FINANCIAL,290.963,1000 KZT net,spend,0.0291,NB on text+GL 7214; net of VAT 290.963 thousand KZT
+L00191,S3_C1_GOODS,EF_ALU_FOIL_KG,8440.0,kg,activity,75.96,rule: keyword 'фольг' + unit 'кг'; kg
+L00194,S3_C1_GOODS,EF_MILK_KG,165515.0,kg,activity,215.1695,rule: keyword 'молок' + unit 'кг'; kg
+L00197,S3_C1_GOODS,EF_MILK_KG,146092.11,kg,activity,189.9197,rule: keyword 'milk' + unit 'л'; l x density 1.03
+L00199,S3_C1_GOODS,EF_MILK_KG,168352.0,kg,activity,218.8576,rule: keyword 'milk' + unit 'кг'; kg
+L00202,S3_C1_GOODS,SP_MAINTENANCE,208.534,1000 KZT net,spend,0.1251,NB on text+GL 8111; net of VAT 208.534 thousand KZT
+L00203,S3_C1_GOODS,SP_SPARE_PARTS,642.629,1000 KZT net,spend,0.7712,NB on text+GL 1330; net of VAT 642.629 thousand KZT
+L00205,S3_C4_TRANSPORT,EF_DIESEL_L,850.0,l,activity,2.278,diesel for third-party carrier -> Cat.4; litres
+L00208,S3_C5_WASTE,EF_WASTE_LANDFILL_T,21.4,t,activity,12.412,rule: keyword 'тбо' + unit 'м3'; m3 x 0.2 t/m3 bulk density
+L00213,S3_C6_TRAVEL,EF_FLIGHT_SHORT_PKM,420.2894,pkm,activity,0.0672,"flight ALA-FRU-ALA, intl haul; great-circle ALA-FRU-ALA 420.3 km x 1 pax"
+L00217,S3_C1_GOODS,SP_CLEANING_SECURITY,820.728,1000 KZT net,spend,0.2462,NB on text+GL 7211; net of VAT 820.728 thousand KZT
+L00218,S3_C1_GOODS,SP_SERVICES_PROF,9223.055,1000 KZT net,spend,2.3058,NB on text+GL 7211; net of VAT 9223.055 thousand KZT
+L00227,S3_C1_GOODS,EF_ACID_KG,5468.0,kg,activity,8.202,rule: keyword 'кислот' + unit 'кг'; kg
+L00228,S2_ELECTRICITY,EF_GRID_KZ_KWH,1549525.0,kWh,activity,1239.62,rule: unit кВт·ч = purchased electricity + unit 'кВт·ч'; kWh
+L00229,S3_C5_WASTE,EF_WASTEWATER_M3,18701.0,m3,activity,13.0907,rule: keyword 'водоотвед' + unit 'м3'; m3
+L00238,S3_C1_GOODS,EF_MILK_KG,211569.0,kg,activity,275.0397,rule: keyword 'молок' + unit 'кг'; kg
+L00239,S3_C4_TRANSPORT,SP_FREIGHT_ROAD,1166.94,1000 KZT net,spend,1.6337,NB on text+GL 7110; net of VAT 1166.940 thousand KZT
+L00245,S3_C1_GOODS,EF_ACID_KG,1375.0,kg,activity,2.0625,rule: keyword 'кислот' + unit 'кг'; kg
+L00248,S3_C1_GOODS,SP_INGREDIENTS_OTHER,1116.259,1000 KZT net,spend,1.2279,NB on text+GL 1312; net of VAT 1116.259 thousand KZT
+L00249,S3_C1_GOODS,SP_RENT,2727.72,1000 KZT net,spend,0.8183,NB on text+GL 7213; net of VAT 2727.720 thousand KZT
+L00253,S3_C1_GOODS,EF_MILK_KG,198735.0,kg,activity,258.3555,rule: keyword 'молок' + unit 'кг'; kg
+L00255,S3_C1_GOODS,EF_MILK_KG,179690.0,kg,activity,233.597,rule: keyword 'молок' + unit 'т'; t x 1000
+L00259,S3_C1_GOODS,EF_SUGAR_KG,8858.0,kg,activity,5.3148,rule: keyword 'сахар' + unit 'кг'; kg
+L00264,S3_C1_GOODS,SP_FINANCIAL,97.123,1000 KZT net,spend,0.0097,NB on text+GL 7214; net of VAT 97.123 thousand KZT
+L00266,S1_MOBILE,EF_LPG_KG,1441.0,kg,activity,4.2942,rule: keyword 'сжиж' + unit 'кг'; kg
+L00270,S3_C1_GOODS,SP_MAINTENANCE,624.503,1000 KZT net,spend,0.3747,NB on text+GL 8111; net of VAT 624.503 thousand KZT
+L00272,S3_C6_TRAVEL,EF_FLIGHT_LONG_PKM,10178.7752,pkm,activity,1.5268,"flight ALA-FRA-ALA, intl haul; great-circle ALA-FRA-ALA 10178.8 km x 1 pax"
+L00274,S3_C1_GOODS,SP_MAINTENANCE,1696.866,1000 KZT net,spend,1.0181,NB on text+GL 8111; net of VAT 1696.866 thousand KZT
+L00283,S3_C1_GOODS,SP_TELECOM,396.386,1000 KZT net,spend,0.0793,NB on text+GL 7211; net of VAT 396.386 thousand KZT
+L00284,S3_C4_TRANSPORT,EF_DIESEL_L,467.0,l,activity,1.2516,diesel for third-party carrier -> Cat.4; litres
+L00287,S3_C1_GOODS,EF_HDPE_KG,1387.5,kg,activity,2.6362,rule: keyword 'крышк' + unit 'шт'; pcs x 2.5 g (packaging_specs exact)
+L00291,S3_C1_GOODS,EF_MILK_KG,220560.0,kg,activity,286.728,rule: fuzzy milk word 'молако' + unit 'т'; t x 1000
+L00297,S3_C1_GOODS,SP_SERVICES_PROF,1256.244,1000 KZT net,spend,0.3141,NB on text+GL 7211; net of VAT 1256.244 thousand KZT
+L00299,S3_C1_GOODS,EF_MILK_KG,220056.0,kg,activity,286.0728,rule: keyword 'сүт' + unit 'кг'; kg
+L00301,S3_C1_GOODS,EF_MILK_KG,198866.0,kg,activity,258.5258,rule: fuzzy milk word 'молакос' + unit 'кг'; kg
+L00304,S1_MOBILE,EF_PETROL_L,1375.0,l,activity,3.1488,rule: keyword 'аи-92' + unit 'л'; litres
+L00308,S3_C1_GOODS,SP_SERVICES_PROF,5607.343,1000 KZT net,spend,1.4018,NB on text+GL 7211; net of VAT 5607.343 thousand KZT
+L00309,EXCLUDE,,0.0,,excluded,0.0,duplicate of L00174 (same doc_no/counterparty/amount)
+L00311,S3_C1_GOODS,SP_CATERING,2328.106,1000 KZT net,spend,2.3281,NB on text+GL 7211; net of VAT 2328.106 thousand KZT
+L00316,S3_C1_GOODS,SP_TELECOM,322.776,1000 KZT net,spend,0.0646,NB on text+GL 7211; net of VAT 322.776 thousand KZT
+L00317,S3_C1_GOODS,SP_SERVICES_PROF,1580.97,1000 KZT net,spend,0.3952,NB on text+GL 7211; net of VAT 1580.970 thousand KZT
+L00320,S3_C1_GOODS,SP_OFFICE,230.635,1000 KZT net,spend,0.2076,NB on text+GL 7215; net of VAT 230.635 thousand KZT
+L00322,S3_C1_GOODS,EF_MILK_KG,200923.0,kg,activity,261.1999,rule: keyword 'молок' + unit 'кг'; kg
+L00325,S3_C1_GOODS,EF_MILK_KG,186560.0,kg,activity,242.528,rule: keyword 'сүт' + unit 'т'; t x 1000
+L00326,S3_C4_TRANSPORT,EF_RAIL_TKM,137950.0,tkm,activity,4.1385,"rail freight, t x km; 44.5 t x 3100 km"
+L00327,S3_C1_GOODS,EF_SUGAR_KG,15602.0,kg,activity,9.3612,rule: keyword 'сахар' + unit 'кг'; kg
+L00330,S3_C1_GOODS,EF_MILK_KG,240093.0,kg,activity,312.1209,rule: keyword 'молок' + unit 'кг'; kg
+L00331,S3_C6_TRAVEL,SP_TAXI,67.594,1000 KZT net,spend,0.0338,rule: keyword 'такси' + unit 'мес'; net of VAT 67.594 thousand KZT
+L00335,S3_C4_TRANSPORT,EF_ROAD_TKM,7550.0,tkm,activity,0.8305,road freight (no reefer mention); tkm as booked
+L00341,S3_C6_TRAVEL,EF_HOTEL_NIGHT,1.0,room-night,activity,0.025,rule: keyword 'проживан' + unit 'сут'; room-nights
+L00342,S3_C1_GOODS,EF_MILK_KG,215690.0,kg,activity,280.397,rule: keyword 'молок' + unit 'т'; t x 1000
+L00347,S3_C1_GOODS,EF_MILK_KG,200260.0,kg,activity,260.338,rule: keyword 'сүт' + unit 'т'; t x 1000
+L00349,S3_C1_GOODS,EF_PET_KG,7304.0,kg,activity,18.9904,rule: keyword 'преформ' + unit 'шт'; pcs x 22 g (packaging_specs exact)
+L00351,S3_C1_GOODS,SP_SERVICES_PROF,1573.22,1000 KZT net,spend,0.3933,new wording (similarity 0.48) -> most common factor of GL 7211 that fits unit 'усл' [instruction-like text in description ignored]; net of VAT 1573.220 thousand KZT
+L00354,S3_C4_TRANSPORT,SP_FREIGHT_ROAD,520.005,1000 KZT net,spend,0.728,NB on text+GL 7110; net of VAT 520.005 thousand KZT
+L00360,S3_C1_GOODS,EF_MILK_KG,209082.79,kg,activity,271.8076,rule: keyword 'сүт' + unit 'л'; l x density 1.03
+L00361,S3_C1_GOODS,EF_SUGAR_KG,5854.0,kg,activity,3.5124,rule: keyword 'сахар' + unit 'кг'; kg
+L00364,S1_MOBILE,EF_DIESEL_L,5030.0,l,activity,13.4804,rule: keyword 'diesel' + unit 'л'; litres
+L00365,S3_C1_GOODS,EF_MILK_KG,150366.0,kg,activity,195.4758,rule: fuzzy milk word 'молако' + unit 'кг'; kg
+L00366,S3_C1_GOODS,EF_MILK_KG,229698.0,kg,activity,298.6074,rule: keyword 'сүт' + unit 'кг'; kg
+L00367,S3_C1_GOODS,SP_SERVICES_PROF,3310.837,1000 KZT net,spend,0.8277,NB on text+GL 7211; net of VAT 3310.837 thousand KZT
+L00368,S3_C6_TRAVEL,EF_FLIGHT_SHORT_PKM,3271.5269,pkm,activity,0.5234,"flight ALA-PEK, intl haul; great-circle ALA-PEK 3271.5 km x 1 pax"
+L00369,S1_MOBILE,EF_DIESEL_L,11368.0,l,activity,30.4662,rule: keyword 'diesel' + unit 'л'; litres
+L00370,S3_C1_GOODS,SP_SERVICES_PROF,2981.849,1000 KZT net,spend,0.7455,NB on text+GL 7211; net of VAT 2981.849 thousand KZT
+L00373,S3_C6_TRAVEL,EF_FLIGHT_LONG_PKM,7845.3689,pkm,activity,1.1768,"flight ALA-IST-ALA, intl haul; great-circle ALA-IST-ALA 7845.4 km x 1 pax"
+L00378,S3_C6_TRAVEL,EF_FLIGHT_LONG_PKM,10178.7752,pkm,activity,1.5268,"flight ALA-FRA-ALA, intl haul; great-circle ALA-FRA-ALA 10178.8 km x 1 pax"
+L00382,S3_C1_GOODS,EF_MILK_KG,166225.0,kg,activity,216.0925,rule: keyword 'milk' + unit 'кг'; kg
+L00386,S3_C1_GOODS,EF_CARTON_KG,-890.0,kg,activity,-1.068,rule: keyword 'асепт' + unit 'кг'; kg
+L00388,EXCLUDE,,0.0,,excluded,0.0,"GL 3150 = social contributions, not an emission"
+L00394,S3_C1_GOODS,EF_MILK_KG,253440.0,kg,activity,329.472,rule: keyword 'молок' + unit 'т'; t x 1000
+L00397,S3_C4_TRANSPORT,EF_RAIL_TKM,132680.0,tkm,activity,3.9804,"rail freight, t x km; 42.8 t x 3100 km"
+L00400,S3_C1_GOODS,SP_SERVICES_PROF,1846.836,1000 KZT net,spend,0.4617,new wording (similarity 0.36) -> most common factor of GL 7211 that fits unit 'усл' [instruction-like text in description ignored]; net of VAT 1846.836 thousand KZT
+L00406,S3_C1_GOODS,SP_MAINTENANCE,886.297,1000 KZT net,spend,0.5318,NB on text+GL 8111; net of VAT 886.297 thousand KZT
+L00407,S3_C1_GOODS,EF_PET_KG,11672.0,kg,activity,30.3472,rule: keyword 'пэт' + unit 'кг'; kg
+L00412,S3_C1_GOODS,EF_MILK_KG,235119.13,kg,activity,305.6549,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L00417,S1_MOBILE,EF_PETROL_L,406.0,l,activity,0.9297,rule: keyword 'бензин' + unit 'л'; litres
+L00419,S3_C1_GOODS,EF_MILK_KG,172930.0,kg,activity,224.809,rule: keyword 'молок' + unit 'т'; t x 1000
+L00425,S1_MOBILE,EF_LPG_KG,1088.0,kg,activity,3.2422,rule: keyword 'сжиж' + unit 'кг'; kg
+L00426,S3_C1_GOODS,SP_INGREDIENTS_OTHER,1859.412,1000 KZT net,spend,2.0454,NB on text+GL 1312; net of VAT 1859.412 thousand KZT
+L00427,S3_C1_GOODS,SP_OFFICE,85.176,1000 KZT net,spend,0.0767,NB on text+GL 7215; net of VAT 85.176 thousand KZT
+L00428,S3_C1_GOODS,EF_PET_KG,8232.0,kg,activity,21.4032,rule: keyword 'преформ' + unit 'шт'; pcs x 28 g (packaging_specs exact)
+L00430,S3_C1_GOODS,SP_SERVICES_PROF,2065.853,1000 KZT net,spend,0.5165,new wording (similarity 0.35) -> most common factor of GL 7211 that fits unit 'усл' [instruction-like text in description ignored]; net of VAT 2065.853 thousand KZT
+L00434,S3_C1_GOODS,SP_SERVICES_PROF,3711.111,1000 KZT net,spend,0.9278,NB on text+GL 7211; net of VAT 3711.111 thousand KZT
+L00435,S3_C1_GOODS,SP_SERVICES_PROF,1687.777,1000 KZT net,spend,0.4219,NB on text+GL 7211; net of VAT 1687.777 thousand KZT
+L00436,S3_C1_GOODS,EF_SUGAR_KG,19263.0,kg,activity,11.5578,rule: keyword 'сахар' + unit 'кг'; kg
+L00437,S2_HEAT,EF_HEAT_GCAL,843.7,Gcal,activity,253.11,rule: unit Гкал = purchased heat + unit 'Гкал'; Gcal
+L00439,S2_HEAT,EF_HEAT_GCAL,516.4,Gcal,activity,154.92,rule: unit Гкал = purchased heat + unit 'Гкал'; Gcal
+L00444,S3_C1_GOODS,EF_SUGAR_KG,17023.0,kg,activity,10.2138,rule: keyword 'сахар' + unit 'кг'; kg
+L00449,S3_C1_GOODS,SP_IT,701.298,1000 KZT net,spend,0.1052,NB on text+GL 7211; net of VAT 701.298 thousand KZT
+L00451,S1_MOBILE,EF_PETROL_L,559.0,l,activity,1.2801,rule: keyword 'бензин' + unit 'л'; litres
+L00456,S3_C1_GOODS,EF_MILK_KG,185591.0,kg,activity,241.2683,rule: fuzzy milk word 'молако' + unit 'кг'; kg
+L00457,S3_C1_GOODS,SP_MAINTENANCE,399.292,1000 KZT net,spend,0.2396,NB on text+GL 8111; net of VAT 399.292 thousand KZT
+L00458,S3_C1_GOODS,EF_MILK_KG,201845.0,kg,activity,262.3985,rule: keyword 'сүт' + unit 'кг'; kg
+L00463,S3_C1_GOODS,SP_TELECOM,144.365,1000 KZT net,spend,0.0289,NB on text+GL 7211; net of VAT 144.365 thousand KZT
+L00464,S3_C1_GOODS,EF_MILK_KG,206970.0,kg,activity,269.061,rule: keyword 'молок' + unit 'кг'; kg
+L00465,S1_MOBILE,EF_DIESEL_L,6306.0,l,activity,16.9001,rule: keyword 'diesel' + unit 'л'; litres
+L00470,S3_C1_GOODS,EF_MILK_KG,230989.0,kg,activity,300.2857,rule: fuzzy milk word 'моолко' + unit 'кг'; kg
+L00471,EXCLUDE,,0.0,,excluded,0.0,"GL 3150 = social contributions, not an emission"
+L00475,S3_C1_GOODS,SP_SPARE_PARTS,322.67,1000 KZT net,spend,0.3872,NB on text+GL 1330; net of VAT 322.670 thousand KZT
+L00484,EXCLUDE,,0.0,,excluded,0.0,"GL 1610 = advance payment, not an emission"
+L00485,S3_C5_WASTE,EF_WASTE_LANDFILL_T,25.8,t,activity,14.964,rule: keyword 'тбо' + unit 'м3'; m3 x 0.2 t/m3 bulk density
+L00487,S1_MOBILE,EF_DIESEL_L,7669.0,l,activity,20.5529,rule: keyword 'дизел' + unit 'л'; litres
+L00494,S3_C1_GOODS,EF_NAOH_KG,779.0,kg,activity,1.0127,rule: keyword 'кауст' + unit 'кг'; kg
+L00499,S3_C1_GOODS,EF_MILK_KG,185709.0,kg,activity,241.4217,rule: keyword 'молок' + unit 'кг'; kg
+L00501,S3_C1_GOODS,EF_HDPE_KG,31475.0,kg,activity,59.8025,rule: keyword 'пленк' + unit 'кг'; kg
+L00503,S3_C1_GOODS,SP_RENT,2755.872,1000 KZT net,spend,0.8268,NB on text+GL 7213; net of VAT 2755.872 thousand KZT
+L00505,S3_C1_GOODS,SP_FINANCIAL,202.082,1000 KZT net,spend,0.0202,NB on text+GL 7214; net of VAT 202.082 thousand KZT
+L00513,S3_C1_GOODS,EF_MILK_KG,154978.95,kg,activity,201.4726,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L00515,S3_C1_GOODS,EF_MILK_KG,251452.0,kg,activity,326.8876,rule: keyword 'milk' + unit 'кг'; kg
+L00520,S1_STATIONARY,EF_NG_M3,452331.0,m3,activity,863.9522,rule: keyword 'природн' + unit 'м3'; m3
+L00527,S3_C1_GOODS,SP_INGREDIENTS_OTHER,1057.242,1000 KZT net,spend,1.163,NB on text+GL 1312; net of VAT 1057.242 thousand KZT
+L00530,S3_C1_GOODS,EF_PAPERBOARD_KG,148400.0,kg,activity,140.98,rule: keyword 'гофро' + unit 'шт'; pcs x 350 g (packaging_specs exact)
+L00532,S3_C4_TRANSPORT,EF_ROAD_TKM,23424.0,tkm,activity,2.5766,road freight (no reefer mention); tkm as booked
+L00533,S3_C4_TRANSPORT,SP_FREIGHT_ROAD,883.82,1000 KZT net,spend,1.2373,NB on text+GL 7110; net of VAT 883.820 thousand KZT
+L00535,S3_C6_TRAVEL,EF_FLIGHT_DOM_PKM,1901.0263,pkm,activity,0.4753,"flight ALA-NQZ-ALA, domestic haul; great-circle ALA-NQZ-ALA 1901.0 km x 1 pax"
+L00536,S3_C1_GOODS,EF_MILK_KG,156661.0,kg,activity,203.6593,rule: keyword 'молок' + unit 'кг'; kg
+L00538,S3_C1_GOODS,SP_IT,355.841,1000 KZT net,spend,0.0534,NB on text+GL 7211; net of VAT 355.841 thousand KZT
+L00541,S3_C1_GOODS,SP_FINANCIAL,261.687,1000 KZT net,spend,0.0262,NB on text+GL 7214; net of VAT 261.687 thousand KZT
+L00545,S3_C1_GOODS,SP_INGREDIENTS_OTHER,2393.94,1000 KZT net,spend,2.6333,NB on text+GL 1312; net of VAT 2393.940 thousand KZT
+L00550,EXCLUDE,,0.0,,excluded,0.0,"GL 3110 = tax, not an emission"
+L00551,EXCLUDE,,0.0,,excluded,0.0,"GL 3110 = tax, not an emission"
+L00559,S3_C4_TRANSPORT,EF_REEFER_TKM,3699.0,tkm,activity,0.5179,refrigerated road freight; tkm as booked
+L00562,S3_C1_GOODS,EF_MILK_KG,168386.0,kg,activity,218.9018,rule: fuzzy milk word 'молако' + unit 'кг'; kg
+L00566,S3_C5_WASTE,EF_WASTEWATER_M3,25836.0,m3,activity,18.0852,rule: keyword 'водоотвед' + unit 'м3'; m3
+L00567,S3_C1_GOODS,EF_SUGAR_KG,15143.0,kg,activity,9.0858,rule: keyword 'сахар' + unit 'кг'; kg
+L00570,S3_C1_GOODS,SP_MAINTENANCE,563.81,1000 KZT net,spend,0.3383,NB on text+GL 8111; net of VAT 563.810 thousand KZT
+L00573,S3_C1_GOODS,EF_MILK_KG,141482.86,kg,activity,183.9277,rule: keyword 'milk' + unit 'л'; l x density 1.03
+L00575,S3_C6_TRAVEL,EF_HOTEL_NIGHT,4.0,room-night,activity,0.1,rule: keyword 'проживан' + unit 'сут'; room-nights
+L00580,S3_C1_GOODS,EF_PET_KG,11836.0,kg,activity,30.7736,rule: keyword 'преформ' + unit 'шт'; pcs x 22 g (packaging_specs exact)
+L00583,S3_C4_TRANSPORT,EF_DIESEL_L,841.0,l,activity,2.2539,diesel for third-party carrier -> Cat.4; litres
+L00585,S3_C1_GOODS,EF_MILK_KG,167739.62,kg,activity,218.0615,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L00587,S1_MOBILE,EF_DIESEL_L,5041.0,l,activity,13.5099,rule: keyword 'дизел' + unit 'л'; litres
+L00590,S3_C1_GOODS,EF_PET_KG,12180.0,kg,activity,31.668,rule: keyword 'преформ' + unit 'шт'; pcs x 28 g (packaging_specs exact)
+L00593,S3_C6_TRAVEL,SP_TAXI,83.575,1000 KZT net,spend,0.0418,rule: keyword 'такси' + unit 'мес'; net of VAT 83.575 thousand KZT
+L00594,S3_C1_GOODS,EF_MILK_KG,252393.26,kg,activity,328.1112,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L00596,S3_C6_TRAVEL,EF_FLIGHT_DOM_PKM,757.4736,pkm,activity,0.1894,"flight ALA-KGF, domestic haul; great-circle ALA-KGF 757.5 km x 1 pax"
+L00600,S3_C1_GOODS,EF_CARTON_KG,18284.0,kg,activity,21.9408,rule: keyword 'асепт' + unit 'шт'; pcs x 28 g (packaging_specs exact)
+L00601,S3_C6_TRAVEL,EF_HOTEL_NIGHT,5.0,room-night,activity,0.125,rule: keyword 'проживан' + unit 'сут'; room-nights
+L00602,S3_C4_TRANSPORT,EF_ROAD_TKM,12834.0,tkm,activity,1.4117,road freight (no reefer mention); tkm as booked
+L00603,S3_C5_WASTE,EF_WASTEWATER_M3,20359.0,m3,activity,14.2513,rule: keyword 'водоотвед' + unit 'м3'; m3
+L00604,S3_C1_GOODS,SP_INGREDIENTS_OTHER,1351.829,1000 KZT net,spend,1.487,NB on text+GL 1312; net of VAT 1351.829 thousand KZT
+L00607,S3_C1_GOODS,EF_MILK_KG,197952.0,kg,activity,257.3376,rule: keyword 'сүт' + unit 'кг'; kg
+L00608,S3_C1_GOODS,EF_ALU_FOIL_KG,20378.0,kg,activity,183.402,rule: keyword 'фольг' + unit 'кг'; kg
+L00610,S3_C1_GOODS,SP_FINANCIAL,2302.199,1000 KZT net,spend,0.2302,NB on text+GL 7214; net of VAT 2302.199 thousand KZT
+L00613,S3_C1_GOODS,EF_PAPERBOARD_KG,55650.0,kg,activity,52.8675,rule: keyword 'гофро' + unit 'шт'; pcs x 350 g (packaging_specs exact)
+L00622,S3_C1_GOODS,SP_SPARE_PARTS,2323.8,1000 KZT net,spend,2.7886,NB on text+GL 1330; net of VAT 2323.800 thousand KZT
+L00624,S1_MOBILE,EF_DIESEL_L,8520.0,l,activity,22.8336,rule: keyword 'дизел' + unit 'л'; litres
+L00626,S3_C1_GOODS,EF_ACID_KG,2456.0,kg,activity,3.684,rule: keyword 'кислот' + unit 'кг'; kg
+L00628,S1_MOBILE,EF_DIESEL_L,12199.0,l,activity,32.6933,rule: keyword 'дт' + unit 'л'; litres
+L00632,EXCLUDE,,0.0,,excluded,0.0,duplicate of L00444 (same doc_no/counterparty/amount)
+L00637,S3_C1_GOODS,EF_FRUIT_KG,11650.0,kg,activity,11.65,rule: keyword 'пюре' + unit 'т'; t x 1000
+L00641,S3_C4_TRANSPORT,EF_REEFER_TKM,2592.0,tkm,activity,0.3629,refrigerated road freight; tkm as booked
+L00647,S1_MOBILE,EF_DIESEL_L,11779.0,l,activity,31.5677,rule: keyword 'дизел' + unit 'л'; litres
+L00649,S3_C1_GOODS,EF_MILK_KG,226120.0,kg,activity,293.956,rule: keyword 'молок' + unit 'кг'; kg
+L00654,S3_C1_GOODS,EF_PET_KG,22845.0,kg,activity,59.397,rule: keyword 'пэт' + unit 'кг'; kg
+L00655,S3_C1_GOODS,EF_MILK_KG,221806.0,kg,activity,288.3478,rule: keyword 'молок' + unit 'кг'; kg
+L00657,S1_MOBILE,EF_DIESEL_L,8380.0,l,activity,22.4584,rule: keyword 'дизел' + unit 'л'; litres
+L00658,S1_MOBILE,EF_DIESEL_L,10266.0,l,activity,27.5129,rule: keyword 'дт' + unit 'л'; litres
+L00664,S3_C6_TRAVEL,EF_HOTEL_NIGHT,3.0,room-night,activity,0.075,rule: keyword 'проживан' + unit 'сут'; room-nights
+L00668,EXCLUDE,,0.0,,excluded,0.0,"GL 3150 = social contributions, not an emission"
+L00669,S3_C1_GOODS,EF_MILK_KG,189520.0,kg,activity,246.376,rule: keyword 'сүт' + unit 'т'; t x 1000
+L00672,S3_C6_TRAVEL,EF_HOTEL_NIGHT,4.0,room-night,activity,0.1,rule: keyword 'проживан' + unit 'сут'; room-nights
+L00673,S3_C1_GOODS,EF_FRUIT_KG,14060.0,kg,activity,14.06,rule: keyword 'наполнит' + unit 'кг'; kg
+L00677,S3_C1_GOODS,EF_PAPERBOARD_KG,37279.0,kg,activity,35.415,rule: keyword 'гофро' + unit 'кг'; kg
+L00678,S3_C1_GOODS,SP_TELECOM,164.041,1000 KZT net,spend,0.0328,NB on text+GL 7211; net of VAT 164.041 thousand KZT
+L00679,S3_C1_GOODS,SP_IT,287.221,1000 KZT net,spend,0.0431,NB on text+GL 7211; net of VAT 287.221 thousand KZT
+L00681,EXCLUDE,,0.0,,excluded,0.0,"GL 7216 = per diem, not an emission"
+L00682,S3_C2_CAPITAL,SP_VEHICLES,62000.0,1000 KZT net,spend,68.2,GL 2411 fixed asset -> capital goods; net of VAT 62000.000 thousand KZT
+L00688,S3_C4_TRANSPORT,EF_DIESEL_L,549.0,l,activity,1.4713,diesel for third-party carrier -> Cat.4; litres
+L00690,S3_C4_TRANSPORT,EF_DIESEL_L,1179.0,l,activity,3.1597,diesel for third-party carrier -> Cat.4; litres
+L00694,S3_C1_GOODS,SP_SERVICES_PROF,916.593,1000 KZT net,spend,0.2291,NB on text+GL 7211; net of VAT 916.593 thousand KZT
+L00695,S3_C1_GOODS,SP_IT,307.41,1000 KZT net,spend,0.0461,NB on text+GL 7211; net of VAT 307.410 thousand KZT
+L00699,EXCLUDE,,0.0,,excluded,0.0,"GL 3110 = tax, not an emission"
+L00700,S3_C1_GOODS,SP_INGREDIENTS_OTHER,2458.745,1000 KZT net,spend,2.7046,NB on text+GL 1312; net of VAT 2458.745 thousand KZT
+L00701,S3_C6_TRAVEL,EF_FLIGHT_SHORT_PKM,6543.0538,pkm,activity,1.0469,"flight ALA-PEK-ALA, intl haul; great-circle ALA-PEK-ALA 6543.1 km x 1 pax"
+L00705,S3_C1_GOODS,EF_FRUIT_KG,15574.0,kg,activity,15.574,rule: keyword 'пюре' + unit 'кг'; kg
+L00706,S3_C5_WASTE,EF_WASTEWATER_M3,18933.0,m3,activity,13.2531,rule: keyword 'водоотвед' + unit 'м3'; m3
+L00708,S3_C1_GOODS,EF_MILK_KG,255839.0,kg,activity,332.5907,rule: keyword 'молок' + unit 'кг'; kg
+L00709,S3_C1_GOODS,SP_SERVICES_PROF,5479.148,1000 KZT net,spend,1.3698,NB on text+GL 7211; net of VAT 5479.148 thousand KZT
+L00711,S3_C1_GOODS,SP_CLEANING_SECURITY,758.792,1000 KZT net,spend,0.2276,NB on text+GL 7211; net of VAT 758.792 thousand KZT
+L00713,S1_MOBILE,EF_DIESEL_L,9072.0,l,activity,24.313,rule: keyword 'дизел' + unit 'л'; litres
+L00714,S1_MOBILE,EF_DIESEL_L,5930.0,l,activity,15.8924,rule: keyword 'дт' + unit 'л'; litres
+L00724,S1_MOBILE,EF_LPG_KG,1415.0,kg,activity,4.2167,rule: keyword 'сжиж' + unit 'кг'; kg
+L00734,S3_C1_GOODS,EF_MILK_KG,230822.0,kg,activity,300.0686,rule: keyword 'молок' + unit 'кг'; kg
+L00735,S3_C6_TRAVEL,EF_HOTEL_NIGHT,5.0,room-night,activity,0.125,rule: keyword 'проживан' + unit 'сут'; room-nights
+L00745,S3_C1_GOODS,EF_MILK_KG,232550.0,kg,activity,302.315,rule: keyword 'молок' + unit 'т'; t x 1000
+L00746,S3_C1_GOODS,EF_MILK_KG,211290.0,kg,activity,274.677,rule: keyword 'молок' + unit 'кг'; kg
+L00747,S3_C1_GOODS,SP_CLEANING_SECURITY,1181.537,1000 KZT net,spend,0.3545,NB on text+GL 7211; net of VAT 1181.537 thousand KZT
+L00748,S3_C1_GOODS,SP_IT,542.282,1000 KZT net,spend,0.0813,NB on text+GL 7211; net of VAT 542.282 thousand KZT
+L00749,S1_MOBILE,EF_DIESEL_L,5777.0,l,activity,15.4824,rule: keyword 'дт' + unit 'л'; litres
+L00751,S3_C1_GOODS,SP_CLEANING_SECURITY,806.249,1000 KZT net,spend,0.2419,NB on text+GL 7211; net of VAT 806.249 thousand KZT
+L00754,S3_C1_GOODS,EF_MILK_KG,234596.92,kg,activity,304.976,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L00755,S3_C1_GOODS,SP_SPARE_PARTS,1760.408,1000 KZT net,spend,2.1125,NB on text+GL 1330; net of VAT 1760.408 thousand KZT
+L00759,S3_C1_GOODS,EF_HDPE_KG,2650.0,kg,activity,5.035,rule: keyword 'крышк' + unit 'шт'; pcs x 2.5 g (packaging_specs exact)
+L00760,S1_MOBILE,EF_PETROL_L,572.0,l,activity,1.3099,rule: keyword 'бензин' + unit 'л'; litres
+L00762,S1_MOBILE,EF_DIESEL_L,11335.0,l,activity,30.3778,rule: keyword 'дт' + unit 'л'; litres
+L00763,S3_C1_GOODS,EF_PET_KG,38843.0,kg,activity,100.9918,rule: keyword 'пэт' + unit 'кг'; kg
+L00767,S1_MOBILE,EF_LPG_KG,895.86,kg,activity,2.6697,rule: keyword 'сжиж' + unit 'л'; l x density 0.54
+L00770,S3_C4_TRANSPORT,EF_REEFER_TKM,17324.0,tkm,activity,2.4254,refrigerated road freight; tkm as booked
+L00772,S3_C1_GOODS,EF_MILK_KG,142060.0,kg,activity,184.678,rule: keyword 'сүт' + unit 'т'; t x 1000
+L00774,S3_C1_GOODS,EF_SUGAR_KG,6850.0,kg,activity,4.11,rule: keyword 'сахар' + unit 'т'; t x 1000
+L00778,S3_C4_TRANSPORT,EF_DIESEL_L,519.0,l,activity,1.3909,diesel for third-party carrier -> Cat.4; litres
+L00779,S2_ELECTRICITY,EF_GRID_KZ_KWH,25356.0,kWh,activity,20.2848,rule: unit кВт·ч = purchased electricity + unit 'кВт·ч'; kWh
+L00781,S3_C1_GOODS,SP_FINANCIAL,3954.05,1000 KZT net,spend,0.3954,NB on text+GL 7214; net of VAT 3954.050 thousand KZT
+L00786,S3_C6_TRAVEL,SP_TAXI,86.829,1000 KZT net,spend,0.0434,rule: keyword 'такси' + unit 'мес'; net of VAT 86.829 thousand KZT
+L00789,S3_C4_TRANSPORT,EF_REEFER_TKM,12688.0,tkm,activity,1.7763,refrigerated road freight; tkm as booked
+L00790,S3_C1_GOODS,EF_MILK_KG,163923.0,kg,activity,213.0999,rule: keyword 'сүт' + unit 'кг'; kg
+L00793,EXCLUDE,,0.0,,excluded,0.0,duplicate of L00564 (same doc_no/counterparty/amount)
+L00796,S3_C1_GOODS,EF_MILK_KG,249270.0,kg,activity,324.051,rule: keyword 'молок' + unit 'т'; t x 1000
+L00797,S3_C1_GOODS,EF_MILK_KG,178677.0,kg,activity,232.2801,rule: keyword 'молок' + unit 'кг'; kg
+L00800,S3_C1_GOODS,EF_MILK_KG,140082.06,kg,activity,182.1067,rule: keyword 'milk' + unit 'л'; l x density 1.03
+L00801,S3_C1_GOODS,EF_FRUIT_KG,7291.0,kg,activity,7.291,rule: keyword 'пюре' + unit 'кг'; kg
+L00802,S3_C4_TRANSPORT,EF_ROAD_TKM,3024.0,tkm,activity,0.3326,road freight (no reefer mention); tkm as booked
+L00807,S3_C1_GOODS,SP_CATERING,2014.347,1000 KZT net,spend,2.0143,NB on text+GL 7211; net of VAT 2014.347 thousand KZT
+L00810,S3_C1_GOODS,EF_MILK_KG,253020.53,kg,activity,328.9267,rule: fuzzy milk word 'молако' + unit 'л'; l x density 1.03
+L00811,S3_C1_GOODS,EF_PAPERBOARD_KG,272300.0,kg,activity,258.685,rule: keyword 'гофро' + unit 'шт'; pcs x 350 g (packaging_specs exact)
+L00814,S3_C1_GOODS,EF_MILK_KG,189901.0,kg,activity,246.8713,rule: keyword 'молок' + unit 'кг'; kg
+L00815,S3_C1_GOODS,EF_MILK_KG,248637.0,kg,activity,323.2281,rule: keyword 'сүт' + unit 'кг'; kg
+L00819,S3_C1_GOODS,EF_MILK_KG,209280.0,kg,activity,272.064,rule: keyword 'молок' + unit 'т'; t x 1000
+L00820,S3_C1_GOODS,SP_IT,376.315,1000 KZT net,spend,0.0564,NB on text+GL 7211; net of VAT 376.315 thousand KZT
+L00822,S1_MOBILE,EF_DIESEL_L,5568.0,l,activity,14.9222,rule: keyword 'дизел' + unit 'л'; litres
+L00823,S3_C1_GOODS,SP_SPARE_PARTS,756.8,1000 KZT net,spend,0.9082,NB on text+GL 1330; net of VAT 756.800 thousand KZT
+L00824,S3_C1_GOODS,EF_MILK_KG,213401.58,kg,activity,277.4221,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L00825,S3_C1_GOODS,EF_ALU_FOIL_KG,35317.0,kg,activity,317.853,rule: keyword 'фольг' + unit 'кг'; kg
+L00826,S3_C1_GOODS,EF_MILK_KG,190626.0,kg,activity,247.8138,rule: keyword 'milk' + unit 'кг'; kg
+L00829,S3_C1_GOODS,EF_NAOH_KG,4567.0,kg,activity,5.9371,rule: keyword 'едк' + unit 'кг'; kg
+L00831,S3_C1_GOODS,EF_MILK_KG,223529.0,kg,activity,290.5877,rule: keyword 'молок' + unit 'кг'; kg
+L00832,S3_C1_GOODS,EF_MILK_KG,223690.0,kg,activity,290.797,rule: fuzzy milk word 'млооко' + unit 'кг'; kg
+L00835,S3_C1_GOODS,SP_SPARE_PARTS,604.08,1000 KZT net,spend,0.7249,NB on text+GL 1330; net of VAT 604.080 thousand KZT
+L00836,S3_C1_GOODS,SP_FINANCIAL,2363.661,1000 KZT net,spend,0.2364,NB on text+GL 7214; net of VAT 2363.661 thousand KZT
+L00837,S3_C1_GOODS,SP_IT,515.801,1000 KZT net,spend,0.0774,NB on text+GL 7211; net of VAT 515.801 thousand KZT
+L00840,S3_C4_TRANSPORT,SP_FREIGHT_ROAD,1027.648,1000 KZT net,spend,1.4387,NB on text+GL 7110; net of VAT 1027.648 thousand KZT
+L00841,S3_C1_GOODS,SP_SERVICES_PROF,1518.418,1000 KZT net,spend,0.3796,NB on text+GL 7211; net of VAT 1518.418 thousand KZT
+L00844,S3_C1_GOODS,EF_NAOH_KG,895.0,kg,activity,1.1635,rule: keyword 'едк' + unit 'кг'; kg
+L00849,S3_C1_GOODS,EF_MILK_KG,244170.0,kg,activity,317.421,rule: keyword 'молок' + unit 'т'; t x 1000
+L00852,S3_C6_TRAVEL,EF_FLIGHT_SHORT_PKM,3271.5269,pkm,activity,0.5234,"flight ALA-PEK, intl haul; great-circle ALA-PEK 3271.5 km x 1 pax"
+L00854,S3_C1_GOODS,EF_PET_KG,24442.0,kg,activity,63.5492,rule: keyword 'преформ' + unit 'шт'; pcs x 22 g (packaging_specs exact)
+L00858,S1_MOBILE,EF_DIESEL_L,5143.0,l,activity,13.7832,rule: keyword 'дизел' + unit 'л'; litres
+L00860,S3_C1_GOODS,EF_PAPERBOARD_KG,23253.0,kg,activity,22.0903,rule: keyword 'гофро' + unit 'кг'; kg
+L00865,S3_C1_GOODS,SP_MAINTENANCE,105.821,1000 KZT net,spend,0.0635,NB on text+GL 8111; net of VAT 105.821 thousand KZT
+L00867,S3_C1_GOODS,EF_MILK_KG,216410.0,kg,activity,281.333,rule: keyword 'молок' + unit 'т'; t x 1000
+L00869,S3_C1_GOODS,EF_MILK_KG,175913.0,kg,activity,228.6869,rule: keyword 'сүт' + unit 'кг'; kg
+L00872,S3_C1_GOODS,EF_NAOH_KG,2993.0,kg,activity,3.8909,rule: keyword 'кауст' + unit 'кг'; kg
+L00873,S1_MOBILE,EF_DIESEL_L,7841.0,l,activity,21.0139,rule: keyword 'дт' + unit 'л'; litres
+L00874,S3_C1_GOODS,SP_CLEANING_SECURITY,625.15,1000 KZT net,spend,0.1875,NB on text+GL 7211; net of VAT 625.150 thousand KZT
+L00875,S3_C4_TRANSPORT,EF_REEFER_TKM,14518.0,tkm,activity,2.0325,refrigerated road freight; tkm as booked
+L00881,S3_C1_GOODS,EF_MILK_KG,245565.39,kg,activity,319.235,rule: keyword 'сүт' + unit 'л'; l x density 1.03
+L00886,EXCLUDE,,0.0,,excluded,0.0,"GL 3150 = social contributions, not an emission"
+L00887,S2_ELECTRICITY,EF_GRID_KZ_KWH,1523763.0,kWh,activity,1219.0104,rule: unit кВт·ч = purchased electricity + unit 'кВт·ч'; kWh
+L00891,S3_C1_GOODS,SP_SERVICES_PROF,4749.579,1000 KZT net,spend,1.1874,NB on text+GL 7211; net of VAT 4749.579 thousand KZT
+L00894,S3_C1_GOODS,EF_HDPE_KG,19623.0,kg,activity,37.2837,rule: keyword 'пленк' + unit 'кг'; kg
+L00895,S3_C1_GOODS,SP_FINANCIAL,1596.164,1000 KZT net,spend,0.1596,NB on text+GL 7214; net of VAT 1596.164 thousand KZT
+L00898,S3_C1_GOODS,EF_PET_KG,13860.0,kg,activity,36.036,rule: keyword 'преформ' + unit 'шт'; pcs x 22 g (packaging_specs exact)
+L00902,S3_C1_GOODS,EF_MILK_KG,155900.0,kg,activity,202.67,rule: keyword 'сүт' + unit 'т'; t x 1000
+L00904,S3_C1_GOODS,SP_RENT,3711.407,1000 KZT net,spend,1.1134,NB on text+GL 7213; net of VAT 3711.407 thousand KZT
+L00905,S3_C1_GOODS,EF_FRUIT_KG,4496.0,kg,activity,4.496,rule: keyword 'пюре' + unit 'кг'; kg
+L00912,S1_MOBILE,EF_DIESEL_L,8226.0,l,activity,22.0457,rule: keyword 'дизел' + unit 'л'; litres
+L00914,S1_MOBILE,EF_PETROL_L,1299.0,l,activity,2.9747,rule: keyword 'бензин' + unit 'л'; litres
+L00918,S3_C1_GOODS,EF_MILK_KG,169346.0,kg,activity,220.1498,rule: keyword 'сүт' + unit 'кг'; kg
+L00924,S3_C6_TRAVEL,EF_HOTEL_NIGHT,5.0,room-night,activity,0.125,rule: keyword 'проживан' + unit 'сут'; room-nights
+L00926,S3_C1_GOODS,SP_OFFICE,167.613,1000 KZT net,spend,0.1509,NB on text+GL 7215; net of VAT 167.613 thousand KZT
+L00928,EXCLUDE,,0.0,,excluded,0.0,"GL 3150 = social contributions, not an emission"
+L00935,S3_C6_TRAVEL,EF_FLIGHT_SHORT_PKM,420.2894,pkm,activity,0.0672,"flight ALA-FRU-ALA, intl haul; great-circle ALA-FRU-ALA 420.3 km x 1 pax"
+L00941,S3_C1_GOODS,SP_OFFICE,248.717,1000 KZT net,spend,0.2238,NB on text+GL 7215; net of VAT 248.717 thousand KZT
+L00942,S3_C1_GOODS,EF_MILK_KG,215215.41,kg,activity,279.78,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L00944,S3_C1_GOODS,EF_MILK_KG,193521.0,kg,activity,251.5773,rule: keyword 'milk' + unit 'кг'; kg
+L00946,S3_C1_GOODS,EF_MILK_KG,164650.0,kg,activity,214.045,rule: keyword 'milk' + unit 'т'; t x 1000
+L00947,S1_MOBILE,EF_DIESEL_L,10946.0,l,activity,29.3353,rule: keyword 'дизел' + unit 'л'; litres
+L00948,S3_C1_GOODS,EF_MILK_KG,224000.0,kg,activity,291.2,rule: keyword 'молок' + unit 'т'; t x 1000
+L00950,S3_C4_TRANSPORT,SP_FREIGHT_ROAD,1308.05,1000 KZT net,spend,1.8313,NB on text+GL 7110; net of VAT 1308.050 thousand KZT
+L00951,S3_C1_GOODS,EF_MILK_KG,249539.0,kg,activity,324.4007,rule: keyword 'молок' + unit 'кг'; kg
+L00953,S3_C1_GOODS,SP_SPARE_PARTS,390.202,1000 KZT net,spend,0.4682,NB on text+GL 1330; net of VAT 390.202 thousand KZT
+L00954,S3_C1_GOODS,EF_CARTON_KG,25116.0,kg,activity,30.1392,rule: keyword 'асепт' + unit 'шт'; pcs x 28 g (packaging_specs exact)
+L00955,S3_C1_GOODS,EF_MILK_KG,148503.0,kg,activity,193.0539,rule: keyword 'молок' + unit 'кг'; kg
+L00956,S3_C1_GOODS,EF_MILK_KG,177086.0,kg,activity,230.2118,rule: keyword 'молок' + unit 'кг'; kg
+L00961,S3_C1_GOODS,EF_MILK_KG,214520.0,kg,activity,278.876,rule: keyword 'молок' + unit 'т'; t x 1000
+L00966,S3_C1_GOODS,SP_OFFICE,179.093,1000 KZT net,spend,0.1612,NB on text+GL 7215; net of VAT 179.093 thousand KZT
+L00968,S3_C1_GOODS,EF_MILK_KG,197576.0,kg,activity,256.8488,rule: keyword 'молок' + unit 'кг'; kg
+L00970,S3_C1_GOODS,EF_MILK_KG,173941.0,kg,activity,226.1233,rule: keyword 'молок' + unit 'кг'; kg
+L00971,S3_C1_GOODS,EF_MILK_KG,165530.0,kg,activity,215.189,rule: keyword 'milk' + unit 'т'; t x 1000
+L00972,S3_C1_GOODS,EF_MILK_KG,226490.0,kg,activity,294.437,rule: keyword 'молок' + unit 'т'; t x 1000
+L00973,S3_C1_GOODS,EF_MILK_KG,167302.0,kg,activity,217.4926,rule: keyword 'сүт' + unit 'кг'; kg
+L00977,S3_C1_GOODS,EF_MILK_KG,211670.0,kg,activity,275.171,rule: keyword 'сүт' + unit 'кг'; kg
+L00978,S3_C1_GOODS,SP_SPARE_PARTS,581.191,1000 KZT net,spend,0.6974,NB on text+GL 1330; net of VAT 581.191 thousand KZT
+L00980,S3_C1_GOODS,EF_PET_KG,4058.0,kg,activity,10.5508,rule: keyword 'пэт' + unit 'кг'; kg
+L00981,S3_C1_GOODS,SP_OFFICE,61.688,1000 KZT net,spend,0.0555,NB on text+GL 7215; net of VAT 61.688 thousand KZT
+L00988,S3_C1_GOODS,EF_MILK_KG,251918.0,kg,activity,327.4934,rule: keyword 'молок' + unit 'кг'; kg
+L00991,S1_MOBILE,EF_DIESEL_L,5786.0,l,activity,15.5065,rule: keyword 'diesel' + unit 'л'; litres
+L00992,S3_C4_TRANSPORT,SP_FREIGHT_ROAD,1278.466,1000 KZT net,spend,1.7899,NB on text+GL 7110; net of VAT 1278.466 thousand KZT
+L00995,S3_C1_GOODS,EF_MILK_KG,216390.0,kg,activity,281.307,rule: keyword 'сүт' + unit 'т'; t x 1000
+L00997,S3_C6_TRAVEL,EF_FLIGHT_DOM_PKM,1901.0263,pkm,activity,0.4753,"flight ALA-NQZ-ALA, domestic haul; great-circle ALA-NQZ-ALA 1901.0 km x 1 pax"
+L00999,S3_C6_TRAVEL,EF_FLIGHT_SHORT_PKM,1357.8138,pkm,activity,0.2173,"flight ALA-TAS-ALA, intl haul; great-circle ALA-TAS-ALA 1357.8 km x 1 pax"
+L01000,S3_C1_GOODS,SP_IT,452.662,1000 KZT net,spend,0.0679,NB on text+GL 7211; net of VAT 452.662 thousand KZT
+L01004,S3_C1_GOODS,SP_CLEANING_SECURITY,959.773,1000 KZT net,spend,0.2879,NB on text+GL 7211; net of VAT 959.773 thousand KZT
+L01006,S3_C1_GOODS,SP_INGREDIENTS_OTHER,2654.063,1000 KZT net,spend,2.9195,NB on text+GL 1312; net of VAT 2654.063 thousand KZT
+L01009,S1_MOBILE,EF_DIESEL_L,11361.0,l,activity,30.4475,rule: keyword 'дт' + unit 'л'; litres
+L01010,S3_C1_GOODS,EF_MILK_KG,163776.0,kg,activity,212.9088,rule: keyword 'молок' + unit 'кг'; kg
+L01014,S3_C1_GOODS,SP_SERVICES_PROF,942.139,1000 KZT net,spend,0.2355,NB on text+GL 7211; net of VAT 942.139 thousand KZT
+L01017,S3_C1_GOODS,EF_MILK_KG,149920.0,kg,activity,194.896,rule: keyword 'milk' + unit 'кг'; kg
+L01025,S3_C1_GOODS,SP_INGREDIENTS_OTHER,2400.034,1000 KZT net,spend,2.64,NB on text+GL 1312; net of VAT 2400.034 thousand KZT
+L01027,S3_C1_GOODS,EF_MILK_KG,161736.0,kg,activity,210.2568,rule: keyword 'сүт' + unit 'кг'; kg
+L01028,S3_C4_TRANSPORT,EF_DIESEL_L,486.0,l,activity,1.3025,diesel for third-party carrier -> Cat.4; litres
+L01030,S1_MOBILE,EF_DIESEL_L,7268.0,l,activity,19.4782,rule: keyword 'дт' + unit 'л'; litres
+L01031,EXCLUDE,,0.0,,excluded,0.0,"GL 3110 = tax, not an emission"
+L01032,S3_C1_GOODS,EF_HDPE_KG,2585.0,kg,activity,4.9115,rule: keyword 'қақпақ' + unit 'шт'; pcs x 2.5 g (packaging_specs exact)
+L01034,S3_C1_GOODS,EF_HDPE_KG,930.0,kg,activity,1.767,rule: keyword 'крышк' + unit 'шт'; pcs x 2.5 g (packaging_specs exact)
+L01042,S3_C6_TRAVEL,EF_FLIGHT_DOM_PKM,625.7854,pkm,activity,0.1564,"flight ALA-CIT, domestic haul; great-circle ALA-CIT 625.8 km x 1 pax"
+L01043,S3_C1_GOODS,SP_IT,397.14,1000 KZT net,spend,0.0596,NB on text+GL 7211; net of VAT 397.140 thousand KZT
+L01045,S3_C4_TRANSPORT,EF_REEFER_TKM,19154.0,tkm,activity,2.6816,refrigerated road freight; tkm as booked
+L01051,S3_C6_TRAVEL,EF_FLIGHT_DOM_PKM,1901.0263,pkm,activity,0.4753,"flight ALA-NQZ-ALA, domestic haul; great-circle ALA-NQZ-ALA 1901.0 km x 1 pax"
+L01053,S3_C1_GOODS,EF_MILK_KG,207633.0,kg,activity,269.9229,rule: keyword 'milk' + unit 'кг'; kg
+L01056,S1_MOBILE,EF_DIESEL_T,39.99,t,activity,127.5681,rule: keyword 'дизел' + unit 'т'; t
+L01058,S3_C1_GOODS,EF_MILK_KG,147317.0,kg,activity,191.5121,rule: keyword 'сүт' + unit 'кг'; kg
+L01062,S3_C1_GOODS,SP_SERVICES_PROF,2874.112,1000 KZT net,spend,0.7185,NB on text+GL 7211; net of VAT 2874.112 thousand KZT
+L01063,S1_MOBILE,EF_PETROL_L,349.0,l,activity,0.7992,rule: keyword 'бензин' + unit 'л'; litres
+L01068,S1_MOBILE,EF_DIESEL_L,10908.0,l,activity,29.2334,rule: keyword 'дт' + unit 'л'; litres
+L01072,S3_C1_GOODS,EF_HDPE_KG,2270.0,kg,activity,4.313,rule: keyword 'крышк' + unit 'шт'; pcs x 2.5 g (packaging_specs exact)
+L01075,S3_C1_GOODS,EF_MILK_KG,187510.0,kg,activity,243.763,rule: keyword 'milk' + unit 'т'; t x 1000
+L01076,S3_C1_GOODS,SP_IT,163.195,1000 KZT net,spend,0.0245,NB on text+GL 7211; net of VAT 163.195 thousand KZT
+L01077,S3_C1_GOODS,EF_ACID_KG,3778.0,kg,activity,5.667,rule: keyword 'кислот' + unit 'кг'; kg
+L01079,S3_C1_GOODS,EF_NAOH_KG,1366.0,kg,activity,1.7758,rule: keyword 'едк' + unit 'кг'; kg
+L01088,S3_C2_CAPITAL,SP_MACHINERY,48000.0,1000 KZT net,spend,48.0,GL 2410 fixed asset -> capital goods; net of VAT 48000.000 thousand KZT
+L01092,S3_C1_GOODS,EF_MILK_KG,187633.04,kg,activity,243.923,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L01094,S3_C1_GOODS,EF_CARTON_KG,9199.0,kg,activity,11.0388,rule: keyword 'асепт' + unit 'кг'; kg
+L01096,S3_C1_GOODS,SP_SERVICES_PROF,2733.342,1000 KZT net,spend,0.6833,new wording (similarity 0.58) -> most common factor of GL 7211 that fits unit 'усл' [instruction-like text in description ignored]; net of VAT 2733.342 thousand KZT
+L01098,EXCLUDE,,0.0,,excluded,0.0,duplicate of L00582 (same doc_no/counterparty/amount)
+L01100,S3_C5_WASTE,EF_WASTE_LANDFILL_T,23.8,t,activity,13.804,rule: keyword 'тбо' + unit 'м3'; m3 x 0.2 t/m3 bulk density
+L01101,S3_C1_GOODS,EF_PAPERBOARD_KG,13995.0,kg,activity,13.2952,rule: keyword 'гофро' + unit 'кг'; kg
+L01105,S3_C1_GOODS,EF_MILK_KG,230240.0,kg,activity,299.312,rule: keyword 'молок' + unit 'т'; t x 1000
+L01106,S3_C6_TRAVEL,SP_TAXI,128.596,1000 KZT net,spend,0.0643,rule: keyword 'такси' + unit 'мес'; net of VAT 128.596 thousand KZT
+L01109,EXCLUDE,,0.0,,excluded,0.0,"GL 3110 = tax, not an emission"
+L01113,S3_C2_CAPITAL,SP_CONSTRUCTION,38000.0,1000 KZT net,spend,57.0,GL 2412 fixed asset -> capital goods; net of VAT 38000.000 thousand KZT
+L01116,S3_C1_GOODS,EF_MILK_KG,178476.0,kg,activity,232.0188,rule: keyword 'молок' + unit 'кг'; kg
+L01131,S1_STATIONARY,EF_NG_M3,440169.0,m3,activity,840.7228,rule: keyword 'природн' + unit 'м3'; m3
+L01135,S3_C1_GOODS,EF_MILK_KG,190189.0,kg,activity,247.2457,rule: keyword 'сүт' + unit 'кг'; kg
+L01138,S3_C1_GOODS,EF_HDPE_KG,250.0,kg,activity,0.475,rule: keyword 'қақпақ' + unit 'шт'; pcs x 2.5 g (packaging_specs exact)
+L01142,S3_C1_GOODS,EF_MILK_KG,145638.0,kg,activity,189.3294,rule: keyword 'сүт' + unit 'кг'; kg
+L01144,S3_C1_GOODS,SP_RENT,3966.248,1000 KZT net,spend,1.1899,NB on text+GL 7213; net of VAT 3966.248 thousand KZT
+L01147,S3_C1_GOODS,EF_PET_KG,2560.0,kg,activity,6.656,rule: keyword 'пэт' + unit 'кг'; kg
+L01154,S3_C1_GOODS,SP_RENT,2580.174,1000 KZT net,spend,0.7741,NB on text+GL 7213; net of VAT 2580.174 thousand KZT
+L01159,S3_C1_GOODS,EF_MILK_KG,192450.0,kg,activity,250.185,rule: fuzzy milk word 'молако' + unit 'т'; t x 1000
+L01161,S1_MOBILE,EF_DIESEL_L,8447.0,l,activity,22.638,rule: keyword 'diesel' + unit 'л'; litres
+L01167,S1_MOBILE,EF_PETROL_L,979.0,l,activity,2.2419,rule: keyword 'бензин' + unit 'л'; litres
+L01168,S3_C1_GOODS,EF_MILK_KG,229196.63,kg,activity,297.9556,rule: keyword 'сүт' + unit 'л'; l x density 1.03
+L01170,S3_C6_TRAVEL,EF_FLIGHT_DOM_PKM,4162.8028,pkm,activity,1.0407,"flight ALA-SCO-ALA, domestic haul; great-circle ALA-SCO-ALA 4162.8 km x 1 pax"
+L01171,S3_C6_TRAVEL,EF_HOTEL_NIGHT,1.0,room-night,activity,0.025,rule: keyword 'проживан' + unit 'сут'; room-nights
+L01173,S3_C1_GOODS,SP_SERVICES_PROF,1540.92,1000 KZT net,spend,0.3852,NB on text+GL 7211; net of VAT 1540.920 thousand KZT
+L01174,S3_C1_GOODS,EF_MILK_KG,147147.0,kg,activity,191.2911,rule: keyword 'сүт' + unit 'кг'; kg
+L01175,S3_C1_GOODS,EF_MILK_KG,251200.0,kg,activity,326.56,rule: keyword 'молок' + unit 'т'; t x 1000
+L01179,S1_MOBILE,EF_PETROL_L,400.0,l,activity,0.916,rule: keyword 'бензин' + unit 'л'; litres
+L01181,S3_C4_TRANSPORT,EF_REEFER_TKM,9600.0,tkm,activity,1.344,refrigerated road freight; tkm as booked
+L01187,S3_C5_WASTE,EF_WASTE_LANDFILL_T,17.24,t,activity,9.9992,rule: keyword 'тбо' + unit 'м3'; m3 x 0.2 t/m3 bulk density
+L01192,S3_C1_GOODS,EF_FRUIT_KG,10540.0,kg,activity,10.54,rule: keyword 'наполнит' + unit 'т'; t x 1000
+L01193,S3_C1_GOODS,EF_MILK_KG,194994.45,kg,activity,253.4928,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L01199,S3_C1_GOODS,EF_CARTON_KG,6076.0,kg,activity,7.2912,rule: keyword 'асепт' + unit 'шт'; pcs x 28 g (packaging_specs exact)
+L01201,S3_C1_GOODS,EF_MILK_KG,140710.0,kg,activity,182.923,rule: keyword 'молок' + unit 'т'; t x 1000
+L01202,S3_C1_GOODS,SP_FINANCIAL,122.85,1000 KZT net,spend,0.0123,NB on text+GL 7214; net of VAT 122.850 thousand KZT
+L01206,S3_C1_GOODS,EF_MILK_KG,154716.3,kg,activity,201.1312,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L01207,S3_C1_GOODS,SP_SPARE_PARTS,133.45,1000 KZT net,spend,0.1601,NB on text+GL 1330; net of VAT 133.450 thousand KZT
+L01209,EXCLUDE,,0.0,,excluded,0.0,"GL 7480 = fine, not an emission"
+L01213,S3_C1_GOODS,SP_SPARE_PARTS,331.866,1000 KZT net,spend,0.3982,NB on text+GL 1330; net of VAT 331.866 thousand KZT
+L01222,S3_C1_GOODS,EF_MILK_KG,175400.0,kg,activity,228.02,rule: keyword 'молок' + unit 'т'; t x 1000
+L01224,S3_C1_GOODS,SP_INGREDIENTS_OTHER,813.572,1000 KZT net,spend,0.8949,NB on text+GL 1312; net of VAT 813.572 thousand KZT
+L01225,S3_C1_GOODS,EF_PET_KG,4617.0,kg,activity,12.0042,rule: keyword 'пэт' + unit 'кг'; kg
+L01227,S3_C1_GOODS,EF_WATER_M3,25849.0,m3,activity,9.0472,rule: keyword 'водоснаб' + unit 'м3'; m3
+L01231,S3_C1_GOODS,EF_MILK_KG,220431.0,kg,activity,286.5603,rule: keyword 'сүт' + unit 'кг'; kg
+L01232,S3_C1_GOODS,SP_IT,428.575,1000 KZT net,spend,0.0643,NB on text+GL 7211; net of VAT 428.575 thousand KZT
+L01236,S3_C1_GOODS,EF_PAPERBOARD_KG,-1559.0,kg,activity,-1.481,rule: keyword 'гофро' + unit 'кг'; kg
+L01240,S3_C1_GOODS,SP_SPARE_PARTS,195.372,1000 KZT net,spend,0.2344,NB on text+GL 1330; net of VAT 195.372 thousand KZT
+L01241,S1_MOBILE,EF_DIESEL_L,11242.0,l,activity,30.1286,rule: keyword 'diesel' + unit 'л'; litres
+L01242,S3_C1_GOODS,EF_MILK_KG,168413.0,kg,activity,218.9369,rule: fuzzy milk word 'молако' + unit 'кг'; kg
+L01243,S1_MOBILE,EF_PETROL_L,478.0,l,activity,1.0946,rule: keyword 'бензин' + unit 'л'; litres
+L01248,S3_C5_WASTE,EF_WASTE_LANDFILL_T,25.24,t,activity,14.6392,rule: keyword 'тбо' + unit 'м3'; m3 x 0.2 t/m3 bulk density
+L01249,S3_C1_GOODS,EF_SUGAR_KG,14198.0,kg,activity,8.5188,rule: keyword 'сахар' + unit 'кг'; kg
+L01251,S3_C1_GOODS,EF_WATER_M3,23527.0,m3,activity,8.2344,rule: keyword 'водоснаб' + unit 'м3'; m3
+L01252,S3_C1_GOODS,EF_MILK_KG,156167.0,kg,activity,203.0171,rule: keyword 'сүт' + unit 'кг'; kg
+L01253,S3_C1_GOODS,SP_TELECOM,331.01,1000 KZT net,spend,0.0662,NB on text+GL 7211; net of VAT 331.010 thousand KZT
+L01255,S3_C1_GOODS,EF_PET_KG,13948.0,kg,activity,36.2648,rule: keyword 'преформ' + unit 'шт'; pcs x 22 g (packaging_specs exact)
+L01257,S3_C1_GOODS,EF_MILK_KG,213240.0,kg,activity,277.212,rule: keyword 'молок' + unit 'кг'; kg
+L01263,S3_C1_GOODS,EF_MILK_KG,164620.0,kg,activity,214.006,rule: keyword 'milk' + unit 'т'; t x 1000
+L01265,S3_C1_GOODS,EF_MILK_KG,214740.0,kg,activity,279.162,rule: keyword 'сүт' + unit 'т'; t x 1000
+L01269,S1_MOBILE,EF_PETROL_L,1222.0,l,activity,2.7984,rule: keyword 'бензин' + unit 'л'; litres
+L01271,S3_C1_GOODS,EF_MILK_KG,208726.0,kg,activity,271.3438,rule: keyword 'молок' + unit 'кг'; kg
+L01272,S3_C1_GOODS,EF_MILK_KG,155407.0,kg,activity,202.0291,rule: keyword 'сүт' + unit 'кг'; kg
+L01274,S3_C1_GOODS,EF_MILK_KG,221736.34,kg,activity,288.2572,rule: fuzzy milk word 'молако' + unit 'л'; l x density 1.03
+L01283,S3_C4_TRANSPORT,SP_FREIGHT_ROAD,967.44,1000 KZT net,spend,1.3544,NB on text+GL 7110; net of VAT 967.440 thousand KZT
+L01284,S3_C6_TRAVEL,EF_FLIGHT_SHORT_PKM,678.9069,pkm,activity,0.1086,"flight ALA-TAS, intl haul; great-circle ALA-TAS 678.9 km x 1 pax"
+L01286,S3_C1_GOODS,EF_MILK_KG,235048.0,kg,activity,305.5624,rule: keyword 'молок' + unit 'кг'; kg
+L01293,S3_C1_GOODS,EF_SUGAR_KG,4607.0,kg,activity,2.7642,rule: keyword 'сахар' + unit 'кг'; kg
+L01295,S1_MOBILE,EF_DIESEL_L,6719.0,l,activity,18.0069,rule: keyword 'diesel' + unit 'л'; litres
+L01298,S3_C1_GOODS,EF_FRUIT_KG,9171.0,kg,activity,9.171,rule: keyword 'наполнит' + unit 'кг'; kg
+L01301,S3_C1_GOODS,EF_MILK_KG,174380.0,kg,activity,226.694,rule: keyword 'сүт' + unit 'т'; t x 1000
+L01303,S3_C1_GOODS,SP_CATERING,2367.513,1000 KZT net,spend,2.3675,NB on text+GL 7211; net of VAT 2367.513 thousand KZT
+L01305,S3_C1_GOODS,EF_MILK_KG,208546.0,kg,activity,271.1098,rule: keyword 'сүт' + unit 'кг'; kg
+L01307,S1_MOBILE,EF_DIESEL_L,13142.0,l,activity,35.2206,rule: keyword 'дт' + unit 'л'; litres
+L01308,S3_C1_GOODS,EF_NAOH_KG,4368.0,kg,activity,5.6784,rule: keyword 'едк' + unit 'кг'; kg
+L01309,S3_C1_GOODS,SP_IT,814.494,1000 KZT net,spend,0.1222,NB on text+GL 7211; net of VAT 814.494 thousand KZT
+L01311,S1_MOBILE,EF_DIESEL_L,6541.0,l,activity,17.5299,rule: keyword 'дизел' + unit 'л'; litres
+L01318,S1_MOBILE,EF_DIESEL_L,8635.0,l,activity,23.1418,rule: keyword 'дт' + unit 'л'; litres
+L01319,S1_MOBILE,EF_PETROL_L,449.0,l,activity,1.0282,rule: keyword 'аи-92' + unit 'л'; litres
+L01327,S3_C4_TRANSPORT,SP_FREIGHT_ROAD,610.206,1000 KZT net,spend,0.8543,NB on text+GL 7110; net of VAT 610.206 thousand KZT
+L01329,S3_C6_TRAVEL,EF_HOTEL_NIGHT,5.0,room-night,activity,0.125,rule: keyword 'проживан' + unit 'сут'; room-nights
+L01330,S1_MOBILE,EF_DIESEL_L,8385.0,l,activity,22.4718,rule: keyword 'дизел' + unit 'л'; litres
+L01335,S3_C1_GOODS,SP_CLEANING_SECURITY,1072.466,1000 KZT net,spend,0.3217,NB on text+GL 7211; net of VAT 1072.466 thousand KZT
+L01342,S3_C1_GOODS,EF_CARTON_KG,17080.0,kg,activity,20.496,rule: keyword 'асепт' + unit 'шт'; pcs x 28 g (packaging_specs exact)
+L01344,S3_C1_GOODS,EF_MILK_KG,196782.53,kg,activity,255.8173,rule: keyword 'сүт' + unit 'л'; l x density 1.03
+L01348,S3_C4_TRANSPORT,EF_REEFER_TKM,2484.0,tkm,activity,0.3478,refrigerated road freight; tkm as booked
+L01349,S3_C1_GOODS,EF_MILK_KG,259778.0,kg,activity,337.7114,rule: keyword 'молок' + unit 'кг'; kg
+L01350,S1_MOBILE,EF_PETROL_L,467.0,l,activity,1.0694,rule: keyword 'аи-92' + unit 'л'; litres
+L01358,S3_C1_GOODS,EF_MILK_KG,253631.32,kg,activity,329.7207,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L01361,S3_C1_GOODS,EF_MILK_KG,193206.37,kg,activity,251.1683,rule: fuzzy milk word 'молакос' + unit 'л'; l x density 1.03
+L01365,S3_C1_GOODS,SP_IT,344.458,1000 KZT net,spend,0.0517,NB on text+GL 7211; net of VAT 344.458 thousand KZT
+L01372,S1_MOBILE,EF_PETROL_L,1070.0,l,activity,2.4503,rule: keyword 'аи-92' + unit 'л'; litres
+L01373,S3_C4_TRANSPORT,EF_REEFER_TKM,3348.0,tkm,activity,0.4687,refrigerated road freight; tkm as booked
+L01376,S3_C1_GOODS,SP_SPARE_PARTS,320.237,1000 KZT net,spend,0.3843,NB on text+GL 1330; net of VAT 320.237 thousand KZT
+L01377,S3_C1_GOODS,EF_MILK_KG,253698.0,kg,activity,329.8074,rule: keyword 'молок' + unit 'кг'; kg
+L01380,S1_MOBILE,EF_DIESEL_L,9882.0,l,activity,26.4838,rule: keyword 'дизел' + unit 'л'; litres
+L01383,S1_FUGITIVE,EF_R404A_KG,80.4,kg,activity,317.0172,refrigerant R-404A refill = leak; kg
+L01386,S3_C4_TRANSPORT,EF_DIESEL_L,463.0,l,activity,1.2408,diesel for third-party carrier -> Cat.4; litres
+L01387,S3_C1_GOODS,SP_TELECOM,122.131,1000 KZT net,spend,0.0244,NB on text+GL 7211; net of VAT 122.131 thousand KZT
+L01390,S3_C1_GOODS,SP_SPARE_PARTS,2298.962,1000 KZT net,spend,2.7588,NB on text+GL 1330; net of VAT 2298.962 thousand KZT
+L01391,S3_C1_GOODS,SP_SPARE_PARTS,354.886,1000 KZT net,spend,0.4259,NB on text+GL 1330; net of VAT 354.886 thousand KZT
+L01393,S3_C1_GOODS,EF_HDPE_KG,1797.5,kg,activity,3.4152,rule: keyword 'крышк' + unit 'шт'; pcs x 2.5 g (packaging_specs exact)
+L01401,S1_MOBILE,EF_DIESEL_L,12515.0,l,activity,33.5402,rule: keyword 'дт' + unit 'л'; litres
+L01402,S3_C5_WASTE,EF_WASTEWATER_M3,24737.0,m3,activity,17.3159,rule: keyword 'водоотвед' + unit 'м3'; m3
+L01403,S3_C6_TRAVEL,EF_FLIGHT_DOM_PKM,1901.0263,pkm,activity,0.4753,"flight ALA-NQZ-ALA, domestic haul; great-circle ALA-NQZ-ALA 1901.0 km x 1 pax"
+L01404,S3_C1_GOODS,EF_MILK_KG,224171.0,kg,activity,291.4223,rule: keyword 'сүт' + unit 'кг'; kg
+L01405,S3_C1_GOODS,EF_PET_KG,25908.0,kg,activity,67.3608,rule: keyword 'пэт' + unit 'кг'; kg
+L01406,S3_C1_GOODS,EF_MILK_KG,194570.0,kg,activity,252.941,rule: keyword 'молок' + unit 'т'; t x 1000
+L01407,S3_C1_GOODS,SP_MAINTENANCE,804.788,1000 KZT net,spend,0.4829,NB on text+GL 8111; net of VAT 804.788 thousand KZT
+L01410,S3_C1_GOODS,SP_TELECOM,217.995,1000 KZT net,spend,0.0436,NB on text+GL 7211; net of VAT 217.995 thousand KZT
+L01411,S3_C1_GOODS,SP_CLEANING_SECURITY,1074.251,1000 KZT net,spend,0.3223,NB on text+GL 7211; net of VAT 1074.251 thousand KZT
+L01415,EXCLUDE,,0.0,,excluded,0.0,"GL 7216 = per diem, not an emission"
+L01416,S3_C6_TRAVEL,EF_FLIGHT_DOM_PKM,1514.9472,pkm,activity,0.3787,"flight ALA-KGF-ALA, domestic haul; great-circle ALA-KGF-ALA 1514.9 km x 1 pax"
+L01426,S3_C1_GOODS,EF_MILK_KG,171800.0,kg,activity,223.34,rule: keyword 'сүт' + unit 'т'; t x 1000
+L01429,S1_STATIONARY,EF_NG_M3,330272.0,m3,activity,630.8195,rule: keyword 'природн' + unit 'м3'; m3
+L01433,S3_C1_GOODS,EF_MILK_KG,232799.57,kg,activity,302.6394,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L01436,S3_C5_WASTE,EF_WASTE_LANDFILL_T,23.42,t,activity,13.5836,rule: keyword 'тбо' + unit 'м3'; m3 x 0.2 t/m3 bulk density
+L01442,S3_C1_GOODS,EF_PAPERBOARD_KG,312550.0,kg,activity,296.9225,rule: keyword 'гофро' + unit 'шт'; pcs x 350 g (packaging_specs exact)
+L01443,S3_C6_TRAVEL,SP_TAXI,36.575,1000 KZT net,spend,0.0183,rule: keyword 'такси' + unit 'мес'; net of VAT 36.575 thousand KZT
+L01444,EXCLUDE,,0.0,,excluded,0.0,"GL 7216 = per diem, not an emission"
+L01448,S2_ELECTRICITY,EF_GRID_KZ_KWH,1594558.0,kWh,activity,1275.6464,rule: unit кВт·ч = purchased electricity + unit 'кВт·ч'; kWh
+L01451,S3_C1_GOODS,SP_OFFICE,189.224,1000 KZT net,spend,0.1703,NB on text+GL 7215; net of VAT 189.224 thousand KZT
+L01454,S3_C1_GOODS,EF_MILK_KG,258610.0,kg,activity,336.193,rule: keyword 'сүт' + unit 'т'; t x 1000
+L01457,S3_C1_GOODS,EF_SUGAR_KG,5230.0,kg,activity,3.138,rule: keyword 'сахар' + unit 'т'; t x 1000
+L01460,S3_C1_GOODS,EF_MILK_KG,196892.0,kg,activity,255.9596,rule: keyword 'сүт' + unit 'кг'; kg
+L01463,S3_C1_GOODS,SP_IT,365.637,1000 KZT net,spend,0.0548,NB on text+GL 7211; net of VAT 365.637 thousand KZT
+L01476,S3_C1_GOODS,SP_SERVICES_PROF,5905.714,1000 KZT net,spend,1.4764,NB on text+GL 7211; net of VAT 5905.714 thousand KZT
+L01482,S3_C1_GOODS,EF_MILK_KG,232996.3,kg,activity,302.8952,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L01483,S3_C1_GOODS,EF_MILK_KG,177927.35,kg,activity,231.3056,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L01485,S3_C2_CAPITAL,SP_VEHICLES,27000.0,1000 KZT net,spend,29.7,GL 2411 fixed asset -> capital goods; net of VAT 27000.000 thousand KZT
+L01487,S3_C6_TRAVEL,SP_TAXI,143.226,1000 KZT net,spend,0.0716,rule: keyword 'такси' + unit 'мес'; net of VAT 143.226 thousand KZT
+L01488,S3_C4_TRANSPORT,EF_ROAD_TKM,10419.0,tkm,activity,1.1461,road freight (no reefer mention); tkm as booked
+L01490,S3_C6_TRAVEL,EF_FLIGHT_SHORT_PKM,3271.5269,pkm,activity,0.5234,"flight ALA-PEK, intl haul; great-circle ALA-PEK 3271.5 km x 1 pax"
+L01492,S1_MOBILE,EF_DIESEL_L,13304.0,l,activity,35.6547,rule: keyword 'дизел' + unit 'л'; litres
+L01493,S3_C1_GOODS,EF_FRUIT_KG,7494.0,kg,activity,7.494,rule: keyword 'наполнит' + unit 'кг'; kg
+L01495,S3_C1_GOODS,SP_CLEANING_SECURITY,844.364,1000 KZT net,spend,0.2533,NB on text+GL 7211; net of VAT 844.364 thousand KZT
+L01496,S3_C1_GOODS,EF_MILK_KG,259123.0,kg,activity,336.8599,rule: keyword 'сүт' + unit 'кг'; kg
+L01500,S3_C1_GOODS,EF_MILK_KG,251366.0,kg,activity,326.7758,rule: keyword 'молок' + unit 'кг'; kg
+L01503,S1_MOBILE,EF_DIESEL_L,11609.0,l,activity,31.1121,rule: keyword 'дизел' + unit 'л'; litres
+L01504,S3_C1_GOODS,EF_HDPE_KG,33056.0,kg,activity,62.8064,rule: keyword 'пленк' + unit 'кг'; kg
+L01505,S1_MOBILE,EF_LPG_KG,820.0,kg,activity,2.4436,rule: keyword 'сжиж' + unit 'кг'; kg
+L01509,S3_C1_GOODS,EF_MILK_KG,207062.0,kg,activity,269.1806,rule: fuzzy milk word 'молако' + unit 'кг'; kg
+L01510,S3_C6_TRAVEL,EF_FLIGHT_DOM_PKM,4162.8028,pkm,activity,1.0407,"flight ALA-SCO-ALA, domestic haul; great-circle ALA-SCO-ALA 4162.8 km x 1 pax"
+L01515,EXCLUDE,,0.0,,excluded,0.0,"GL 1610 = advance payment, not an emission"
+L01517,S3_C1_GOODS,SP_SERVICES_PROF,3272.059,1000 KZT net,spend,0.818,NB on text+GL 7211; net of VAT 3272.059 thousand KZT
+L01521,S3_C1_GOODS,SP_IT,199.451,1000 KZT net,spend,0.0299,NB on text+GL 7211; net of VAT 199.451 thousand KZT
+L01524,S3_C1_GOODS,EF_MILK_KG,161359.0,kg,activity,209.7667,rule: keyword 'молок' + unit 'кг'; kg
+L01525,S1_MOBILE,EF_DIESEL_L,13857.0,l,activity,37.1368,rule: keyword 'дизел' + unit 'л'; litres
+L01526,EXCLUDE,,0.0,,excluded,0.0,"GL 7216 = per diem, not an emission"
+L01528,S3_C1_GOODS,SP_SERVICES_PROF,2841.316,1000 KZT net,spend,0.7103,NB on text+GL 7211; net of VAT 2841.316 thousand KZT
+L01529,S3_C1_GOODS,SP_CATERING,1942.343,1000 KZT net,spend,1.9423,NB on text+GL 7211; net of VAT 1942.343 thousand KZT
+L01534,S3_C6_TRAVEL,EF_FLIGHT_DOM_PKM,1901.0263,pkm,activity,0.4753,"flight ALA-NQZ-ALA, domestic haul; great-circle ALA-NQZ-ALA 1901.0 km x 1 pax"
+L01536,S3_C1_GOODS,EF_MILK_KG,240784.0,kg,activity,313.0192,rule: keyword 'молок' + unit 'кг'; kg
+L01539,S3_C1_GOODS,EF_MILK_KG,184810.84,kg,activity,240.2541,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L01542,S3_C1_GOODS,EF_MILK_KG,188731.0,kg,activity,245.3503,rule: keyword 'молок' + unit 'кг'; kg
+L01543,S1_MOBILE,EF_DIESEL_L,9020.0,l,activity,24.1736,rule: keyword 'дизел' + unit 'л'; litres
+L01544,S3_C1_GOODS,SP_IT,217.161,1000 KZT net,spend,0.0326,NB on text+GL 7211; net of VAT 217.161 thousand KZT
+L01546,S3_C1_GOODS,EF_MILK_KG,176212.0,kg,activity,229.0756,rule: keyword 'milk' + unit 'кг'; kg
+L01549,S1_MOBILE,EF_DIESEL_L,13606.0,l,activity,36.4641,rule: keyword 'diesel' + unit 'л'; litres
+L01553,S3_C1_GOODS,EF_FRUIT_KG,4080.0,kg,activity,4.08,rule: keyword 'наполнит' + unit 'кг'; kg
+L01560,S3_C6_TRAVEL,EF_FLIGHT_DOM_PKM,4018.6647,pkm,activity,1.0047,"flight ALA-GUW-ALA, domestic haul; great-circle ALA-GUW-ALA 4018.7 km x 1 pax"
+L01561,S3_C1_GOODS,EF_MILK_KG,160860.0,kg,activity,209.118,rule: fuzzy milk word 'молако' + unit 'т'; t x 1000
+L01562,S3_C1_GOODS,SP_TELECOM,104.928,1000 KZT net,spend,0.021,NB on text+GL 7211; net of VAT 104.928 thousand KZT
+L01566,S3_C1_GOODS,SP_CLEANING_SECURITY,1311.807,1000 KZT net,spend,0.3935,NB on text+GL 7211; net of VAT 1311.807 thousand KZT
+L01567,S3_C6_TRAVEL,EF_HOTEL_NIGHT,1.0,room-night,activity,0.025,rule: keyword 'проживан' + unit 'сут'; room-nights
+L01575,S3_C1_GOODS,EF_MILK_KG,237822.0,kg,activity,309.1686,rule: keyword 'сүт' + unit 'кг'; kg
+L01577,S3_C5_WASTE,EF_WASTE_LANDFILL_T,24.3,t,activity,14.094,rule: keyword 'тбо' + unit 'м3'; m3 x 0.2 t/m3 bulk density
+L01584,EXCLUDE,,0.0,,excluded,0.0,duplicate of L01258 (same doc_no/counterparty/amount)
+L01587,S1_MOBILE,EF_PETROL_L,472.0,l,activity,1.0809,rule: keyword 'бензин' + unit 'л'; litres
+L01588,S3_C1_GOODS,EF_MILK_KG,255262.0,kg,activity,331.8406,rule: fuzzy milk word 'молако' + unit 'кг'; kg
+L01592,S3_C1_GOODS,EF_PET_KG,14364.0,kg,activity,37.3464,rule: keyword 'преформ' + unit 'шт'; pcs x 28 g (packaging_specs exact)
+L01593,S3_C1_GOODS,EF_MILK_KG,169750.0,kg,activity,220.675,rule: keyword 'молок' + unit 'кг'; kg
+L01594,S3_C1_GOODS,EF_MILK_KG,178527.0,kg,activity,232.0851,rule: keyword 'сүт' + unit 'кг'; kg
+L01596,S2_ELECTRICITY,EF_GRID_KZ_KWH,1385522.0,kWh,activity,1108.4176,rule: unit кВт·ч = purchased electricity + unit 'кВт·ч'; kWh
+L01598,S3_C1_GOODS,EF_MILK_KG,172020.0,kg,activity,223.626,rule: keyword 'молок' + unit 'т'; t x 1000
+L01600,S3_C1_GOODS,EF_MILK_KG,170710.0,kg,activity,221.923,rule: keyword 'сүт' + unit 'т'; t x 1000
+L01602,EXCLUDE,,0.0,,excluded,0.0,"GL 3110 = tax, not an emission"
+L01604,S1_MOBILE,EF_DIESEL_L,11344.0,l,activity,30.4019,rule: keyword 'дт' + unit 'л'; litres
+L01606,S3_C4_TRANSPORT,EF_ROAD_TKM,2592.0,tkm,activity,0.2851,road freight (no reefer mention); tkm as booked
+L01613,S3_C1_GOODS,SP_SERVICES_PROF,1960.327,1000 KZT net,spend,0.4901,NB on text+GL 7211; net of VAT 1960.327 thousand KZT
+L01622,S3_C6_TRAVEL,EF_FLIGHT_DOM_PKM,1901.0263,pkm,activity,0.4753,"flight ALA-NQZ-ALA, domestic haul; great-circle ALA-NQZ-ALA 1901.0 km x 1 pax"
+L01623,S3_C1_GOODS,EF_MILK_KG,189114.0,kg,activity,245.8482,rule: keyword 'молок' + unit 'кг'; kg
+L01626,S3_C1_GOODS,SP_CLEANING_SECURITY,1438.305,1000 KZT net,spend,0.4315,NB on text+GL 7211; net of VAT 1438.305 thousand KZT
+L01628,S3_C1_GOODS,EF_MILK_KG,161598.0,kg,activity,210.0774,rule: keyword 'сүт' + unit 'кг'; kg
+L01630,S3_C1_GOODS,EF_MILK_KG,189566.35,kg,activity,246.4363,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L01641,S3_C1_GOODS,SP_MAINTENANCE,417.864,1000 KZT net,spend,0.2507,NB on text+GL 8111; net of VAT 417.864 thousand KZT
+L01648,S3_C1_GOODS,EF_PET_KG,26376.0,kg,activity,68.5776,rule: keyword 'преформ' + unit 'шт'; pcs x 28 g (packaging_specs exact)
+L01650,S3_C6_TRAVEL,EF_FLIGHT_LONG_PKM,7845.3689,pkm,activity,1.1768,"flight ALA-IST-ALA, intl haul; great-circle ALA-IST-ALA 7845.4 km x 1 pax"
+L01655,S1_MOBILE,EF_DIESEL_L,7380.0,l,activity,19.7784,rule: keyword 'дт' + unit 'л'; litres
+L01656,S3_C1_GOODS,SP_OFFICE,93.234,1000 KZT net,spend,0.0839,NB on text+GL 7215; net of VAT 93.234 thousand KZT
+L01657,S3_C1_GOODS,SP_TELECOM,151.438,1000 KZT net,spend,0.0303,NB on text+GL 7211; net of VAT 151.438 thousand KZT
+L01658,S3_C1_GOODS,SP_TELECOM,154.329,1000 KZT net,spend,0.0309,NB on text+GL 7211; net of VAT 154.329 thousand KZT
+L01664,S3_C1_GOODS,EF_FRUIT_KG,1232.0,kg,activity,1.232,rule: keyword 'пюре' + unit 'кг'; kg
+L01668,S1_MOBILE,EF_LPG_KG,875.0,kg,activity,2.6075,rule: keyword 'сжиж' + unit 'кг'; kg
+L01669,S1_MOBILE,EF_PETROL_L,1432.0,l,activity,3.2793,rule: keyword 'аи-92' + unit 'л'; litres
+L01673,S1_MOBILE,EF_DIESEL_L,8831.0,l,activity,23.6671,rule: keyword 'diesel' + unit 'л'; litres
+L01677,S3_C1_GOODS,EF_PET_KG,34490.0,kg,activity,89.674,rule: keyword 'пэт' + unit 'кг'; kg
+L01680,S3_C1_GOODS,SP_FINANCIAL,3371.493,1000 KZT net,spend,0.3371,NB on text+GL 7214; net of VAT 3371.493 thousand KZT
+L01682,S3_C1_GOODS,EF_NAOH_KG,1774.0,kg,activity,2.3062,rule: keyword 'кауст' + unit 'кг'; kg
+L01683,S3_C1_GOODS,SP_TELECOM,343.813,1000 KZT net,spend,0.0688,NB on text+GL 7211; net of VAT 343.813 thousand KZT
+L01684,S3_C1_GOODS,EF_MILK_KG,209670.92,kg,activity,272.5722,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L01685,S1_MOBILE,EF_LPG_KG,867.24,kg,activity,2.5844,rule: keyword 'сжиж' + unit 'л'; l x density 0.54
+L01686,S3_C1_GOODS,EF_MILK_KG,140202.57,kg,activity,182.2633,rule: keyword 'milk' + unit 'л'; l x density 1.03
+L01690,S3_C1_GOODS,SP_SPARE_PARTS,170.917,1000 KZT net,spend,0.2051,NB on text+GL 1330; net of VAT 170.917 thousand KZT
+L01691,S3_C1_GOODS,EF_ACID_KG,4977.0,kg,activity,7.4655,rule: keyword 'кислот' + unit 'кг'; kg
+L01692,S3_C1_GOODS,EF_ALU_FOIL_KG,15603.0,kg,activity,140.427,rule: keyword 'фольг' + unit 'кг'; kg
+L01695,S3_C6_TRAVEL,SP_TAXI,36.695,1000 KZT net,spend,0.0183,rule: keyword 'такси' + unit 'мес'; net of VAT 36.695 thousand KZT
+L01702,S3_C1_GOODS,EF_MILK_KG,220311.0,kg,activity,286.4043,rule: keyword 'сүт' + unit 'кг'; kg
+L01703,S3_C1_GOODS,EF_MILK_KG,170239.43,kg,activity,221.3113,rule: keyword 'сүт' + unit 'л'; l x density 1.03
+L01707,S3_C1_GOODS,EF_MILK_KG,237284.0,kg,activity,308.4692,rule: fuzzy milk word 'молако' + unit 'кг'; kg
+L01709,S1_MOBILE,EF_DIESEL_L,11715.0,l,activity,31.3962,rule: keyword 'дт' + unit 'л'; litres
+L01710,S3_C4_TRANSPORT,EF_DIESEL_L,476.0,l,activity,1.2757,diesel for third-party carrier -> Cat.4; litres
+L01712,S3_C1_GOODS,EF_HDPE_KG,2035.0,kg,activity,3.8665,rule: keyword 'қақпақ' + unit 'шт'; pcs x 2.5 g (packaging_specs exact)
+L01713,S3_C1_GOODS,EF_MILK_KG,177396.0,kg,activity,230.6148,rule: keyword 'молок' + unit 'кг'; kg
+L01714,S3_C1_GOODS,EF_CARTON_KG,25331.0,kg,activity,30.3972,rule: keyword 'асепт' + unit 'кг'; kg
+L01716,S3_C1_GOODS,SP_SERVICES_PROF,1908.758,1000 KZT net,spend,0.4772,NB on text+GL 7211; net of VAT 1908.758 thousand KZT
+L01718,S3_C1_GOODS,EF_ACID_KG,1063.0,kg,activity,1.5945,rule: keyword 'кислот' + unit 'кг'; kg
+L01719,S3_C1_GOODS,EF_MILK_KG,190150.0,kg,activity,247.195,rule: keyword 'молок' + unit 'т'; t x 1000
+L01720,S3_C1_GOODS,EF_MILK_KG,173920.0,kg,activity,226.096,rule: keyword 'молок' + unit 'т'; t x 1000
+L01721,S3_C1_GOODS,EF_MILK_KG,149248.0,kg,activity,194.0224,rule: fuzzy milk word 'молако' + unit 'кг'; kg
+L01724,S3_C1_GOODS,EF_MILK_KG,171386.0,kg,activity,222.8018,rule: keyword 'milk' + unit 'кг'; kg
+L01729,S1_STATIONARY,EF_NG_M3,429545.0,m3,activity,820.4309,rule: keyword 'природн' + unit 'тыс. м3'; thousand m3 x 1000
+L01731,S3_C1_GOODS,EF_MILK_KG,222852.0,kg,activity,289.7076,rule: keyword 'молок' + unit 'кг'; kg
+L01733,S3_C4_TRANSPORT,EF_ROAD_TKM,9200.0,tkm,activity,1.012,road freight (no reefer mention); tkm as booked
+L01736,S3_C1_GOODS,EF_MILK_KG,253720.0,kg,activity,329.836,rule: keyword 'milk' + unit 'кг'; kg
+L01739,S3_C1_GOODS,EF_SUGAR_KG,19693.0,kg,activity,11.8158,rule: keyword 'сахар' + unit 'кг'; kg
+L01742,S3_C1_GOODS,SP_FINANCIAL,59.159,1000 KZT net,spend,0.0059,NB on text+GL 7214; net of VAT 59.159 thousand KZT
+L01744,S3_C1_GOODS,EF_CARTON_KG,35547.0,kg,activity,42.6564,rule: keyword 'асепт' + unit 'кг'; kg
+L01747,S3_C1_GOODS,EF_MILK_KG,242090.0,kg,activity,314.717,rule: keyword 'молок' + unit 'т'; t x 1000
+L01748,EXCLUDE,,0.0,,excluded,0.0,"GL 3110 = tax, not an emission"
+L01749,S3_C1_GOODS,EF_MILK_KG,242340.0,kg,activity,315.042,rule: keyword 'milk' + unit 'т'; t x 1000
+L01753,S3_C1_GOODS,SP_FINANCIAL,70.12,1000 KZT net,spend,0.007,NB on text+GL 7214; net of VAT 70.120 thousand KZT
+L01754,S3_C1_GOODS,EF_MILK_KG,155833.0,kg,activity,202.5829,rule: keyword 'молок' + unit 'кг'; kg
+L01758,S3_C1_GOODS,EF_MILK_KG,195300.0,kg,activity,253.89,rule: fuzzy milk word 'молако' + unit 'т'; t x 1000
+L01761,S3_C6_TRAVEL,EF_FLIGHT_LONG_PKM,3922.6844,pkm,activity,0.5884,"flight ALA-IST, intl haul; great-circle ALA-IST 3922.7 km x 1 pax"
+L01763,S3_C1_GOODS,SP_SERVICES_PROF,2290.398,1000 KZT net,spend,0.5726,NB on text+GL 7211; net of VAT 2290.398 thousand KZT
+L01769,S3_C1_GOODS,EF_MILK_KG,185645.14,kg,activity,241.3387,rule: keyword 'молок' + unit 'л'; l x density 1.03
+L01771,S3_C1_GOODS,SP_RENT,3900.127,1000 KZT net,spend,1.17,NB on text+GL 7213; net of VAT 3900.127 thousand KZT
+L01777,EXCLUDE,,0.0,,excluded,0.0,"GL 3150 = social contributions, not an emission"
+L01780,S3_C4_TRANSPORT,EF_ROAD_TKM,15616.0,tkm,activity,1.7178,road freight (no reefer mention); tkm as booked
+L01784,S3_C1_GOODS,EF_MILK_KG,248963.0,kg,activity,323.6519,rule: keyword 'milk' + unit 'кг'; kg
+L01785,S2_HEAT,EF_HEAT_GCAL,1094.2,Gcal,activity,328.26,rule: unit Гкал = purchased heat + unit 'Гкал'; Gcal
+L01787,S3_C1_GOODS,EF_ALU_FOIL_KG,24443.0,kg,activity,219.987,rule: keyword 'фольг' + unit 'кг'; kg
+L01788,S3_C1_GOODS,SP_SERVICES_PROF,5615.789,1000 KZT net,spend,1.4039,NB on text+GL 7211; net of VAT 5615.789 thousand KZT
+L01789,S3_C1_GOODS,EF_MILK_KG,224467.0,kg,activity,291.8071,rule: keyword 'сүт' + unit 'кг'; kg
+L01791,S1_MOBILE,EF_DIESEL_L,9400.0,l,activity,25.192,rule: keyword 'дт' + unit 'л'; litres
+L01792,S3_C1_GOODS,EF_HDPE_KG,2192.5,kg,activity,4.1658,rule: keyword 'қақпақ' + unit 'шт'; pcs x 2.5 g (packaging_specs exact)
+L01793,S3_C1_GOODS,EF_MILK_KG,256270.0,kg,activity,333.151,rule: keyword 'молок' + unit 'кг'; kg
+L01795,S1_MOBILE,EF_LPG_KG,1359.72,kg,activity,4.052,rule: keyword 'сжиж' + unit 'л'; l x density 0.54
+L01797,S3_C1_GOODS,EF_MILK_KG,170189.99,kg,activity,221.247,rule: keyword 'milk' + unit 'л'; l x density 1.03
+L01800,S3_C6_TRAVEL,EF_FLIGHT_LONG_PKM,3922.6844,pkm,activity,0.5884,"flight ALA-IST, intl haul; great-circle ALA-IST 3922.7 km x 1 pax"
+L01803,S3_C6_TRAVEL,EF_FLIGHT_DOM_PKM,950.5132,pkm,activity,0.2376,"flight ALA-NQZ, domestic haul; great-circle ALA-NQZ 950.5 km x 1 pax"
+L01804,S1_MOBILE,EF_DIESEL_L,9178.0,l,activity,24.597,rule: keyword 'дизел' + unit 'л'; litres
+L01805,S3_C1_GOODS,EF_MILK_KG,244462.0,kg,activity,317.8006,rule: keyword 'milk' + unit 'кг'; kg
+L01806,S3_C1_GOODS,EF_MILK_KG,205457.0,kg,activity,267.0941,rule: keyword 'молок' + unit 'кг'; kg
+L01810,S3_C1_GOODS,SP_SPARE_PARTS,1698.238,1000 KZT net,spend,2.0379,NB on text+GL 1330; net of VAT 1698.238 thousand KZT
+L01814,S3_C1_GOODS,EF_NAOH_KG,3555.0,kg,activity,4.6215,rule: keyword 'едк' + unit 'кг'; kg
+L01817,S3_C1_GOODS,SP_CLEANING_SECURITY,418.276,1000 KZT net,spend,0.1255,NB on text+GL 7211; net of VAT 418.276 thousand KZT
+L01818,S3_C1_GOODS,EF_HDPE_KG,415.0,kg,activity,0.7885,rule: keyword 'қақпақ' + unit 'шт'; pcs x 2.5 g (packaging_specs exact)
+L01820,S1_MOBILE,EF_DIESEL_L,6246.0,l,activity,16.7393,rule: keyword 'дизел' + unit 'л'; litres
+L01823,S3_C1_GOODS,EF_MILK_KG,202333.0,kg,activity,263.0329,rule: keyword 'молок' + unit 'кг'; kg
+L01824,S3_C1_GOODS,EF_PAPERBOARD_KG,63000.0,kg,activity,59.85,rule: keyword 'гофро' + unit 'шт'; pcs x 350 g (packaging_specs exact)
+L01825,S3_C1_GOODS,EF_MILK_KG,243794.0,kg,activity,316.9322,rule: keyword 'молок' + unit 'кг'; kg
+L01828,S3_C1_GOODS,EF_FRUIT_KG,8195.0,kg,activity,8.195,rule: keyword 'наполнит' + unit 'кг'; kg
+L01831,S3_C1_GOODS,EF_CARTON_KG,26354.0,kg,activity,31.6248,rule: keyword 'асепт' + unit 'кг'; kg
+L01832,S3_C1_GOODS,SP_RENT,3594.892,1000 KZT net,spend,1.0785,NB on text+GL 7213; net of VAT 3594.892 thousand KZT
+L01836,S3_C1_GOODS,SP_SPARE_PARTS,190.808,1000 KZT net,spend,0.229,NB on text+GL 1330; net of VAT 190.808 thousand KZT
+L01837,S2_ELECTRICITY,EF_GRID_KZ_KWH,1576514.0,kWh,activity,1261.2112,rule: unit кВт·ч = purchased electricity + unit 'кВт·ч'; kWh
+L01838,S1_MOBILE,EF_PETROL_L,670.0,l,activity,1.5343,rule: keyword 'бензин' + unit 'л'; litres
+L01839,S3_C6_TRAVEL,EF_FLIGHT_SHORT_PKM,420.2894,pkm,activity,0.0672,"flight ALA-FRU-ALA, intl haul; great-circle ALA-FRU-ALA 420.3 km x 1 pax"
+L01840,S3_C4_TRANSPORT,EF_DIESEL_L,742.0,l,activity,1.9886,diesel for third-party carrier -> Cat.4; litres
+L01844,S3_C5_WASTE,EF_WASTE_LANDFILL_T,20.74,t,activity,12.0292,rule: keyword 'тбо' + unit 'м3'; m3 x 0.2 t/m3 bulk density
+L01848,S3_C1_GOODS,SP_SERVICES_PROF,1208.634,1000 KZT net,spend,0.3022,NB on text+GL 7211; net of VAT 1208.634 thousand KZT
+L01852,S3_C6_TRAVEL,EF_HOTEL_NIGHT,1.0,room-night,activity,0.025,rule: keyword 'проживан' + unit 'сут'; room-nights
+L01854,S3_C4_TRANSPORT,EF_REEFER_TKM,13420.0,tkm,activity,1.8788,refrigerated road freight; tkm as booked
+L01856,S3_C1_GOODS,EF_MILK_KG,142931.0,kg,activity,185.8103,rule: keyword 'молок' + unit 'кг'; kg
+L01859,EXCLUDE,,0.0,,excluded,0.0,duplicate of L00663 (same doc_no/counterparty/amount)
+L01861,S3_C1_GOODS,EF_MILK_KG,182060.0,kg,activity,236.678,rule: keyword 'молок' + unit 'т'; t x 1000
+L01863,S3_C1_GOODS,SP_INGREDIENTS_OTHER,367.324,1000 KZT net,spend,0.4041,NB on text+GL 1312; net of VAT 367.324 thousand KZT
+L01864,S3_C1_GOODS,EF_MILK_KG,200468.0,kg,activity,260.6084,rule: fuzzy milk word 'молако' + unit 'кг'; kg
+L01865,EXCLUDE,,0.0,,excluded,0.0,duplicate of L00625 (same doc_no/counterparty/amount)
+L01868,S1_MOBILE,EF_DIESEL_L,8290.0,l,activity,22.2172,rule: keyword 'дизел' + unit 'л'; litres
+L01869,S3_C6_TRAVEL,EF_FLIGHT_SHORT_PKM,1357.8138,pkm,activity,0.2173,"flight ALA-TAS-ALA, intl haul; great-circle ALA-TAS-ALA 1357.8 km x 1 pax"
+L01874,S3_C1_GOODS,SP_MAINTENANCE,740.197,1000 KZT net,spend,0.4441,NB on text+GL 8111; net of VAT 740.197 thousand KZT
+L01877,S3_C1_GOODS,SP_OFFICE,258.762,1000 KZT net,spend,0.2329,NB on text+GL 7215; net of VAT 258.762 thousand KZT
+L01878,S3_C6_TRAVEL,EF_FLIGHT_DOM_PKM,4018.6647,pkm,activity,1.0047,"flight ALA-GUW-ALA, domestic haul; great-circle ALA-GUW-ALA 4018.7 km x 1 pax"
+L01879,S3_C1_GOODS,SP_CLEANING_SECURITY,1173.443,1000 KZT net,spend,0.352,NB on text+GL 7211; net of VAT 1173.443 thousand KZT
+L01882,S3_C1_GOODS,EF_CARTON_KG,8596.0,kg,activity,10.3152,rule: keyword 'асепт' + unit 'шт'; pcs x 28 g (packaging_specs exact)
+L01883,S3_C6_TRAVEL,SP_TAXI,146.943,1000 KZT net,spend,0.0735,rule: keyword 'такси' + unit 'мес'; net of VAT 146.943 thousand KZT
+L01886,S3_C1_GOODS,SP_SPARE_PARTS,248.563,1000 KZT net,spend,0.2983,NB on text+GL 1330; net of VAT 248.563 thousand KZT
+L01890,S3_C1_GOODS,EF_MILK_KG,245417.0,kg,activity,319.0421,rule: fuzzy milk word 'молако' + unit 'кг'; kg
+L01900,S3_C1_GOODS,SP_FINANCIAL,141.102,1000 KZT net,spend,0.0141,NB on text+GL 7214; net of VAT 141.102 thousand KZT
+L01906,S3_C1_GOODS,EF_MILK_KG,164730.0,kg,activity,214.149,rule: keyword 'молок' + unit 'кг'; kg
+L01912,S3_C1_GOODS,SP_CLEANING_SECURITY,1478.795,1000 KZT net,spend,0.4436,NB on text+GL 7211; net of VAT 1478.795 thousand KZT
+L01915,S1_FUGITIVE,EF_R404A_KG,87.0,kg,activity,343.041,refrigerant R-404A refill = leak; kg
+L01916,S3_C1_GOODS,EF_MILK_KG,154386.7,kg,activity,200.7027,rule: keyword 'milk' + unit 'л'; l x density 1.03
+L01920,S1_MOBILE,EF_DIESEL_L,11929.0,l,activity,31.9697,rule: keyword 'дизел' + unit 'л'; litres
+L01921,S3_C1_GOODS,EF_MILK_KG,159785.96,kg,activity,207.7217,rule: keyword 'сүт' + unit 'л'; l x density 1.03
+L01927,S3_C1_GOODS,EF_ALU_FOIL_KG,12101.0,kg,activity,108.909,rule: keyword 'фольг' + unit 'кг'; kg
+L01932,S3_C6_TRAVEL,EF_FLIGHT_SHORT_PKM,5628.4352,pkm,activity,0.9005,"flight ALA-DXB-ALA, intl haul; great-circle ALA-DXB-ALA 5628.4 km x 1 pax"
+L01933,S3_C1_GOODS,EF_MILK_KG,170322.0,kg,activity,221.4186,rule: keyword 'сүт' + unit 'кг'; kg
+L01937,S3_C1_GOODS,EF_MILK_KG,177608.0,kg,activity,230.8904,rule: keyword 'сүт' + unit 'кг'; kg
+L01939,S3_C1_GOODS,EF_HDPE_KG,1322.5,kg,activity,2.5128,rule: keyword 'қақпақ' + unit 'шт'; pcs x 2.5 g (packaging_specs exact)
+L01940,S3_C1_GOODS,EF_NAOH_KG,4047.0,kg,activity,5.2611,rule: keyword 'кауст' + unit 'кг'; kg
+L01946,S3_C1_GOODS,SP_CLEANING_SECURITY,790.684,1000 KZT net,spend,0.2372,NB on text+GL 7211; net of VAT 790.684 thousand KZT
+L01949,S3_C1_GOODS,EF_MILK_KG,198108.0,kg,activity,257.5404,rule: keyword 'молок' + unit 'кг'; kg
+L01951,S3_C6_TRAVEL,EF_FLIGHT_LONG_PKM,7845.3689,pkm,activity,1.1768,"flight ALA-IST-ALA, intl haul; great-circle ALA-IST-ALA 7845.4 km x 1 pax"

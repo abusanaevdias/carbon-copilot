@@ -1,0 +1,505 @@
+{
+  "company": "Dala Foods LLP (fictional, synthetic data)",
+  "year": 2025,
+  "standard": "GHG Protocol Corporate Standard, operational control; Scope 2 location-based",
+  "unit": "tCO2e",
+  "boundary": "All 1952 lines of the 2025 purchase ledger: 1269 train lines use organiser labels, 683 test lines use this pipeline's predictions (out/audit_test.csv). Ledger is one year split in two.",
+  "totals": {
+    "total": 199638.2,
+    "scope1": 14088.1,
+    "scope2_location": 15992.8,
+    "scope2_market": null,
+    "scope3": 169557.4,
+    "scope2_market_note": "Not determinable: no supplier-specific factors, energy attribute certificates or residual mix in the data. Location-based value (0.8 kg/kWh grid) is the only defensible figure; market-based must be added once contracts/EACs are known.",
+    "by_category": {
+      "S3_C1_GOODS": 168213.5,
+      "S2_ELECTRICITY": 14495.7,
+      "S1_STATIONARY": 8530.3,
+      "S1_MOBILE": 4155.4,
+      "S2_HEAT": 1497.0,
+      "S1_FUGITIVE": 1402.3,
+      "S3_C2_CAPITAL": 776.9,
+      "S3_C5_WASTE": 345.0,
+      "S3_C4_TRANSPORT": 173.6,
+      "S3_C6_TRAVEL": 48.3
+    }
+  },
+  "uncertainty": {
+    "total_pct": 23.7,
+    "total_range": [
+      152354,
+      246923
+    ],
+    "by_scope_pct": {
+      "S1": 3.8,
+      "S2": 5.3,
+      "S3": 27.9
+    },
+    "method": "Assumed ranges, not a statistical result. Informed by IPCC 2006 Guidelines Vol.1 Ch.3 (Uncertainties; metered commercial fuel/energy activity data within a few %), IPCC 2006 Vol.2 Ch.2 (CO2 factors for fuels +/-5% or better), GHG Protocol Scope 3 Standard Ch.7 and its Quantitative Uncertainty Guidance (secondary/spend-based EEIO data: +/-50% or more). Lines sharing one factor are treated as fully correlated (their uncertainties add), different factors as independent (root-sum-square)."
+  },
+  "methods": {
+    "activity_lines": 1399,
+    "spend_lines": 478,
+    "excluded_lines": 75,
+    "activity_share_lines_pct": 74.5,
+    "activity_share_tco2e_pct": 99.5,
+    "spend_share_tco2e_pct": 0.5
+  },
+  "data_quality": {
+    "weighted_score": 2.72,
+    "scale": "1 best .. 5 worst, weighted by |tCO2e|",
+    "tiers": {
+      "1": {
+        "meaning": "metered energy/fuel/refrigerant in the factor's own unit",
+        "uncertainty_pct": 5.0,
+        "lines": 278,
+        "tco2e": 25940.3
+      },
+      "2": {
+        "meaning": "activity data needing a conversion (density, t x km, great-circle km, m3->t, piece weight) or a logistics/utility factor",
+        "uncertainty_pct": 10.0,
+        "lines": 251,
+        "tco2e": 4780.7
+      },
+      "3": {
+        "meaning": "activity data x generic cradle-to-gate product factor (milk, packaging, chemicals, food)",
+        "uncertainty_pct": 30.0,
+        "lines": 870,
+        "tco2e": 167853.1
+      },
+      "4": {
+        "meaning": "spend-based, item-specific factor, net of VAT",
+        "uncertainty_pct": 50.0,
+        "lines": 474,
+        "tco2e": 1062.0
+      },
+      "5": {
+        "meaning": "spend-based fallback (unseen wording or no usable quantity)",
+        "uncertainty_pct": 100.0,
+        "lines": 4,
+        "tco2e": 2.1
+      }
+    }
+  },
+  "hotspots": [
+    {
+      "rank": 1,
+      "category": "S3_C1_GOODS",
+      "ef_id": "EF_MILK_KG",
+      "factor": "Raw cow milk, farm gate",
+      "tco2e": 157499.3,
+      "share_pct": 78.9,
+      "lines": 600
+    },
+    {
+      "rank": 2,
+      "category": "S2_ELECTRICITY",
+      "ef_id": "EF_GRID_KZ_KWH",
+      "factor": "Grid electricity, Kazakhstan (location-based)",
+      "tco2e": 14495.7,
+      "share_pct": 7.3,
+      "lines": 24
+    },
+    {
+      "rank": 3,
+      "category": "S1_STATIONARY",
+      "ef_id": "EF_NG_M3",
+      "factor": "Natural gas, combustion",
+      "tco2e": 8530.3,
+      "share_pct": 4.3,
+      "lines": 12
+    },
+    {
+      "rank": 4,
+      "category": "S1_MOBILE",
+      "ef_id": "EF_DIESEL_L",
+      "factor": "Diesel fuel, combustion",
+      "tco2e": 3719.2,
+      "share_pct": 1.9,
+      "lines": 150
+    },
+    {
+      "rank": 5,
+      "category": "S3_C1_GOODS",
+      "ef_id": "EF_PAPERBOARD_KG",
+      "factor": "Corrugated board / paperboard",
+      "tco2e": 3374.4,
+      "share_pct": 1.7,
+      "lines": 30
+    },
+    {
+      "rank": 6,
+      "category": "S3_C1_GOODS",
+      "ef_id": "EF_ALU_FOIL_KG",
+      "factor": "Aluminium foil lids",
+      "tco2e": 2993.0,
+      "share_pct": 1.5,
+      "lines": 15
+    },
+    {
+      "rank": 7,
+      "category": "S3_C1_GOODS",
+      "ef_id": "EF_PET_KG",
+      "factor": "PET (preforms, bottles)",
+      "tco2e": 1761.0,
+      "share_pct": 0.9,
+      "lines": 40
+    },
+    {
+      "rank": 8,
+      "category": "S2_HEAT",
+      "ef_id": "EF_HEAT_GCAL",
+      "factor": "Purchased heat, Almaty district heating",
+      "tco2e": 1497.0,
+      "share_pct": 0.7,
+      "lines": 7
+    },
+    {
+      "rank": 9,
+      "category": "S1_FUGITIVE",
+      "ef_id": "EF_R404A_KG",
+      "factor": "Refrigerant R-404A released",
+      "tco2e": 1300.0,
+      "share_pct": 0.7,
+      "lines": 7
+    },
+    {
+      "rank": 10,
+      "category": "S3_C1_GOODS",
+      "ef_id": "EF_CARTON_KG",
+      "factor": "Aseptic composite carton",
+      "tco2e": 772.7,
+      "share_pct": 0.4,
+      "lines": 34
+    }
+  ],
+  "top_lines": [
+    {
+      "line_id": "L01448",
+      "source": "test_prediction",
+      "category": "S2_ELECTRICITY",
+      "ef_id": "EF_GRID_KZ_KWH",
+      "activity": "1.59456e+06 kWh",
+      "tco2e": 1275.6
+    },
+    {
+      "line_id": "L00155",
+      "source": "train_label",
+      "category": "S2_ELECTRICITY",
+      "ef_id": "EF_GRID_KZ_KWH",
+      "activity": "1.5901e+06 kWh",
+      "tco2e": 1272.1
+    },
+    {
+      "line_id": "L01837",
+      "source": "test_prediction",
+      "category": "S2_ELECTRICITY",
+      "ef_id": "EF_GRID_KZ_KWH",
+      "activity": "1.57651e+06 kWh",
+      "tco2e": 1261.2
+    },
+    {
+      "line_id": "L00228",
+      "source": "test_prediction",
+      "category": "S2_ELECTRICITY",
+      "ef_id": "EF_GRID_KZ_KWH",
+      "activity": "1.54952e+06 kWh",
+      "tco2e": 1239.6
+    },
+    {
+      "line_id": "L00887",
+      "source": "test_prediction",
+      "category": "S2_ELECTRICITY",
+      "ef_id": "EF_GRID_KZ_KWH",
+      "activity": "1.52376e+06 kWh",
+      "tco2e": 1219.0
+    },
+    {
+      "line_id": "L00933",
+      "source": "train_label",
+      "category": "S2_ELECTRICITY",
+      "ef_id": "EF_GRID_KZ_KWH",
+      "activity": "1.48376e+06 kWh",
+      "tco2e": 1187.0
+    },
+    {
+      "line_id": "L01531",
+      "source": "train_label",
+      "category": "S2_ELECTRICITY",
+      "ef_id": "EF_GRID_KZ_KWH",
+      "activity": "1.46623e+06 kWh",
+      "tco2e": 1173.0
+    },
+    {
+      "line_id": "L01118",
+      "source": "train_label",
+      "category": "S2_ELECTRICITY",
+      "ef_id": "EF_GRID_KZ_KWH",
+      "activity": "1.45271e+06 kWh",
+      "tco2e": 1162.2
+    },
+    {
+      "line_id": "L00775",
+      "source": "train_label",
+      "category": "S2_ELECTRICITY",
+      "ef_id": "EF_GRID_KZ_KWH",
+      "activity": "1.43823e+06 kWh",
+      "tco2e": 1150.6
+    },
+    {
+      "line_id": "L01596",
+      "source": "test_prediction",
+      "category": "S2_ELECTRICITY",
+      "ef_id": "EF_GRID_KZ_KWH",
+      "activity": "1.38552e+06 kWh",
+      "tco2e": 1108.4
+    }
+  ],
+  "intensity": {
+    "t_per_t_product": 1.901,
+    "kg_per_kg_product": 1.901,
+    "kg_per_litre_product_approx": 1.958,
+    "scope12_t_per_t_product": 0.2865,
+    "t_per_t_raw_milk": 1.664,
+    "product_t": 105000,
+    "raw_milk_t": 120000,
+    "note": "Company-level cradle-to-gate intensity over the ledger boundary, no allocation between products; litre figure assumes 1.03 kg/l. Not an ISO 14067 product footprint."
+  },
+  "completeness": {
+    "raw_milk_in_ledger_t": 121153,
+    "raw_milk_profile_t": 120000,
+    "raw_milk_coverage_pct": 101.0,
+    "own_fleet_diesel_l": 1485149,
+    "trucks": 45,
+    "diesel_l_per_truck": 33003,
+    "utility_months": {
+      "electricity": {
+        "office": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12"
+        ],
+        "plant/other": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12"
+        ]
+      },
+      "natural gas": {
+        "plant/other": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12"
+        ]
+      },
+      "district heat": {
+        "office": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "10",
+          "11",
+          "12"
+        ]
+      },
+      "water": {
+        "plant/other": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12"
+        ]
+      },
+      "wastewater": {
+        "plant/other": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12"
+        ]
+      },
+      "landfill waste": {
+        "plant/other": [
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12"
+        ]
+      }
+    },
+    "refrigerant_lines": 13,
+    "flights_all_legs": "yes (great-circle per leg; return trips = 2 legs)",
+    "returns": {
+      "lines": 10,
+      "tco2e": -21.42
+    }
+  },
+  "exclusions": [
+    {
+      "kind": "per diem",
+      "lines": 20,
+      "gross_kzt": 447115
+    },
+    {
+      "kind": "tax",
+      "lines": 17,
+      "gross_kzt": 70470319
+    },
+    {
+      "kind": "duplicate",
+      "lines": 15,
+      "gross_kzt": 291478279
+    },
+    {
+      "kind": "social",
+      "lines": 10,
+      "gross_kzt": 38142653
+    },
+    {
+      "kind": "fine",
+      "lines": 7,
+      "gross_kzt": 19265467
+    },
+    {
+      "kind": "advance",
+      "lines": 6,
+      "gross_kzt": 32486106
+    }
+  ],
+  "scope3_materiality": [
+    {
+      "category": "C1 Purchased goods & services",
+      "tco2e": 168213.5,
+      "share_pct": 84.26,
+      "material": true
+    },
+    {
+      "category": "C2 Capital goods",
+      "tco2e": 776.9,
+      "share_pct": 0.39,
+      "material": false
+    },
+    {
+      "category": "C4 Upstream transport",
+      "tco2e": 173.6,
+      "share_pct": 0.09,
+      "material": false
+    },
+    {
+      "category": "C5 Waste",
+      "tco2e": 345.0,
+      "share_pct": 0.17,
+      "material": false
+    },
+    {
+      "category": "C6 Business travel",
+      "tco2e": 48.3,
+      "share_pct": 0.02,
+      "material": false
+    }
+  ],
+  "scope3_gaps": [
+    {
+      "category": "C3 Fuel- and energy-related (well-to-tank, grid T&D losses)",
+      "status": "likely material (typically 10-25% of S1+S2); no WTT/T&D factor in emission_factors.csv"
+    },
+    {
+      "category": "C7 Employee commuting (~850 staff)",
+      "status": "not in ledger (no purchase); survey needed"
+    },
+    {
+      "category": "C8 Upstream leased assets",
+      "status": "warehouse/office rent counted in C1 spend (SP_RENT); energy of leased space not metered separately"
+    },
+    {
+      "category": "C9 Downstream transport not paid by Dala",
+      "status": "no data in purchase ledger"
+    },
+    {
+      "category": "C10-C12 Processing / use / end-of-life of sold products",
+      "status": "outside ledger; C12 packaging end-of-life relevant for PET and cartons"
+    },
+    {
+      "category": "C13-C15 Downstream leased assets, franchises, investments",
+      "status": "not applicable"
+    }
+  ],
+  "inbox_requests": [
+    {
+      "sender": "Bank Alatau, Sustainable Finance",
+      "ask": "Full 2025 GHG inventory for the KZT 5 bn green loan (rooftop solar + heat pumps): Scope 1 and 2 complete, all material Scope 3 categories, GHG Protocol; every figure traceable to a document and a factor; say which lines are activity- vs spend-based; data-quality view; limited assurance from next year."
+    },
+    {
+      "sender": "EuroMart Central Asia",
+      "ask": "Carbon footprint per litre / per kg of product for 2026 supplier scorecards."
+    },
+    {
+      "sender": "CFO",
+      "ask": "AI that reads the ledger every year, tool budget <= KZT 15 m/yr, a number he can trust (bank audit)."
+    },
+    {
+      "sender": "IT & Security",
+      "ask": "No counterparty/employee names to external cloud AI unless masked; local models fine."
+    },
+    {
+      "sender": "Chief Accountant",
+      "ask": "Double-posted invoices: higher line_id is the duplicate; advances (1610) are later closed by delivery documents that are also in the ledger (so advances would double count)."
+    },
+    {
+      "sender": "Sustainability Officer",
+      "ask": "Last year's Excel missed refrigerants and counted flights one-way."
+    }
+  ]
+}
