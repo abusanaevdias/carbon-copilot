@@ -134,10 +134,12 @@ function render() {
 function renderHeader(all) {
   var m = D.inv.meta, sp = document.getElementById("splits");
   document.getElementById("meta").replaceChildren(m.entity + " · " + m.year + " · " + fmt(all.length) + " ledger lines · names masked · generated " + m.generated_at);
-  var opts = [["all", "All lines"], ["train", "Train (labelled)"], ["test", "Test (predicted)"]];
-  if (LINES.some(function (l) { return l.split === "new"; })) opts.push(["new", "New lines"]);
+  var opts = [["all", "Whole year", "Every ledger line of the year: checked, predicted and uploaded"],
+              ["train", "Checked by organisers", "Lines the organisers labelled; used to train and check the classifier"],
+              ["test", "Our predictions", "Lines without labels; category and factor predicted by this tool"]];
+  if (LINES.some(function (l) { return l.split === "new"; })) opts.push(["new", "Your upload", "The lines from the file you dropped in the app"]);
   sp.replaceChildren.apply(sp, opts.map(function (o) {
-    return h("button", {cls: S.split === o[0] ? "on" : "", on: function () { go({split: o[0], line: ""}); }}, o[1]);
+    return h("button", {cls: S.split === o[0] ? "on" : "", title: o[2], on: function () { go({split: o[0], line: ""}); }}, o[1]);
   }));
 }
 
