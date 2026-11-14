@@ -225,9 +225,19 @@ def _cleanup():
 # ---------- pages ----------
 # "Run receipt" (APP_REDESIGN.md): one run, seven stages, the same box from drop to file card. Tokens in section 4.
 CSS = """:root{--paper:#F7F5F0;--sheet:#FFFFFF;--well:#EFECE5;--ink:#15171A;--mute:#4A4D52;--faint:#8A8C90;--rule:#C9C6BE;
- --acc:#A3372B;--acc-wash:#F3E4DF;--ink-2:#2A2D31;--on-ink:#D9D6CF;--bar2:#727478;--bar3:#BBB8B0;
+ --acc:#A3372B;--acc-wash:#F3E4DF;--ink-2:#2A2D31;--on-ink:#D9D6CF;--bar2:#727478;--bar3:#BBB8B0;--pass:#F8F6F3;
 --t-fast:150ms;--t-base:250ms;--t-slow:400ms;--ease:cubic-bezier(.22,1,.36,1);
  --lift:0 1px 0 rgba(21,23,26,.04),0 12px 32px -16px rgba(21,23,26,.18);--mono:ui-monospace,"Cascadia Mono",Consolas,monospace}
+/* Palette options (PALETTES.md): set data-theme on <html>; without it the page keeps :root. APCA: tools/apca_check.py --all */
+:root[data-theme=cool]{--paper:#F4F5F6;--sheet:#FFFFFF;--well:#E8EAED;--pass:#F5F6F7;--ink:#111418;--ink-2:#272B31;--on-ink:#D0D4D9;
+ --mute:#464B52;--faint:#868B92;--rule:#C6CAD0;--acc:#1E5E48;--acc-wash:#DFEDE6;--bar2:#75777A;--bar3:#B9BABC}
+:root[data-theme=slate]{--paper:#FFFFFF;--sheet:#FFFFFF;--well:#F1F4F8;--pass:#F8FAFC;--ink:#0F172A;--ink-2:#1E293B;--on-ink:#CBD5E1;
+ --mute:#475569;--faint:#8391A5;--rule:#CBD5E1;--acc:#1D4ED8;--acc-wash:#E4ECFD;--bar2:#767B86;--bar3:#BEC0C5}
+:root[data-theme=mineral]{--paper:#ECF0F3;--sheet:#FAFBFC;--well:#DFE5EA;--pass:#EFF2F5;--ink:#12171C;--ink-2:#262D34;--on-ink:#CDD5DC;
+ --mute:#424A53;--faint:#7F8892;--rule:#B9C2CB;--acc:#A3372B;--acc-wash:#F3E2DE;--bar2:#707478;--bar3:#B1B5B9}
+:root[data-theme=graphite]{--paper:#15171A;--sheet:#1D2024;--well:#24282D;--pass:#2A2E34;--ink:#ECEEF0;--ink-2:#D3D7DC;--on-ink:#454B53;
+ --mute:#B8BEC5;--faint:#7E858E;--rule:#3A4047;--acc:#3CC6B2;--acc-wash:#163430;--bar2:#B8BABD;--bar3:#7C7E81;
+ --lift:0 1px 0 rgba(0,0,0,.2),0 12px 32px -16px rgba(0,0,0,.6);color-scheme:dark}
 *{box-sizing:border-box}html{background:var(--paper)}
 body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.45 Onest,system-ui,sans-serif;font-variant-numeric:tabular-nums;
  -webkit-font-smoothing:antialiased}
@@ -260,7 +270,7 @@ p{margin:0}.small{font-size:13px;line-height:1.4;color:var(--mute)}.mono{font-fa
 .rail .d{grid-column:2;max-width:44ch;display:flex;flex-wrap:wrap;column-gap:16px;font-size:13px;line-height:1.4;color:var(--mute)}
 .rail [data-st=pending] .l{color:var(--mute)}.rail [data-st=running] .l{font-weight:600}
 .rail [data-st=done] .d,.rail [data-st=error] .d{animation:up var(--t-base) var(--ease) both}
-.rail .pass{margin:0 -12px;padding-left:12px;padding-right:12px;background:rgba(255,255,255,.55)}
+.rail .pass{margin:0 -12px;padding-left:12px;padding-right:12px;background:var(--pass)}
 .rail li.pass::before{left:20.5px}.rail .pa{padding-top:12px;border-radius:12px 12px 0 0}.rail li.pa::before{top:35px}
 .rail .pz{padding-bottom:14px;border-radius:0 0 12px 12px}.rail li:has(+.pa)::before{bottom:-11px}
 .rail .pn{grid-column:2;margin-top:8px;max-width:44ch;font-size:13px;line-height:1.4;color:var(--mute)}
@@ -317,11 +327,9 @@ $css
  transition:background-color var(--t-slow) var(--ease),border-color var(--t-fast),transform var(--t-fast) var(--ease),
  box-shadow var(--t-fast) var(--ease)}
 .box::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;transition:opacity var(--t-slow);
- background:linear-gradient(90deg,transparent calc(100% - 129px),rgba(201,198,190,.7) calc(100% - 129px) calc(100% - 128px),
- transparent calc(100% - 128px) calc(100% - 65px),rgba(201,198,190,.7) calc(100% - 65px) calc(100% - 64px),transparent calc(100% - 64px)),
- repeating-linear-gradient(180deg,transparent 0 31px,rgba(201,198,190,.4) 31px 32px);
- -webkit-mask-image:radial-gradient(ellipse 50% 46% at 44% 50%,transparent 62%,#000 100%);
- mask-image:radial-gradient(ellipse 50% 46% at 44% 50%,transparent 62%,#000 100%)}
+ background:repeating-linear-gradient(180deg,transparent 0 31px,color-mix(in srgb,var(--rule) 45%,transparent) 31px 32px);
+ -webkit-mask-image:radial-gradient(ellipse 50% 46% at 50% 50%,transparent 62%,#000 100%);
+ mask-image:radial-gradient(ellipse 50% 46% at 50% 50%,transparent 62%,#000 100%)}
 .box:focus-within{outline:2px solid var(--acc);outline-offset:2px}.box input{position:absolute;opacity:0;width:1px;height:1px}
 .box.over{background:var(--sheet);border:1px solid var(--ink);transform:translateY(-2px);box-shadow:var(--lift)}
 .box[data-s=run],.box[data-s=stop]{background:var(--sheet);border:1px solid var(--rule);box-shadow:var(--lift)}
@@ -339,7 +347,10 @@ $css
 .sheet{width:44px;height:54px;border:1.5px solid var(--ink);border-radius:6px;background:var(--sheet);margin-bottom:8px;
  background-image:repeating-linear-gradient(180deg,transparent 0 9px,var(--rule) 9px 10px);background-position:0 8px;
  background-size:100% calc(100% - 16px);background-repeat:no-repeat;transition:transform var(--t-fast) var(--ease)}
-.over .sheet{transform:translateY(-4px)}
+.di{display:block;width:56px;height:56px;margin-bottom:4px;color:var(--ink);overflow:visible}
+.di .bg{fill:var(--well);transition:fill var(--t-slow) var(--ease)}.over .di .bg{fill:var(--sheet)}
+.di .bd{fill:currentColor;stroke:var(--well);stroke-width:3;paint-order:stroke;transition:stroke var(--t-slow) var(--ease)}.over .di .bd{stroke:var(--sheet)}
+.di .ar{stroke:var(--paper)}.di .up{transition:transform 200ms var(--ease)}.over .di .up{transform:translateY(-3px)}
 .p-check .g{width:28px;height:28px}.p-check p{font-size:18px}
 .p-run{align-items:stretch;justify-content:space-between;text-align:left;padding:28px 32px}
 .fc{display:flex;align-items:center;gap:12px}.fc .sheet{width:28px;height:34px;margin:0;border-radius:4px;background-size:100% 18px}
@@ -366,7 +377,10 @@ body[data-s=check] .after,body[data-s=run] .after,body[data-s=stop] .after{displ
 </style></head><body data-s="empty">$header<main class="grid">
 <section class="intro"><h1><span class="zn" aria-hidden="true">01</span><span id="h1">Drop a ledger.<br>Get the carbon inventory.</span></h1>
 <div class="box" id="box" data-s="empty" aria-busy="false"><input type="file" id="file" accept=".csv,text/csv">
-<label class="pane p-empty" for="file"><span class="sheet" aria-hidden="true"></span>
+<label class="pane p-empty" for="file"><svg class="di" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"
+ stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="bg" d="M10 4h20l8 8v32H10z"/><path d="M30 4v8h8"/>
+<rect x="16" y="16" width="16" height="18" rx="1.5"/><path d="M16 22h16M16 28h16M22 16v18"/>
+<g class="up"><circle class="bd" cx="38" cy="40" r="7"/><path class="ar" d="M38 43.5v-7m-3 3 3-3 3 3"/></g></svg>
 <b class="idle">Drop a ledger CSV here or <u>choose a file</u></b><b class="rel">Release to start</b>
 <span>CSV, UTF-8 or cp1251, comma or semicolon, up to 5 MB</span></label>
 <div class="pane p-check" aria-hidden="true"><span class="g run"></span><p class="mono" id="kname"></p><p>Checking the file</p></div>
@@ -447,23 +461,29 @@ html{scroll-padding-top:88px}
 .top{grid-column:1/-1;position:sticky;top:0;z-index:5;display:grid;margin:-8px 0;padding:8px 0;background:var(--paper)}
 .top>*{grid-area:1/1}.top:has(.receipt[open]){position:static}@media(max-width:959px){.top{position:static}}
 .receipt{background:var(--well);border-radius:12px}
-.receipt summary{display:flex;align-items:center;gap:16px;min-height:56px;padding:0 var(--navw,450px) 0 20px;cursor:pointer;list-style:none}
+.receipt summary{display:flex;align-items:center;gap:16px;min-height:56px;padding:0 var(--navw,408px) 0 20px;cursor:pointer;list-style:none}
 .receipt summary::-webkit-details-marker{display:none}
-.tr{position:relative;z-index:1;justify-self:end;align-self:start;display:flex;align-items:center;gap:20px;height:56px;margin-right:10px}
-.zi{display:flex;gap:20px;margin:0;padding:0;list-style:none;font-size:13px;color:var(--mute);pointer-events:none}
+.tr{position:relative;z-index:1;justify-self:end;align-self:start;display:flex;align-items:center;gap:20px;height:56px;margin-right:10px;cursor:default}
+/* zone indicator: a read-out, not tabs. Dots + plain text, no underline, catches clicks so they never reach the summary below */
+.zi{display:flex;align-items:center;gap:12px;height:24px;padding-left:20px;border-left:1px solid var(--rule);font-size:13px;color:var(--mute);user-select:none}
+.zi ol{display:flex;align-items:center;gap:4px;margin:0;padding:0;list-style:none}
+.zi li{width:6px;height:6px;border-radius:3px;background:var(--faint);transition:width var(--t-base) var(--ease),background-color var(--t-base)}
+.zi li.on{width:16px;background:var(--ink)}.zi .zl{min-width:176px;white-space:nowrap}.zi .zl b{color:var(--ink);font-weight:600}
+.zi .zl .mono{font-size:12px;color:var(--ink);margin-right:4px}
 .nf{height:36px;padding:0 14px;font-size:14px}
-@media(max-width:1199px){.zi li span{display:none}.receipt summary{--navw:250px}}
-.zi li{position:relative;display:flex;align-items:center;gap:6px;height:56px;transition:color var(--t-base) var(--ease)}
-.zi b{font:400 12px/1 var(--mono)}.zi li::after{content:"";position:absolute;left:0;right:0;bottom:12px;height:2px;border-radius:1px;
- background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform var(--t-base) var(--ease)}
-.zi li.on{color:var(--ink);font-weight:600}.zi li.on::after{transform:none}
+/* --navw = .tr width + its 10px margin + 24px air, so the Stages button never sits under the indicator */
+@media(max-width:1199px){.zi .pre{display:none}.zi .zl{min-width:128px}.tr{gap:16px}.zi{padding-left:16px}
+ .rs .mono{max-width:18ch}.receipt summary{--navw:352px}}
 @media(max-width:959px){.zi{display:none}.receipt summary{--navw:150px}}
 .zone.pre{opacity:0;transform:translateY(10px)}.zone{transition:opacity var(--t-slow) var(--ease),transform var(--t-slow) var(--ease)}
 .zone.pre.in{opacity:1;transform:none}.receipt{view-transition-name:run}
 .ticks{display:flex;gap:4px}.ticks .g{width:14px;height:14px}.ticks .g::after{left:4.5px;top:2px;width:3px;height:6px;border-width:0 1.5px 1.5px 0}
 .rs{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.rs>span+span{border-left:1px solid var(--rule);padding-left:16px}
-.rs .mono{font-size:14px;max-width:24ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.receipt .tog{margin-left:auto;font-weight:600;text-decoration:underline;text-underline-offset:3px}
-.receipt .tog .h,.receipt[open] .tog .s{display:none}.receipt[open] .tog .h{display:inline}
+.rs .mono{font-size:14px;max-width:24ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}/* disclosure: a bordered button with a chevron, its own shape, a divider away from the indicator */
+.receipt .tog{margin-left:auto;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 10px 0 14px;border:1px solid var(--rule);
+ border-radius:8px;background:var(--sheet);font-size:14px;font-weight:600;transition:border-color var(--t-fast)}
+.receipt summary:hover .tog{border-color:var(--ink)}.receipt .tog svg{transition:transform var(--t-fast) var(--ease)}
+.receipt[open] .tog svg{transform:rotate(180deg)}
 .receipt .body{padding:8px 32px 16px}
 .receipt .rail{max-width:720px}
 .zone{grid-column:1/-1;row-gap:32px}.zh{grid-column:1/-1;margin:0 0 -16px}.z03{margin-top:16px}
@@ -477,7 +497,7 @@ html{scroll-padding-top:88px}
  min-height:56px;padding:10px 12px;border-radius:12px;text-decoration:none;transition:background-color var(--t-fast),transform 100ms}
 .out:hover{background:var(--well)}.out:active{transform:scale(.98)}.out .chip{grid-row:1/3;min-width:44px;text-align:center}
 .out b{font-weight:600}.out .small{grid-column:2}
-.out.p{background:var(--ink);color:var(--paper)}.out.p .chip{background:transparent;color:var(--paper);border-color:rgba(247,245,240,.5)}
+.out.p{background:var(--ink);color:var(--paper)}.out.p .chip{background:transparent;color:var(--paper);border-color:color-mix(in srgb,var(--paper) 50%,transparent)}
 .out.p .small{color:var(--on-ink)}.out.p:hover{background:var(--ink-2)}.nopdf{grid-column:span 3;align-self:center;padding:10px 12px}
 .zh.vh{display:flex;align-items:baseline;justify-content:space-between}.vh .new{font-weight:600}
 .scope{grid-column:1/-1;row-gap:12px}.bar{grid-column:1/-1;display:flex;gap:2px;height:16px;border-radius:8px;overflow:hidden}
@@ -520,9 +540,11 @@ html{scroll-padding-top:88px}
 <div class="top"><details class="receipt rise"><summary><span class="zn in" aria-hidden="true">02</span>
 <span class="ticks" aria-hidden="true">$ticks</span><span class="rs"><span class="mono" dir="auto" translate="no">$name</span>
 <span>$lines lines<span class="sr">, 7 of 7 stages</span></span><span>$elapsed s</span></span>
-<span class="tog"><span class="s">Show stages</span><span class="h">Hide stages</span></span></summary><div class="body">$rail</div></details>
-<div class="tr"><ol class="zi" aria-hidden="true"><li data-z="result" class="on"><b>03</b><span>Result</span></li>
-<li data-z="review"><b>04</b><span>Needs a human</span></li><li data-z="outputs"><b>05</b><span>Outputs</span></li></ol>
+<span class="tog">Stages<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"
+ stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></span></summary><div class="body">$rail</div></details>
+<div class="tr"><div class="zi" aria-hidden="true"><ol><li data-z="result" data-n="03" data-l="Result" class="on"></li>
+<li data-z="review" data-n="04" data-l="Needs a human"></li><li data-z="outputs" data-n="05" data-l="Outputs"></li></ol>
+<span class="zl"><span class="pre">You're in: </span><span class="mono" id="zn">03</span><b id="zt">Result</b></span></div>
 <a class="btn nf" href="/"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"
  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 10.5V2.5M4.75 5.75 8 2.5l3.25 3.25M2.5 10v2.5a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V10"/></svg>New file</a></div></div>
 <section class="zone sg z03" id="result" aria-labelledby="h03"><div class="heroc rise d1">
@@ -553,8 +575,10 @@ $needs</section>
  fr.addEventListener("load",function(){fr.classList.remove("fade")});
  if(!("IntersectionObserver" in window))return;
  var zs=[].slice.call(document.querySelectorAll(".zone")),zi=[].slice.call(document.querySelectorAll(".zi li"));
+ var zn=document.getElementById("zn"),zt=document.getElementById("zt");
  var at=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)zi.forEach(function(l){
-  l.classList.toggle("on",l.dataset.z===e.target.id)})})},{rootMargin:"-30% 0px -60% 0px"});
+  var on=l.dataset.z===e.target.id;l.classList.toggle("on",on);if(on){zn.textContent=l.dataset.n;zt.textContent=l.dataset.l}})})},
+  {rootMargin:"-30% 0px -60% 0px"});
  zs.forEach(function(z){at.observe(z)});
  if(rm.matches)return;                                  /* zones below the fold rise once on first sight */
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},
