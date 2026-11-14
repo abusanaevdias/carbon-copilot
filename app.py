@@ -224,19 +224,25 @@ def _cleanup():
 
 # ---------- pages ----------
 # "Run receipt" (APP_REDESIGN.md): one run, seven stages, the same box from drop to file card. Tokens in section 4.
-CSS = """:root{--paper:#F7F5F0;--sheet:#FFFFFF;--well:#EFECE5;--ink:#15171A;--mute:#4A4D52;--faint:#8A8C90;--rule:#C9C6BE;
- --acc:#A3372B;--acc-wash:#F3E4DF;--ink-2:#2A2D31;--on-ink:#D9D6CF;--bar2:#727478;--bar3:#BBB8B0;--pass:#F8F6F3;
+CSS = """:root{--paper:#FFFFFF;--sheet:#FFFFFF;--well:#F1F4F8;--pass:#F8FAFC;--ink:#0F172A;--ink-2:#1E293B;--on-ink:#CBD5E1;
+ --mute:#475569;--faint:#8391A5;--rule:#CBD5E1;--acc:#1D4ED8;--acc-wash:#E4ECFD;--bar2:#767B86;--bar3:#BEC0C5;
+ --alert:#B42318;--alert-bg:#FEF0EE;--alert-line:#E0796B;--caution:#8A4B00;--caution-bg:#FDF3DC;--caution-line:#D99A2B;
 --t-fast:150ms;--t-base:250ms;--t-slow:400ms;--ease:cubic-bezier(.22,1,.36,1);
  --lift:0 1px 0 rgba(21,23,26,.04),0 12px 32px -16px rgba(21,23,26,.18);--mono:ui-monospace,"Cascadia Mono",Consolas,monospace}
-/* Palette options (PALETTES.md): set data-theme on <html>; without it the page keeps :root. APCA: tools/apca_check.py --all */
+/* Palettes (PALETTES.md): :root is slate (default); data-theme on <html> picks another. --alert* = needs a human (red),
+   --caution* = instruction-like text ignored (amber); never the accent. APCA: tools/apca_check.py --all */
+:root[data-theme=warm]{--paper:#F7F5F0;--sheet:#FFFFFF;--well:#EFECE5;--pass:#F8F6F3;--ink:#15171A;--ink-2:#2A2D31;--on-ink:#D9D6CF;
+ --mute:#4A4D52;--faint:#8A8C90;--rule:#C9C6BE;--acc:#A3372B;--acc-wash:#F3E4DF;--bar2:#727478;--bar3:#BBB8B0;
+ --alert:#A3271C;--alert-bg:#F8E3DE;--alert-line:#D27565;--caution:#7E4A00;--caution-bg:#F6EBD0;--caution-line:#C99433}
 :root[data-theme=cool]{--paper:#F4F5F6;--sheet:#FFFFFF;--well:#E8EAED;--pass:#F5F6F7;--ink:#111418;--ink-2:#272B31;--on-ink:#D0D4D9;
- --mute:#464B52;--faint:#868B92;--rule:#C6CAD0;--acc:#1E5E48;--acc-wash:#DFEDE6;--bar2:#75777A;--bar3:#B9BABC}
-:root[data-theme=slate]{--paper:#FFFFFF;--sheet:#FFFFFF;--well:#F1F4F8;--pass:#F8FAFC;--ink:#0F172A;--ink-2:#1E293B;--on-ink:#CBD5E1;
- --mute:#475569;--faint:#8391A5;--rule:#CBD5E1;--acc:#1D4ED8;--acc-wash:#E4ECFD;--bar2:#767B86;--bar3:#BEC0C5}
+ --mute:#464B52;--faint:#868B92;--rule:#C6CAD0;--acc:#1E5E48;--acc-wash:#DFEDE6;--bar2:#75777A;--bar3:#B9BABC;
+ --alert:#B42318;--alert-bg:#FCEDEB;--alert-line:#E0796B;--caution:#8A4B00;--caution-bg:#FBF1DA;--caution-line:#D99A2B}
 :root[data-theme=mineral]{--paper:#ECF0F3;--sheet:#FAFBFC;--well:#DFE5EA;--pass:#EFF2F5;--ink:#12171C;--ink-2:#262D34;--on-ink:#CDD5DC;
- --mute:#424A53;--faint:#7F8892;--rule:#B9C2CB;--acc:#A3372B;--acc-wash:#F3E2DE;--bar2:#707478;--bar3:#B1B5B9}
+ --mute:#424A53;--faint:#7F8892;--rule:#B9C2CB;--acc:#A3372B;--acc-wash:#F3E2DE;--bar2:#707478;--bar3:#B1B5B9;
+ --alert:#A3271C;--alert-bg:#F7E2DE;--alert-line:#D27565;--caution:#7E4A00;--caution-bg:#F5EAD2;--caution-line:#C99433}
 :root[data-theme=graphite]{--paper:#15171A;--sheet:#1D2024;--well:#24282D;--pass:#2A2E34;--ink:#ECEEF0;--ink-2:#D3D7DC;--on-ink:#454B53;
  --mute:#B8BEC5;--faint:#7E858E;--rule:#3A4047;--acc:#3CC6B2;--acc-wash:#163430;--bar2:#B8BABD;--bar3:#7C7E81;
+ --alert:#FFA898;--alert-bg:#341B18;--alert-line:#D0675A;--caution:#F5C15E;--caution-bg:#30260F;--caution-line:#B88A2E;
  --lift:0 1px 0 rgba(0,0,0,.2),0 12px 32px -16px rgba(0,0,0,.6);color-scheme:dark}
 *{box-sizing:border-box}html{background:var(--paper)}
 body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.45 Onest,system-ui,sans-serif;font-variant-numeric:tabular-nums;
@@ -268,7 +274,7 @@ p{margin:0}.small{font-size:13px;line-height:1.4;color:var(--mute)}.mono{font-fa
 .rail li:not(:last-child)::before{content:"";position:absolute;left:8.5px;top:27px;bottom:-3px;width:1px;background:var(--rule)}
 .rail .g{margin-top:2px}.rail .l{font-size:15px;line-height:1.45}.rail .rw{display:none}
 .rail .d{grid-column:2;max-width:44ch;display:flex;flex-wrap:wrap;column-gap:16px;font-size:13px;line-height:1.4;color:var(--mute)}
-.rail [data-st=pending] .l{color:var(--mute)}.rail [data-st=running] .l{font-weight:600}
+.rail [data-st=pending] .l{color:var(--mute)}.rail .d .al{color:var(--alert);font-weight:600}.rail [data-st=running] .l{font-weight:600}
 .rail [data-st=done] .d,.rail [data-st=error] .d{animation:up var(--t-base) var(--ease) both}
 .rail .pass{margin:0 -12px;padding-left:12px;padding-right:12px;background:var(--pass)}
 .rail li.pass::before{left:20.5px}.rail .pa{padding-top:12px;border-radius:12px 12px 0 0}.rail li.pa::before{top:35px}
@@ -302,6 +308,9 @@ DESC = ["Names replaced before anything else reads the file", "Repeated document
         "Sums and formulas recomputed", "Dashboard, bank page, PDF"]
 
 
+OFFRANGE = re.compile(r"off-range lines [1-9]")              # flagged guard count gets the alert colour
+
+
 def rail(stages):
     """Seven rows keyed by stage; the client updates them in place. Detail parts were joined with ' · ' upstream."""
     out = []
@@ -309,7 +318,7 @@ def rail(stages):
         cls = ("pass pa" if i == 1 else "pass pz" if i == 4 else "pass" if 1 < i < 4 else "")
         pn = '<span class="pn">Stages 2 to 5 are one pass over the lines: one pass, four counts.</span>' if i == 4 else ""
         det = s["detail"] if s["state"] == "done" and s["detail"] else DESC[i]
-        d = "".join(f"<span>{E(p)}</span>" for p in det.split(" · ") if p)
+        d = "".join(f'<span{" class=al" if OFFRANGE.match(p) else ""}>{E(p)}</span>' for p in det.split(" · ") if p)
         cur = ' aria-current="step"' if s["state"] == "running" else ""
         out.append(f'<li class="{cls}" data-k="{E(s["key"])}" data-st="{E(s["state"])}"{cur}><span class="g" aria-hidden="true">'
                    f'</span><span class="l">{E(s["label"])}<span class="sr">, {WORD.get(s["state"], "")}</span>'
@@ -368,8 +377,13 @@ $css
 .p-err .row,.p-stop .row{display:flex;gap:16px;align-items:center;margin-top:8px}
 pre.cmd{margin:0;padding:10px 14px;border-radius:8px;background:var(--well);font:13px/1.4 var(--mono);
  user-select:all;white-space:pre-wrap}
-.after{margin-top:16px;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.chips .small{margin-right:2px}
+.after{margin-top:8px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;column-gap:24px}
+.lnk{appearance:none;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0;border:0;background:none;
+ font:inherit;color:var(--mute);cursor:pointer;border-radius:6px}.lnk svg{flex:none;transition:transform var(--t-fast) var(--ease)}
+#demo u{color:var(--ink);font-weight:600;text-decoration-thickness:1px;text-underline-offset:3px}#demo:hover svg{transform:translateX(2px)}
+#colsb[aria-expanded=true] svg{transform:rotate(180deg)}#colsb:hover{color:var(--ink)}
+.cl{flex-basis:100%;list-style:none;margin:0;padding:4px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ grid-template-rows:repeat(4,auto);grid-auto-flow:column;gap:4px 24px;font:13px/1.5 var(--mono);color:var(--mute)}.cl[hidden]{display:none}
 body[data-s=check] .after,body[data-s=run] .after,body[data-s=stop] .after{display:none}
 .foot{margin-top:auto;padding-top:24px}
 #frame{position:fixed;inset:12px;border:2px solid var(--ink);border-radius:20px;pointer-events:none;opacity:0;z-index:9;
@@ -392,8 +406,12 @@ body[data-s=check] .after,body[data-s=run] .after,body[data-s=stop] .after{displ
 Open the base dashboard</a></p></div>
 <div class="pane p-stop" role="alert"><span class="g x" aria-hidden="true"></span><p class="mono" id="sname"></p><p id="sm"></p>
 <pre class="cmd" id="scmd"></pre><p class="row"><label class="btn" for="file">Drop another file</label></p></div></div>
-<div class="after"><button class="btn" id="demo" type="button">Use the demo file (12 lines)</button>
-<p class="chips"><span class="small">Expected columns</span>$cols</p></div></section>
+<div class="after"><button class="lnk" id="demo" type="button">or<u>try the demo file</u>(12 lines)<svg width="16"
+ height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+ aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+<button class="lnk" id="colsb" type="button" aria-expanded="false" aria-controls="cols">Expected columns ($ncols)<svg width="16"
+ height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+ aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button><ul class="cl" id="cols" hidden translate="no">$cols</ul></div></section>
 <aside class="side"><h2><span class="zn in" aria-hidden="true">02</span>What happens to the file</h2>$rail
 <p class="small foot">Runs on this laptop. No upload to any server. The raw file is deleted after masking.</p></aside>
 </main><div id="frame" aria-hidden="true"></div><p class="sr" id="live" aria-live="polite"></p><script>
@@ -407,7 +425,7 @@ function setS(s){box.dataset.s=s;document.body.dataset.s=s;var busy=s==="check"|
  box.setAttribute("aria-busy",busy?"true":"false");inp.disabled=busy}
 function busy(){return box.dataset.s==="check"||box.dataset.s==="run"}
 function parts(el,txt){el.textContent="";txt.split(" \\u00b7 ").forEach(function(p){if(!p)return;
- var s=document.createElement("span");s.textContent=p;el.appendChild(s)})}
+ var s=document.createElement("span");s.textContent=p;if(/^off-range lines [1-9]/.test(p))s.className="al";el.appendChild(s)})}
 function setRow(li,s){if(li.dataset.st===s.state&&li._det===s.detail)return;li.dataset.st=s.state;li._det=s.detail;
  li.querySelector(".l .sr").textContent=", "+(WORD[s.state]||"");
  if(s.state==="running")li.setAttribute("aria-current","step");else li.removeAttribute("aria-current");
@@ -449,6 +467,7 @@ window.addEventListener("dragleave",function(){if(dc&&--dc===0)off()});
 window.addEventListener("dragover",function(e){e.preventDefault()});
 window.addEventListener("drop",function(e){e.preventDefault();off();if(!busy())send(e.dataTransfer.files[0])});
 inp.addEventListener("change",function(){send(this.files[0]);this.value=""});
+$$("colsb").addEventListener("click",function(){var o=this.getAttribute("aria-expanded")!=="true";this.setAttribute("aria-expanded",o);$$("cols").hidden=!o});
 $$("demo").addEventListener("click",function(){start("/api/jobs?demo=1",{method:"POST"},"new_lines.csv")});
 var m=location.pathname.match(/^\\/jobs\\/([A-Za-z0-9_-]+)$$/);if(m){setS("run");h1.textContent="Processing the ledger.";poll(m[1])}
 </script></body></html>""")
@@ -513,19 +532,21 @@ html{scroll-padding-top:88px}
 .ledger tr.sub td.n{font-weight:400}.ledger tr.sum td{border-top:3px double var(--ink);border-bottom:0;font-weight:700}
 .ledger .ex td{border-bottom:0}.ledger tr.sub:not(.last) td{border-bottom:0}
 .hp{grid-column:1/-1;row-gap:16px;padding:8px;border:1px solid var(--rule);border-radius:20px;background:var(--sheet)}
-.ban{grid-column:1/-1;align-items:center;background:var(--acc-wash);border-radius:12px;padding:14px 16px}
-.ban>div{grid-column:1/9;display:flex;align-items:center;gap:12px}.ban>div+div{grid-column:9/13}.ban>.wide{grid-column:1/-1}
+.ban{grid-column:1/-1;align-items:stretch;border-radius:12px}.ban>.rv{--a:var(--alert);--a-bg:var(--alert-bg);--a-line:var(--alert-line)}
+.ban>.inj{--a:var(--caution);--a-bg:var(--caution-bg);--a-line:var(--caution-line)}
+.ban>div{grid-column:1/9;display:flex;align-items:center;gap:12px;background:var(--a-bg);border:1px solid var(--a-line);border-radius:12px;padding:14px 16px}.ban>div+div{grid-column:9/13}.ban>.wide{grid-column:1/-1}
 .qcol{grid-column:1/9;padding:0 8px 8px}.qcol.wide{grid-column:1/-1}.q .t{max-width:68ch}
 .tiles{grid-column:9/13;display:flex;flex-direction:column;gap:8px}
 .tiles.wide{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:959px){.tiles.wide{grid-template-columns:minmax(0,1fr)}}
-.tile{background:var(--well);border-radius:12px;padding:16px}
+.tile{background:var(--caution-bg);border-radius:12px;padding:16px;border:1px solid var(--caution-line)}
 .tile blockquote{margin:6px 0 8px;max-width:40ch;overflow-wrap:anywhere}.tile blockquote::before{content:"\\201C"}
 .tile blockquote::after{content:"\\201D"}.tile .o{font-size:13px;color:var(--mute)}.tile .o b{color:var(--ink);font-weight:600}
-.ban .c{font-size:24px;line-height:1;font-weight:700;color:var(--acc)}.ban .g.w{background:var(--acc);color:var(--paper);
+.ban .c{font-size:24px;line-height:1;font-weight:700;color:var(--a)}.ban .g.w{background:var(--a);color:var(--a-bg);
  font:700 13px/18px Onest,system-ui,sans-serif;text-align:center}
 .q{list-style:none;margin:8px 0 0;padding:0}.q li{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:16px;
- padding:12px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+ padding:12px 0 12px 12px;border-bottom:1px solid var(--rule);align-items:baseline;border-left:3px solid var(--alert-line)}
+.q .chip{background:var(--alert-bg);border-color:var(--alert-line)}.q .chip.inj{background:var(--caution-bg);border-color:var(--caution-line)}
 .q .t{overflow-wrap:anywhere}.q .fl{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}.q .n{text-align:right;font-weight:600;white-space:nowrap}
 .more{display:inline-block;margin-top:14px;font-weight:600}.quiet{grid-column:1/-1;color:var(--mute)}
 .vh h2{margin:0}.dh{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:0 0 12px}
@@ -606,14 +627,14 @@ def results_page(job):
               f'<tr class="sub last"><td>Not a purchase</td><td class="n">{S["nonpurchase"]}</td></tr>'
               f'<tr class="sum"><td>Lines in the file</td><td class="n">{S["lines"]}</td></tr>')
     top, inj, rv = S.get("review_top", []), S["injection"], S["review"]
-    both = ' class="wide"' if not (rv and inj) else ""
-    counts = (f'<div{both}><span class="g w" aria-hidden="true">!</span><span class="c">{rv}</span>'
+    both = " wide" if not (rv and inj) else ""
+    counts = (f'<div class="rv{both}"><span class="g w" aria-hidden="true">!</span><span class="c">{rv}</span>'
               f'<p>lines to review. Flags never change a result; a person confirms each line.</p></div>' if rv else "") + (
-              f'<div{both}><span class="g w" aria-hidden="true">!</span><span class="c">{len(inj)}</span>'
+              f'<div class="inj{both}"><span class="g w" aria-hidden="true">!</span><span class="c">{len(inj)}</span>'
               f'<p>{"line" if len(inj) == 1 else "lines"} carried instruction-like text. It was ignored.</p></div>' if inj else "")
     queue = (f'<div class="qcol{" wide" if not inj else ""}"><ul class="q">' + "".join(
                  f'<li><span class="mono" translate="no">{E(r["line_id"])}</span><div><p class="t" dir="auto" translate="no">'
-                 f'{E(r["description"])}</p><p class="fl">' + "".join(f'<span class="chip">{E(f)}</span>' for f in r["flags"])
+                 f'{E(r["description"])}</p><p class="fl">' + "".join(f'<span class="chip{" inj" if f == "injection" else ""}">{E(f)}</span>' for f in r["flags"])
                  + f'</p></div><span class="n">{r["tco2e"]:,.2f} t</span></li>' for r in top)
              + f'</ul><a class="more" href="{b}/dashboard.html#split=new&amp;tab=queue" target="_blank">'
                f'Open all {rv} in the dashboard</a></div>') if rv else ""
@@ -721,7 +742,7 @@ class Handler(BaseHTTPRequestHandler):
 RUNLOG = [("cp", "Counterparties masked"), ("persons", "Person names masked"), ("excluded", "Set aside: duplicate or not a purchase"),
           ("rule", "Decided by a rule"), ("clf", "Decided by the classifier"), ("offrange", "Off-range lines"),
           ("total", "Emissions, tCO2e")]
-SHELL_HTML = SHELL.substitute(fonts=FONTS, css=CSS, header=HEADER, cols="".join(f'<span class="chip">{c}</span>' for c in REQ),
+SHELL_HTML = SHELL.substitute(fonts=FONTS, css=CSS, header=HEADER, cols="".join(f'<li>{c}</li>' for c in REQ), ncols=len(REQ),
                              runlog='<dl class="lg" id="lg">' + "".join(
                                  f'<div{" class=sum" if k == "total" else ""}><dt>{l}</dt><dd data-c="{k}">—</dd></div>'
                                  for k, l in RUNLOG) + "</dl>",
