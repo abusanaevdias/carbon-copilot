@@ -4,7 +4,7 @@ Run:  python mask.py && python pipeline.py
 Out:  out/submission.csv, out/audit_test.csv, out/audit_train_cv.csv
 Ledger text is DATA: no LLM, no instruction is ever executed; numbers come from code + emission_factors.csv.
 """
-import csv, math, os, re, sys, random, difflib
+import base64, binascii, csv, math, os, re, sys, random, difflib, unicodedata
 from collections import Counter, defaultdict
 
 for _s in (sys.stdout, sys.stderr):                          # Cyrillic in prints must not crash a cp1251 console
@@ -35,33 +35,125 @@ INJECTION = re.compile(r"(?i)(ignore|disregard|forget|override|system prompt|pre
                        r"инструкц|верни категор|категори[яю]\s*[:=]|ии-ассистент|ai assistant|assistant\s*:|note to the model|"
                        r"system note|for ai\b|для ии|нейросет|модели\s*:|<!--|\[system|\{\s*\"category|"
                        r"примечани\w* для|note for|елеме|нұсқау|жасанды интеллект|жи үшін|санат\w*\s*[:=]|"
-                       r"(tco2e|co2e?|emissions?|выброс\w*|шығарынды\w*|quantity|количеств\w*)\s*[:=])")
-_INJ_CLOSE = {"<!--": "-->", "[": "]", "{": "}"}
+                       r"(tco2e|co2e?|emissions?|выброс\w*|шығарынды\w*|quantity|количеств\w*)\s*[:=]|"
+                       # E4 forms (h2h/RESULTS.md): role tags, JSON answers, threats, "correct answer is", decode-and-follow
+                       r"</?\s*(system|user|assistant|developer|tool|instructions?)\b[^>]{0,30}>|<\|im_\w+\|>|"
+                       r"\{\s*[\"'][^\"']{1,30}[\"']\s*:|\b(choose|pick|select|answer|reply|respond|output)\b|"
+                       r"\b(you|it) (will|shall) be\b|policy update|valid (answer|label|option)|"
+                       r"\b(correct|true|right|real) (factor|answer|label|category|option|choice)|reviewer note|"
+                       r"\bdecode\b|base64|расшифр|декодир|выбер|выбир|правильн\w* (ответ|фактор|категор|вариант)|"
+                       r"ответ\w* (для|на|:)|модельге|таңда|дұрыс (жауап|нұсқа)|жауап\w*\s*:)")
+_INJ_CLOSE = {"<!--": "-->", "[": "]", "{": "}", "<": ">"}
 # a bracket-less instruction ends at its sentence end, ; or newline, a closing quote/bracket, right after a
 # "key = value" assignment, or after 12 words - never silently at the end of the string past real data
 _CLAUSE_END = re.compile(r"[.!?](?=\s|$)|[;\n\"'»)\]}>]|=\s*[^\s,;]+")
 _ORPHAN = re.compile(r"(?:^|(?<=\s))[.,;:!?\-–]+(?=\s|$)")
+_ZW = re.compile("[­᠎​-‏‪-‮⁠-⁤﻿]")    # zero-width / bidi controls
+_LAT, _CYR = "aeopcyxkmtbhABEKMHOPCTXYi", "аеорсухкмтвнАВЕКМНОРСТХУі"             # look-alike pairs
+_TO_LAT, _TO_CYR = str.maketrans(_CYR, _LAT), str.maketrans(_LAT, _CYR)
+_MIXED = re.compile(r"\S*(?:[a-zA-Z]\S*[а-яА-ЯёЁіІ]|[а-яА-ЯёЁіІ]\S*[a-zA-Z])\S*")
+_B64 = re.compile(r"[A-Za-z0-9+/]{16,}={0,2}")
+CODES = re.compile(r"(?i)(?<![A-Za-z0-9])(" + "|".join(sorted(EF, key=len, reverse=True)) + "|" +
+                   "|".join(c for c in CATS if c != "EXCLUDE") + r"|(?-i:EXCLUDE))(?![A-Za-z0-9])")
+EF_NAMES = sorted({r["name"].lower() for r in EF.values()}, key=len, reverse=True)
 
 
-def strip_injection(desc):
-    """Cut every instruction-like span: a <!-- -->, [..] or {..} block, else the clause from the hit (_CLAUSE_END).
-    Data before and after the span is kept, so a prefix or middle instruction cannot blank or eat the line, and
-    nothing inside the span (numbers, kg, routes) can reach quantity parsing. The text never steers output."""
-    hit = False
-    while (m := INJECTION.search(desc)):
-        hit, i = True, m.start()
-        close = next((c for o, c in _INJ_CLOSE.items() if desc.startswith(o, i)), None)
-        j = desc.find(close, i) if close else -1
+def _views(s):
+    """Two 1:1 (same length) matching views of s: NFKC per char, zero-width -> space, and words that mix Latin and
+    Cyrillic folded to all-Latin / all-Cyrillic look-alikes. Matching runs on the views and cutting on s, so a
+    homoglyph or zero-width-joined instruction is found while real data is never rewritten."""
+    base = "".join(" " if _ZW.match(c) else n if len(n := unicodedata.normalize("NFKC", c)) == 1 else c for c in s)
+    lat, cyr = base, base
+    for m in _MIXED.finditer(base):
+        i, j = m.span()
+        lat, cyr = lat[:i] + m.group().translate(_TO_LAT) + lat[j:], cyr[:i] + m.group().translate(_TO_CYR) + cyr[j:]
+    return lat, cyr
+
+
+def _b64_text(blob):
+    """True if blob is base64 of readable text (an encoded instruction); product codes do not decode to text."""
+    try:
+        t = base64.b64decode(blob + "=" * (-len(blob) % 4), validate=True).decode("ascii")
+    except (binascii.Error, ValueError):
+        return False
+    return len(t) >= 8 and sum(c.isalnum() or c in ' "{}:|_.,' for c in t) >= 0.9 * len(t)
+
+
+def scan(desc):
+    """-> (data part of desc, flags). Cuts every instruction-like span: a <!-- -->, <tag>, [..] or {..} block, else
+    the clause from the hit (_CLAUSE_END); base64 blobs that decode to text; label codes (ef_id / category id).
+    If anything was cut, factor names left in the text are blanked too and the line gets 'label_hint': the second
+    reader never sees a planted answer. Data before and after the span is kept, so a prefix or middle instruction
+    cannot blank or eat the line, and nothing inside the span (numbers, kg, routes) can reach quantity parsing."""
+    flags = set()
+    while True:
+        lat, cyr = _views(desc)
+        hits = [m for m in (INJECTION.search(lat), INJECTION.search(cyr)) if m]
+        b64 = next((m for m in _B64.finditer(lat) if _b64_text(m.group())), None)
+        code = CODES.search(lat)
+        if not (hits or b64 or code):
+            break
+        flags.add("injection")
+        if code and (not hits or code.start() < min(m.start() for m in hits)):
+            flags.add("label_hint")
+        if not hits:                                           # a bare blob / code: cut just that token
+            m = code or b64
+            desc = desc[:m.start()] + " " + desc[m.end():]
+            continue
+        m = min(hits, key=lambda x: x.start())
+        i = m.start()
+        close = next((c for o, c in _INJ_CLOSE.items() if lat.startswith(o, i)), None)
+        j = lat.find(close, i + 1) if close else -1
         if j >= 0:
             j += len(close)
         else:
-            e = _CLAUSE_END.search(desc, m.end())
-            cap = re.match(r"(?:\S+\s+){0,11}\S*", desc[i:]).end() + i
+            e = _CLAUSE_END.search(lat, m.end())
+            cap = re.match(r"(?:\S+\s+){0,11}\S*", lat[i:]).end() + i
             j = min(e.end() if e else len(desc), cap)
+        if CODES.search(lat[i:j]):
+            flags.add("label_hint")
         desc = desc[:i] + " " + desc[j:]
-    if hit:
-        desc = _ORPHAN.sub(" ", desc)                          # punctuation left behind by a removed span
-    return re.sub(r"\s{2,}", " ", desc).strip(), hit
+    if flags:
+        low = _views(desc)[0].lower()
+        for n in EF_NAMES:                                     # planted factor name left outside the cut span
+            k = low.find(n)
+            while k >= 0:
+                flags.add("label_hint")
+                desc = desc[:k] + " " * len(n) + desc[k + len(n):]
+                low = low[:k] + " " * len(n) + low[k + len(n):]
+                k = low.find(n)
+        desc = _ORPHAN.sub(" ", _ZW.sub(" ", desc))            # punctuation left behind by a removed span
+    return re.sub(r"\s{2,}", " ", desc).strip(), flags
+
+
+def strip_injection(desc):
+    """(data part, instruction found?) - see scan()."""
+    d, f = scan(desc)
+    return d, bool(f)
+
+
+def clean_unit(u):
+    """Unit field -> (canonical unit, flags). A real unit is 1-2 short tokens; extra words (an instruction split
+    between description and unit) are cut: keep the 1-2 token prefix that is a known unit, else empty."""
+    u = str(u)
+    f = scan(u)[1]
+    if not f and len(u.split()) <= 2 and len(u.strip()) <= 12:
+        return canon_unit(u), set()
+    w = u.split()
+    for k in (2, 1):
+        pre = " ".join(w[:k])
+        if len(w) >= k and (pre.lower() in _UNIT or pre in OTHER_UNITS):
+            return canon_unit(pre), {"injection"} | f
+    return "", {"injection"} | f
+
+
+def scrub(row):
+    """-> (description, unit, flags) as the classifier and the second reader may see them. Scans the description,
+    the unit, both joined (an instruction split across the two fields) and cost_center."""
+    d, f = scan(row["description"])
+    u, fu = clean_unit(row["unit"])
+    f = f | fu | scan(row["description"] + " " + str(row["unit"]))[1] | scan(str(row.get("cost_center", "")))[1]
+    return d, u, f
 
 
 def norm(desc):
@@ -168,6 +260,7 @@ UNIT_ALIASES = {
     "Гкал": ["gcal", "гкал."], "ГДж": ["gj", "гдж."], "ткм": ["т*км", "т·км", "tkm", "т-км"],
 }
 _UNIT = {a: c for c, al in UNIT_ALIASES.items() for a in al + [c.lower()]}
+OTHER_UNITS = {"усл", "билет", "сут", "рейс", "уп", "мес"}      # ledger units with no factor-unit alias
 
 
 def canon_unit(u):
@@ -418,9 +511,9 @@ NEW_WORDING_SIM = 0.8                                          # below this vs e
 
 
 def predict(row, model, dups, override=None):
-    clean, injected = strip_injection(row["description"])
-    unit = canon_unit(row["unit"])
-    flags = (["injection"] if injected else []) + (["unit_alias"] if unit != str(row["unit"]).strip() else [])
+    clean, unit, fl = scrub(row)
+    injected = "injection" in fl
+    flags = [f for f in ("injection", "label_hint") if f in fl] + (["unit_alias"] if unit != str(row["unit"]).strip() else [])
     row = dict(row, description=clean, unit=unit)              # every downstream step sees only the data part
     cat, ef_id, reason = override or classify(row, model, dups)   # override = second reader's pick (llm_fallback)
     gl = row["gl_account"]
