@@ -7,7 +7,7 @@ counterparty / person names and refuses to write the zip if any is found (prints
 import glob, os, sys, zipfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CODE = ["run.py", "mask.py", "pipeline.py", "report.py", "inventory.py", "eval_hard.py", "make_zip.py",
+CODE = ["run.py", "app.py", "mask.py", "pipeline.py", "report.py", "inventory.py", "eval_hard.py", "make_zip.py",
         "llm_fallback.py", "llm_cache.json", "out/llm_eval.json"]
 RESULTS = ["predictions.csv", "audit.csv", "bank_summary.pdf", "out/inventory.json", "out/bank_summary.html",
            "out/dashboard.html", "out/audit_all.csv"]
