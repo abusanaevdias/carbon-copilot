@@ -91,15 +91,15 @@ words, not people.
 Inputs: `deck/cost_model.json` (each tagged brief, measured, sourced with URL, or ASSUMED). Computed by `cost()` in
 `deck/build.py`; check with `python deck/build.py --cost-check`. "est." on a slide = our assumption inside a published range.
 
-| Line (KZT m a year) | v4 | Year 1 | Year 2+ | Basis |
-|---|---|---|---|---|
-| Independent check | 7.50 | 7.50 = 8 days × USD 1,875 × 500 | 5.25 (× 0.70) | days, rate, FX ASSUMED inside sourced ranges; −30% = low end of a published 30–60% |
-| People | 0.74 (140.5 h) | 0.83 (156.5 h) | 0.83 | hours ASSUMED; wage KZT 443,315 (stat.gov.kz) × 2.0 ÷ 168 h = KZT 5,278/h |
-| AI | 0.00 | ≤ KZT 332 | ≤ KZT 332 | measured: both readers on all 1,952 lines (h2h/results.json) |
-| **Total** | **8.24** | **8.33 (56% of cap)** | **6.08 (41%)** | cap KZT 15 m [brief] |
-| Per tonne CO2e | 41.3 | 41.7 | 30.4 | 199,638 t measured |
-| Share of the KZT 5 bn loan | 0.165% | 0.167% | 0.12% | [brief] |
-| Tool only | 0.74 | 0.83 (6% of cap) | 0.83 | |
+| Line (KZT m a year) | Year 1 | Year 2+ | Basis |
+|---|---|---|---|
+| Independent check | 7.50 = 8 days × USD 1,875 × 500 | 5.25 (× 0.70) | days, rate, FX ASSUMED inside sourced ranges; −30% = low end of a published 30–60% |
+| People | 0.83 (156.5 h) | 0.83 | hours ASSUMED; wage KZT 443,315 (stat.gov.kz) × 2.0 ÷ 168 h = KZT 5,278/h |
+| AI | ≤ KZT 332 | ≤ KZT 332 | measured: both readers on all 1,952 lines (h2h/results.json) |
+| **Total** | **8.33 (56% of cap)** | **6.08 (41%)** | cap KZT 15 m [brief] |
+| Per tonne CO2e | 41.7 | 30.4 | 199,638 t measured |
+| Share of the KZT 5 bn loan | 0.167% | 0.12% | [brief] |
+| Tool only | 0.83 (6% of cap) | 0.83 | |
 
 People hours: yearly run 16, review queue 18 lines × 15 min = 4.5, factor update 40, maintenance 80, verifier support 16.
 Three-year average 6.83 m (46%). **Stress:** at 15 verifier days (top of the sourced range) year 1 is 14.89 m, 99% of the cap.
