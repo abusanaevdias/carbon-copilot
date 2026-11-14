@@ -24,8 +24,8 @@ section.w7 .grid>.lc{grid-column:1/span 4}section.w7 .grid>.ex{grid-column:6/spa
 section[data-layout=hero] h1,section[data-layout=eq] h1{text-align:center;max-width:717px;margin:0 auto}
 .hero{font-size:168px;font-weight:700;letter-spacing:-.04em;line-height:.95}
 .lbl{font-size:14px;color:var(--g1);line-height:1.35}.sub{font-size:13px;color:var(--g2);line-height:1.35}
-.hatch{background:repeating-linear-gradient(135deg,transparent 0 5px,var(--g3) 5px 6px)!important;box-shadow:inset 0 0 0 1px var(--ink)}
-h1{font-size:36px;font-weight:700;line-height:1.14;letter-spacing:-.015em}
+.hatch{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M-2 2l4-4M0 8l8-8M6 10l4-4' stroke='%238D8B85' stroke-width='1.2'/%3E%3C/svg%3E") repeat!important;box-shadow:inset 0 0 0 1px var(--ink)}
+h1{font-size:36px;font-weight:700;line-height:1.14;letter-spacing:-.015em;text-wrap:balance}
 .lead{font-size:18px;line-height:1.45;color:var(--g1);margin-top:22px}
 .facts{margin-top:auto}
 .ann{border-top:1px solid var(--rule);padding:9px 0 11px;font-size:15px;line-height:1.4;color:var(--g1)}
@@ -87,7 +87,7 @@ document.fonts.ready.then(() => {
             ex_w: Math.round(((s.querySelector('.ex') || s).getBoundingClientRect()).width),
             hero_n: [...s.querySelectorAll('*')].filter(e => parseFloat(getComputedStyle(e).fontSize) >= 100 && e.textContent.trim()
                       && !(e.parentElement && parseFloat(getComputedStyle(e.parentElement).fontSize) >= 100)).length,
-            est_missing: [...s.querySelectorAll('.a')].filter(e => !/est\./.test((e.parentElement.textContent.split(e.textContent)[1] || ''))).map(e => e.textContent.trim()),
+            est_missing: [...s.querySelectorAll('.a')].filter(e => { const b = e.closest('.eb'); return !b || !/est\./.test(b.textContent.split(e.textContent).slice(1).join(e.textContent)); }).map(e => e.textContent.trim()),
             lead_words: lead ? words(lead.textContent).length : 0, body_words: words(c.textContent).length,
             foot_words: foot ? words(foot.textContent).length : 0,
             ann: s.querySelectorAll('.ann').length, ann_max_words: Math.max(0, ...[...s.querySelectorAll('.ann')].map(e => words(e.textContent).length)), x_max_words: Math.max(0, ...[...s.querySelectorAll('.x')].map(e => words(e.textContent).length)),

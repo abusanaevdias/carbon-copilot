@@ -1,19 +1,87 @@
 {
- "cost_total_kzt": {
-  "value": 8241497,
-  "source": "deck/build.py cost()"
+ "cost_people": {
+  "value": 825938.0654761905,
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED + sourced"
  },
- "cost_people_kzt": {
-  "value": 741497,
-  "source": "deck/build.py cost()"
+ "cost_tool": {
+  "value": 825938.0654761905,
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED + sourced"
  },
- "cost_check_kzt": {
+ "cost_ver_y1": {
   "value": 7500000,
-  "source": "deck/build.py cost() ASSUMED USD 15k x 500"
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED"
+ },
+ "cost_ver_y2": {
+  "value": 5250000.0,
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED"
+ },
+ "cost_y1_extra": {
+  "value": 2250000.0,
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED"
+ },
+ "cost_total_y1": {
+  "value": 8325938.06547619,
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED"
+ },
+ "cost_total_y2": {
+  "value": 6075938.06547619,
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED"
  },
  "cost_hours": {
-  "value": 140.5,
-  "source": "deck/build.py cost() ASSUMED hours"
+  "value": 156.5,
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED"
+ },
+ "cost_ai_ceiling_kzt": {
+  "value": 332.2304,
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED + measured"
+ },
+ "cost_per_t_y2": {
+  "value": 30.43475347684896,
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED"
+ },
+ "cost_loan_pct_y2": {
+  "value": 0.1215187613095238,
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED + brief"
+ },
+ "cost_cap_pct_y1": {
+  "value": 55.506253769841265,
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED + brief"
+ },
+ "cost_cap_pct_y2": {
+  "value": 40.506253769841265,
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED + brief"
+ },
+ "cost_cap_pct_tool": {
+  "value": 5.506253769841271,
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED + brief"
+ },
+ "cost_per_company": {
+  "value": {
+   "1": 825938,
+   "5": 319292,
+   "10": 255962
+  },
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED"
+ },
+ "cost_stress_y1": {
+  "value": 14888438,
+  "source": "deck/build.py cost() <- deck/cost_model.json",
+  "tag": "ASSUMED + sourced"
  },
  "runtime_s": {
   "value": 7,
@@ -71,6 +139,18 @@
   "value": 0.3404,
   "source": "h2h/results.json spend: DeepSeek + Jev per call x 1000"
  },
+ "consensus_cat_acc": {
+  "value": 100.0,
+  "source": "h2h/results_consensus.json E2 consensus cat_acc"
+ },
+ "consensus_dangerous": {
+  "value": 0,
+  "source": "h2h/results_consensus.json E4_raw_consensus_only consensus.dangerous"
+ },
+ "milk_pct": {
+  "value": 78.89236235036535,
+  "source": "out/inventory.json"
+ },
  "milk_t": {
   "value": 157499.2575,
   "source": "out/inventory.json"
@@ -87,9 +167,9 @@
   "value": 12058.073999999993,
   "source": "out/inventory.json"
  },
- "leaderboard": {
-  "value": null,
-  "source": "deck/manual.json"
+ "total": {
+  "value": 199638.1561,
+  "source": "out/inventory.json"
  },
  "loan_scope_pct": {
   "value": 12.283775796705026,
@@ -99,33 +179,21 @@
   "value": 24523.103499999997,
   "source": "out/inventory.json by_factor EF_GRID_KZ_KWH+EF_NG_M3+EF_HEAT_GCAL"
  },
- "milk_pct": {
-  "value": 78.89236235036535,
-  "source": "out/inventory.json"
- },
  "loan_bn": {
   "value": 5.0,
   "source": "[brief]"
  },
- "rows": {
-  "value": 1952,
-  "source": "out/inventory.json"
- },
- "total": {
-  "value": 199638.1561,
-  "source": "out/inventory.json"
+ "leaderboard": {
+  "value": null,
+  "source": "deck/manual.json"
  },
  "farms": {
   "value": 25,
   "source": "[brief] about 25 farms"
  },
- "included": {
-  "value": 1877,
-  "source": "out/audit_all.csv"
- },
- "queue": {
-  "value": 18,
-  "source": "out/inventory.json review_queue"
+ "rows": {
+  "value": 1952,
+  "source": "out/inventory.json"
  },
  "intensity": {
   "value": 1.901,
@@ -139,9 +207,17 @@
   "value": 8,
   "source": "out/inventory.json"
  },
+ "cap_m": {
+  "value": 15.0,
+  "source": "[brief]"
+ },
  "excluded": {
   "value": 75,
   "source": "out/inventory.json"
+ },
+ "included": {
+  "value": 1877,
+  "source": "out/audit_all.csv"
  },
  "dec_0": {
   "value": 1411,
@@ -154,10 +230,6 @@
  "dec_2": {
   "value": 18,
   "source": "out/audit_all.csv reasons/flags"
- },
- "gated_lines_year": {
-  "value": 4,
-  "source": "out/llm_eval.json"
  },
  "worked_qty_t": {
   "value": 258.61,
@@ -199,6 +271,10 @@
   "value": 15.8,
   "source": "out/inventory.json"
  },
+ "milk_lines": {
+  "value": 600,
+  "source": "out/inventory.json"
+ },
  "inj_0": {
   "value": 274,
   "source": "compete/out/baselines.json injection"
@@ -215,13 +291,13 @@
   "value": 0,
   "source": "deck/measured.json"
  },
- "inj_forms": {
-  "value": 12,
-  "source": "deck/measured.json injection_forms"
- },
  "inj_lines": {
   "value": 2400,
   "source": "deck/measured.json"
+ },
+ "inj_forms": {
+  "value": 12,
+  "source": "deck/measured.json injection_forms"
  },
  "attack_forms": {
   "value": 22,
@@ -251,10 +327,6 @@
   "value": 0.9999,
   "source": "out/eval_hard.csv"
  },
- "eval_unseen_accounts": {
-  "value": 0.9935,
-  "source": "out/eval_hard.csv"
- },
  "eval_gl_before_rule": {
   "value": 0.9219,
   "source": "out/eval_hard_prev.csv"
@@ -263,37 +335,73 @@
   "value": 1269,
   "source": "compete/out/baselines.json rows"
  },
- "cost_0": {
-  "value": 7.5,
-  "source": "deck/build.py cost()"
+ "inj_changed": {
+  "value": 0,
+  "source": "deck/measured.json"
  },
- "cost_1": {
-  "value": 0.7414971130952381,
-  "source": "deck/build.py cost()"
+ "eval_unseen_accounts": {
+  "value": 0.9935,
+  "source": "out/eval_hard.csv"
  },
- "cost_2": {
-  "value": 6.510000000000001e-05,
-  "source": "out/llm_eval.json usd_full_ledger x 500"
+ "s7_tool_m": {
+  "value": 0.8259380654761905,
+  "source": "cost() tool"
  },
- "cost_3": {
-  "value": 8.241497113095237,
-  "source": "deck/build.py cost()"
+ "s7_ver_y2_m": {
+  "value": 5.25,
+  "source": "cost() ver_y2"
  },
- "cost_4": {
+ "s7_y1_extra_m": {
+  "value": 2.25,
+  "source": "cost() y1_extra"
+ },
+ "s7_total_y1_m": {
+  "value": 8.32593806547619,
+  "source": "cost() total_y1"
+ },
+ "s7_total_y2_m": {
+  "value": 6.0759380654761905,
+  "source": "cost() total_y2"
+ },
+ "s7_cap_pct_tool": {
+  "value": 5.506253769841271,
+  "source": "cost() cap_pct_tool"
+ },
+ "s7_ver_y1_cap_pct": {
+  "value": 50.0,
+  "source": "cost() ver_y1 / cap"
+ },
+ "s7_per_t_y2": {
+  "value": 30.43475347684896,
+  "source": "cost() per_t_y2"
+ },
+ "s7_loan_pct_y2": {
+  "value": 0.1215187613095238,
+  "source": "cost() loan_pct_y2"
+ },
+ "s7_ai_ceiling_kzt": {
+  "value": 332.2304,
+  "source": "cost() ai_ceiling_kzt"
+ },
+ "cost_cap_m": {
   "value": 15.0,
   "source": "[brief]"
  },
- "cost_pct": {
-  "value": 54.94331408730159,
-  "source": "deck/build.py cost()"
+ "top3_factor_pct": {
+  "value": 90.42626761668431,
+  "source": "out/inventory.json by_factor top 3"
  },
- "ai_full_ledger_kzt": {
-  "value": 65.10000000000001,
-  "source": "out/llm_eval.json usd_full_ledger x 500"
+ "s8_per_company_1_m": {
+  "value": 0.8259380654761905,
+  "source": "cost() per_company[1]"
  },
- "loan_pct": {
-  "value": 0.16482994226190475,
-  "source": "deck/build.py cost() / [brief] 5 bn"
+ "s8_per_company_10_m": {
+  "value": 0.25596163690476187,
+  "source": "cost() per_company[10]"
+ },
+ "top3_n": {
+  "value": 3,
+  "source": "out/inventory.json by_factor"
  },
  "day1": {
   "value": 0.9935,
