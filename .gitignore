@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+*_key
+.scaledown_key
+# generated per run, local only
+masked/
+mask_map.csv
+.mask_salt
+Team*_DalaFoods.zip

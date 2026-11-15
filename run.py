@@ -1,7 +1,7 @@
 """Carbon Copilot - one command from the raw 1C ledgers to predictions, audit file and reports (stdlib only).
 
 Run:  python run.py [DATA_DIR] [--new extra_lines.csv]
-      DATA_DIR = folder with ledger_train.csv, ledger_test.csv, emission_factors.csv ... (default ../cases/Case2_DalaFoods)
+      DATA_DIR = folder with ledger_train.csv, ledger_test.csv, emission_factors.csv ... (default ./data)
       --new    = extra raw ledger lines (same columns as ledger_test.csv); masked, classified, written to out/audit_new.csv
 Out:  predictions.csv, audit.csv (root), out/*, masked/* (local only).
 Exit code 0 = masking, pipeline and report self-checks all passed. Prints counts only, never names or rows.
@@ -62,11 +62,11 @@ def main(argv):
     t0 = time.time()
     new = os.path.abspath(argv[argv.index("--new") + 1]) if "--new" in argv else None
     pos = [a for i, a in enumerate(argv) if not a.startswith("--") and (i == 0 or argv[i - 1] != "--new")]
-    data = os.path.abspath(pos[0] if pos else os.path.join(HERE, "..", "cases", "Case2_DalaFoods"))
+    data = os.path.abspath(pos[0] if pos else os.path.join(HERE, "data"))
     for f in ("ledger_train.csv", "ledger_test.csv", "emission_factors.csv", "sample_submission.csv"):
         if not os.path.exists(os.path.join(data, f)):
             sys.exit(f"FAILED: {f} not found in {data}. Usage: python run.py DATA_DIR [--new file.csv]")
-    default = os.path.abspath(os.path.join(HERE, "..", "cases", "Case2_DalaFoods"))
+    default = os.path.abspath(os.path.join(HERE, "data"))
     if data != default and "DALA_DATA" not in open(os.path.join(HERE, "pipeline.py"), encoding="utf-8").read():
         sys.exit(f"FAILED: this pipeline.py reads reference data only from {default}; put the data there")
     env = dict(os.environ, DALA_DATA=data, PYTHONIOENCODING="utf-8")

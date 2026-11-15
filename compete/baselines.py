@@ -23,7 +23,7 @@ from collections import Counter, defaultdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-CASE = os.path.join(ROOT, "..", "cases", "Case2_DalaFoods")
+CASE = os.path.join(ROOT, "data")
 WORK, OUT = os.path.join(HERE, "_work"), os.path.join(HERE, "out")
 sys.path.insert(0, ROOT); sys.path.insert(0, os.path.join(ROOT, "tests"))
 warnings.filterwarnings("ignore")

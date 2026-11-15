@@ -8,7 +8,7 @@ Prints counts only. Never prints names or rows.
 import csv, hashlib, os, re, secrets, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_SRC = os.path.join(HERE, "..", "cases", "Case2_DalaFoods")
+DEFAULT_SRC = os.path.join(HERE, "data")
 OUT = os.path.join(HERE, "masked")
 SALT_FILE = os.path.join(HERE, ".mask_salt")
 MAP_FILE = os.path.join(HERE, "mask_map.csv")

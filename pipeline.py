@@ -11,7 +11,7 @@ for _s in (sys.stdout, sys.stderr):                          # Cyrillic in print
     if hasattr(_s, "reconfigure"):
         _s.reconfigure(encoding="utf-8", errors="replace")
 HERE = os.path.dirname(os.path.abspath(__file__))
-REF = os.environ.get("DALA_DATA") or os.path.join(HERE, "..", "cases", "Case2_DalaFoods")
+REF = os.environ.get("DALA_DATA") or os.path.join(HERE, "data")
 MASKED = os.path.join(HERE, "masked")
 OUTD = os.path.join(HERE, "out")
 

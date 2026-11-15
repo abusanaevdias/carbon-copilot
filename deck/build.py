@@ -436,7 +436,7 @@ def s5(N, X):
         f'dangerous picks of {num("fix_lines", sp.get("sent"), "h2h/results_consensus.json E4_strip_production sent")}'))
     num("names_sent_runtime", 0, "h2h/RESULTS.md: blocked_by_leak_check 0, 0 of 2,000 payloads held a name")
     for k, v in (("dev_gaps", 2), ("dev_raw_rows", 4), ("dev_carrier_names", 1)):
-        num(k, v, "README_SUBMISSION.md Data rule log")
+        num(k, v, "docs/SUBMISSION.md Data rule log")
     r = [("Organisers' starter", sc.get(("random 5-fold", "starter")), "starter"),
          ("Text classifier only", sc.get(("random 5-fold", "clf_units")), "clf_units"),
          ("Everything by money", sc.get(("random 5-fold", "spend_only")), "spend_only"),

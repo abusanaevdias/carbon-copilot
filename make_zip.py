@@ -19,7 +19,7 @@ SECRET_MARKERS = ("sk-or-", "OPENROUTER_API_KEY=", "x-api-key:")   # API keys mu
 
 def members():
     files = [(f, f) for f in CODE + RESULTS if os.path.isfile(os.path.join(HERE, f))]
-    files.append(("README_SUBMISSION.md", "README.md"))
+    files.append(("docs/SUBMISSION.md", "README.md"))
     for t in TREES:
         for p in glob.glob(os.path.join(HERE, t, "**", "*"), recursive=True):
             rel = os.path.relpath(p, HERE).replace(os.sep, "/")
@@ -32,7 +32,7 @@ def main(argv):
     if not argv:
         sys.exit("usage: python make_zip.py <team number> [DATA_DIR]")
     team = argv[0]
-    data = argv[1] if len(argv) > 1 else os.path.join(HERE, "..", "cases", "Case2_DalaFoods")
+    data = argv[1] if len(argv) > 1 else os.path.join(HERE, "data")
     sys.path.insert(0, HERE)
     import mask
     _, cp_map, person_map, _, cores = mask.mask_rows(mask.read_raw(data), mask.salt_value())

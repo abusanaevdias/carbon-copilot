@@ -10,7 +10,7 @@ from string import Template
 from urllib.parse import parse_qs, unquote, urlsplit
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.abspath(os.path.join(HERE, "..", "cases", "Case2_DalaFoods"))
+DATA = os.path.abspath(os.path.join(HERE, "data"))
 DEMO = os.path.join(HERE, "demo", "new_lines.csv")
 NEED = [os.path.join(DATA, f) for f in ("ledger_train.csv", "ledger_test.csv", "emission_factors.csv")] + \
        [os.path.join(HERE, f) for f in ("out/audit_train_cv.csv", "out/audit_test.csv", ".mask_salt",
