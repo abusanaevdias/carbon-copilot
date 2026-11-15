@@ -1,6 +1,6 @@
 """Carbon Copilot local web app: drop a ledger CSV in the browser, watch the real pipeline stages, get the inventory.
 
-Run:  python app.py [--port 8765] [--no-open]        (--port 0 = random free port)
+Run:  python app.py [--port 8765] [--no-open] [--allow-host <tunnel host>]   (--port 0 = random free port)
 Binds 127.0.0.1 only. Same code path as `python run.py --new file.csv`; the submission files are never written.
 Second reader pinned to DALA_LLM=cache (or off): no network path at all. Prints counts and error types only.
 """
@@ -673,9 +673,9 @@ class Handler(BaseHTTPRequestHandler):
 
     def _host_ok(self):
         port = self.server.server_address[1]
-        ok = {f"127.0.0.1:{port}", f"localhost:{port}"}
+        ok = {f"127.0.0.1:{port}", f"localhost:{port}"} | PUBLIC_HOSTS
         origin = self.headers.get("Origin")
-        if self.headers.get("Host", "") not in ok or (origin and origin.removeprefix("http://") not in ok):
+        if self.headers.get("Host", "") not in ok or (origin and origin.split("://", 1)[-1] not in ok):
             self._send(403, {"error": "Forbidden host."})
             return False
         return True
@@ -749,12 +749,17 @@ SHELL_HTML = SHELL.substitute(doc=DOC, fonts=FONTS, css=CSS, header=HEADER, cols
                              rail=rail([dict(key=k, label=l, state="pending", detail="") for k, l in STAGES]))
 
 
+PUBLIC_HOSTS = set()   # --allow-host: one tunnel hostname (cloudflared) allowed besides 127.0.0.1; the server still binds 127.0.0.1
+
+
 def make_server(port=8765):
     return ThreadingHTTPServer(("127.0.0.1", port), Handler)
 
 
 def main(argv):
     port = int(argv[argv.index("--port") + 1]) if "--port" in argv else 8765
+    if "--allow-host" in argv:
+        PUBLIC_HOSTS.add(argv[argv.index("--allow-host") + 1].removeprefix("https://").strip("/"))
     srv = make_server(port)
     url = f"http://127.0.0.1:{srv.server_address[1]}/"
     print(f"Carbon Copilot on {url} (127.0.0.1 only, second reader {os.environ['DALA_LLM']}); Ctrl+C to stop")
