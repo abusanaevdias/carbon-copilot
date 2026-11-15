@@ -1,0 +1,21 @@
+name: tests
+on: [push, pull_request]
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Full run with self-checks
+        run: python run.py
+      - name: predictions.csv is reproducible
+        run: git diff --exit-code predictions.csv
+      - name: Tests
+        run: |
+          python tests/test_injection.py
+          python tests/test_new_lines.py
+          python tests/test_app.py
