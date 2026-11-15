@@ -13,7 +13,7 @@ jobs:
       - name: Full run with self-checks
         run: python run.py
       - name: predictions.csv is reproducible
-        run: git diff --exit-code predictions.csv
+        run: git diff --exit-code --ignore-cr-at-eol predictions.csv
       - name: Tests
         run: |
           python tests/test_injection.py
